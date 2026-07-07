@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+Disallow: /privacy.html
+Disallow: /cookie.html
+Disallow: /terms.html
+Disallow: /disclaimer.html
+Disallow: /lk.html
+Disallow: /data-room.html
+
+# Явный допуск ИИ-краулеров для цитирования и индексации
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+Sitemap: https://probarium.ru/sitemap.xml
