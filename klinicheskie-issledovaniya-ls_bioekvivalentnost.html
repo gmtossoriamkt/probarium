@@ -175,6 +175,20 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
 </style>
 </head>
 <body>
@@ -183,12 +197,10 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0
 <header class="site-header">
   <div class="container header-row">
     <a href="/" class="logo" aria-label="Probarium, на главную">
-      <svg width="28" height="28" viewBox="0 0 60 60" role="img" aria-hidden="true">
-        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#123C6B" stroke-width="4" stroke-linecap="round"/>
-        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#123C6B" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
-        <circle cx="21" cy="26" r="3" fill="#BA7517"/>
-        <circle cx="21" cy="34" r="3" fill="#BA7517"/>
-        <circle cx="21" cy="42" r="3" fill="#BA7517"/>
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#123C6B" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#123C6B" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#BA7517"/><circle cx="21" cy="34" r="3.4" fill="#BA7517"/><circle cx="21" cy="42" r="3.4" fill="#BA7517"/>
       </svg>
       Probarium
     </a>
@@ -201,8 +213,19 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0
         <li><a href="/kontakty">Контакты</a></li>
       </ul>
     </nav>
-    <a href="#final-cta" class="btn btn-primary header-cta">Оставить заявку</a>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
 </header>
 
 <main id="main">
@@ -484,6 +507,17 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0
       }
     }
   ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
 }
 </script>
 </body>
