@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Интерактивная дорожная карта вывода МИ на рынок | Probarium</title>
+<meta name="description" content="Пошаговая интерактивная карта: от идеи до регистрационного удостоверения. Какие испытания, документы и сроки на каждом этапе для МИ и ЛС.">
+<link rel="canonical" href="https://probarium.ru/dorozhnaya-karta">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Интерактивная дорожная карта вывода МИ на рынок | Probarium">
+<meta property="og:description" content="Пошаговая интерактивная карта: от идеи до регистрационного удостоверения. Какие испытания, документы и сроки на каждом этапе для МИ и ЛС.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://probarium.ru/dorozhnaya-karta">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue-deep:#123C6B; --blue-sky:#378ADD; --blue-pale:#E6F1FB; --gold:#BA7517; --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A; --gray-text:#5F5E5A; --bg:#F5F7FA; --white:#FFFFFF; --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Manrope',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;background:none;font-family:inherit;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.header-cta{font-size:13px;padding:10px 18px;}
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;}
+section{padding:40px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+.persona-toggle{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap;}
+.persona-btn{background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:10px 18px;
+  font-size:13px;font-weight:600;color:var(--graphite);cursor:pointer;font-family:inherit;}
+.persona-btn.active{background:var(--blue-deep);color:#fff;border-color:var(--blue-deep);}
+
+.roadmap{display:flex;flex-direction:column;gap:0;}
+.rm-step{display:flex;gap:20px;border-left:3px solid var(--border);padding:0 0 32px 24px;position:relative;cursor:pointer;}
+.rm-step:last-child{padding-bottom:0;}
+.rm-step::before{content:'';position:absolute;left:-9px;top:0;width:16px;height:16px;border-radius:50%;
+  background:var(--white);border:3px solid var(--blue-sky);}
+.rm-step.active::before{background:var(--blue-sky);}
+.rm-num{font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;color:var(--blue-sky);margin-bottom:4px;}
+.rm-title{font-size:17px;color:var(--blue-deep);margin-bottom:6px;}
+.rm-summary{font-size:14px;color:var(--gray-text);}
+.rm-detail{display:none;margin-top:14px;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;}
+.rm-step.active .rm-detail{display:block;}
+.rm-detail-row{display:flex;gap:8px;margin-bottom:10px;font-size:13px;}
+.rm-detail-row:last-child{margin-bottom:0;}
+.rm-detail-row strong{color:var(--blue-deep);min-width:100px;flex-shrink:0;}
+.rm-detail-row span{color:var(--gray-text);}
+.rm-detail a{color:var(--blue-sky);font-weight:600;font-size:13px;}
+
+.fallback-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px;}
+.fallback-table th, .fallback-table td{border:1px solid var(--border);padding:10px 14px;text-align:left;}
+.fallback-table th{background:var(--white);color:var(--blue-deep);}
+.fallback-table td{background:var(--white);color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta textarea{padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+@media (max-width:820px){ nav.main-nav{display:none;} .page-intro h1{font-size:26px;} }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="28" height="28" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#123C6B" stroke-width="4" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#123C6B" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3" fill="#BA7517"/><circle cx="21" cy="34" r="3" fill="#BA7517"/><circle cx="21" cy="42" r="3" fill="#BA7517"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <span aria-current="page">Дорожная карта вывода на рынок</span>
+  </nav>
+
+  <div class="container page-intro">
+    <h1>Дорожная карта вывода продукции на рынок</h1>
+    <p class="lead">Путь от идеи до регистрационного удостоверения — с испытаниями, документами и сроками на каждом этапе. Переключите тип продукта, чтобы увидеть персонализированный маршрут, и кликните на этап, чтобы раскрыть подробности.</p>
+  </div>
+
+  <section aria-labelledby="stages-h2">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="stages-h2">Этапы вывода на рынок</h2>
+      </div>
+
+      <div class="persona-toggle">
+        <button class="persona-btn active" id="btn-mi" onclick="setPersona('mi')">Медицинское изделие</button>
+        <button class="persona-btn" id="btn-ls" onclick="setPersona('ls')">Лекарственное средство</button>
+      </div>
+
+      <div class="roadmap" id="roadmap"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="fallback-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="fallback-h2">Текстовый эквивалент карты (МИ)</h2>
+        <p>Если интерактивная карта недоступна, ниже — та же информация в табличном виде для медицинских изделий.</p>
+      </div>
+      <table class="fallback-table">
+        <thead><tr><th>Этап</th><th>Испытания / действия</th><th>Документы</th><th>Срок</th></tr></thead>
+        <tbody>
+          <tr><td>1. Определение маршрута</td><td>Подбор формы испытаний и класса риска</td><td>Техническое задание</td><td>1-2 недели</td></tr>
+          <tr><td>2. Доклиника и токсикология</td><td>Биосовместимость по ГОСТ ISO 10993 (при контакте с телом)</td><td>Отчёт токсикологии</td><td>от 4 недель</td></tr>
+          <tr><td>3. Технические испытания</td><td>ЭМС, валидация ПО (если применимо)</td><td>Протоколы испытаний</td><td>от 3 недель</td></tr>
+          <tr><td>4. Клинические испытания</td><td>Анализ данных, испытания с человеком или ИВД</td><td>Протокол, CER или отчёт</td><td>от 2 недель до 6+ месяцев</td></tr>
+          <tr><td>5. Формирование досье</td><td>Сборка полного пакета документов</td><td>Регистрационное досье</td><td>2-4 недели</td></tr>
+          <tr><td>6. Подача и экспертиза</td><td>Подача в Росздравнадзор или по правилам ЕАЭС</td><td>—</td><td>по регламенту регулятора</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Персональный маршрут</h2>
+          <p>Оставьте заявку — проектный менеджер составит персональную дорожную карту с точными сроками под ваш продукт.</p>
+        </div>
+        <form aria-label="Форма запроса персонального маршрута">
+          <label class="visually-hidden" for="rm-name">Имя</label>
+          <input id="rm-name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="rm-email">Email</label>
+          <input id="rm-email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="rm-message">Комментарий</label>
+          <textarea id="rm-message" name="message" rows="3" placeholder="Тип продукта и текущий этап проекта"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ)</span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col"><h3>Услуги</h3><ul>
+        <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+        <li><a href="/klinicheskie-issledovaniya-ls">КИ лекарств</a></li>
+        <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+        <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Компания</h3><ul>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/komanda">Команда</a></li>
+        <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+        <li><a href="/kejsy">Кейсы</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Информация</h3><ul>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/reestry">Реестры</a></li>
+        <li><a href="/glossariy">Глоссарий</a></li>
+        <li><a href="/blog">Блог</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Контакты</h3><ul>
+        <li><a href="/kontakty">Контакты</a></li>
+        <li><a href="tel:+70000000000">+7 (000) 000-00-00</a></li>
+        <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span><a href="/privacy">Конфиденциальность</a> · <a href="/cookie">Cookie</a> · <a href="/terms">Соглашение</a> · <a href="/disclaimer">Отказ от ответственности</a></span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Дорожная карта вывода медицинского изделия на рынок",
+  "step": [
+    {"@type": "HowToStep", "name": "Определение маршрута", "text": "Подбор формы испытаний и класса риска изделия."},
+    {"@type": "HowToStep", "name": "Доклиника и токсикология", "text": "Биологическая оценка по ГОСТ ISO 10993 при необходимости."},
+    {"@type": "HowToStep", "name": "Технические испытания", "text": "ЭМС и валидация ПО, если применимо."},
+    {"@type": "HowToStep", "name": "Клинические испытания", "text": "Анализ данных, испытания с участием человека или ИВД."},
+    {"@type": "HowToStep", "name": "Формирование досье", "text": "Сборка полного пакета документов для регистрации."},
+    {"@type": "HowToStep", "name": "Подача и экспертиза", "text": "Подача в Росздравнадзор или по правилам ЕАЭС."}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Интерактивная дорожная карта вывода на рынок",
+  "applicationCategory": "BusinessApplication",
+  "url": "https://probarium.ru/dorozhnaya-karta",
+  "provider": {"@type": "MedicalOrganization", "name": "Probarium"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Дорожная карта вывода на рынок", "item": "https://probarium.ru/dorozhnaya-karta"}
+  ]
+}
+</script>
+
+<script>
+var roadmaps = {
+  mi: [
+    {title:'Определение маршрута', summary:'Подбор формы испытаний и класса риска изделия.', tests:'Определитель формы испытаний, консультация', docs:'Техническое задание', term:'1-2 недели', link:'/podbor-ispytaniy'},
+    {title:'Доклиника и токсикология', summary:'Биологическая оценка при контакте изделия с телом.', tests:'Биосовместимость по ГОСТ ISO 10993', docs:'Отчёт токсикологии', term:'от 4 недель', link:'/doklinicheskie-issledovaniya/toksikologiya-medizdeliy'},
+    {title:'Технические испытания', summary:'ЭМС и валидация ПО, если применимо к изделию.', tests:'ЭМС, валидация ПО', docs:'Протоколы испытаний', term:'от 3 недель', link:'/tehnicheskie-ispytaniya-medizdeliy'},
+    {title:'Клинические испытания', summary:'Форма испытаний зависит от класса риска и наличия аналога.', tests:'Анализ данных / испытание с человеком / ИВД', docs:'Протокол, CER или отчёт', term:'от 2 недель до 6+ месяцев', link:'/klinicheskie-ispytaniya-medizdeliy'},
+    {title:'Формирование досье', summary:'Сборка полного пакета документов для регистрации.', tests:'—', docs:'Регистрационное досье', term:'2-4 недели', link:'/razrabotka-dokumentatsii'},
+    {title:'Подача и экспертиза', summary:'Подача в Росздравнадзор или по правилам ЕАЭС.', tests:'—', docs:'Регистрационное удостоверение', term:'по регламенту регулятора', link:'/registraciya-medizdeliy'},
+  ],
+  ls: [
+    {title:'Доклиника (GLP)', summary:'Фармакология, фармакокинетика, токсичность перед фазой I.', tests:'Доклинические исследования по GLP', docs:'Отчёт доклиники', term:'от 3 месяцев', link:'/doklinicheskie-issledovaniya/lekarstvennye-sredstva'},
+    {title:'Разрешение на КИ', summary:'Получение разрешения Минздрава на клиническое исследование.', tests:'—', docs:'Досье на разрешение', term:'по регламенту Минздрава', link:'/klinicheskie-issledovaniya-ls'},
+    {title:'Фаза I-III', summary:'Последовательные фазы клинических исследований препарата.', tests:'Фазы I, II, III', docs:'Протокол, брошюра исследователя, CSR', term:'от 12 месяцев суммарно', link:'/klinicheskie-issledovaniya-ls'},
+    {title:'Формирование досье', summary:'Сборка полного пакета документов для регистрации.', tests:'—', docs:'Регистрационное досье', term:'4-8 недель', link:'/razrabotka-dokumentatsii'},
+    {title:'Подача и экспертиза', summary:'Подача на регистрацию в РФ или по правилам ЕАЭС.', tests:'—', docs:'Регистрационное удостоверение', term:'по регламенту регулятора', link:'/registraciya-medizdeliy'},
+    {title:'Фаза IV', summary:'Пострегистрационные и наблюдательные исследования.', tests:'Фаза IV, фармаконадзор', docs:'Отчёт по наблюдательному исследованию', term:'от 6 месяцев', link:'/klinicheskie-issledovaniya-ls/faza-4'},
+  ]
+};
+
+var currentPersona = 'mi';
+var openIndex = 0;
+
+function setPersona(p){
+  currentPersona = p;
+  document.getElementById('btn-mi').classList.toggle('active', p==='mi');
+  document.getElementById('btn-ls').classList.toggle('active', p==='ls');
+  openIndex = 0;
+  renderRoadmap();
+}
+
+function toggleStep(i){
+  openIndex = (openIndex === i) ? -1 : i;
+  renderRoadmap();
+}
+
+function renderRoadmap(){
+  var steps = roadmaps[currentPersona];
+  var html = '';
+  steps.forEach(function(s, i){
+    var active = (i === openIndex);
+    html += '<div class="rm-step' + (active ? ' active' : '') + '" onclick="toggleStep(' + i + ')">' +
+      '<div style="flex:1;">' +
+      '<div class="rm-num">Этап ' + (i+1) + '</div>' +
+      '<div class="rm-title">' + s.title + '</div>' +
+      '<div class="rm-summary">' + s.summary + '</div>' +
+      '<div class="rm-detail">' +
+        '<div class="rm-detail-row"><strong>Испытания</strong><span>' + s.tests + '</span></div>' +
+        '<div class="rm-detail-row"><strong>Документы</strong><span>' + s.docs + '</span></div>' +
+        '<div class="rm-detail-row"><strong>Срок</strong><span>' + s.term + '</span></div>' +
+        '<a href="' + s.link + '">Подробнее об этом этапе →</a>' +
+      '</div>' +
+      '</div></div>';
+  });
+  document.getElementById('roadmap').innerHTML = html;
+}
+
+renderRoadmap();
+</script>
+
+</body>
+</html>

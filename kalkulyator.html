@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Онлайн-калькулятор стоимости исследований | Probarium</title>
+<meta name="description" content="Предварительный расчёт стоимости клинических, доклинических и технических испытаний по типу продукта, направлению и объёму. Результат на почту.">
+<link rel="canonical" href="https://probarium.ru/kalkulyator">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Онлайн-калькулятор стоимости исследований | Probarium">
+<meta property="og:description" content="Предварительный расчёт стоимости клинических, доклинических и технических испытаний по типу продукта, направлению и объёму. Результат на почту.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://probarium.ru/kalkulyator">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue-deep:#123C6B; --blue-sky:#378ADD; --blue-pale:#E6F1FB; --gold:#BA7517; --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A; --gray-text:#5F5E5A; --bg:#F5F7FA; --white:#FFFFFF; --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Manrope',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;background:none;font-family:inherit;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.header-cta{font-size:13px;padding:10px 18px;}
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;}
+section{padding:40px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+.calc-wrap{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;}
+.calc-form{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:28px;flex:1;min-width:300px;}
+.calc-form label{display:block;font-size:13px;font-weight:600;color:var(--graphite);margin:16px 0 8px;}
+.calc-form label:first-child{margin-top:0;}
+.calc-form select, .calc-form input[type="number"]{
+  width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.calc-form .checkbox-row{display:flex;align-items:center;gap:8px;margin-top:16px;}
+.calc-form .checkbox-row input{width:16px;height:16px;}
+.calc-result{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:16px;padding:28px;flex:1;min-width:280px;position:sticky;top:90px;}
+.calc-result h3{font-size:16px;color:var(--blue-deep);margin-bottom:6px;}
+.calc-result .price{font-family:'Manrope',sans-serif;font-weight:700;font-size:28px;color:var(--blue-deep);margin:12px 0;}
+.calc-result .timeline{font-size:14px;color:#0C447C;margin-bottom:16px;}
+.calc-result p.note{font-size:12px;color:#0C447C;margin-bottom:18px;}
+
+.factors{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+.factor{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;font-size:14px;}
+.factor strong{display:block;color:var(--blue-deep);font-size:14px;margin-bottom:4px;}
+.factor span{color:var(--gray-text);font-size:13px;}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta textarea{padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+@media (max-width:820px){ nav.main-nav{display:none;} .page-intro h1{font-size:26px;} .calc-result{position:static;} }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="28" height="28" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#123C6B" stroke-width="4" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#123C6B" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3" fill="#BA7517"/><circle cx="21" cy="34" r="3" fill="#BA7517"/><circle cx="21" cy="42" r="3" fill="#BA7517"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <span aria-current="page">Калькулятор стоимости</span>
+  </nav>
+
+  <div class="container page-intro">
+    <h1>Калькулятор стоимости исследований</h1>
+    <p class="lead">Ориентировочный расчёт стоимости и сроков клинических, доклинических и технических испытаний — по типу продукта, направлению и дополнительным параметрам. Итоговая цена подтверждается проектным менеджером после консультации.</p>
+  </div>
+
+  <section aria-labelledby="params-h2">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="params-h2">Параметры расчёта</h2>
+      </div>
+      <div class="calc-wrap">
+        <div class="calc-form">
+          <label for="product-type">Тип продукта</label>
+          <select id="product-type" onchange="updateDirectionOptions(); calculate();">
+            <option value="mi">Медицинское изделие</option>
+            <option value="ls">Лекарственное средство</option>
+          </select>
+
+          <label for="direction">Направление испытаний</label>
+          <select id="direction" onchange="calculate();"></select>
+
+          <label for="centers">Число клинических центров (если применимо)</label>
+          <input type="number" id="centers" min="1" max="20" value="1" oninput="calculate();">
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="doklinika" onchange="calculate();">
+            <label for="doklinika" style="margin:0;font-weight:500;">Дополнительно нужна доклиника / токсикология</label>
+          </div>
+        </div>
+
+        <div class="calc-result">
+          <h3>Ориентировочная стоимость</h3>
+          <div class="price" id="price-out">—</div>
+          <div class="timeline" id="timeline-out">—</div>
+          <p class="note">Расчёт индикативный и не является офертой. Точную стоимость и сроки определяет проектный менеджер после изучения технической документации на продукт.</p>
+          <a href="#final-cta" class="btn btn-primary" style="width:100%;text-align:center;">Запросить точное КП</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="range-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="range-h2">Диапазон стоимости по направлениям (текстовая версия)</h2>
+        <p>Если калькулятор недоступен, ниже — базовые ориентиры в текстовом виде.</p>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead><tr>
+          <th style="border:1px solid var(--border);padding:10px 14px;text-align:left;background:var(--white);color:var(--blue-deep);">Направление</th>
+          <th style="border:1px solid var(--border);padding:10px 14px;text-align:left;background:var(--white);color:var(--blue-deep);">Срок</th>
+          <th style="border:1px solid var(--border);padding:10px 14px;text-align:left;background:var(--white);color:var(--blue-deep);">Ориентировочно, от</th>
+        </tr></thead>
+        <tbody id="range-table-body" style="color:var(--gray-text);"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="factors-h2">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="factors-h2">Что влияет на цену</h2>
+      </div>
+      <div class="factors">
+        <div class="factor"><strong>Класс риска изделия</strong><span>чем выше класс, тем больше объём требуемых испытаний</span></div>
+        <div class="factor"><strong>Число клинических центров</strong><span>многоцентровые исследования дороже одноцентровых</span></div>
+        <div class="factor"><strong>Объём выборки</strong><span>размер выборки напрямую влияет на стоимость проведения</span></div>
+        <div class="factor"><strong>Сложность дизайна</strong><span>нестандартные дизайны требуют больше ресурсов на разработку протокола</span></div>
+        <div class="factor"><strong>Необходимость доклиники</strong><span>дополнительно увеличивает как сроки, так и бюджет проекта</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Запросить точное КП</h2>
+          <p>Оставьте заявку с параметрами расчёта — проектный менеджер подготовит точное коммерческое предложение.</p>
+        </div>
+        <form aria-label="Форма запроса точного КП">
+          <label class="visually-hidden" for="cp-name">Имя</label>
+          <input id="cp-name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="cp-email">Email</label>
+          <input id="cp-email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="cp-message">Комментарий</label>
+          <textarea id="cp-message" name="message" rows="3" placeholder="Параметры проекта (тип продукта, направление)"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ)</span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col"><h3>Услуги</h3><ul>
+        <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+        <li><a href="/klinicheskie-issledovaniya-ls">КИ лекарств</a></li>
+        <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+        <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Компания</h3><ul>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/komanda">Команда</a></li>
+        <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+        <li><a href="/kejsy">Кейсы</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Информация</h3><ul>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/reestry">Реестры</a></li>
+        <li><a href="/glossariy">Глоссарий</a></li>
+        <li><a href="/blog">Блог</a></li>
+      </ul></div>
+      <div class="footer-col"><h3>Контакты</h3><ul>
+        <li><a href="/kontakty">Контакты</a></li>
+        <li><a href="tel:+70000000000">+7 (000) 000-00-00</a></li>
+        <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span><a href="/privacy">Конфиденциальность</a> · <a href="/cookie">Cookie</a> · <a href="/terms">Соглашение</a> · <a href="/disclaimer">Отказ от ответственности</a></span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Калькулятор стоимости исследований",
+  "applicationCategory": "BusinessApplication",
+  "url": "https://probarium.ru/kalkulyator",
+  "provider": {"@type": "MedicalOrganization", "name": "Probarium"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Калькулятор стоимости", "item": "https://probarium.ru/kalkulyator"}
+  ]
+}
+</script>
+
+<script>
+var directions = {
+  mi: [
+    {value:'analiz', label:'Анализ клинических данных', base:300000, months:'от 2 недель'},
+    {value:'human', label:'Испытания с участием человека', base:2500000, months:'от 3 месяцев'},
+    {value:'ivd', label:'Клинико-лабораторные испытания ИВД', base:900000, months:'от 4 недель'},
+    {value:'ems', label:'Испытания ЭМС', base:400000, months:'от 3 недель'},
+    {value:'software', label:'Валидация ПО медизделия', base:600000, months:'от 4 недель'},
+  ],
+  ls: [
+    {value:'faza1', label:'Фаза I', base:8000000, months:'от 3 месяцев'},
+    {value:'faza2', label:'Фаза II', base:20000000, months:'от 6 месяцев'},
+    {value:'faza3', label:'Фаза III', base:60000000, months:'от 12 месяцев'},
+    {value:'faza4', label:'Фаза IV', base:10000000, months:'от 6 месяцев'},
+    {value:'bioeq', label:'Биоэквивалентность дженерика', base:4000000, months:'от 4 месяцев'},
+  ]
+};
+
+function updateDirectionOptions(){
+  var type = document.getElementById('product-type').value;
+  var sel = document.getElementById('direction');
+  sel.innerHTML = '';
+  directions[type].forEach(function(d){
+    var opt = document.createElement('option');
+    opt.value = d.value; opt.textContent = d.label;
+    sel.appendChild(opt);
+  });
+  renderRangeTable();
+}
+
+function renderRangeTable(){
+  var tbody = document.getElementById('range-table-body');
+  var rows = '';
+  ['mi','ls'].forEach(function(type){
+    directions[type].forEach(function(d){
+      rows += '<tr><td style="border:1px solid var(--border);padding:10px 14px;">'+d.label+'</td>' +
+              '<td style="border:1px solid var(--border);padding:10px 14px;">'+d.months+'</td>' +
+              '<td style="border:1px solid var(--border);padding:10px 14px;">'+formatPrice(d.base)+' ₽</td></tr>';
+    });
+  });
+  tbody.innerHTML = rows;
+}
+
+function formatPrice(n){
+  return n.toLocaleString('ru-RU');
+}
+
+function calculate(){
+  var type = document.getElementById('product-type').value;
+  var dirValue = document.getElementById('direction').value;
+  var centers = parseInt(document.getElementById('centers').value, 10) || 1;
+  var needsPreclinical = document.getElementById('doklinika').checked;
+
+  var dirObj = directions[type].find(function(d){ return d.value === dirValue; });
+  if(!dirObj){ dirObj = directions[type][0]; }
+
+  var low = dirObj.base * Math.max(1, centers * 0.6);
+  var high = dirObj.base * Math.max(1.4, centers * 1.1);
+
+  if(needsPreclinical){
+    low += 1500000;
+    high += 4000000;
+  }
+
+  document.getElementById('price-out').textContent = 'от ' + formatPrice(Math.round(low/10000)*10000) + ' до ' + formatPrice(Math.round(high/10000)*10000) + ' ₽';
+  document.getElementById('timeline-out').textContent = 'Срок: ' + dirObj.months + (needsPreclinical ? ' + доклиника от 3 месяцев' : '');
+}
+
+updateDirectionOptions();
+calculate();
+</script>
+
+</body>
+</html>
