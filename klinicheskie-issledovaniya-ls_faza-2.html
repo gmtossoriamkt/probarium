@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вторая фаза клинических исследований под ключ | Probarium</title>
+<meta name="description" content="Вторая фаза клинических исследований: оценка эффективности, подбор терапевтической дозы, профиль безопасности на целевой популяции пациентов.">
+<link rel="canonical" href="https://probarium.ru/klinicheskie-issledovaniya-ls/faza-2">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Вторая фаза клинических исследований под ключ | Probarium">
+<meta property="og:description" content="Вторая фаза клинических исследований: оценка эффективности, подбор терапевтической дозы, профиль безопасности на целевой популяции пациентов.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://probarium.ru/klinicheskie-issledovaniya-ls/faza-2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue-deep:#123C6B;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#BA7517;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Manrope',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+.forms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.form-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px;}
+.form-card .badge{display:inline-block;background:var(--blue-pale);color:#0C447C;font-size:12px;font-weight:600;
+  padding:4px 10px;border-radius:14px;margin-bottom:14px;}
+.form-card h3{font-size:17px;margin-bottom:8px;}
+.form-card p{font-size:14px;color:var(--gray-text);margin-bottom:14px;}
+.form-card ul{margin:0 0 14px 18px;font-size:13px;color:var(--gray-text);}
+.form-card ul li{margin-bottom:4px;}
+.form-card a.more{font-size:13px;font-weight:600;color:var(--blue-sky);}
+
+.risk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+.risk-card{background:var(--white);border:1px solid var(--border);border-left:3px solid var(--blue-sky);
+  border-radius:0 10px 10px 0;padding:16px;font-size:13px;}
+.risk-card strong{display:block;color:var(--blue-deep);font-size:14px;margin-bottom:4px;}
+.risk-card span{color:var(--gray-text);}
+
+.steps{counter-reset:step;}
+.step{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--border);}
+.step:last-child{border-bottom:none;}
+.step .step-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--blue-deep);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;}
+.step h3{font-size:15px;margin-bottom:4px;}
+.step p{font-size:14px;color:var(--gray-text);}
+
+.doc-list{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:8px 0;}
+.doc-list li{list-style:none;display:flex;gap:10px;align-items:flex-start;padding:12px 24px;
+  border-bottom:1px solid var(--border);font-size:14px;}
+.doc-list li:last-child{border-bottom:none;}
+.doc-list li svg{flex-shrink:0;margin-top:2px;}
+
+.pricing-band{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:26px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;}
+.pricing-item .num{font-family:'Manrope',sans-serif;font-weight:700;font-size:22px;color:var(--blue-deep);}
+.pricing-item .label{font-size:13px;color:var(--gray-text);margin-top:4px;}
+
+.npa-list{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:8px 0;}
+.npa-list li{list-style:none;display:flex;justify-content:space-between;gap:16px;padding:14px 24px;
+  border-bottom:1px solid var(--border);font-size:14px;flex-wrap:wrap;}
+.npa-list li:last-child{border-bottom:none;}
+.npa-list .npa-note{color:var(--gray-text);font-size:13px;}
+.npa-star{color:var(--gold);font-weight:700;}
+
+.triggers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
+.trigger{padding:18px;border-left:3px solid var(--gold);background:var(--white);border-radius:0 12px 12px 0;
+  border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+.trigger h3{font-size:15px;margin-bottom:6px;}
+.trigger p{font-size:13px;color:var(--gray-text);}
+
+.bases-strip{display:flex;flex-wrap:wrap;gap:12px;}
+.base-chip{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13px;}
+.base-chip strong{display:block;color:var(--blue-deep);font-size:13px;}
+.base-chip span{color:var(--gray-text);font-size:12px;}
+
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.case-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px;}
+.case-card .tag{font-size:12px;font-weight:600;color:#0C447C;background:var(--blue-pale);
+  display:inline-block;padding:3px 10px;border-radius:14px;margin-bottom:12px;}
+.case-card h3{font-size:16px;margin-bottom:8px;}
+.case-card p{font-size:13px;color:var(--gray-text);}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.lk-band{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:14px;padding:22px 26px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.lk-band p{font-size:14px;color:#0C447C;margin:0;max-width:480px;}
+.lk-band a{font-size:13px;font-weight:600;color:var(--blue-deep);white-space:nowrap;border-bottom:1px solid var(--blue-deep);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+.segments{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+.segment{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;font-size:14px;}
+.segment strong{display:block;color:var(--blue-deep);font-size:14px;margin-bottom:4px;}
+.segment span{color:var(--gray-text);font-size:13px;}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="28" height="28" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#123C6B" stroke-width="4" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#123C6B" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3" fill="#BA7517"/>
+        <circle cx="21" cy="34" r="3" fill="#BA7517"/>
+        <circle cx="21" cy="42" r="3" fill="#BA7517"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="#final-cta" class="btn btn-primary header-cta">Оставить заявку</a>
+  </div>
+</header>
+
+<main id="main">
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/uslugi">Услуги</a> / <a href="/klinicheskie-issledovaniya-ls">Клинические исследования ЛС</a> / <span aria-current="page">Фаза II</span>
+  </nav>
+
+  <div class="container page-intro">
+    <h1>Вторая фаза клинических исследований (эффективность)</h1>
+    <p class="lead">Первичная оценка эффективности препарата и подбор терапевтической дозы на целевой популяции пациентов — вторая и третья фазы клинических исследований под ключ, от дизайна до отчёта.</p>
+    <div class="intro-actions">
+      <a href="#final-cta" class="btn btn-primary">Запросить коммерческое предложение</a>
+      <a href="/kalkulyator" class="btn btn-outline">Рассчитать объём выборки</a>
+    </div>
+  </div>
+
+  <section aria-labelledby="goals-h2">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="goals-h2">Цели фазы II</h2>
+        
+      </div>
+      <div class="risk-grid"><div class="risk-card"><strong>Оценка эффективности</strong><span>на целевой популяции пациентов</span></div><div class="risk-card"><strong>Подбор терапевтической дозы</strong><span>оптимальное соотношение эффекта и безопасности</span></div><div class="risk-card"><strong>Профиль безопасности</strong><span>на пациентах с целевым заболеванием</span></div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="design-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="design-h2">Дизайн и конечные точки</h2>
+        
+      </div>
+      <p style="font-size:14px;color:var(--gray-text);max-width:640px;">Определяем первичные и вторичные конечные точки, схему рандомизации и, при необходимости, план ослепления. Дизайн часто предполагает несколько групп с разными дозами препарата.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="dose-h2">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="dose-h2">Подбор дозы</h2>
+        
+      </div>
+      <p style="font-size:14px;color:var(--gray-text);max-width:640px;">Сравниваем несколько уровней дозирования между собой и с плацебо или активным контролем, чтобы определить оптимальную терапевтическую дозу для фазы III.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="monitoring-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="monitoring-h2">Мониторинг</h2>
+        
+      </div>
+      <div class="steps"><div class="step"><div class="step-num">1</div><div><h3>Заявка и дизайн исследования</h3><p>Определяем конечные точки, схему рандомизации и целевую популяцию пациентов.</p></div></div><div class="step"><div class="step-num">2</div><div><h3>Разрешение и этика</h3><p>Получаем разрешение Минздрава и заключение этического комитета.</p></div></div><div class="step"><div class="step-num">3</div><div><h3>Набор пациентов</h3><p>Формируем выборку на аккредитованных клинических базах.</p></div></div><div class="step"><div class="step-num">4</div><div><h3>Мониторинг исследования</h3><p>Контролируем соблюдение протокола и нежелательные явления на всех центрах.</p></div></div><div class="step"><div class="step-num">5</div><div><h3>Анализ и отчёт</h3><p>Формируем отчёт с данными по эффективности и подобранной дозе.</p></div></div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="docs-h2">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="docs-h2">Исходные документы от заказчика</h2>
+        
+      </div>
+      <ul class="doc-list"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#378ADD" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg> Отчёт по результатам фазы I</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#378ADD" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg> Брошюра исследователя (актуальная редакция)</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#378ADD" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg> Предполагаемая целевая популяция пациентов</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#378ADD" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg> Требования к конечным точкам эффективности</li></ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="pricing-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="pricing-h2">Сроки и цена</h2>
+        <p>Ориентировочные диапазоны — точная оценка после определения дизайна.</p>
+      </div>
+      <div class="pricing-band"><div class="pricing-item"><div class="num">от 6 месяцев</div><div class="label">однодозовое исследование на одном центре</div></div><div class="pricing-item"><div class="num">от 9 месяцев</div><div class="label">многодозовое многоцентровое исследование</div></div><div class="pricing-item"><div class="num">индивидуально</div><div class="label">стоимость зависит от числа пациентов и центров</div></div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="npa-h2">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="npa-h2">Нормативная база</h2>
+        <p>Полный реестр — на странице НПА.</p>
+      </div>
+      <ul class="npa-list"><li><span>61-ФЗ «Об обращении лекарственных средств» <span class='npa-star'>*</span></span><span class="npa-note">рекомендуется сверить редакцию</span></li><li><span>Приказ Минздрава № 200н (2016) <span class='npa-star'>*</span></span><span class="npa-note">правила надлежащей клинической практики, рекомендуется сверить</span></li><li><span>Решение Совета ЕЭК № 78</span><span class="npa-note">правила проведения исследований биоэквивалентности</span></li><li><span>Решение Совета ЕЭК № 79</span><span class="npa-note">надлежащая клиническая практика ЕАЭС</span></li></ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="why-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="why-h2">Почему Probarium</h2>
+        
+      </div>
+      <div class="triggers"><div class="trigger"><h3>Соответствие регуляторам</h3><p>Строгое соответствие требованиям российских регуляторов на каждом этапе.</p></div><div class="trigger"><h3>Ускорение вывода на рынок</h3><p>Параллельное планирование фазы III снижает общий срок проекта.</p></div><div class="trigger"><h3>Протоколы любой сложности</h3><p>Разрабатываем дизайн под сложные многодозовые схемы.</p></div><div class="trigger"><h3>Репрезентативность выборки</h3><p>Формируем выборку, отражающую целевую популяцию пациентов.</p></div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="cases-h2">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="cases-h2">Кейсы</h2>
+        
+      </div>
+      <div class="cases"><article class="case-card"><span class="tag">Фаза II, эндокринология</span><h3>Подбор терапевтической дозы препарата</h3><p>Многодозовое исследование на трёх центрах, доза для фазы III определена за 8 месяцев.</p></article></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="lk-h2" style="padding-top:0;">
+    <div class="container">
+      <div class="lk-band">
+        <p id="lk-h2">Отслеживайте статус исследования онлайн — в личном кабинете видны этапы набора и документы.</p>
+        <a href="/lk">Перейти в личный кабинет →</a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq-h2">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="faq-h2">Частые вопросы</h2>
+        
+      </div>
+      <div style="max-width:720px;"><details class="faq-item"><summary>Сколько доз обычно сравнивают в фазе II?</summary><p>Чаще 2-4 уровня дозирования плюс плацебо или активный контроль, но зависит от препарата и заболевания.</p></details><details class="faq-item"><summary>Можно ли объединить фазу II и III в один дизайн?</summary><p>В отдельных случаях используются адаптивные дизайны II/III, но это требует более сложного протокола и согласования с регулятором.</p></details></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="related-h2">Смежные разделы</h2>
+        
+      </div>
+      <div class="related-grid"><a class="related-card" href="/klinicheskie-issledovaniya-ls">Хаб: клинические исследования ЛС</a><a class="related-card" href="/klinicheskie-issledovaniya-ls/faza-1">Фаза I</a><a class="related-card" href="/klinicheskie-issledovaniya-ls/faza-3">Фаза III</a><a class="related-card" href="/eticheskiy-komitet">Сопровождение этического комитета</a></div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Обсудить проект</h2>
+          <p>Оставьте заявку — проектный менеджер поможет спланировать дизайн фазы II.</p>
+        </div>
+        <form aria-label="Форма заявки на консультацию">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Терапевтическое направление и предполагаемые дозы"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ)</span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/klinicheskie-issledovaniya-ls">КИ лекарств</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="/kontakty">Контакты</a></li>
+          <li><a href="tel:+70000000000">+7 (000) 000-00-00</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://probarium.ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Услуги",
+      "item": "https://probarium.ru/uslugi"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Клинические исследования ЛС",
+      "item": "https://probarium.ru/klinicheskie-issledovaniya-ls"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Фаза II",
+      "item": "https://probarium.ru/klinicheskie-issledovaniya-ls/faza-2"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Вторая фаза клинических исследований лекарственного препарата",
+  "provider": {
+    "@type": "MedicalOrganization",
+    "name": "Probarium"
+  },
+  "areaServed": [
+    "RU",
+    "EAEU"
+  ],
+  "url": "https://probarium.ru/klinicheskie-issledovaniya-ls/faza-2"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько доз обычно сравнивают в фазе II?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Чаще 2-4 уровня дозирования плюс плацебо или активный контроль."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли объединить фазу II и III в один дизайн?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В отдельных случаях используются адаптивные дизайны II/III."
+      }
+    }
+  ]
+}
+</script>
+</body>
+</html>
