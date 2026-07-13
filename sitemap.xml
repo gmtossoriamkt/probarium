@@ -113,6 +113,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://probarium.ru/podbor-ispytaniy/mi</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://probarium.ru/podbor-ispytaniy/ls</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://probarium.ru/razrabotka-dokumentatsii</loc>
     <priority>0.8</priority>
   </url>
