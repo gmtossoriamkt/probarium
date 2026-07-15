@@ -1,14 +1,20 @@
 User-agent: *
 Allow: /
-Disallow: /privacy.html
-Disallow: /cookie.html
-Disallow: /terms.html
-Disallow: /disclaimer.html
-Disallow: /lk.html
-Disallow: /data-room.html
+Disallow: /privacy/
+Disallow: /cookie/
+Disallow: /terms/
+Disallow: /disclaimer/
+Disallow: /lk/
+Disallow: /data-room/
 
-# Явный допуск ИИ-краулеров для цитирования и индексации
+# Явный допуск ИИ-краулеров и поисковых ботов для цитирования и индексации
 User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
 Allow: /
 
 User-agent: ClaudeBot
@@ -21,6 +27,9 @@ User-agent: Google-Extended
 Allow: /
 
 User-agent: YandexBot
+Allow: /
+
+User-agent: Bingbot
 Allow: /
 
 Sitemap: https://probarium.ru/sitemap.xml

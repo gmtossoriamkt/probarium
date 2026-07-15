@@ -1,0 +1,41 @@
+# Probarium
+
+> Контрактная исследовательская организация (CRO) полного цикла: клинические, доклинические, токсикологические и технические испытания медицинских изделий и лекарственных средств для регистрации в РФ и ЕАЭС. Клиническое подразделение группы «Глобальные Медицинские Технологии» (ГМТ).
+
+Probarium организует испытания, необходимые для государственной регистрации медицинских изделий и лекарственных средств, работает с сетью аккредитованных клинических баз и лабораторий, сопровождает прохождение этического комитета и подготовку регистрационного досье.
+
+## Услуги
+
+- [Клинические испытания медицинских изделий](https://probarium.ru/klinicheskie-ispytaniya-medizdeliy): анализ клинических данных, испытания с участием человека, клинико-лабораторные испытания ИВД
+- [Клинические исследования лекарств](https://probarium.ru/klinicheskie-issledovaniya-ls): фазы I–IV, биоэквивалентность дженериков
+- [Доклиника и токсикология](https://probarium.ru/doklinicheskie-issledovaniya): исследования GLP для ЛС, биосовместимость МИ по ГОСТ ISO 10993
+- [Технические испытания медицинских изделий](https://probarium.ru/tehnicheskie-ispytaniya-medizdeliy): электромагнитная совместимость, валидация программного обеспечения
+- [Регистрация медицинских изделий](https://probarium.ru/registraciya-medizdeliy)
+- [Разработка протокола и досье](https://probarium.ru/razrabotka-dokumentatsii)
+- [Сопровождение этического комитета](https://probarium.ru/eticheskiy-komitet)
+- [Аккредитованные клинические базы](https://probarium.ru/klinicheskie-bazy)
+
+## Инструменты
+
+- [Определитель формы испытаний](https://probarium.ru/podbor-ispytaniy)
+- [Калькулятор стоимости](https://probarium.ru/kalkulyator)
+- [Дорожная карта вывода на рынок](https://probarium.ru/dorozhnaya-karta)
+
+## Справочная информация
+
+- [Нормативно-правовая база](https://probarium.ru/npa)
+- [Глоссарий терминов](https://probarium.ru/glossariy)
+- [Полезные реестры](https://probarium.ru/reestry)
+- [Частые вопросы](https://probarium.ru/faq)
+- [О компании](https://probarium.ru/o-kompanii)
+- [Команда и эксперты](https://probarium.ru/komanda)
+- [Лицензии и сертификаты](https://probarium.ru/licenzii-sertifikaty)
+- [Кейсы](https://probarium.ru/kejsy)
+- [Контакты](https://probarium.ru/kontakty)
+
+## Контакты
+
+Email: info@probarium.ru
+Телефон (Россия): +7 985 316-91-04, +7 988 877-72-95
+Телефон (Казахстан): +7 702 139-44-89
+Telegram: https://t.me/tandelovtat
