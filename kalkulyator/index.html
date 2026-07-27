@@ -174,12 +174,6 @@ body.nav-open{overflow:hidden;}
       </div>
       <div class="calc-wrap">
         <div class="calc-form">
-          <label for="product-type">Тип продукта</label>
-          <select id="product-type" onchange="updateDirectionOptions(); calculate();">
-            <option value="mi">Медицинское изделие</option>
-            <option value="ls">Лекарственное средство</option>
-          </select>
-
           <label for="direction">Направление испытаний</label>
           <select id="direction" onchange="calculate();"></select>
 
@@ -266,7 +260,7 @@ body.nav-open{overflow:hidden;}
     <div class="footer-grid">
       <div class="footer-col"><h3>Услуги</h3><ul>
         <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
-        <li><a href="/klinicheskie-issledovaniya-ls">КИ лекарств</a></li>
+        
         <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
         <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
       </ul></div>
@@ -325,20 +319,12 @@ var directions = {
     {value:'ems', label:'Испытания ЭМС', base:400000, months:'от 3 недель'},
     {value:'software', label:'Валидация ПО медизделия', base:600000, months:'от 4 недель'},
   ],
-  ls: [
-    {value:'faza1', label:'Фаза I', base:8000000, months:'от 3 месяцев'},
-    {value:'faza2', label:'Фаза II', base:20000000, months:'от 6 месяцев'},
-    {value:'faza3', label:'Фаза III', base:60000000, months:'от 12 месяцев'},
-    {value:'faza4', label:'Фаза IV', base:10000000, months:'от 6 месяцев'},
-    {value:'bioeq', label:'Биоэквивалентность дженерика', base:4000000, months:'от 4 месяцев'},
-  ]
 };
 
 function updateDirectionOptions(){
-  var type = document.getElementById('product-type').value;
   var sel = document.getElementById('direction');
   sel.innerHTML = '';
-  directions[type].forEach(function(d){
+  directions.mi.forEach(function(d){
     var opt = document.createElement('option');
     opt.value = d.value; opt.textContent = d.label;
     sel.appendChild(opt);
@@ -349,12 +335,10 @@ function updateDirectionOptions(){
 function renderRangeTable(){
   var tbody = document.getElementById('range-table-body');
   var rows = '';
-  ['mi','ls'].forEach(function(type){
-    directions[type].forEach(function(d){
-      rows += '<tr><td style="border:1px solid var(--border);padding:10px 14px;">'+d.label+'</td>' +
-              '<td style="border:1px solid var(--border);padding:10px 14px;">'+d.months+'</td>' +
-              '<td style="border:1px solid var(--border);padding:10px 14px;">'+formatPrice(d.base)+' ₽</td></tr>';
-    });
+  directions.mi.forEach(function(d){
+    rows += '<tr><td style="border:1px solid var(--border);padding:10px 14px;">'+d.label+'</td>' +
+            '<td style="border:1px solid var(--border);padding:10px 14px;">'+d.months+'</td>' +
+            '<td style="border:1px solid var(--border);padding:10px 14px;">'+formatPrice(d.base)+' ₽</td></tr>';
   });
   tbody.innerHTML = rows;
 }
@@ -364,13 +348,12 @@ function formatPrice(n){
 }
 
 function calculate(){
-  var type = document.getElementById('product-type').value;
   var dirValue = document.getElementById('direction').value;
   var centers = parseInt(document.getElementById('centers').value, 10) || 1;
   var needsPreclinical = document.getElementById('doklinika').checked;
 
-  var dirObj = directions[type].find(function(d){ return d.value === dirValue; });
-  if(!dirObj){ dirObj = directions[type][0]; }
+  var dirObj = directions.mi.find(function(d){ return d.value === dirValue; });
+  if(!dirObj){ dirObj = directions.mi[0]; }
 
   var low = dirObj.base * Math.max(1, centers * 0.6);
   var high = dirObj.base * Math.max(1.4, centers * 1.1);

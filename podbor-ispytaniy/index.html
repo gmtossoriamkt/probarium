@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Определитель формы испытаний: медизделие или лекарство | Probarium</title>
-<meta name="description" content="Выберите тип продукта — медицинское изделие или лекарственное средство — и пройдите короткий определитель нужной формы испытаний.">
+<title>Определитель формы испытаний медизделия онлайн | Probarium</title>
+<meta name="description" content="Онлайн-инструмент: по классу риска, наличию аналога и клинических данных определяет, нужны испытания с участием человека или достаточно анализа данных.">
 <link rel="canonical" href="https://probarium.ru/podbor-ispytaniy">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Определитель формы испытаний: медизделие или лекарство | Probarium">
-<meta property="og:description" content="Выберите тип продукта — медицинское изделие или лекарственное средство — и пройдите короткий определитель нужной формы испытаний.">
+<meta property="og:title" content="Определитель формы испытаний медизделия онлайн | Probarium">
+<meta property="og:description" content="Онлайн-инструмент: по классу риска, наличию аналога и клинических данных определяет, нужны испытания с участием человека или достаточно анализа данных.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://probarium.ru/podbor-ispytaniy">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -169,6 +169,7 @@ body.nav-open{overflow:hidden;}
     <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
   </nav>
 </header>
+
 <main id="main">
 
   <nav class="container breadcrumbs" aria-label="Хлебные крошки">
@@ -176,41 +177,114 @@ body.nav-open{overflow:hidden;}
   </nav>
 
   <div class="container page-intro">
-    <h1>Определитель формы испытаний</h1>
-    <p class="lead">Сначала выберите тип продукта — дальше определитель задаст короткие уточняющие вопросы именно по вашему направлению.</p>
+    <h1>Определитель формы испытаний медицинского изделия</h1>
+    <p class="lead">Ответьте на три коротких вопроса — инструмент подскажет, нужна ли клиническая оценка МИ без аналога, испытание с участием человека, или достаточно анализа клинических данных. Результат ориентировочный, точный маршрут подтверждает проектный менеджер.</p>
   </div>
 
-  <section aria-labelledby="choice-h2">
+  <section aria-labelledby="how-h2">
     <div class="container">
       <div class="section-head">
-        <h2 id="choice-h2">Что вы регистрируете?</h2>
+        <h2 id="how-h2">Как это работает</h2>
+        <p>Три вопроса о вашем изделии — класс риска, тип изделия и наличие клинических данных — определяют рекомендуемую форму испытаний по логике ГОСТ Р 56429-2021 и ГОСТ Р ИСО 14155-2022.</p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:820px;">
-        <a href="/podbor-ispytaniy/mi" style="display:block;background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:32px;text-decoration:none;">
-          <div style="width:48px;height:48px;border-radius:12px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#123C6B" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+
+      <div class="wizard" id="wizard">
+        <div class="wizard-progress">
+          <span id="pg1" class="done"></span><span id="pg2"></span><span id="pg3"></span>
+        </div>
+
+        <div class="wizard-step active" data-step="1">
+          <h3>1. Ваше изделие — диагностика in vitro (ИВД)?</h3>
+          <button class="option-btn" onclick="answer('ivd','yes')">Да, это тест-система, набор реагентов или диагностический прибор in vitro</button>
+          <button class="option-btn" onclick="answer('ivd','no')">Нет, это другое медицинское изделие</button>
+        </div>
+
+        <div class="wizard-step" data-step="2">
+          <h3>2. Какой класс риска у изделия?</h3>
+          <button class="option-btn" onclick="answer('risk','1')">Класс 1 — низкий риск</button>
+          <button class="option-btn" onclick="answer('risk','2a')">Класс 2а — средний риск</button>
+          <button class="option-btn" onclick="answer('risk','2b')">Класс 2б — повышенный риск</button>
+          <button class="option-btn" onclick="answer('risk','3')">Класс 3 — высокий риск</button>
+          <button class="wizard-back" onclick="goBack()">← Назад</button>
+        </div>
+
+        <div class="wizard-step" data-step="3">
+          <h3>3. Есть ли на рынке аналог с достаточными клиническими данными?</h3>
+          <button class="option-btn" onclick="answer('analog','yes')">Да, есть аналог с подтверждённой безопасностью и эффективностью</button>
+          <button class="option-btn" onclick="answer('analog','no')">Нет, аналога нет или данных недостаточно</button>
+          <button class="wizard-back" onclick="goBack()">← Назад</button>
+        </div>
+
+        <div class="wizard-step" data-step="result">
+          <div class="result-box" id="result-box">
+            <h3 id="result-title"></h3>
+            <p id="result-text"></p>
+            <div class="result-actions">
+              <a href="/kontakty" class="btn btn-primary" id="result-cta">Обсудить с проектным менеджером</a>
+              <button class="btn btn-outline" onclick="restart()">Пройти заново</button>
+            </div>
           </div>
-          <h3 style="font-size:19px;margin-bottom:8px;">Медицинское изделие</h3>
-          <p style="font-size:14px;color:var(--gray-text);margin-bottom:16px;">Приборы, импланты, диагностика in vitro и другие МИ — определим форму клинических испытаний по классу риска.</p>
-          <span style="font-size:14px;font-weight:600;color:var(--blue-sky);">Начать →</span>
-        </a>
-        <a href="/podbor-ispytaniy/ls" style="display:block;background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:32px;text-decoration:none;">
-          <div style="width:48px;height:48px;border-radius:12px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#123C6B" stroke-width="1.8"><path d="M9 2v6L4 20h16L15 8V2M9 2h6"/></svg>
-          </div>
-          <h3 style="font-size:19px;margin-bottom:8px;">Лекарственное средство</h3>
-          <p style="font-size:14px;color:var(--gray-text);margin-bottom:16px;">Оригинальные препараты и дженерики — определим, какие фазы или исследование биоэквивалентности нужны.</p>
-          <span style="font-size:14px;font-weight:600;color:var(--blue-sky);">Начать →</span>
-        </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section aria-labelledby="why-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <!-- серверный текстовый эквивалент результата -->
+  <section aria-labelledby="fallback-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="container">
       <div class="section-head">
-        <h2 id="why-h2">Зачем это нужно</h2>
-        <p>Формы испытаний, нормативная база и сроки принципиально разные для медизделий и лекарств — определитель разделяет эти два маршрута с самого начала, чтобы сразу задавать релевантные вопросы.</p>
+        <h2 id="fallback-h2">Логика определителя (текстовая версия)</h2>
+        <p>Если интерактивный инструмент недоступен, ниже — та же логика в табличном виде.</p>
+      </div>
+      <table class="fallback-table">
+        <thead><tr><th>Тип изделия</th><th>Класс риска</th><th>Есть аналог с данными</th><th>Рекомендуемая форма</th></tr></thead>
+        <tbody>
+          <tr><td>ИВД</td><td>любой</td><td>—</td><td>Клинико-лабораторные испытания ИВД</td></tr>
+          <tr><td>Другое МИ</td><td>1</td><td>—</td><td>Анализ клинических данных</td></tr>
+          <tr><td>Другое МИ</td><td>2а</td><td>Да</td><td>Анализ клинических данных</td></tr>
+          <tr><td>Другое МИ</td><td>2а</td><td>Нет</td><td>Вероятно испытание с участием человека — нужна консультация</td></tr>
+          <tr><td>Другое МИ</td><td>2б</td><td>Да</td><td>Возможен анализ данных, но чаще требуется испытание с человеком</td></tr>
+          <tr><td>Другое МИ</td><td>2б</td><td>Нет</td><td>Испытание с участием человека</td></tr>
+          <tr><td>Другое МИ</td><td>3</td><td>любой</td><td>Испытание с участием человека</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="npa-h2">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="npa-h2">Нормативная база</h2>
+      </div>
+      <ul class="npa-list">
+        <li><span>ГОСТ Р 56429-2021</span><span class="npa-note">клиническая оценка МИ, основа для формы анализа данных</span></li>
+        <li><span>ГОСТ Р ИСО 14155-2022</span><span class="npa-note">клинические испытания МИ с участием человека</span></li>
+        <li><span>Приказ Минздрава № 421н от 13.05.2026</span><span class="npa-note">оценка соответствия МИ: технические, токсикологические, клинические испытания; действует с 01.09.2026 взамен приказа № 885н</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="next-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="next-h2">Что дальше</h2>
+        <p>Результат определителя — ориентир для первичного разговора. Точную форму испытаний, сроки и стоимость мы подтверждаем на консультации с учётом полной технической документации на изделие.</p>
+      </div>
+      <div class="related-grid">
+        <a class="related-card" href="/klinicheskie-ispytaniya-medizdeliy/analiz-dannyh">Анализ клинических данных</a>
+        <a class="related-card" href="/klinicheskie-ispytaniya-medizdeliy/s-uchastiem-cheloveka">Испытания с участием человека</a>
+        <a class="related-card" href="/klinicheskie-ispytaniya-medizdeliy/in-vitro">Клинико-лабораторные испытания ИВД</a>
+        <a class="related-card" href="/kalkulyator">Рассчитать стоимость</a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq-h2">
+    <div class="container">
+      <div class="section-head"><h2 id="faq-h2">Частые вопросы</h2></div>
+      <div style="max-width:720px;">
+        <details class="faq-item"><summary>Результат определителя окончательный?</summary><p>Нет, это предварительная оценка. Точную форму испытаний подтверждает проектный менеджер после изучения технической документации на изделие.</p></details>
+        <details class="faq-item"><summary>Что если я не знаю класс риска изделия?</summary><p>Мы поможем определить класс риска на бесплатной консультации — это первый шаг в работе с любым новым проектом.</p></details>
       </div>
     </div>
   </section>
@@ -222,7 +296,7 @@ body.nav-open{overflow:hidden;}
     <div class="footer-grid">
       <div class="footer-col"><h3>Услуги</h3><ul>
         <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
-        <li><a href="/klinicheskie-issledovaniya-ls">КИ лекарств</a></li>
+        
         <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
         <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
       </ul></div>
@@ -250,14 +324,25 @@ body.nav-open{overflow:hidden;}
     </div>
   </div>
 </footer>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Определитель формы испытаний",
+  "name": "Определитель формы испытаний медицинского изделия",
   "applicationCategory": "BusinessApplication",
   "url": "https://probarium.ru/podbor-ispytaniy",
   "provider": {"@type": "MedicalOrganization", "name": "Probarium"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Результат определителя окончательный?", "acceptedAnswer": {"@type": "Answer", "text": "Нет, это предварительная оценка. Точную форму испытаний подтверждает проектный менеджер после изучения технической документации."}},
+    {"@type": "Question", "name": "Что если я не знаю класс риска изделия?", "acceptedAnswer": {"@type": "Answer", "text": "Мы поможем определить класс риска на бесплатной консультации."}}
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -270,6 +355,78 @@ body.nav-open{overflow:hidden;}
   ]
 }
 </script>
+
+<script>
+var state = {};
+var order = ['ivd','risk','analog'];
+var stepMap = {1:'ivd', 2:'risk', 3:'analog'};
+
+function showStep(n){
+  document.querySelectorAll('.wizard-step').forEach(function(el){ el.classList.remove('active'); });
+  var el = document.querySelector('.wizard-step[data-step="'+n+'"]');
+  if(el) el.classList.add('active');
+  ['pg1','pg2','pg3'].forEach(function(id, idx){
+    document.getElementById(id).classList.toggle('done', (idx+1) <= (typeof n === 'number' ? n : 3));
+  });
+}
+
+function answer(key, value){
+  state[key] = value;
+  if(key === 'ivd' && value === 'yes'){
+    showResult();
+    return;
+  }
+  if(key === 'ivd' && value === 'no'){ showStep(2); return; }
+  if(key === 'risk'){
+    if(value === '1'){ showResult(); return; }
+    if(value === '3'){ showResult(); return; }
+    showStep(3);
+    return;
+  }
+  if(key === 'analog'){ showResult(); return; }
+}
+
+function goBack(){
+  if(state.risk !== undefined && !state.analog){ showStep(1); state = {}; return; }
+  showStep(1); state = {};
+}
+
+function restart(){
+  state = {};
+  showStep(1);
+}
+
+function showResult(){
+  var title, text, cta;
+  if(state.ivd === 'yes'){
+    title = 'Клинико-лабораторные испытания ИВД';
+    text = 'Для диагностики in vitro подтверждают аналитическую и диагностическую чувствительность, специфичность и сходимость на выборке биоматериала.';
+    cta = '/klinicheskie-ispytaniya-medizdeliy/in-vitro';
+  } else if(state.risk === '1'){
+    title = 'Скорее всего — анализ клинических данных';
+    text = 'Для изделий класса 1 обычно достаточно клинической оценки на основании существующих данных и аналогов, без испытаний с участием человека.';
+    cta = '/klinicheskie-ispytaniya-medizdeliy/analiz-dannyh';
+  } else if(state.risk === '3'){
+    title = 'Испытание с участием человека';
+    text = 'Для изделий высокого класса риска (класс 3) испытание с участием человека требуется практически всегда.';
+    cta = '/klinicheskie-ispytaniya-medizdeliy/s-uchastiem-cheloveka';
+  } else if(state.analog === 'yes'){
+    title = 'Вероятно достаточно анализа клинических данных';
+    text = 'При наличии аналога с подтверждённой безопасностью и эффективностью для классов 2а/2б часто можно обойтись клинической оценкой без испытаний с участием человека — но это стоит подтвердить на консультации.';
+    cta = '/klinicheskie-ispytaniya-medizdeliy/analiz-dannyh';
+  } else {
+    title = 'Скорее всего — испытание с участием человека';
+    text = 'Без аналога с достаточными клиническими данными для классов 2а/2б обычно требуется испытание с участием человека.';
+    cta = '/klinicheskie-ispytaniya-medizdeliy/s-uchastiem-cheloveka';
+  }
+  document.getElementById('result-title').textContent = title;
+  document.getElementById('result-text').textContent = text;
+  document.getElementById('result-cta').setAttribute('href', cta);
+  showStep('result');
+}
+</script>
+
+
 <script>
 function toggleMobileNav(){
   var nav = document.getElementById('mobileNav');

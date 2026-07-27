@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://probarium.ru/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://probarium.ru/biblioteka</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://probarium.ru/blog</loc>
     <priority>0.8</priority>
   </url>
@@ -9,11 +17,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://probarium.ru/doklinicheskie-issledovaniya_lekarstvennye-sredstva</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://probarium.ru/doklinicheskie-issledovaniya_toksikologiya-medizdeliy</loc>
+    <loc>https://probarium.ru/doklinicheskie-issledovaniya/toksikologiya-medizdeliy</loc>
     <priority>0.6</priority>
   </url>
   <url>
@@ -33,10 +37,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://probarium.ru/</loc>
-    <priority>1.0</priority>
-  </url>
-  <url>
     <loc>https://probarium.ru/kalkulyator</loc>
     <priority>0.8</priority>
   </url>
@@ -53,39 +53,15 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://probarium.ru/klinicheskie-ispytaniya-medizdeliy_analiz-dannyh</loc>
+    <loc>https://probarium.ru/klinicheskie-ispytaniya-medizdeliy/analiz-dannyh</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://probarium.ru/klinicheskie-ispytaniya-medizdeliy_in-vitro</loc>
+    <loc>https://probarium.ru/klinicheskie-ispytaniya-medizdeliy/in-vitro</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://probarium.ru/klinicheskie-ispytaniya-medizdeliy_s-uchastiem-cheloveka</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://probarium.ru/klinicheskie-issledovaniya-ls</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://probarium.ru/klinicheskie-issledovaniya-ls_bioekvivalentnost</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://probarium.ru/klinicheskie-issledovaniya-ls_faza-1</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://probarium.ru/klinicheskie-issledovaniya-ls_faza-2</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://probarium.ru/klinicheskie-issledovaniya-ls_faza-3</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://probarium.ru/klinicheskie-issledovaniya-ls_faza-4</loc>
+    <loc>https://probarium.ru/klinicheskie-ispytaniya-medizdeliy/s-uchastiem-cheloveka</loc>
     <priority>0.6</priority>
   </url>
   <url>
@@ -113,14 +89,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://probarium.ru/podbor-ispytaniy/mi</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://probarium.ru/podbor-ispytaniy/ls</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://probarium.ru/razrabotka-dokumentatsii</loc>
     <priority>0.8</priority>
   </url>
@@ -137,11 +105,11 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://probarium.ru/tehnicheskie-ispytaniya-medizdeliy_ems</loc>
+    <loc>https://probarium.ru/tehnicheskie-ispytaniya-medizdeliy/ems</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://probarium.ru/tehnicheskie-ispytaniya-medizdeliy_validaciya-po</loc>
+    <loc>https://probarium.ru/tehnicheskie-ispytaniya-medizdeliy/validaciya-po</loc>
     <priority>0.6</priority>
   </url>
   <url>

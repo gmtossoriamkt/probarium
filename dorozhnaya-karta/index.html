@@ -172,18 +172,13 @@ body.nav-open{overflow:hidden;}
 
   <div class="container page-intro">
     <h1>Дорожная карта вывода продукции на рынок</h1>
-    <p class="lead">Путь от идеи до регистрационного удостоверения — с испытаниями, документами и сроками на каждом этапе. Переключите тип продукта, чтобы увидеть персонализированный маршрут, и кликните на этап, чтобы раскрыть подробности.</p>
+    <p class="lead">Путь от идеи до регистрационного удостоверения — с испытаниями, документами и сроками на каждом этапе. Кликните на этап, чтобы раскрыть подробности.</p>
   </div>
 
   <section aria-labelledby="stages-h2">
     <div class="container">
       <div class="section-head">
         <h2 id="stages-h2">Этапы вывода на рынок</h2>
-      </div>
-
-      <div class="persona-toggle">
-        <button class="persona-btn active" id="btn-mi" onclick="setPersona('mi')">Медицинское изделие</button>
-        <button class="persona-btn" id="btn-ls" onclick="setPersona('ls')">Лекарственное средство</button>
       </div>
 
       <div class="roadmap" id="roadmap"></div>
@@ -241,7 +236,7 @@ body.nav-open{overflow:hidden;}
     <div class="footer-grid">
       <div class="footer-col"><h3>Услуги</h3><ul>
         <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
-        <li><a href="/klinicheskie-issledovaniya-ls">КИ лекарств</a></li>
+        
         <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
         <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
       </ul></div>
@@ -316,26 +311,10 @@ var roadmaps = {
     {title:'Формирование досье', summary:'Сборка полного пакета документов для регистрации.', tests:'—', docs:'Регистрационное досье', term:'2-4 недели', link:'/razrabotka-dokumentatsii'},
     {title:'Подача и экспертиза', summary:'Подача в Росздравнадзор или по правилам ЕАЭС.', tests:'—', docs:'Регистрационное удостоверение', term:'по регламенту регулятора', link:'/registraciya-medizdeliy'},
   ],
-  ls: [
-    {title:'Доклиника (GLP)', summary:'Фармакология, фармакокинетика, токсичность перед фазой I.', tests:'Доклинические исследования по GLP', docs:'Отчёт доклиники', term:'от 3 месяцев', link:'/doklinicheskie-issledovaniya/lekarstvennye-sredstva'},
-    {title:'Разрешение на КИ', summary:'Получение разрешения Минздрава на клиническое исследование.', tests:'—', docs:'Досье на разрешение', term:'по регламенту Минздрава', link:'/klinicheskie-issledovaniya-ls'},
-    {title:'Фаза I-III', summary:'Последовательные фазы клинических исследований препарата.', tests:'Фазы I, II, III', docs:'Протокол, брошюра исследователя, CSR', term:'от 12 месяцев суммарно', link:'/klinicheskie-issledovaniya-ls'},
-    {title:'Формирование досье', summary:'Сборка полного пакета документов для регистрации.', tests:'—', docs:'Регистрационное досье', term:'4-8 недель', link:'/razrabotka-dokumentatsii'},
-    {title:'Подача и экспертиза', summary:'Подача на регистрацию в РФ или по правилам ЕАЭС.', tests:'—', docs:'Регистрационное удостоверение', term:'по регламенту регулятора', link:'/registraciya-medizdeliy'},
-    {title:'Фаза IV', summary:'Пострегистрационные и наблюдательные исследования.', tests:'Фаза IV, фармаконадзор', docs:'Отчёт по наблюдательному исследованию', term:'от 6 месяцев', link:'/klinicheskie-issledovaniya-ls/faza-4'},
-  ]
 };
 
 var currentPersona = 'mi';
 var openIndex = 0;
-
-function setPersona(p){
-  currentPersona = p;
-  document.getElementById('btn-mi').classList.toggle('active', p==='mi');
-  document.getElementById('btn-ls').classList.toggle('active', p==='ls');
-  openIndex = 0;
-  renderRoadmap();
-}
 
 function toggleStep(i){
   openIndex = (openIndex === i) ? -1 : i;
