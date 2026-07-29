@@ -5,128 +5,195 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Классификатор медицинских изделий — Probarium</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#12283F;
-    --ink-soft:#3B5670;
-    --steel:#3B6E8F;
-    --paper:#F7F8F6;
-    --paper-card:#FFFFFF;
-    --line:#DCE3E6;
+    --navy:#1B3A6B;
+    --navy-dark:#122A50;
+    --slate:#4A5568;
+    --slate-soft:#6B7A93;
+    --amber:#C9822E;
+    --amber-dark:#B06F22;
+    --bg:#F4F4FA;
+    --card:#FFFFFF;
+    --line:#E4E6F0;
     --r1:#3F7A5D;   /* класс 1 — низкий риск */
-    --r2a:#3B6E8F;  /* класс 2а */
-    --r2b:#C97A2B;  /* класс 2б */
+    --r2a:#1B3A6B;  /* класс 2а */
+    --r2b:#C9822E;  /* класс 2б */
     --r3:#B4453B;   /* класс 3 — высокий риск */
-    --serif: 'IBM Plex Serif', Georgia, serif;
-    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+    --display: 'Manrope', system-ui, sans-serif;
+    --sans: 'Inter', system-ui, sans-serif;
     --mono: 'IBM Plex Mono', ui-monospace, monospace;
   }
   *{box-sizing:border-box;}
   body{
-    margin:0; background:var(--paper); color:var(--ink);
-    font-family:var(--sans); line-height:1.5;
+    margin:0; background:var(--bg); color:var(--slate);
+    font-family:var(--sans); line-height:1.55;
   }
-  .wrap{max-width:760px; margin:0 auto; padding:28px 20px 80px;}
-
-  .masthead{
-    display:flex; align-items:baseline; justify-content:space-between;
-    border-bottom:2px solid var(--ink); padding-bottom:14px; margin-bottom:22px;
+  .site-header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px; background:#fff; border-bottom:1px solid var(--line);
   }
-  .masthead .brand{font-family:var(--serif); font-weight:600; font-size:21px; letter-spacing:.2px;}
-  .masthead .brand span{color:var(--steel);}
-  .masthead .tag{font-family:var(--mono); font-size:11px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.08em;}
+  .site-header .logo{display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:800; font-size:19px; color:var(--navy); text-decoration:none;}
+  .logo-mark{width:26px; height:26px; border-radius:8px;
+    background:linear-gradient(135deg, var(--navy), #3E6BB0); flex:0 0 auto;}
+  .site-nav{display:flex; gap:26px; align-items:center;}
+  .site-nav a{color:var(--slate); text-decoration:none; font-size:14.5px; font-weight:500;}
+  .site-nav a:hover{color:var(--navy);}
+  .cta-pill{
+    background:var(--amber); color:#fff; font-weight:700; font-size:14px;
+    padding:11px 22px; border-radius:999px; text-decoration:none; white-space:nowrap;
+  }
+  .cta-pill:hover{background:var(--amber-dark);}
+  .cta-ghost{
+    background:transparent; color:var(--navy); font-weight:700; font-size:14px;
+    padding:10px 20px; border-radius:999px; text-decoration:none; white-space:nowrap;
+    border:1.5px solid var(--navy);
+  }
+  .cta-ghost:hover{background:var(--navy); color:#fff;}
+  .breadcrumb{max-width:820px; margin:22px auto 0; padding:0 20px; font-size:13.5px; color:var(--slate-soft);}
+  .breadcrumb a{color:var(--navy); text-decoration:none;}
+  .back-home{font-weight:600; font-size:13.5px;}
+  .back-home:hover{text-decoration:underline;}
 
-  .rail{display:flex; gap:6px; margin-bottom:28px;}
-  .rail-step{flex:1; text-align:center; font-family:var(--mono); font-size:10.5px; letter-spacing:.04em;
-    text-transform:uppercase; color:#9AA7AD; padding-bottom:8px; border-bottom:3px solid var(--line); transition:.25s;}
-  .rail-step.active{color:var(--ink); border-bottom-color:var(--steel);}
-  .rail-step.done{color:var(--ink-soft); border-bottom-color:var(--r1);}
+  .wrap{max-width:820px; margin:0 auto; padding:18px 20px 90px;}
 
-  .card{background:var(--paper-card); border:1px solid var(--line); border-radius:3px; padding:26px 26px 24px;}
+  .masthead{margin-bottom:24px;}
+  .masthead .tag{font-family:var(--mono); font-size:11px; color:var(--slate-soft); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;}
+  .masthead h1{font-family:var(--display); font-weight:800; font-size:30px; color:var(--navy); margin:0 0 10px; letter-spacing:-.01em;}
+  .masthead .lede{font-size:15px; color:var(--slate-soft); max-width:640px;}
+
+  .rail{display:flex; gap:6px; margin-bottom:26px;}
+  .rail-step{flex:1; text-align:center; font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.01em;
+    color:#A6ACC0; padding-bottom:9px; border-bottom:3px solid var(--line); transition:.25s;}
+  .rail-step.active{color:var(--navy); border-bottom-color:var(--amber);}
+  .rail-step.done{color:var(--slate-soft); border-bottom-color:var(--r1);}
+
+  .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:30px 30px 26px; box-shadow:0 1px 3px rgba(27,58,107,.05);}
   .step{display:none;}
   .step.active{display:block; animation:fade .35s ease;}
   @keyframes fade{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);}}
 
-  h1.step-title{font-family:var(--serif); font-size:22px; font-weight:600; margin:0 0 6px;}
-  p.step-sub{color:var(--ink-soft); margin:0 0 20px; font-size:14.5px;}
+  h1.step-title{font-family:var(--display); font-size:22px; font-weight:800; margin:0 0 6px; color:var(--navy);}
+  p.step-sub{color:var(--slate-soft); margin:0 0 20px; font-size:14.5px;}
 
-  label{display:block; font-size:13px; font-weight:600; margin:16px 0 6px; color:var(--ink);}
+  label{display:block; font-size:13px; font-weight:600; margin:16px 0 6px; color:var(--navy);}
   label:first-of-type{margin-top:0;}
   input[type=text], input[type=email], input[type=tel], textarea, select{
-    width:100%; font-family:var(--sans); font-size:14.5px; padding:11px 12px;
-    border:1px solid var(--line); border-radius:2px; background:#fff; color:var(--ink);
+    width:100%; font-family:var(--sans); font-size:14.5px; padding:11px 14px;
+    border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--navy);
   }
-  input:focus, textarea:focus, select:focus{outline:2px solid var(--steel); outline-offset:1px; border-color:var(--steel);}
+  input:focus, textarea:focus, select:focus{outline:2px solid var(--amber); outline-offset:1px; border-color:var(--amber);}
   textarea{resize:vertical; min-height:70px;}
 
   .btn{
-    font-family:var(--sans); font-weight:600; font-size:14px; cursor:pointer;
-    border:1px solid var(--ink); background:var(--ink); color:#fff;
-    padding:11px 20px; border-radius:2px; transition:.15s;
+    font-family:var(--sans); font-weight:700; font-size:14px; cursor:pointer;
+    border:1px solid var(--navy); background:var(--navy); color:#fff;
+    padding:12px 22px; border-radius:999px; transition:.15s;
   }
-  .btn:hover{background:var(--ink-soft); border-color:var(--ink-soft);}
-  .btn.ghost{background:transparent; color:var(--ink); border-color:var(--line);}
-  .btn.ghost:hover{border-color:var(--ink);}
+  .btn:hover{background:var(--navy-dark); border-color:var(--navy-dark);}
+  .btn.ghost{background:transparent; color:var(--navy); border-color:var(--line);}
+  .btn.ghost:hover{border-color:var(--navy);}
+  .btn.accent{background:var(--amber); border-color:var(--amber);}
+  .btn.accent:hover{background:var(--amber-dark); border-color:var(--amber-dark);}
   .btn:disabled{opacity:.4; cursor:not-allowed;}
   .btn-row{display:flex; justify-content:space-between; margin-top:24px; gap:10px;}
 
   .results{margin-top:18px; display:flex; flex-direction:column; gap:10px; max-height:420px; overflow-y:auto;}
   .match{
-    border:1px solid var(--line); border-radius:2px; padding:13px 14px; cursor:pointer;
+    border:1px solid var(--line); border-radius:12px; padding:14px 16px; cursor:pointer;
     display:flex; justify-content:space-between; align-items:flex-start; gap:12px; transition:.15s;
     background:#fff;
   }
-  .match:hover{border-color:var(--steel); background:#F2F6F8;}
-  .match.picked{border-color:var(--steel); background:#EAF1F4; box-shadow: inset 0 0 0 1px var(--steel);}
-  .match-name{font-size:14px; font-weight:600; margin-bottom:3px;}
-  .match-sub{font-size:12px; color:var(--ink-soft);}
-  .match-code{font-family:var(--mono); font-size:12.5px; font-weight:600; color:var(--steel); white-space:nowrap; padding-top:1px;}
-  .no-match-hint{font-size:13px; color:var(--ink-soft); margin-top:14px;}
-  .link-btn{background:none; border:none; color:var(--steel); font-weight:600; cursor:pointer; padding:0; font-size:13px; text-decoration:underline;}
+  .match:hover{border-color:var(--navy); background:#F7F9FD;}
+  .match.picked{border-color:var(--navy); background:#EEF2FA; box-shadow: inset 0 0 0 1px var(--navy);}
+  .match-name{font-size:14px; font-weight:700; margin-bottom:3px; color:var(--navy);}
+  .match-sub{font-size:12px; color:var(--slate-soft);}
+  .match-code{font-family:var(--mono); font-size:12.5px; font-weight:600; color:var(--amber-dark); white-space:nowrap; padding-top:1px;}
+  .no-match-hint{font-size:13px; color:var(--slate-soft); margin-top:14px;}
+  .link-btn{background:none; border:none; color:var(--navy); font-weight:700; cursor:pointer; padding:0; font-size:13px; text-decoration:underline;}
 
-  .tag-label{display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:11.5px;
-    padding:4px 9px; border-radius:2px; font-weight:600; letter-spacing:.02em;}
-  .risk-block{border:1px solid var(--line); border-radius:2px; padding:18px; margin-top:6px; background:#fff;}
-  .risk-badge{font-family:var(--mono); font-size:26px; font-weight:600; padding:8px 14px; border-radius:2px; color:#fff; display:inline-block;}
+  .risk-block{border:1px solid var(--line); border-radius:14px; padding:20px; margin-top:6px; background:#fff;}
+  .risk-badge{font-family:var(--mono); font-size:26px; font-weight:700; padding:8px 16px; border-radius:10px; color:#fff; display:inline-block;}
   .risk-class-1{background:var(--r1);}
   .risk-class-2a{background:var(--r2a);}
   .risk-class-2b{background:var(--r2b);}
   .risk-class-3{background:var(--r3);}
-  .risk-desc{font-size:14px; margin-top:12px; color:var(--ink-soft);}
-  .disclaimer{font-size:12px; color:var(--ink-soft); border-left:3px solid var(--line); padding:8px 12px; margin-top:16px; background:var(--paper);}
+  .risk-desc{font-size:14px; margin-top:12px; color:var(--slate-soft);}
+  .risk-desc b{color:var(--navy);}
+  .disclaimer{font-size:12.5px; color:var(--slate-soft); border-left:3px solid var(--amber); padding:10px 14px; margin-top:16px; background:var(--bg); border-radius:0 8px 8px 0;}
 
   .choice-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:6px;}
-  .choice-card{border:1px solid var(--line); border-radius:2px; padding:18px; cursor:pointer; text-align:left; background:#fff; transition:.15s;}
-  .choice-card:hover{border-color:var(--steel);}
-  .choice-card.picked{border-color:var(--steel); background:#EAF1F4; box-shadow: inset 0 0 0 1px var(--steel);}
-  .choice-card .ch-title{font-weight:600; font-size:14.5px; margin-bottom:4px;}
-  .choice-card .ch-sub{font-size:12.5px; color:var(--ink-soft);}
+  .choice-card{border:1px solid var(--line); border-radius:14px; padding:18px; cursor:pointer; text-align:left; background:#fff; transition:.15s;}
+  .choice-card:hover{border-color:var(--navy);}
+  .choice-card.picked{border-color:var(--navy); background:#EEF2FA; box-shadow: inset 0 0 0 1px var(--navy);}
+  .choice-card .ch-title{font-weight:700; font-size:14.5px; margin-bottom:4px; color:var(--navy);}
+  .choice-card .ch-sub{font-size:12.5px; color:var(--slate-soft);}
 
-  .path-result{border:1px solid var(--line); border-radius:2px; padding:18px; margin-top:16px;}
-  .path-result .pr-tag{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--steel); font-weight:600;}
-  .path-result .pr-title{font-family:var(--serif); font-size:19px; font-weight:600; margin:6px 0 8px;}
-  .path-result .pr-body{font-size:14px; color:var(--ink-soft);}
+  .path-result{border:1px solid var(--line); border-radius:14px; padding:20px; margin-top:16px; background:#fff;}
+  .path-result .pr-tag{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--amber-dark); font-weight:700;}
+  .path-result .pr-title{font-family:var(--display); font-size:19px; font-weight:800; margin:6px 0 8px; color:var(--navy);}
+  .path-result .pr-body{font-size:14px; color:var(--slate-soft);}
 
-  .summary-box{border:1px solid var(--line); border-radius:2px; padding:16px; background:var(--paper); font-size:13px; margin-bottom:18px;}
-  .summary-box div{margin-bottom:5px;}
-  .summary-box b{color:var(--ink);}
+  .summary-box{border:1px solid var(--line); border-radius:14px; padding:18px; background:var(--bg); font-size:13.5px; margin-bottom:18px;}
+  .summary-box div{margin-bottom:6px;}
+  .summary-box b{color:var(--navy);}
 
   .success{text-align:center; padding:20px 0;}
   .success .mark{font-size:38px; margin-bottom:10px;}
-  .success h2{font-family:var(--serif); font-size:20px; margin:0 0 8px;}
-  .success p{color:var(--ink-soft); font-size:14px;}
+  .success h2{font-family:var(--display); font-size:20px; margin:0 0 8px; color:var(--navy);}
+  .success p{color:var(--slate-soft); font-size:14px;}
+
+  .site-footer{max-width:820px; margin:40px auto 0; padding:32px 20px 24px; border-top:1px solid var(--line); font-size:13px; color:var(--slate-soft);}
+  .footer-cols{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-bottom:24px;}
+  .footer-cols h4{font-family:var(--display); font-size:12.5px; font-weight:700; color:var(--navy); margin:0 0 10px; text-transform:uppercase; letter-spacing:.02em;}
+  .footer-cols a{display:block; color:var(--slate-soft); text-decoration:none; margin-bottom:7px; font-size:13px;}
+  .footer-cols a:hover{color:var(--navy);}
+  .footer-bottom{border-top:1px solid var(--line); padding-top:16px; font-size:12px; text-align:center;}
+  .footer-bottom a{color:var(--slate-soft);}
+  @media (max-width:640px){
+    .footer-cols{grid-template-columns:1fr 1fr;}
+  }
 
   ::-webkit-scrollbar{width:8px;}
   ::-webkit-scrollbar-thumb{background:var(--line); border-radius:4px;}
+
+  @media (max-width:640px){
+    .site-header{padding:14px 18px;}
+    .site-nav{display:none;}
+    .cta-ghost{padding:9px 14px; font-size:12.5px;}
+    .cta-pill{padding:9px 16px; font-size:12.5px;}
+    .choice-grid{grid-template-columns:1fr;}
+  }
 </style>
 </head>
 <body>
+
+<header class="site-header">
+  <a class="logo" href="https://probarium.ru/"><span class="logo-mark"></span>Probarium</a>
+  <nav class="site-nav">
+    <a href="https://probarium.ru/uslugi">Услуги</a>
+    <a href="https://probarium.ru/o-kompanii">О компании</a>
+    <a href="https://probarium.ru/npa">НПА</a>
+    <a href="https://probarium.ru/biblioteka/">Библиотека</a>
+    <a href="https://probarium.ru/blog">Блог</a>
+    <a href="https://probarium.ru/kontakty">Контакты</a>
+  </nav>
+  <div style="display:flex; gap:10px; align-items:center;">
+    <a class="cta-ghost" href="https://probarium.ru/klassifikator-mi">Классификатор МИ</a>
+    <a class="cta-pill" href="https://probarium.ru/kontakty">Оставить заявку</a>
+  </div>
+</header>
+
+<div class="breadcrumb"><a href="https://probarium.ru/">Главная</a> / <a href="https://probarium.ru/podbor-ispytaniy">Подбор формы испытаний</a> / Классификатор МИ</div>
+<div class="breadcrumb" style="margin-top:6px;"><a href="https://probarium.ru/" class="back-home">← Вернуться на главную</a></div>
+
 <div class="wrap">
 
   <div class="masthead">
-    <div class="brand">probarium<span>.classifier</span></div>
     <div class="tag">Номенклатурная классификация МИ · РФ</div>
+    <h1>Классификатор медицинских изделий</h1>
+    <p class="lede">Введите название изделия — подберём код вида, ориентировочный класс риска и форму испытаний. Результат ориентировочный, точный маршрут подтверждает проектный менеджер.</p>
   </div>
 
   <div class="rail" id="rail">
@@ -180,9 +247,9 @@
       <div class="risk-block" id="riskBlock"></div>
 
       <div class="disclaimer">
-        Это индикативная оценка для планирования, а не официальное решение. Итоговый класс риска устанавливается
-        экспертом Probarium в соответствии с Приказом Минздрава России №4н и подтверждается при подаче документов
-        на регистрацию.
+        Это индикативная оценка для планирования, а не официальное решение. Итоговый класс риска подтверждает
+        проектный менеджер Probarium в соответствии с Приказом Минздрава России от 13.05.2026 № 421н «О порядке
+        оценки соответствия медицинских изделий» и Постановлением Правительства № 1684 от 30.11.2024.
       </div>
 
       <div class="btn-row">
@@ -193,17 +260,17 @@
 
     <!-- STEP 3: analog / test path -->
     <div class="step" data-step="3">
-      <h1 class="step-title">Есть ли зарегистрированный аналог?</h1>
-      <p class="step-sub">Это определяет форму испытаний, необходимую для регистрации изделия.</p>
+      <h1 class="step-title" id="step3Title">Есть ли зарегистрированный аналог?</h1>
+      <p class="step-sub" id="step3Sub">Наличие аналога с клиническими данными влияет на форму испытаний.</p>
 
-      <div class="choice-grid">
+      <div class="choice-grid" id="analogChoices">
         <button class="choice-card" id="hasAnalogYes">
           <div class="ch-title">Да, аналог есть</div>
-          <div class="ch-sub">На рынке РФ уже зарегистрировано схожее изделие</div>
+          <div class="ch-sub">На рынке РФ зарегистрировано изделие с подтверждённой безопасностью и эффективностью</div>
         </button>
         <button class="choice-card" id="hasAnalogNo">
           <div class="ch-title">Нет, аналога нет</div>
-          <div class="ch-sub">Изделие новое либо аналог не зарегистрирован в РФ</div>
+          <div class="ch-sub">Изделие новое либо данных по аналогу недостаточно</div>
         </button>
       </div>
 
@@ -251,11 +318,50 @@
           <button class="btn ghost" id="copyApp">Скопировать данные заявки</button>
           <button class="btn" id="restart">Новая заявка</button>
         </div>
+        <p style="margin-top:16px;"><a href="https://probarium.ru/" class="back-home">← Вернуться на главную</a></p>
       </div>
     </div>
 
   </div>
 </div>
+
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div>
+      <h4>Услуги</h4>
+      <a href="https://probarium.ru/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a>
+      <a href="https://probarium.ru/doklinicheskie-issledovaniya">Доклиника и токсикология</a>
+      <a href="https://probarium.ru/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a>
+    </div>
+    <div>
+      <h4>Компания</h4>
+      <a href="https://probarium.ru/o-kompanii">О компании</a>
+      <a href="https://probarium.ru/komanda">Команда</a>
+      <a href="https://probarium.ru/licenzii-sertifikaty">Лицензии и сертификаты</a>
+      <a href="https://probarium.ru/kejsy">Кейсы</a>
+    </div>
+    <div>
+      <h4>Информация</h4>
+      <a href="https://probarium.ru/npa">НПА</a>
+      <a href="https://probarium.ru/biblioteka/">Библиотека</a>
+      <a href="https://probarium.ru/reestry">Реестры</a>
+      <a href="https://probarium.ru/glossariy">Глоссарий</a>
+      <a href="https://probarium.ru/blog">Блог</a>
+    </div>
+    <div>
+      <h4>Контакты</h4>
+      <a href="tel:+79853169104">+7 985 316-91-04</a>
+      <a href="mailto:info@probarium.ru">info@probarium.ru</a>
+      <a href="https://t.me/tandelovtat">Telegram</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Probarium, клиническое подразделение ГМТ ·
+    <a href="https://probarium.ru/privacy">Конфиденциальность</a> ·
+    <a href="https://probarium.ru/cookie">Cookie</a> ·
+    <a href="https://probarium.ru/terms">Соглашение</a>
+  </div>
+</footer>
 
 <script>
 /* ============ CONFIG ============ */
@@ -397,27 +503,66 @@ document.getElementById("toStep2").addEventListener("click", ()=>{
 });
 
 /* ============ STEP 2 -> 3 : TEST PATH ============ */
-document.getElementById("toStep3").addEventListener("click", ()=> goTo(3));
+function isIVD(item){
+  if(!item) return false;
+  const g = (item.s.match(/^(\d+)\./)||[])[1];
+  return g === "5";
+}
+
+document.getElementById("toStep3").addEventListener("click", ()=>{
+  goTo(3);
+  if(isIVD(state.picked)){
+    // Same rule as probarium.ru/podbor-ispytaniy: ИВД идёт по своей ветке независимо от класса риска и аналога
+    document.getElementById("step3Title").textContent = "Изделие для диагностики in vitro (ИВД)";
+    document.getElementById("step3Sub").textContent = "Для ИВД форма испытаний не зависит от класса риска и наличия аналога.";
+    document.getElementById("analogChoices").style.display = "none";
+    state.hasAnalog = null;
+    renderPath();
+    document.getElementById("toStep4").disabled = false;
+  } else {
+    document.getElementById("step3Title").textContent = "Есть ли зарегистрированный аналог?";
+    document.getElementById("step3Sub").textContent = "Наличие аналога с клиническими данными влияет на форму испытаний.";
+    document.getElementById("analogChoices").style.display = "grid";
+    document.getElementById("pathResult").style.display = "none";
+    document.getElementById("toStep4").disabled = true;
+  }
+});
+
+/* Точная логика по таблице /podbor-ispytaniy: тип изделия × класс риска × наличие аналога */
+function testPath(){
+  if(isIVD(state.picked)){
+    return {title:"Клинико-лабораторные испытания ИВД",
+      body:"Для диагностики in vitro форма испытаний не зависит от класса риска или аналога: требуется подтверждение аналитических характеристик на выборке биоматериала."};
+  }
+  const c = state.riskClass, has = state.hasAnalog;
+  if(c==="1") return {title:"Анализ клинических данных",
+    body:"Для класса 1 обычно достаточно анализа клинических данных без испытаний с участием человека."};
+  if(c==="2a"){
+    return has
+      ? {title:"Анализ клинических данных", body:"Аналог с подтверждёнными данными есть — как правило, достаточно анализа клинических данных."}
+      : {title:"Вероятно потребуется испытание с участием человека", body:"Аналога нет — нужна консультация проектного менеджера для подтверждения формы испытаний."};
+  }
+  if(c==="2b"){
+    return has
+      ? {title:"Возможен анализ данных", body:"Аналог есть, но для класса 2б чаще требуется испытание с участием человека — уточняется на консультации."}
+      : {title:"Испытание с участием человека", body:"Аналога нет — для класса 2б, как правило, требуется испытание с участием человека."};
+  }
+  return {title:"Испытание с участием человека",
+    body:"Для класса 3 испытание с участием человека требуется вне зависимости от наличия аналога."};
+}
+
+function renderPath(){
+  const p = testPath();
+  const box = document.getElementById("pathResult");
+  box.style.display = "block";
+  box.innerHTML = `<div class="pr-tag">Форма испытаний</div><div class="pr-title">${p.title}</div><div class="pr-body">${p.body}</div>`;
+}
 
 function setAnalog(has){
   state.hasAnalog = has;
   document.querySelectorAll(".choice-card").forEach(c=>c.classList.remove("picked"));
   (has ? document.getElementById("hasAnalogYes") : document.getElementById("hasAnalogNo")).classList.add("picked");
-  const box = document.getElementById("pathResult");
-  box.style.display = "block";
-  if(has){
-    box.innerHTML = `<div class="pr-tag">Форма испытаний</div>
-      <div class="pr-title">Анализ данных</div>
-      <div class="pr-body">Поскольку аналог уже зарегистрирован в РФ, потребуется сравнительный анализ данных
-      с изделием-аналогом, технические и токсикологические испытания. Клинические испытания с участием человека,
-      как правило, не требуются.</div>`;
-  } else {
-    box.innerHTML = `<div class="pr-tag">Форма испытаний</div>
-      <div class="pr-title">Клинические испытания с участием человека</div>
-      <div class="pr-body">Поскольку зарегистрированного аналога нет, для подтверждения безопасности
-      и эффективности потребуются клинические испытания с участием человека, в дополнение
-      к техническим и токсикологическим испытаниям.</div>`;
-  }
+  renderPath();
   document.getElementById("toStep4").disabled = false;
 }
 document.getElementById("hasAnalogYes").addEventListener("click", ()=>setAnalog(true));
@@ -429,7 +574,7 @@ document.getElementById("toStep4").addEventListener("click", ()=>{
   const purpose = document.getElementById("devPurpose").value.trim();
   const codeLine = state.picked ? `${state.picked.n} (код ${state.picked.c})` : "код не выбран — требуется уточнение специалистом";
   const riskInfo = RISK_LABELS[state.riskClass];
-  const pathLine = state.hasAnalog ? "Анализ данных (аналог есть)" : "Клинические испытания с участием человека (аналога нет)";
+  const pathLine = testPath().title;
   document.getElementById("summaryBox").innerHTML = `
     <div><b>Изделие:</b> ${name}</div>
     <div><b>Назначение:</b> ${purpose || "—"}</div>
@@ -446,7 +591,7 @@ function buildAppText(){
   const purpose = document.getElementById("devPurpose").value.trim();
   const codeLine = state.picked ? `${state.picked.n} (код ${state.picked.c})` : "не выбран, требуется уточнение";
   const riskInfo = RISK_LABELS[state.riskClass];
-  const pathLine = state.hasAnalog ? "Анализ данных (аналог есть)" : "Клинические испытания с участием человека (аналога нет)";
+  const pathLine = testPath().title;
   const cName = document.getElementById("contactName").value.trim();
   const cCompany = document.getElementById("contactCompany").value.trim();
   const cPhone = document.getElementById("contactPhone").value.trim();
@@ -493,6 +638,8 @@ document.getElementById("restart").addEventListener("click", ()=>{
   document.getElementById("contactEmail").value = "";
   state = { step:0, picked:null, riskClass:null, hasAnalog:null };
   document.getElementById("pathResult").style.display = "none";
+  document.getElementById("analogChoices").style.display = "grid";
+  document.querySelectorAll(".choice-card").forEach(c=>c.classList.remove("picked"));
   goTo(0);
 });
 
