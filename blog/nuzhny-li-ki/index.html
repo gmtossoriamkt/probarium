@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Нужны ли клинические испытания вашему медизделию: полный разбор 2026 | Probarium</title>
+<meta name="description" content="Когда клинические испытания медицинского изделия обязательны, а когда достаточно клинической оценки по литературным данным: класс риска, аналоги, участие человека — пошаговый алгоритм.">
+<link rel="canonical" href="https://probarium.ru/blog/nuzhny-li-ki">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Нужны ли клинические испытания вашему медизделию: полный разбор 2026 | Probarium">
+<meta property="og:description" content="Когда клинические испытания медицинского изделия обязательны, а когда достаточно клинической оценки по литературным данным: класс риска, аналоги, участие человека — пошаговый алгоритм.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://probarium.ru/blog/nuzhny-li-ki">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#123C6B;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#BA7517;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Manrope',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.article-body table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:14px;}
+.article-body table th{background:var(--blue-deep);color:#fff;font-weight:600;padding:10px 14px;text-align:left;}
+.article-body table td{padding:10px 14px;border-bottom:1px solid var(--border);}
+.article-body table tr:last-child td{border-bottom:none;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110814948', 'ym');
+    ym(110814948, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110814948" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "name": "Ключевые термины: клинические испытания медицинских изделий",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "Класс потенциального риска медицинского изделия",
+      "description": "Категория медицинского изделия (1, 2а, 2б или 3) по номенклатурной классификации приказа Минздрава России № 4н от 06.06.2012, определяющая объём требований к клиническим данным и обязательность инспектирования производства при регистрации.",
+      "inDefinedTermSet": "https://probarium.ru/blog/nuzhny-li-ki"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Клиническая оценка медицинского изделия",
+      "description": "Непрерывный процесс анализа клинических данных изделия или его аналогов на протяжении всего жизненного цикла изделия, регулируемый ГОСТ Р 56429-2015, направленный на подтверждение безопасности и функциональных характеристик.",
+      "inDefinedTermSet": "https://probarium.ru/blog/nuzhny-li-ki"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Клиническое испытание с участием человека",
+      "description": "Форма клинических испытаний медицинского изделия, проводимая по правилам ГОСТ Р ИСО 14155-2022, применяемая когда литературных данных недостаточно для подтверждения заявлений производителя.",
+      "inDefinedTermSet": "https://probarium.ru/blog/nuzhny-li-ki"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#123C6B" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#123C6B" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#BA7517"/><circle cx="21" cy="34" r="3.4" fill="#BA7517"/><circle cx="21" cy="42" r="3.4" fill="#BA7517"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog">Блог</a> / <span aria-current="page">Нужны ли КИ вашему медизделию</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>11 мин чтения</span><span>6 августа 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Нужны ли клинические испытания вашему медизделию: полный разбор 2026</h1>
+    <p class="lead">Один из самых частых вопросов производителя на старте регистрации — обязательны ли клинические испытания именно для его изделия, или можно обойтись клинической оценкой по литературным данным. Разбираем, от чего это зависит и как определить это самостоятельно, прежде чем тратить месяцы на неверную стратегию.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <h2>Короткий ответ</h2>
+      <p>Клинические испытания обязательны не для всех медицинских изделий. Требование зависит от класса потенциального риска (в России их четыре — 1, 2а, 2б и 3), наличия зарегистрированных аналогов с достаточной доказательной базой и полноты литературных данных о безопасности и функциональных характеристиках изделия. Клинические испытания медицинского изделия проводятся в форме анализа и оценки уже существующих клинических данных <strong>либо</strong> в форме испытаний с участием человека — это два разных пути одного и того же требования, а не «испытания или ничего». Для изделий 1 класса риска, программного обеспечения, являющегося медицинским изделием, и ряда изделий для диагностики in vitro действует особый порядок, при котором отдельное разрешение на клинические испытания может не потребоваться вовсе.</p>
+
+      <h2>Из чего состоит требование клинических испытаний</h2>
+      <p>Государственная регистрация медицинских изделий проводится на основании технических испытаний, токсикологических исследований и клинических испытаний с учётом классификации изделия по потенциальному риску применения — согласно <a href="http://publication.pravo.gov.ru/document/0001202411300042" target="_blank" rel="noopener" style="color:var(--blue-sky);text-decoration:underline;">Правилам государственной регистрации медицинских изделий</a> (постановление Правительства РФ № 1684 от 30.11.2024, действует с 1 марта 2025 года — заменило собой прежнее постановление № 1416 от 27.12.2012). Клинические испытания при этом — не обязательно исследование с участием человека: они могут проводиться в форме анализа и оценки клинических данных, собранных ранее по изделию или его аналогам, если этих данных достаточно для подтверждения заявлений производителя о безопасности и функциональных характеристиках. Общий порядок и формы клинических испытаний разъясняются на <a href="https://roszdravnadzor.gov.ru/medproducts/clinical" target="_blank" rel="noopener" style="color:var(--blue-sky);text-decoration:underline;">официальной странице Росздравнадзора</a>.</p>
+      <p>Требования к тому, когда литературных данных достаточно, а когда нужно планировать испытание с участием человека, устанавливает <a href="https://allgosts.ru/03/120/gost_r_56429-2015" target="_blank" rel="noopener" style="color:var(--blue-sky);text-decoration:underline;">ГОСТ Р 56429-2015 «Изделия медицинские. Клиническая оценка»</a>: если литературных данных недостаточно для подтверждения или опровержения одного или нескольких заявлений изготовителя, должны быть спланированы и проведены клинические исследования с участием человека — по правилам <a href="https://allgosts.ru/11/100/gost_r_iso_14155-2022" target="_blank" rel="noopener" style="color:var(--blue-sky);text-decoration:underline;">ГОСТ Р ИСО 14155-2022</a>.</p>
+
+      <h2>От чего зависит, нужны ли именно вам испытания с участием человека</h2>
+      <ul>
+        <li><strong>Класс потенциального риска изделия</strong> — определяется по номенклатурной классификации приказа Минздрава России № 4н от 06.06.2012: чем выше класс, тем выше вероятность, что литературных данных будет недостаточно.</li>
+        <li><strong>Наличие зарегистрированного аналога</strong> с уже подтверждённой в РФ доказательной базой безопасности и эффективности — снижает нагрузку на клиническую оценку нового изделия.</li>
+        <li><strong>Полнота и качество опубликованных данных</strong> — научных статей, отчётов о ранее проведённых испытаниях, соответствующих по дизайну требованиям ГОСТ Р ИСО 14155, с присвоенным ISSN или ISBN.</li>
+        <li><strong>Тип изделия</strong> — обычное медицинское изделие, изделие для диагностики in vitro или программное обеспечение как медизделие подчиняются разному порядку допуска к клиническим испытаниям.</li>
+      </ul>
+
+      <h2>Класс риска и типовой путь клинических данных</h2>
+      <p>Таблица показывает общую логику, а не жёсткую формулу — итоговое решение по каждому конкретному изделию принимает Росздравнадзор на этапе экспертизы документов.</p>
+      <table>
+        <tr><th>Класс риска</th><th>Типовая форма клинических данных</th><th>Инспектирование производства</th></tr>
+        <tr><td>1 — низкая степень риска</td><td>Как правило, анализ литературных данных без испытаний с участием человека</td><td>Не требуется</td></tr>
+        <tr><td>2а — средняя степень риска</td><td>Анализ данных; испытание с участием человека — если данных недостаточно</td><td>Требуется для стерильных изделий</td></tr>
+        <tr><td>2б — повышенная степень риска</td><td>Испытание с участием человека требуется чаще, особенно без зарегистрированных аналогов</td><td>Обязательно</td></tr>
+        <tr><td>3 — высокая степень риска</td><td>Испытание с участием человека — как правило, обязательно</td><td>Обязательно</td></tr>
+      </table>
+
+      <h2>Когда можно обойтись без испытания с участием человека</h2>
+      <p>Клиническая оценка без испытания с участием человека возможна, когда совокупность литературных данных — по самому изделию или по его прямым аналогам — покрывает все заявления производителя о безопасности и функциональных характеристиках. На практике это реалистичный сценарий для изделий низкого и части изделий среднего класса риска, особенно если на рынке уже зарегистрирован достаточно близкий аналог с опубликованными результатами испытаний, соответствующих ГОСТ Р ИСО 14155.</p>
+      <p>Клиническая оценка при этом не разовое действие «прошли — забыли»: согласно ГОСТ Р 56429-2015, это непрерывный процесс на протяжении всего жизненного цикла изделия — данные необходимо пересматривать по мере накопления новой информации о безопасности, в том числе после выхода изделия на рынок.</p>
+
+      <h2>Когда испытание с участием человека обязательно</h2>
+      <ul>
+        <li>Изделие не имеет зарегистрированного аналога с достаточной доказательной базой;</li>
+        <li>Опубликованных литературных данных недостаточно для подтверждения заявленных характеристик;</li>
+        <li>Изделие относится к классу повышенного или высокого риска (2б, 3);</li>
+        <li>Изделие использует принципиально новый механизм действия или технологию, для которой отсутствует релевантная литература.</li>
+      </ul>
+
+      <h2>Пошаговый алгоритм для производителя</h2>
+      <ol>
+        <li><strong>Определить класс потенциального риска изделия</strong> по номенклатурной классификации приказа Минздрава № 4н.</li>
+        <li><strong>Проверить реестр Росздравнадзора на наличие зарегистрированных аналогов</strong> с подходящей доказательной базой.</li>
+        <li><strong>Провести предварительный литературный поиск</strong> по изделию и аналогам — собрать публикации с ISSN/ISBN, соответствующие по дизайну ГОСТ Р ИСО 14155.</li>
+        <li><strong>Оценить достаточность собранных данных</strong> для подтверждения каждого заявления о безопасности и функциональных характеристиках.</li>
+        <li><strong>Если данных достаточно</strong> — готовить план клинической оценки без испытания с участием человека и досье для подачи.</li>
+        <li><strong>Если данных недостаточно</strong> — планировать испытание с участием человека по ГОСТ Р ИСО 14155-2022 и подавать заявление на разрешение регистрирующему органу.</li>
+      </ol>
+
+      <h2>Типичный сценарий (обобщённо, без привязки к конкретному проекту)</h2>
+      <p>Производитель разрабатывает медицинское изделие 2а класса риска — модификацию уже существующей на рынке категории с несколькими зарегистрированными аналогами. На этапе подготовки досье собирается пул из полутора десятков публикаций по аналогичным изделиям, но часть заявлений производителя о специфических функциональных характеристиках новой модификации в этих данных не покрывается. По итогам анализа принимается решение: провести ограниченное испытание с участием человека только по тем характеристикам, где литературных данных недостаточно, оставив остальную часть досье на клинической оценке по существующим публикациям.</p>
+      <p class="lead-note">Это собирательный сценарий, иллюстрирующий логику процесса, а не описание конкретного реального проекта.</p>
+
+      <h2>Частые вопросы</h2>
+      <details class="faq-item"><summary>Можно ли заранее узнать у Росздравнадзора, нужны ли испытания с участием человека?</summary><p>Окончательное решение принимается на I этапе экспертизы регистрационных документов, но предварительную оценку по классу риска, аналогам и полноте литературных данных производитель может и должен провести самостоятельно ещё до подачи заявления.</p></details>
+      <details class="faq-item"><summary>Что если у моего изделия нет зарегистрированных аналогов?</summary><p>Отсутствие аналогов существенно повышает вероятность, что потребуется испытание с участием человека — литературных данных по принципиально новому изделию, как правило, недостаточно для полноценной клинической оценки.</p></details>
+      <details class="faq-item"><summary>Может ли клиническая оценка по литературе полностью заменить испытание с участием человека?</summary><p>Да, если совокупность данных покрывает все заявления производителя о безопасности и характеристиках изделия — это прямо предусмотрено ГОСТ Р 56429-2015 как равноправная форма клинических испытаний, а не исключение из правил.</p></details>
+      <details class="faq-item"><summary>Как класс риска влияет на срок регистрации?</summary><p>Помимо вероятности проведения испытания с участием человека, класс риска определяет обязательность инспектирования производства — для классов 2б, 3 и стерильных изделий 2а инспектирование обязательно, что увеличивает общий срок регистрации.</p></details>
+      <details class="faq-item"><summary>Нужно ли повторно подтверждать клиническую оценку после регистрации?</summary><p>Да — клиническая оценка является непрерывным процессом на протяжении всего жизненного цикла изделия, данные необходимо пересматривать по мере накопления новой информации о безопасности и после выхода изделия на рынок.</p></details>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Смежные разделы</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/klinicheskie-ispytaniya-medizdeliy">Клинические испытания МИ</a>
+        <a class="related-card" href="/razrabotka-dokumentatsii">Разработка протокола и досье</a>
+        <a class="related-card" href="/blog/priostanovili-ki">Приостановили КИ: что делать</a>
+        <a class="related-card" href="/blog/otchet-zavernuli">Отчёт о КИ завернули</a>
+        <a class="related-card" href="/blog">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Определить стратегию испытаний</h2>
+          <p>Probarium поможет определить класс риска изделия, оценить достаточность литературных данных и выбрать между клинической оценкой и испытанием с участием человека — до подачи документов на регистрацию.</p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/nuzhny-li-ki)">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и классе риска"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ)</span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li><a href="https://t.me/tandelovtat" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener">MAX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Нужны ли клинические испытания вашему медизделию: полный разбор 2026",
+  "description": "Когда клинические испытания медицинского изделия обязательны, а когда достаточно клинической оценки по литературным данным: класс риска, аналоги, участие человека — пошаговый алгоритм.",
+  "author": {"@type": "Person", "name": "Артемий-Татуш Танделов", "jobTitle": "Генеральный директор Probarium", "url": "https://t.me/tandelovtat"},
+  "publisher": {"@type": "Organization", "name": "Probarium"},
+  "mainEntityOfPage": "https://probarium.ru/blog/nuzhny-li-ki",
+  "datePublished": "2026-08-06",
+  "dateModified": "2026-08-06"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://probarium.ru/blog"},
+    {"@type": "ListItem", "position": 3, "name": "Нужны ли КИ вашему медизделию", "item": "https://probarium.ru/blog/nuzhny-li-ki"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Можно ли заранее узнать у Росздравнадзора, нужны ли испытания с участием человека?", "acceptedAnswer": {"@type": "Answer", "text": "Окончательное решение принимается на I этапе экспертизы регистрационных документов, но предварительную оценку по классу риска, аналогам и полноте литературных данных производитель может и должен провести самостоятельно ещё до подачи заявления."}},
+    {"@type": "Question", "name": "Что если у моего изделия нет зарегистрированных аналогов?", "acceptedAnswer": {"@type": "Answer", "text": "Отсутствие аналогов существенно повышает вероятность, что потребуется испытание с участием человека — литературных данных по принципиально новому изделию, как правило, недостаточно для полноценной клинической оценки."}},
+    {"@type": "Question", "name": "Может ли клиническая оценка по литературе полностью заменить испытание с участием человека?", "acceptedAnswer": {"@type": "Answer", "text": "Да, если совокупность данных покрывает все заявления производителя о безопасности и характеристиках изделия — это прямо предусмотрено ГОСТ Р 56429-2015 как равноправная форма клинических испытаний, а не исключение из правил."}},
+    {"@type": "Question", "name": "Как класс риска влияет на срок регистрации?", "acceptedAnswer": {"@type": "Answer", "text": "Помимо вероятности проведения испытания с участием человека, класс риска определяет обязательность инспектирования производства — для классов 2б, 3 и стерильных изделий 2а инспектирование обязательно, что увеличивает общий срок регистрации."}},
+    {"@type": "Question", "name": "Нужно ли повторно подтверждать клиническую оценку после регистрации?", "acceptedAnswer": {"@type": "Answer", "text": "Да — клиническая оценка является непрерывным процессом на протяжении всего жизненного цикла изделия, данные необходимо пересматривать по мере накопления новой информации о безопасности и после выхода изделия на рынок."}}
+  ]
+}
+</script>
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+</body>
+</html>
