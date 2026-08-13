@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Клиническая оценка или клинические испытания: чем отличаются и что дешевле | Probarium</title>
+<meta name="description" content="Клиническая оценка по литературным данным и клиническое испытание с участием человека — два пути одного требования по ПП 1684. Разбираем разницу в подходе, сроках и из чего складывается стоимость каждого варианта.">
+<link rel="canonical" href="https://probarium.ru/blog/klinicheskaya-ocenka-ili-ki">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Клиническая оценка или клинические испытания: чем отличаются и что дешевле | Probarium">
+<meta property="og:description" content="Два пути подтверждения клинических данных медизделия: чем отличаются по подходу, срокам и из чего складывается стоимость каждого.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://probarium.ru/blog/klinicheskaya-ocenka-ili-ki">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#123C6B;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#BA7517;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Manrope',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.article-body table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:14px;}
+.article-body table th{background:var(--blue-deep);color:#fff;font-weight:600;padding:10px 14px;text-align:left;}
+.article-body table td{padding:10px 14px;border-bottom:1px solid var(--border);}
+.article-body table tr:last-child td{border-bottom:none;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110814948', 'ym');
+    ym(110814948, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110814948" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#123C6B" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#123C6B" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#BA7517"/><circle cx="21" cy="34" r="3.4" fill="#BA7517"/><circle cx="21" cy="42" r="3.4" fill="#BA7517"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog">Блог</a> / <span aria-current="page">Клиническая оценка или клинические испытания</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>8 мин чтения</span><span>13 августа 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Клиническая оценка или клинические испытания: чем отличаются и что дешевле</h1>
+    <p class="lead">Производитель, у которого есть выбор между клинической оценкой по литературным данным и полноценным клиническим испытанием с участием человека, чаще всего в первую очередь спрашивает: что дешевле и быстрее. Разбираем, из чего на самом деле складывается разница между этими двумя путями.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <h2>Короткий ответ</h2>
+      <p>В зависимости от характеристик медицинского изделия и имеющихся клинических данных, подтверждение его безопасности и эффективности может потребовать анализа и оценки клинических данных (далее для краткости — клиническая оценка) либо проведения клинических испытаний с участием человека. Порядок проведения таких испытаний устанавливает приказ Минздрава России № 885н, а общие правила регистрации — постановление Правительства РФ № 1684. Случаи, когда испытания с участием человека необходимы, определены действующим порядком — в частности, если ранее проведённый анализ и оценка клинических данных не подтвердили эффективность и безопасность изделия. Клиническая оценка почти всегда обходится дешевле и занимает меньше времени именно потому, что не включает затраты на медицинскую организацию, набор участников и мониторинг — но она доступна только тогда, когда опубликованных данных достаточно для подтверждения всех заявлений производителя. Недостаточно обоснованная клиническая оценка может привести к отрицательному результату экспертизы или необходимости получения дополнительных клинических данных — и тогда совокупные затраты времени и денег на «сначала неудачная клиническая оценка, потом испытание» могут оказаться выше, чем если бы решение было принято сразу и обоснованно.</p>
+
+      <h2>В чём разница по существу</h2>
+      <p>Подробно о том, когда каждый из путей вообще применим — от чего зависит выбор и какие критерии использует экспертиза — мы разбирали в статье <a href="/blog/nuzhny-li-ki" style="color:var(--blue-sky);text-decoration:underline;">«Нужны ли клинические испытания вашему медизделию»</a>. Здесь сосредоточимся именно на практической стороне выбора — из чего складывается стоимость и время каждого варианта.</p>
+      <table>
+        <tr><th>Параметр</th><th>Клиническая оценка</th><th>Испытание с участием человека</th></tr>
+        <tr><td>Источник данных</td><td>Опубликованная литература по изделию и аналогам</td><td>Собственное исследование по протоколу</td></tr>
+        <tr><td>Медицинская организация</td><td>Не требуется</td><td>Требуется организация, соответствующая установленным требованиям (ПП №1684)</td></tr>
+        <tr><td>Участники-пациенты</td><td>Не требуются</td><td>Набор участников и информированное согласие; возможны дополнительные расходы, связанные с участием субъектов</td></tr>
+        <tr><td>Совет по этике</td><td>Как правило, не требуется</td><td>Требуется заключение об этической обоснованности проведения КИ</td></tr>
+        <tr><td>Ориентировочный практический срок</td><td>От недель до пары месяцев на анализ и оформление</td><td>От нескольких месяцев до года и более, в зависимости от дизайна</td></tr>
+      </table>
+      <p style="font-size:13px;color:var(--gray-text);font-style:italic;">Сроки в таблице приведены ориентировочно, по практике проектов, и не являются установленными законодательством сроками проведения работ.</p>
+
+      <h2>Из чего складывается стоимость клинической оценки</h2>
+      <p>Затраты на клиническую оценку сосредоточены прежде всего на аналитической работе: поиске и отборе релевантных клинических данных, оценке их качества и применимости к конкретному медицинскому изделию, анализе достаточности доказательств его безопасности и эффективности и оформлении результатов оценки. Основная статья расходов — время специалистов, а не внешние организационные затраты: не нужно оплачивать работу медицинской организации, расходы, связанные с участниками, страхование исследования или услуги мониторинга.</p>
+
+      <h2>Из чего складывается стоимость испытания с участием человека</h2>
+      <p>Здесь структура затрат принципиально другая и заметно шире. Часть статей связана с самим регуляторным сценарием, часть — зависит от конкретного дизайна исследования:</p>
+      <ul>
+        <li><strong>Разработка протокола</strong> по ГОСТ Р ИСО 14155-2022, включая обоснование объёма выборки и статистический план — обязательный элемент проектирования исследования;</li>
+        <li><strong>Услуги медицинской организации</strong>, соответствующей требованиям ПП №1684 — аренда времени персонала, оборудования, помещений;</li>
+        <li><strong>Набор и ведение участников</strong> — скрининг, информированное согласие; конкретные дополнительные расходы, связанные с участием субъектов, зависят от дизайна исследования;</li>
+        <li><strong>Заключение об этической обоснованности</strong> проведения КИ, выдаваемое Советом по этике Минздрава России — обязательный элемент для КИ с участием человека;</li>
+        <li><strong>Мониторинг исследования</strong> — регулярные визиты для проверки качества данных и соблюдения протокола;</li>
+        <li><strong>Биостатистика</strong> — анализ собранных данных и подготовка итогового отчёта;</li>
+        <li><strong>Страхование</strong> жизни и здоровья участников исследования, если применимо к конкретному исследованию.</li>
+      </ul>
+      <p>Совокупность этих статей обычно делает испытание с участием человека заметно дороже клинической оценки — не за счёт одной крупной статьи расходов, а за счёт того, что появляется сразу несколько параллельных направлений затрат, которых при клинической оценке просто нет.</p>
+
+      <h2>Когда экономия на клинической оценке оборачивается потерями</h2>
+      <p>Соблазн выбрать более дешёвый путь есть всегда, но клиническая оценка не становится дешевле от того, что производитель решил, что литературных данных «наверное достаточно», не проверив это по существу. Если экспертиза сочтёт клиническую оценку необоснованной, результат — отрицательный результат экспертизы или необходимость получения дополнительных клинических данных, а значит и планирования испытания с участием человека всё равно, но уже после потерянного времени на неудачную попытку и с более сжатыми сроками до следующих контрактных обязательств. Экономия эта может оказаться мнимой: совокупные затраты времени и денег на «сначала неудачная клиническая оценка, потом испытание» могут оказаться выше, чем если бы решение о необходимости испытания было принято сразу и обоснованно.</p>
+
+      <h2>Как выбрать путь осознанно</h2>
+      <ol>
+        <li><strong>Проведите предварительный литературный поиск</strong> ещё до принятия решения — сколько релевантных публикаций реально есть по изделию и аналогам.</li>
+        <li><strong>Сопоставьте найденные данные с каждым заявлением</strong> о безопасности и функциональных характеристиках, которое вы планируете декларировать — не с изделием в целом.</li>
+        <li><strong>Оцените честно, а не оптимистично</strong>, покрывает ли найденное каждое заявление, или в некоторых пунктах данных явно недостаточно.</li>
+        <li><strong>Если анализ выявил конкретные пробелы в данных</strong>, при разработке программы клинического испытания определите, какие именно клинические вопросы требуют получения новых данных — объём и дизайн исследования должны быть обоснованы целями исследования, характеристиками изделия и применимыми регуляторными требованиями, а не произвольно сокращены до «одного пункта».</li>
+        <li><strong>Закладывайте решение в общий план регистрации заранее</strong> — а не как запасной вариант на случай отказа экспертизы.</li>
+      </ol>
+
+      <h2>Типичный сценарий (обобщённо, без привязки к конкретному проекту)</h2>
+      <p>Производитель модификации уже существующей на рынке категории медизделия рассчитывает пройти регистрацию на основании клинической оценки, поскольку у категории есть несколько зарегистрированных аналогов. Предварительный литературный поиск показывает: большинство заявленных характеристик действительно подтверждается публикациями по аналогам, но одна специфическая функция новой модификации в найденной литературе не описана. Вместо того чтобы игнорировать этот пробел, производитель совместно со специалистами по биостатистике и дизайну исследований прорабатывает, требуется ли для подтверждения именно этой функции отдельное клиническое испытание, и какой объём и дизайн будут для этого научно обоснованы — это позволяет спланировать реалистичный бюджет заранее, а не столкнуться с отказом экспертизы по формальному пробелу в данных уже после подачи документов.</p>
+      <p class="lead-note">Это собирательный сценарий, иллюстрирующий логику выбора, а не описание конкретного реального проекта.</p>
+
+      <h2>Частые вопросы</h2>
+      <details class="faq-item"><summary>Можно ли начать с клинической оценки, а потом доделать испытание, если данных не хватит?</summary><p>Да, и это распространённая практика — предварительный литературный анализ до подачи документов позволяет заранее увидеть пробелы. Дальше объём и дизайн необходимого испытания должны быть научно обоснованы, а не сведены к формальной «доработке одного пункта».</p></details>
+      <details class="faq-item"><summary>Можно ли сэкономить, сократив объём испытания с участием человека?</summary><p>Объём и дизайн испытания определяется обоснованным расчётом выборки и требованиями протокола по ГОСТ Р ИСО 14155-2022 — искусственное занижение объёма без методологического обоснования повышает риск отрицательного заключения экспертизы, а не экономит затраты в итоге.</p></details>
+      <details class="faq-item"><summary>Что дольше — само испытание или последующая обработка данных?</summary><p>Зависит от дизайна: для длительных наблюдательных протоколов основное время уходит на сбор данных, а для испытаний с интенсивным визитным графиком — заметную долю времени может занимать и последующий статистический анализ и подготовка отчёта.</p></details>
+      <details class="faq-item"><summary>Всегда ли клиническая оценка дешевле испытания с участием человека?</summary><p>Как правило да, но не абсолютно — если для клинической оценки требуется большой объём аналитической работы по множеству публикаций и языков, а изделие относится к простой, хорошо изученной категории, разрыв в затратах может быть не таким значительным, как для сложных или новых категорий изделий.</p></details>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Смежные разделы</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/nuzhny-li-ki">Нужны ли КИ вашему медизделию</a>
+        <a class="related-card" href="/blog/otkazali-v-razreshenii">Отказали в разрешении на КИ</a>
+        <a class="related-card" href="/klinicheskie-ispytaniya-medizdeliy">Клинические испытания МИ</a>
+        <a class="related-card" href="/glossariy">Глоссарий терминов</a>
+        <a class="related-card" href="/blog">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Не уверены, какой путь дешевле в вашем случае?</h2>
+          <p>Probarium проведёт предварительный литературный поиск по вашему изделию и аналогам, честно оценит, достаточно ли данных для клинической оценки, и посчитает реалистичный план с учётом обоих сценариев.</p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/klinicheskaya-ocenka-ili-ki)">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и вопросе"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ)</span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li><a href="https://t.me/tandelovtat" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener">MAX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Клиническая оценка или клинические испытания: чем отличаются и что дешевле",
+  "description": "Порядок проведения клинических испытаний (приказ Минздрава №885н) и Правила регистрации (ПП №1684) определяют, когда достаточно анализа клинических данных, а когда требуется испытание с участием человека. Разбираем разницу в подходе, сроках и из чего складывается стоимость каждого варианта.",
+  "author": {"@type": "Person", "name": "Артемий-Татуш Танделов", "jobTitle": "Генеральный директор Probarium", "url": "https://t.me/tandelovtat"},
+  "publisher": {"@type": "Organization", "name": "Probarium"},
+  "mainEntityOfPage": "https://probarium.ru/blog/klinicheskaya-ocenka-ili-ki",
+  "datePublished": "2026-08-13",
+  "dateModified": "2026-08-13"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://probarium.ru/blog"},
+    {"@type": "ListItem", "position": 3, "name": "Клиническая оценка или клинические испытания", "item": "https://probarium.ru/blog/klinicheskaya-ocenka-ili-ki"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Можно ли начать с клинической оценки, а потом доделать испытание, если данных не хватит?", "acceptedAnswer": {"@type": "Answer", "text": "Да, и это распространённая практика — предварительный литературный анализ до подачи документов позволяет заранее увидеть пробелы. Объём и дизайн необходимого испытания должны быть научно обоснованы, а не сведены к формальной доработке одного пункта."}},
+    {"@type": "Question", "name": "Можно ли сэкономить, сократив объём испытания с участием человека?", "acceptedAnswer": {"@type": "Answer", "text": "Объём и дизайн испытания определяется обоснованным расчётом выборки по ГОСТ Р ИСО 14155-2022 — искусственное занижение объёма повышает риск отрицательного заключения экспертизы, а не экономит затраты."}},
+    {"@type": "Question", "name": "Что дольше — само испытание или последующая обработка данных?", "acceptedAnswer": {"@type": "Answer", "text": "Зависит от дизайна: для длительных наблюдательных протоколов основное время уходит на сбор данных, для испытаний с интенсивным визитным графиком — заметную долю может занимать статистический анализ и отчёт."}},
+    {"@type": "Question", "name": "Всегда ли клиническая оценка дешевле испытания с участием человека?", "acceptedAnswer": {"@type": "Answer", "text": "Как правило да, но не абсолютно — при большом объёме аналитической работы по множеству публикаций для простой, хорошо изученной категории изделий разрыв в затратах может быть не таким значительным."}}
+  ]
+}
+</script>
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+</body>
+</html>
