@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>КИ по классам риска: 1, 2а, 2б, 3 — что реально требуют | Probarium</title>
+<meta name="description" content="Требования к клиническим испытаниям медизделия по каждому классу потенциального риска — 1, 2а, 2б, 3. FAQ-разбор: когда нужно испытание с участием человека, когда обязательно инспектирование производства.">
+<link rel="canonical" href="https://probarium.ru/blog/ki-po-klassam-riska">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="КИ по классам риска: 1, 2а, 2б, 3 — что реально требуют | Probarium">
+<meta property="og:description" content="Требования к клиническим испытаниям по каждому классу потенциального риска медизделия — разбор в формате вопрос-ответ.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://probarium.ru/blog/ki-po-klassam-riska">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:18px;margin:26px 0 10px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.class-badge{display:inline-block;background:var(--blue-deep);color:#fff;font-size:13px;font-weight:700;padding:4px 12px;border-radius:14px;margin-bottom:10px;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110814948', 'ym');
+    ym(110814948, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110814948" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog">Блог</a> / <span aria-current="page">КИ по классам риска</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>7 мин чтения</span><span>18 августа 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>КИ по классам риска: 1, 2а, 2б, 3 — что реально требуют</h1>
+    <p class="lead">Требования к клиническим испытаниям медицинского изделия напрямую зависят от класса потенциального риска — но это не единственный фактор. Разбираем по каждому классу, чего реально ждать, в формате вопрос-ответ.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <h2>Короткий ответ</h2>
+      <p>В России действует четыре класса потенциального риска медицинских изделий — 1, 2а, 2б и 3, определяемых по номенклатурной классификации приказа Минздрава России № 4н от 06.06.2012. Чем выше класс, тем выше вероятность, что потребуется клиническое испытание с участием человека, а не клиническая оценка по литературным данным, и тем чаще обязательно инспектирование производства. Но класс риска — не единственный фактор: наличие зарегистрированных аналогов и полнота литературных данных могут заметно повлиять на итоговое решение экспертизы даже в пределах одного класса.</p>
+
+      <h2>Класс 1: минимальный риск</h2>
+      <span class="class-badge">Класс 1</span>
+
+      <details class="faq-item"><summary>Нужно ли испытание с участием человека для изделий класса 1?</summary><p>Как правило, нет. Для этого класса действует упрощённый порядок: клиническая оценка по литературным данным обычно достаточна для подтверждения безопасности и функциональных характеристик, если данных по изделию или аналогам хватает.</p></details>
+      <details class="faq-item"><summary>Требуется ли инспектирование производства для класса 1?</summary><p>Нет, обязательное инспектирование производства для класса 1 не предусмотрено — оценка системы управления качеством в этом случае, как правило, добровольная.</p></details>
+      <details class="faq-item"><summary>Значит ли это, что для класса 1 нет клинических требований вообще?</summary><p>Нет, требования есть — просто форма их подтверждения проще. Итоговое решение о достаточности данных всё равно принимает экспертиза, а не сам производитель.</p></details>
+
+      <h2>Класс 2а: средний риск</h2>
+      <span class="class-badge">Класс 2а</span>
+
+      <details class="faq-item"><summary>Нужно ли испытание с участием человека для изделий класса 2а?</summary><p>Испытание с участием человека требуется, только если данных по литературе недостаточно для подтверждения заявлений производителя — это не автоматическое требование для всего класса, а индивидуальная оценка.</p></details>
+      <details class="faq-item"><summary>Требуется ли инспектирование производства для класса 2а?</summary><p>Зависит от того, стерильное изделие или нет: для нестерильных изделий класса 2а инспектирование, как правило, не обязательно, а для стерильных изделий класса 2а — обязательно. Это разграничение прямо следует из постановлений Правительства РФ № 135 и № 136 от 09.02.2022.</p></details>
+      <details class="faq-item"><summary>Почему стерильность так сильно влияет на требования внутри одного класса?</summary><p>Стерильные изделия несут дополнительный риск, связанный с процессом стерилизации и контролем контаминации, что требует отдельного подтверждения системы управления качеством производства независимо от общего класса риска изделия.</p></details>
+
+      <h2>Класс 2б: повышенный риск</h2>
+      <span class="class-badge">Класс 2б</span>
+
+      <details class="faq-item"><summary>Нужно ли испытание с участием человека для изделий класса 2б?</summary><p>Испытание с участием человека требуется чаще, чем для 2а — особенно если у изделия нет зарегистрированных аналогов с достаточной доказательной базой. Наличие близкого аналога может снизить эту вероятность, но не устраняет её полностью.</p></details>
+      <details class="faq-item"><summary>Требуется ли инспектирование производства для класса 2б?</summary><p>Да, обязательно — независимо от того, стерильное изделие или нет.</p></details>
+
+      <h2>Класс 3: высокий риск</h2>
+      <span class="class-badge">Класс 3</span>
+
+      <details class="faq-item"><summary>Нужно ли испытание с участием человека для изделий класса 3?</summary><p>Как правило, да — для этого класса испытание с участием человека обычно обязательно, а клинической оценки по литературным данным недостаточно даже при наличии аналогов.</p></details>
+      <details class="faq-item"><summary>Требуется ли инспектирование производства для класса 3?</summary><p>Да, обязательно, как и для класса 2б.</p></details>
+
+      <h2>Что важнее класса риска в отдельных случаях</h2>
+      <ul>
+        <li><strong>Наличие зарегистрированного аналога</strong> с достаточной доказательной базой — может сдвинуть решение экспертизы в сторону клинической оценки даже для классов 2а и 2б;</li>
+        <li><strong>Полнота литературных данных</strong> — если данных объективно недостаточно, экспертиза может потребовать испытание с участием человека даже там, где формально это не является обязательным правилом для класса;</li>
+        <li><strong>Тип изделия</strong> — программное обеспечение как медизделие и ряд изделий для диагностики in vitro подчиняются особому порядку, частично независимому от общей логики классов риска.</li>
+      </ul>
+
+      <h2>Частые вопросы</h2>
+      <details class="faq-item"><summary>Можно ли заранее точно узнать, потребуется ли испытание с участием человека для моего класса?</summary><p>Можно провести обоснованную предварительную оценку по классу риска, наличию аналогов и литературным данным, но окончательное решение принимает экспертиза на I этапе рассмотрения регистрационного досье.</p></details>
+      <details class="faq-item"><summary>Как узнать точный класс риска моего изделия?</summary><p>Класс определяется по номенклатурной классификации приказа Минздрава России № 4н от 06.06.2012 — самостоятельно декларировать класс без сверки с классификацией не стоит, ошибка в классе риска влияет на весь дальнейший путь регистрации.</p></details>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Смежные разделы</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/nuzhny-li-ki">Нужны ли КИ вашему медизделию</a>
+        <a class="related-card" href="/blog/kogda-ki-ne-trebuyutsya">Когда КИ не требуются</a>
+        <a class="related-card" href="/blog/klinicheskaya-ocenka-ili-ki">Клиническая оценка или клинические испытания</a>
+        <a class="related-card" href="/glossariy">Глоссарий терминов</a>
+        <a class="related-card" href="/blog">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Не знаете, к какому классу риска относится ваше изделие?</h2>
+          <p>Probarium определит класс потенциального риска по номенклатурной классификации и даст предварительную оценку требований к клиническим данным для вашего конкретного изделия.</p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/ki-po-klassam-riska)">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li><a href="https://t.me/tandelovtat" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener">MAX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "КИ по классам риска: 1, 2а, 2б, 3 — что реально требуют",
+  "description": "Требования к клиническим испытаниям медизделия по каждому классу потенциального риска — 1, 2а, 2б, 3. Разбор в формате вопрос-ответ.",
+  "author": {"@type": "Person", "name": "Артемий-Татуш Танделов", "jobTitle": "Генеральный директор Probarium", "url": "https://t.me/tandelovtat"},
+  "publisher": {"@type": "Organization", "name": "Probarium"},
+  "mainEntityOfPage": "https://probarium.ru/blog/ki-po-klassam-riska",
+  "datePublished": "2026-08-18",
+  "dateModified": "2026-08-18"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://probarium.ru/blog"},
+    {"@type": "ListItem", "position": 3, "name": "КИ по классам риска", "item": "https://probarium.ru/blog/ki-po-klassam-riska"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Нужно ли испытание с участием человека для изделий класса 1?", "acceptedAnswer": {"@type": "Answer", "text": "Как правило, нет. Для этого класса действует упрощённый порядок: клиническая оценка по литературным данным обычно достаточна, если данных по изделию или аналогам хватает."}},
+    {"@type": "Question", "name": "Требуется ли инспектирование производства для класса 1?", "acceptedAnswer": {"@type": "Answer", "text": "Нет, обязательное инспектирование производства для класса 1 не предусмотрено — оценка системы управления качеством, как правило, добровольная."}},
+    {"@type": "Question", "name": "Нужно ли испытание с участием человека для изделий класса 2а?", "acceptedAnswer": {"@type": "Answer", "text": "Требуется только если данных по литературе недостаточно для подтверждения заявлений производителя — это не автоматическое требование для всего класса."}},
+    {"@type": "Question", "name": "Требуется ли инспектирование производства для класса 2а?", "acceptedAnswer": {"@type": "Answer", "text": "Зависит от стерильности: для нестерильных изделий класса 2а, как правило, не обязательно, для стерильных — обязательно (ПП №135 и №136 от 09.02.2022)."}},
+    {"@type": "Question", "name": "Нужно ли испытание с участием человека для изделий класса 2б?", "acceptedAnswer": {"@type": "Answer", "text": "Требуется чаще, чем для 2а — особенно без зарегистрированных аналогов с достаточной доказательной базой."}},
+    {"@type": "Question", "name": "Требуется ли инспектирование производства для класса 2б?", "acceptedAnswer": {"@type": "Answer", "text": "Да, обязательно — независимо от стерильности изделия."}},
+    {"@type": "Question", "name": "Нужно ли испытание с участием человека для изделий класса 3?", "acceptedAnswer": {"@type": "Answer", "text": "Как правило, да — клинической оценки по литературным данным обычно недостаточно даже при наличии аналогов."}},
+    {"@type": "Question", "name": "Требуется ли инспектирование производства для класса 3?", "acceptedAnswer": {"@type": "Answer", "text": "Да, обязательно, как и для класса 2б."}},
+    {"@type": "Question", "name": "Можно ли заранее точно узнать, потребуется ли испытание с участием человека для моего класса?", "acceptedAnswer": {"@type": "Answer", "text": "Можно провести обоснованную предварительную оценку, но окончательное решение принимает экспертиза на I этапе рассмотрения регистрационного досье."}},
+    {"@type": "Question", "name": "Как узнать точный класс риска моего изделия?", "acceptedAnswer": {"@type": "Answer", "text": "Класс определяется по номенклатурной классификации приказа Минздрава России № 4н от 06.06.2012 — самостоятельно декларировать класс без сверки не стоит."}}
+  ]
+}
+</script>
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
