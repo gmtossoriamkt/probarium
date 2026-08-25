@@ -200,18 +200,18 @@ body.nav-open{overflow:hidden;}
         </div>
 
         <div class="wizard-step" data-step="2">
-          <h3>2. Какой класс риска у изделия?</h3>
-          <button class="option-btn" onclick="answer('risk','1')">Класс 1 — низкий риск</button>
-          <button class="option-btn" onclick="answer('risk','2a')">Класс 2а — средний риск</button>
-          <button class="option-btn" onclick="answer('risk','2b')">Класс 2б — повышенный риск</button>
-          <button class="option-btn" onclick="answer('risk','3')">Класс 3 — высокий риск</button>
+          <h3>2. Есть ли на рынке аналог с достаточными клиническими данными?</h3>
+          <button class="option-btn" onclick="answer('analog','yes')">Да, есть аналог с подтверждённой безопасностью и эффективностью</button>
+          <button class="option-btn" onclick="answer('analog','no')">Нет, аналога нет или данных недостаточно</button>
           <button class="wizard-back" onclick="goBack()">← Назад</button>
         </div>
 
         <div class="wizard-step" data-step="3">
-          <h3>3. Есть ли на рынке аналог с достаточными клиническими данными?</h3>
-          <button class="option-btn" onclick="answer('analog','yes')">Да, есть аналог с подтверждённой безопасностью и эффективностью</button>
-          <button class="option-btn" onclick="answer('analog','no')">Нет, аналога нет или данных недостаточно</button>
+          <h3>3. Какой класс риска у изделия?</h3>
+          <button class="option-btn" onclick="answer('risk','1')">Класс 1 — низкий риск</button>
+          <button class="option-btn" onclick="answer('risk','2a')">Класс 2а — средний риск</button>
+          <button class="option-btn" onclick="answer('risk','2b')">Класс 2б — повышенный риск</button>
+          <button class="option-btn" onclick="answer('risk','3')">Класс 3 — высокий риск</button>
           <button class="wizard-back" onclick="goBack()">← Назад</button>
         </div>
 
@@ -237,17 +237,18 @@ body.nav-open{overflow:hidden;}
         <p>Если интерактивный инструмент недоступен, ниже — та же логика в табличном виде.</p>
       </div>
       <table class="fallback-table">
-        <thead><tr><th>Тип изделия</th><th>Класс риска</th><th>Есть аналог с данными</th><th>Рекомендуемая форма</th></tr></thead>
+        <thead><tr><th>Тип изделия</th><th>Есть аналог с данными</th><th>Класс риска</th><th>Рекомендуемая форма</th></tr></thead>
         <tbody>
-          <tr><td>ИВД</td><td>любой</td><td>—</td><td>Клинико-лабораторные испытания ИВД</td></tr>
-          <tr><td>Другое МИ</td><td>1</td><td>—</td><td>Анализ клинических данных</td></tr>
-          <tr><td>Другое МИ</td><td>2а</td><td>Да</td><td>Анализ клинических данных</td></tr>
-          <tr><td>Другое МИ</td><td>2а</td><td>Нет</td><td>Вероятно испытание с участием человека — нужна консультация</td></tr>
-          <tr><td>Другое МИ</td><td>2б</td><td>Да</td><td>Возможен анализ данных, но чаще требуется испытание с человеком</td></tr>
-          <tr><td>Другое МИ</td><td>2б</td><td>Нет</td><td>Испытание с участием человека</td></tr>
-          <tr><td>Другое МИ</td><td>3</td><td>любой</td><td>Испытание с участием человека</td></tr>
+          <tr><td>ИВД</td><td>—</td><td>любой</td><td>Клинико-лабораторные испытания ИВД</td></tr>
+          <tr><td>Другое МИ</td><td>—</td><td>1</td><td>Анализ клинических данных</td></tr>
+          <tr><td>Другое МИ</td><td>Да</td><td>2а</td><td>Анализ клинических данных</td></tr>
+          <tr><td>Другое МИ</td><td>Нет</td><td>2а</td><td>Вероятно испытание с участием человека — нужна консультация</td></tr>
+          <tr><td>Другое МИ</td><td>Да</td><td>2б</td><td>Возможен анализ данных, но чаще требуется испытание с человеком</td></tr>
+          <tr><td>Другое МИ</td><td>Нет</td><td>2б</td><td>Испытание с участием человека</td></tr>
+          <tr><td>Другое МИ</td><td>любой</td><td>3</td><td>Испытание с участием человека</td></tr>
         </tbody>
       </table>
+      <p style="font-size:13px;color:var(--gray-text);margin-top:14px;max-width:680px;">Таблица — упрощённый ориентир по классу риска. Большое значение имеют назначение изделия, его технические и функциональные особенности: сложное изделие 1 класса с новым материалом может потребовать испытаний с участием человека вероятнее, чем типовое изделие 3 класса с давно устоявшейся конструкцией.</p>
     </div>
   </section>
 
@@ -358,8 +359,8 @@ body.nav-open{overflow:hidden;}
 
 <script>
 var state = {};
-var order = ['ivd','risk','analog'];
-var stepMap = {1:'ivd', 2:'risk', 3:'analog'};
+var order = ['ivd','analog','risk'];
+var stepMap = {1:'ivd', 2:'analog', 3:'risk'};
 
 function showStep(n){
   document.querySelectorAll('.wizard-step').forEach(function(el){ el.classList.remove('active'); });
@@ -372,23 +373,19 @@ function showStep(n){
 
 function answer(key, value){
   state[key] = value;
-  if(key === 'ivd' && value === 'yes'){
-    showResult();
+  if(key === 'ivd'){
+    if(value === 'yes'){ showResult(); return; }
+    showStep(2);
     return;
   }
-  if(key === 'ivd' && value === 'no'){ showStep(2); return; }
-  if(key === 'risk'){
-    if(value === '1'){ showResult(); return; }
-    if(value === '3'){ showResult(); return; }
-    showStep(3);
-    return;
-  }
-  if(key === 'analog'){ showResult(); return; }
+  if(key === 'analog'){ showStep(3); return; }
+  if(key === 'risk'){ showResult(); return; }
 }
 
 function goBack(){
-  if(state.risk !== undefined && !state.analog){ showStep(1); state = {}; return; }
-  showStep(1); state = {};
+  var current = document.querySelector('.wizard-step.active').getAttribute('data-step');
+  if(current === '3'){ delete state.risk; showStep(2); return; }
+  if(current === '2'){ delete state.analog; showStep(1); return; }
 }
 
 function restart(){
@@ -404,7 +401,7 @@ function showResult(){
     cta = '/klinicheskie-ispytaniya-medizdeliy/in-vitro';
   } else if(state.risk === '1'){
     title = 'Скорее всего — анализ клинических данных';
-    text = 'Для изделий класса 1 обычно достаточно клинической оценки на основании существующих данных и аналогов, без испытаний с участием человека.';
+    text = 'Для изделий класса 1 форма испытаний чаще всего определяется анализом клинических данных на основании существующих данных и аналогов. Но многое зависит от назначения и особенностей конкретного изделия — точную форму подтверждает проектный менеджер.';
     cta = '/klinicheskie-ispytaniya-medizdeliy/analiz-dannyh';
   } else if(state.risk === '3'){
     title = 'Испытание с участием человека';
