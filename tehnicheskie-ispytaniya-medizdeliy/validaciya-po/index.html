@@ -276,11 +276,35 @@ body.nav-open{overflow:hidden;}
     </div>
   </section>
 
-  <section aria-labelledby="lifecycle-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <section aria-labelledby="po-types-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="container">
       <div class="section-head">
-        <h2 id="lifecycle-h2">Жизненный цикл ПО (62304)</h2>
-        
+        <h2 id="po-types-h2">ПО в составе МИ и программное МИ — разные объекты валидации</h2>
+        <p>Это два разных понятия, и оба требуют валидации, но по разным причинам.</p>
+      </div>
+      <div class="forms-grid">
+        <div class="form-card"><span class="badge">Встроенное ПО</span><h3>ПО в составе медицинского изделия</h3><p>Программное обеспечение, встроенное в аппаратное медицинское изделие и управляющее его работой — например, прошивка монитора или управляющее ПО инфузионного насоса. Само по себе не является отдельным медицинским изделием, но подлежит валидации в рамках испытаний изделия, в которое встроено.</p></div>
+        <div class="form-card"><span class="badge">Самостоятельное ПО</span><h3>Программное МИ (SaMD)</h3><p>Программное обеспечение, которое само по себе выполняет функции медицинского изделия — например, диагностический алгоритм или система поддержки принятия решений. Регистрируется как отдельное медицинское изделие.</p></div>
+      </div>
+      <p style="margin-top:16px;font-size:14px;color:var(--gray-text);max-width:640px;">Верификация и валидация по ГОСТ IEC 62304 и оценка эксплуатационной пригодности по ГОСТ Р МЭК 62366-1 требуются в обоих случаях — независимо от того, регистрируется ПО как самостоятельное медицинское изделие или как часть аппаратного.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="lifecycle-h2">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="lifecycle-h2">Этапы жизненного цикла ПО (ГОСТ IEC 62304)</h2>
+        <p>Последовательность процессов разработки и сопровождения, которую проверяет экспертиза.</p>
+      </div>
+      <div class="steps"><div class="step"><div class="step-num">1</div><div><h3>Планирование</h3><p>Определяем процессы, ресурсы и документы, необходимые на весь жизненный цикл ПО.</p></div></div><div class="step"><div class="step-num">2</div><div><h3>Анализ требований</h3><p>Фиксируем функциональные, интерфейсные и требования безопасности к ПО.</p></div></div><div class="step"><div class="step-num">3</div><div><h3>Проектирование архитектуры и детальное проектирование</h3><p>Описываем архитектуру системы и детальный дизайн программных модулей.</p></div></div><div class="step"><div class="step-num">4</div><div><h3>Реализация и модульное тестирование</h3><p>Разрабатываем и тестируем отдельные программные модули.</p></div></div><div class="step"><div class="step-num">5</div><div><h3>Интеграционное и системное тестирование</h3><p>Проверяем совместную работу модулей и соответствие системы заявленным требованиям.</p></div></div><div class="step"><div class="step-num">6</div><div><h3>Релиз</h3><p>Формируем итоговый пакет документации жизненного цикла для регистрационного досье.</p></div></div><div class="step"><div class="step-num">7</div><div><h3>Сопровождение</h3><p>Отслеживаем и обрабатываем проблемы ПО после выпуска в эксплуатацию.</p></div></div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="classes-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="classes-h2">Классы безопасности ПО</h2>
+        <p>Класс определяется потенциальным вредом при отказе или ошибке ПО — от него зависит объём требуемой документации на каждом этапе жизненного цикла.</p>
       </div>
       <div class="risk-grid"><div class="risk-card"><strong>Класс A</strong><span>отсутствие вреда при отказе</span></div><div class="risk-card"><strong>Класс B</strong><span>возможен вред, не приводящий к серьёзным последствиям</span></div><div class="risk-card"><strong>Класс C</strong><span>возможен серьёзный вред или смерть при отказе</span></div></div>
     </div>
@@ -323,6 +347,7 @@ body.nav-open{overflow:hidden;}
         <p>Ориентировочные диапазоны — точная оценка после определения класса ПО.</p>
       </div>
       <div class="pricing-band"><div class="pricing-item"><div class="num">от 4 недель</div><div class="label">класс безопасности A</div></div><div class="pricing-item"><div class="num">от 8 недель</div><div class="label">класс безопасности B или C</div></div><div class="pricing-item"><div class="num">индивидуально</div><div class="label">стоимость зависит от сложности алгоритма и объёма документации</div></div></div>
+      <p style="font-size:12px;color:var(--gray-text);margin-top:10px;"><!-- [TODO: нужно уточнить у клиента — реальные сроки по каждому этапу] --></p>
     </div>
   </section>
 
