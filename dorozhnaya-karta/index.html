@@ -54,13 +54,15 @@ section{padding:40px 0;}
 .persona-btn.active{background:var(--blue-deep);color:#fff;border-color:var(--blue-deep);}
 
 .roadmap{display:flex;flex-direction:column;gap:0;}
-.rm-step{display:flex;gap:20px;border-left:3px solid var(--border);padding:0 0 32px 24px;position:relative;cursor:pointer;}
-.rm-step:last-child{padding-bottom:0;}
-.rm-step::before{content:'';position:absolute;left:-9px;top:0;width:16px;height:16px;border-radius:50%;
+.rm-step{display:flex;gap:20px;border-left:3px solid var(--border);padding:8px 12px 32px 24px;margin-left:-12px;position:relative;cursor:pointer;border-radius:8px;transition:background-color .15s ease, border-left-color .15s ease;}
+.rm-step:last-child{padding-bottom:8px;}
+.rm-step:hover{background:var(--blue-pale);border-left-color:var(--blue-sky);}
+.rm-step:hover .rm-title{color:var(--blue-sky);}
+.rm-step::before{content:'';position:absolute;left:-9px;top:8px;width:16px;height:16px;border-radius:50%;
   background:var(--white);border:3px solid var(--blue-sky);}
 .rm-step.active::before{background:var(--blue-sky);}
 .rm-num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--blue-sky);margin-bottom:4px;}
-.rm-title{font-size:17px;color:var(--blue-deep);margin-bottom:6px;}
+.rm-title{font-size:17px;color:var(--blue-deep);margin-bottom:6px;transition:color .15s ease;}
 .rm-summary{font-size:14px;color:var(--gray-text);}
 .rm-detail{display:none;margin-top:14px;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;}
 .rm-step.active .rm-detail{display:block;}
@@ -335,7 +337,7 @@ function renderRoadmap(){
         '<div class="rm-detail-row"><strong>Испытания</strong><span>' + s.tests + '</span></div>' +
         '<div class="rm-detail-row"><strong>Документы</strong><span>' + s.docs + '</span></div>' +
         '<div class="rm-detail-row"><strong>Срок</strong><span>' + s.term + '</span></div>' +
-        '<a href="' + s.link + '">Подробнее об этом этапе →</a>' +
+        '<a href="' + s.link + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">Подробнее об этом этапе (в новой вкладке) →</a>' +
       '</div>' +
       '</div></div>';
   });
