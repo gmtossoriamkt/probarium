@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://probarium.ru/</loc>
@@ -128,4 +128,5 @@
     <loc>https://probarium.ru/uslugi</loc>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://probarium.ru/blog/sroki-vydachi-razresheniya-na-ki</loc></url>
 </urlset>
