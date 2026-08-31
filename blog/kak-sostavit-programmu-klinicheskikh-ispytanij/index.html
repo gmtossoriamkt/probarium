@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Как составить программу клинических испытаний медизделия — Probarium</title>
+<meta name="description" content="Как составить программу клинического испытания медицинского изделия — структура зависит от регуляторного трека: Приложение №2 к Решению №29 ЕАЭС для союзной процедуры, приказ Минздрава №421н (действует с 1 сентября 2026 года) для национальной. Разбираем оба шаблона, роль ГОСТ Р ИСО 14155-2022, обоснование выборки и специфику IVD и многоцентровых исследований.">
+<link rel="canonical" href="https://probarium.ru/blog/kak-sostavit-programmu-klinicheskikh-ispytanij">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Как составить программу клинических испытаний медизделия">
+<meta property="og:description" content="Структура программы клинического испытания медицинского изделия для двух регуляторных треков — ЕАЭС и национальная процедура РФ — плюс роль ГОСТ Р ИСО 14155-2022.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/kak-sostavit-programmu-klinicheskikh-ispytanij">
+<meta property="og:image" content="https://probarium.ru/og-image.png">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110814948', 'ym');
+    ym(110814948, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110814948" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog">Блог</a> / <span aria-current="page">Как составить программу КИ</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>13 мин чтения</span><span>31 августа 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Как составить программу клинических испытаний медизделия</h1>
+    <p class="lead">Структура программы клинического испытания медицинского изделия зависит от регуляторного трека: Приложение №2 к Решению №29 ЕАЭС для союзной процедуры, приказ Минздрава №421н (действует с 1 сентября 2026 года) для национальной. Разбираем оба шаблона, роль ГОСТ Р ИСО 14155-2022, обоснование выборки и специфику ИВД и многоцентровых исследований.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <p>Программа клинического испытания — не формальность и не документ, который можно собрать по шаблону «на всякий случай». Это документ, структуру и содержание которого прямо устанавливают регуляторные акты — причём разные, в зависимости от того, идёте ли вы по национальной процедуре РФ или по правилам ЕАЭС. Единого универсального шаблона «программа КИ для медицинского изделия» не существует — и попытка написать один документ на все случаи почти гарантированно даст пробелы в одном из двух треков.</p>
+
+      <h2>Короткий ответ</h2>
+      <p><strong>Суть в четырёх предложениях.</strong> Структура программы клинического испытания зависит от регуляторного трека: для процедуры ЕАЭС обязательное содержание прямо установлено Приложением №2 к Решению Совета ЕЭК №29 (для изделий диагностики in vitro — отдельным Приложением №6), а для национальной процедуры РФ с 1 сентября 2026 года обязательный состав задаёт п. 35 приказа Минздрава №421н, заменившего приказ №885н. ГОСТ Р ИСО 14155-2022 не заменяет эти регуляторные требования, а методологически детализирует содержание документа — прежде всего в разделе 6.4 и обязательном приложении А, где он использует термин «план клинического исследования (CIP)», признавая «протокол» его синонимом. Один шаблон нельзя использовать одновременно и для обычного медицинского изделия, и для изделия для диагностики in vitro — для последнего действует отдельное, самостоятельное приложение с иной структурой. Ключевая методологическая часть программы — обоснование объёма выборки — не подчиняется единой формуле, но нормативно обязательна и должна быть напрямую связана с гипотезой, дизайном и конечными точками исследования.</p>
+
+      <h2>1. Нормативная база</h2>
+      <p><strong>Решение Совета ЕЭК от 12.02.2016 №29</strong> (действующая редакция от 26.01.2024, Решение №7) — Приложение №2 «Требования к содержанию программы клинического испытания (исследования) медицинского изделия»; для изделий диагностики in vitro — отдельное Приложение №6. Пункт 15 Правил прямо требует соответствия программы Приложению №2. — <a href="/biblioteka/files/npa-eaes/reshenie-ot-12-02-2016-n-29-o-pravilah-provedeniya-klinicheskih-i-kliniko-laboratornyh-isp.pdf" target="_blank" rel="noopener" style="color:var(--blue-sky);text-decoration:underline;">скачать в библиотеке НПА</a>.</p>
+      <p><strong>Приказ Минздрава России от 13.05.2026 №421н</strong> «Об утверждении Порядка проведения оценки соответствия медицинских изделий в форме технических испытаний, токсикологических исследований, клинических испытаний в целях государственной регистрации медицинских изделий» — п. 35 устанавливает обязательный состав сведений программы для национальной процедуры. <strong>Вступает в силу 1 сентября 2026 года.</strong> — <a href="/biblioteka/files/ispytaniya/prikaz-421n.pdf" target="_blank" rel="noopener" style="color:var(--blue-sky);text-decoration:underline;">скачать в библиотеке НПА</a>.</p>
+      <p><strong>Приказ Минздрава России от 30.08.2021 №885н</strong> — предыдущий действовавший порядок; для заявлений, поданных в медицинскую организацию до вступления №421н в силу, применяется переходное правило — прежний порядок продолжает действовать для таких заявлений.</p>
+      <p><strong>ГОСТ Р ИСО 14155-2022</strong> «Клинические исследования медицинских изделий, проводимые с участием человека в качестве субъекта. Надлежащая клиническая практика» — методологический стандарт; раздел 6.4 и обязательное приложение А посвящены непосредственно плану клинического исследования (CIP). — <a href="/biblioteka/files/gosty-mi-obschego-naznacheniya/gost-r-iso-14155-2022-klinicheskie-issledovaniya-medicinskih-izdeliy-provodimye-s-uchastie.pdf" target="_blank" rel="noopener" style="color:var(--blue-sky);text-decoration:underline;">скачать в библиотеке НПА</a>.</p>
+      <p class="lead-note">Нормативная база проверена по состоянию на 31.08.2026.</p>
+      <div class="warn-box"><strong>⚠ Важно про сроки</strong><p>Приказ №421н вступает в силу 1 сентября 2026 года — почти сразу после проверки этой статьи. Мы намеренно строим статью вокруг него как вокруг основного действующего документа для национальной процедуры, а не вокруг уходящего №885н, потому что подавляющее большинство читателей будет обращаться к этому материалу уже после даты вступления приказа в силу. Если ваше заявление было подано в медицинскую организацию до 1 сентября 2026 года — для него продолжает действовать порядок по приказу №885н, и в этом случае формальная структура программы, описанная в этой статье применительно к №421н, к вашему заявлению напрямую не относится.</p></div>
+
+      <h2>2. Два разных шаблона — и почему их нельзя смешивать</h2>
+      <p>Первый практический вопрос, который нужно решить до того, как открывать текстовый редактор: <strong>по какому регуляторному треку вы регистрируете изделие</strong>.</p>
+      <p><strong>Для процедуры ЕАЭС</strong> структура программы прямо и детально установлена Приложением №2 Решения №29. Это не пример или рекомендация — это нормативно обязательный состав содержания.</p>
+      <p><strong>Для национальной процедуры РФ</strong> с 1 сентября 2026 года обязательный состав сведений устанавливает п. 35 приказа №421н. Он существенно менее детализирован методологически, чем Приложение №2, — но это тоже нормативное, а не рекомендательное требование.</p>
+      <p>Использовать структуру ЕАЭС для национальной заявки формально избыточно (хотя не запрещено — детальный документ едва ли будет расценён как недостаток), а вот использовать сокращённую национальную структуру для союзной процедуры будет прямым нарушением требований Приложения №2.</p>
+
+      <h2>3. Терминология, которую важно не путать</h2>
+      <p>В нормативных актах о регистрации медицинских изделий (и в РФ, и в ЕАЭС) основной термин — <strong>«программа клинического испытания (исследования)»</strong>. Именно так документ называется в Решении №29 и в приказах Минздрава.</p>
+      <p>ГОСТ Р ИСО 14155-2022 использует другой термин — <strong>«план [дизайн] клинического исследования (CIP)»</strong>. Стандарт прямо признаёт «протокол» синонимом CIP, но сознательно предпочитает термин CIP из-за многозначности слова «протокол» в более широком контексте.</p>
+      <p><strong>Для этой статьи:</strong> «программа КИ» — регуляторное наименование документа по законодательству РФ/ЕАЭС; «план клинического исследования (CIP)» — термин ГОСТ Р ИСО 14155; «протокол исследования» может употребляться как синоним CIP, но не должен смешиваться с протоколами результатов испытаний или иными документами. Это особенно важно для специалистов, пришедших из фармацевтической индустрии, где слово «протокол» — привычное основное название документа.</p>
+
+      <h2>4. Структура программы по правилам ЕАЭС (Приложение №2 Решения №29)</h2>
+      <p>Приложение состоит из двух крупных разделов.</p>
+
+      <h3>Раздел I. Общее описание медицинского изделия</h3>
+      <p>Охватывает, в установленном порядке: наименование изделия; производителя; заявителя и его регистрационные/контактные данные; уполномоченного представителя; идентификацию модели/марки; вид по номенклатуре ЕАЭС; класс риска и применимое правило классификации; назначение; описание изделия; новые свойства/характеристики; контактирующие материалы; контрольные изделия; прослеживаемость; целевых субъектов/группу пациентов и медицинские показания.</p>
+
+      <h3>Раздел II. Данные о клиническом испытании (исследовании)</h3>
+      <p>Включает: идентификацию исследования; все клинические центры; исследователей и координатора; требования к подготовке специалистов; получение информированного согласия; этические аспекты и уязвимые группы; продолжительность; специальные процедуры; условия применения изделия; риск/пользу; принадлежности и комбинируемые изделия; дизайн; цели и гипотезы; <strong>основную и дополнительные конечные точки</strong>; <strong>объём выборки</strong>; <strong>расчёт выборки, включая ожидаемые выбывания</strong>; критерии включения/исключения и прекращения участия; количество исследуемых изделий с обоснованием; процедуры исследования; работу с отклонениями от программы; <strong>план мониторинга</strong>; <strong>статистические методы анализа данных</strong>.</p>
+      <p class="lead-note">Для точной сверки формулировок и полноты перечня используйте непосредственно текст Приложения №2 — приведённый порядок соответствует ему, но не является дословной цитатой каждого подпункта.</p>
+
+      <h3>Отдельный случай: изделия для диагностики in vitro (IVD)</h3>
+      <p>Для IVD применяется не Приложение №2, а <strong>отдельное Приложение №6</strong> — требования к программе клинико-лабораторного испытания. Использование структуры для обычных медицинских изделий применительно к IVD-тесту будет нормативно неверным — эти два приложения не идентичны по составу.</p>
+
+      <h3>Программное обеспечение как медицинское изделие</h3>
+      <p>Отдельного специального приложения для программы КИ программного обеспечения нет. Если для ПО проводится клиническое исследование по общему режиму, структура программы определяется общими требованиями (Приложение №2), адаптированными к особенностям программного продукта.</p>
+
+      <h2>5. Структура программы по национальной процедуре РФ (приказ №421н)</h2>
+      <p>С 1 сентября 2026 года п. 35 приказа Минздрава №421н прямо перечисляет сведения, которые включаются в программу:</p>
+      <ul>
+        <li>идентификация изделия;</li>
+        <li>вид и класс риска;</li>
+        <li>производственные площадки;</li>
+        <li>основания и цель проведения клинического испытания;</li>
+        <li>применимые нормативные правовые акты;</li>
+        <li>задачи испытания;</li>
+        <li>сведения о медицинской организации (медицинских организациях);</li>
+        <li>период проведения;</li>
+        <li>сведения об исследуемых образцах;</li>
+        <li>перечень документов;</li>
+        <li>описание изделия;</li>
+        <li>форма, план и этапность клинического испытания;</li>
+        <li>порядок оформления результатов.</li>
+      </ul>
+      <p>Этот перечень существенно менее детализирован методологически, чем Приложение №2 Решения №29 — он не расписывает отдельно endpoints, статистический план или обоснование выборки как самостоятельные обязательные пункты. Поэтому практически разумная архитектура национальной программы после 1 сентября 2026 года выглядит так: <strong>обязательный минимум по п. 35 приказа №421н + методологическое наполнение по ГОСТ Р ИСО 14155-2022</strong> там, где речь идёт об исследовании с участием человека.</p>
+      <p><strong>Переходное правило.</strong> Если заявление на проведение испытания подано в медицинскую организацию до 1 сентября 2026 года, применяется прежний порядок (приказ №885н), который требует совместного составления программы заявителем и медицинской организацией и её утверждения руководителем организации, но не даёт развёрнутой обязательной структуры уровня п. 35 нового приказа.</p>
+
+      <h2>6. Что добавляет ГОСТ Р ИСО 14155-2022</h2>
+      <p>ГОСТ Р ИСО 14155-2022 — основной стандарт надлежащей клинической практики для исследований медицинских изделий с участием человека, и Росздравнадзор использует его определения. Для структуры именно программы/плана исследования ключевые места:</p>
+      <p><strong>Раздел 6, пункт 6.4</strong> — «План клинического исследования».</p>
+      <p><strong>Приложение А (обязательное)</strong> — устанавливает подробное содержание CIP: обоснование, цели, дизайн, предполагаемый анализ, методологию, мониторинг, проведение и ведение записей.</p>
+      <p>ГОСТ значительно шире одной только программы: раздел 5 посвящён этике, раздел 7 — проведению исследования, раздел 8 — приостановке/завершению, раздел 9 — ответственности спонсора, раздел 10 — ответственности главного исследователя; приложение D — отчёту, приложение E — основным документам, приложение F — классификации нежелательных событий. Для статьи о структуре именно программы не нужно пересказывать весь стандарт целиком — методологическое ядро для программы находится именно в п. 6.4 и обязательном приложении А.</p>
+
+      <h2>7. Обоснование объёма выборки</h2>
+      <p>Здесь у обоих регуляторных треков есть общий принцип: <strong>обязанность обосновать выборку есть, но единой обязательной математической формулы нет.</strong></p>
+      <p>Приложение №2 Решения №29 требует отдельно указать объём выборки и её расчёт, включая ожидаемую долю выбывания. Пункт 11 Правил Решения №29 отдельно требует, чтобы количество наблюдений было достаточным для статистической достоверности, воспроизводимости результатов и научной обоснованности выводов.</p>
+      <p>ГОСТ Р ИСО 14155-2022 дополняет это методологически: статистическая часть плана исследования должна быть напрямую связана с гипотезой, дизайном, конечными точками и предполагаемым методом анализа. Конкретные параметры (уровень значимости, статистическая мощность, ожидаемый эффект) выбираются и обосновываются исходя из вашего конкретного исследования, а не берутся по шаблону.</p>
+      <p><strong>Типовые методологические слабости</strong>, которые логично проверить перед подачей программы (это наша практическая рекомендация, основанная на общей логике нормативных требований, а не официально задокументированный перечень причин отказа Росздравнадзора или Минздрава — такого официального перечня в открытом доступе нет):</p>
+      <ul>
+        <li>отсутствие формального статистического расчёта выборки вообще;</li>
+        <li>отсутствие явно указанных допущений (assumptions), на основе которых сделан расчёт;</li>
+        <li>выбор размера выборки исходя из практического удобства, а не из статистического обоснования;</li>
+        <li>несоответствие расчёта заявленной основной конечной точке (primary endpoint);</li>
+        <li>игнорирование ожидаемого выбывания участников (dropout) при расчёте итогового набора;</li>
+        <li>расчёт для одной группы без учёта соотношения распределения (allocation ratio) в сравнительных дизайнах;</li>
+        <li>отсутствие поправки на множественные конечные точки или промежуточные анализы, когда она статистически необходима.</li>
+      </ul>
+
+      <h2>8. Многоцентровые исследования: дополнительные требования к структуре</h2>
+      <p>Если исследование многоцентровое — а для изделий классов 3, 2б и имплантируемых изделий, инициированных после 1 января 2022 года, по правилам ЕАЭС это может быть прямым требованием, — программа приобретает дополнительную специфику.</p>
+      <p>После редакции Решением №7 от 26.01.2024 Правила прямо устанавливают: при многоцентровом исследовании программа согласовывается со всеми участвующими медицинскими организациями (клиническими центрами) и координатором-исследователем и утверждается заявителем. Приложение №2 дополнительно требует перечислить все медицинские организации, а также данные исследователей и координатора-исследователя.</p>
+      <p>Логика здесь — <strong>одна согласованная программа многоцентрового исследования</strong>, а не набор независимых программ по числу центров. ГОСТ Р ИСО 14155-2022 также предусматривает координатора при нескольких исследовательских центрах и требует согласованности деятельности между ними.</p>
+
+      <h2>9. Кто составляет и утверждает программу</h2>
+      <p>По национальной процедуре программа составляется совместно заявителем и медицинской организацией; утверждается руководителем медицинской организации (это требование сохраняется и в приказе №885н, и в новом порядке по существу процедуры, хотя детализация обязательного содержания различается).</p>
+      <p>По правилам ЕАЭС для многоцентрового исследования программа согласовывается с медицинскими организациями и координатором-исследователем, утверждается заявителем.</p>
+
+      <h2>Частые вопросы</h2>
+      <details class="faq-item"><summary>Можно ли использовать одну и ту же программу КИ для регистрации по национальной процедуре и по правилам ЕАЭС?</summary><p>Формально нет единого обязательного шаблона на оба трека. Структура для ЕАЭС (Приложение №2 Решения №29) значительно детальнее национальной (п. 35 приказа №421н). Составленная по правилам ЕАЭС программа, скорее всего, содержательно перекроет требования национальной процедуры, но обратное неверно — сокращённая национальная структура не будет соответствовать требованиям Приложения №2 для союзной процедуры.</p></details>
+      <details class="faq-item"><summary>Чем «программа», «план клинического исследования (CIP)» и «протокол» отличаются друг от друга?</summary><p>«Программа клинического испытания (исследования)» — регуляторное наименование документа по законодательству РФ и ЕАЭС. «План клинического исследования (CIP)» — термин ГОСТ Р ИСО 14155-2022, обозначающий по существу тот же документ с методологической точки зрения. «Протокол» ГОСТ прямо признаёт синонимом CIP, но термин может создавать путаницу с другими документами и чаще используется в фармацевтической практике.</p></details>
+      <details class="faq-item"><summary>Какой документ регулирует программу КИ для изделий для диагностики in vitro (IVD)?</summary><p>Отдельное Приложение №6 к Решению Совета ЕЭК №29 — оно не идентично Приложению №2 для обычных медицинских изделий, и использовать структуру одного приложения для документов, требующих другого, некорректно.</p></details>
+      <details class="faq-item"><summary>Обязательно ли использовать конкретную формулу для расчёта объёма выборки?</summary><p>Нет. Нормативные требования обязывают обосновать выборку и указать метод расчёта, включая ожидаемое выбывание, но не навязывают единую формулу — параметры должны быть напрямую связаны с гипотезой, дизайном и конечными точками конкретного исследования.</p></details>
+      <details class="faq-item"><summary>Что делать, если заявление подано до 1 сентября 2026 года?</summary><p>Для таких заявлений продолжает действовать прежний порядок по приказу Минздрава №885н — предусмотрено переходное правило, и обязательная структура по п. 35 нового приказа №421н к уже поданным заявлениям формально не применяется.</p></details>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/dokumenty-dlya-razresheniya-ki">Документы для разрешения на КИ</a>
+        <a class="related-card" href="/blog/razreshenie-na-ki-po-pravilam-eaes">Разрешение на КИ по правилам ЕАЭС</a>
+        <a class="related-card" href="/blog/kogda-ki-ne-trebuyutsya">Когда КИ не требуются</a>
+        <a class="related-card" href="/blog/ki-po-klassam-riska">КИ по классам риска</a>
+        <a class="related-card" href="/glossariy">Глоссарий терминов</a>
+        <a class="related-card" href="/blog">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Составляете программу клинического испытания и не уверены, какой шаблон применить?</h2>
+          <p>Probarium определит применимый регуляторный трек для вашего изделия, подготовит программу в соответствии с действующими требованиями (Приложение №2/№6 Решения №29 или п. 35 приказа №421н) и методологически выверит статистический раздел по ГОСТ Р ИСО 14155-2022.</p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/kak-sostavit-programmu-klinicheskikh-ispytanij)">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и регуляторном треке (ЕАЭС или национальная процедура)"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li><a href="https://t.me/tandelovtat" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener">MAX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Как составить программу клинических испытаний медизделия",
+  "description": "Структура программы клинического испытания медицинского изделия зависит от регуляторного трека: Приложение №2 к Решению №29 ЕАЭС для союзной процедуры, приказ Минздрава №421н (действует с 1 сентября 2026 года) для национальной. Роль ГОСТ Р ИСО 14155-2022, обоснование выборки, специфика ИВД и многоцентровых исследований.",
+  "author": {"@type": "Person", "name": "Артемий-Татуш Танделов", "jobTitle": "Генеральный директор Probarium", "url": "https://t.me/tandelovtat"},
+  "publisher": {"@type": "Organization", "name": "Probarium"},
+  "mainEntityOfPage": "https://probarium.ru/blog/kak-sostavit-programmu-klinicheskikh-ispytanij",
+  "datePublished": "2026-08-31",
+  "dateModified": "2026-08-31"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://probarium.ru/blog"},
+    {"@type": "ListItem", "position": 3, "name": "Как составить программу КИ", "item": "https://probarium.ru/blog/kak-sostavit-programmu-klinicheskikh-ispytanij"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Можно ли использовать одну и ту же программу КИ для регистрации по национальной процедуре и по правилам ЕАЭС?", "acceptedAnswer": {"@type": "Answer", "text": "Формально нет единого обязательного шаблона на оба трека. Структура для ЕАЭС (Приложение №2 Решения №29) значительно детальнее национальной (п. 35 приказа №421н). Составленная по правилам ЕАЭС программа, скорее всего, содержательно перекроет требования национальной процедуры, но обратное неверно."}},
+    {"@type": "Question", "name": "Чем «программа», «план клинического исследования (CIP)» и «протокол» отличаются друг от друга?", "acceptedAnswer": {"@type": "Answer", "text": "«Программа клинического испытания (исследования)» — регуляторное наименование документа по законодательству РФ и ЕАЭС. «План клинического исследования (CIP)» — термин ГОСТ Р ИСО 14155-2022. «Протокол» ГОСТ прямо признаёт синонимом CIP, но термин чаще используется в фармацевтической практике."}},
+    {"@type": "Question", "name": "Какой документ регулирует программу КИ для изделий для диагностики in vitro (IVD)?", "acceptedAnswer": {"@type": "Answer", "text": "Отдельное Приложение №6 к Решению Совета ЕЭК №29 — оно не идентично Приложению №2 для обычных медицинских изделий."}},
+    {"@type": "Question", "name": "Обязательно ли использовать конкретную формулу для расчёта объёма выборки?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Нормативные требования обязывают обосновать выборку и указать метод расчёта, включая ожидаемое выбывание, но не навязывают единую формулу."}},
+    {"@type": "Question", "name": "Что делать, если заявление подано до 1 сентября 2026 года?", "acceptedAnswer": {"@type": "Answer", "text": "Для таких заявлений продолжает действовать прежний порядок по приказу Минздрава №885н — предусмотрено переходное правило."}}
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
