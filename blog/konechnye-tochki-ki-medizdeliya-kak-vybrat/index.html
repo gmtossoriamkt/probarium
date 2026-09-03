@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Конечные точки клинического исследования медизделия: как выбрать — Probarium</title>
+<meta name="description" content="Как выбрать и обосновать конечные точки (endpoints) клинического испытания медицинского изделия — первичные/вторичные по ГОСТ Р ИСО 14155-2022, основные/дополнительные по Решению №29 ЕАЭС, composite и суррогатные точки, связь с назначением изделия и статистическим планом.">
+<link rel="canonical" href="https://probarium.ru/blog/konechnye-tochki-ki-medizdeliya-kak-vybrat">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Конечные точки клинического исследования медизделия: как выбрать">
+<meta property="og:description" content="Первичные и вторичные конечные точки клинического исследования медизделия — требования к обоснованию выбора, связь с назначением изделия, композитные и суррогатные точки.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/konechnye-tochki-ki-medizdeliya-kak-vybrat">
+<meta property="og:image" content="https://probarium.ru/og-image.png">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:10px;padding:16px 20px;margin:8px 0 20px;font-size:14px;color:#0C447C;font-weight:600;line-height:1.7;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110814948', 'ym');
+    ym(110814948, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110814948" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog">Блог</a> / <span aria-current="page">Конечные точки КИ: как выбрать</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>12 мин чтения</span><span>3 сентября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Конечные точки клинического исследования медизделия: как выбрать</h1>
+    <p class="lead">Как выбрать и обосновать конечные точки (endpoints) клинического испытания медицинского изделия — первичные/вторичные по ГОСТ Р ИСО 14155-2022, основные/дополнительные по Решению №29 ЕАЭС, composite и суррогатные точки, связь с назначением изделия и статистическим планом.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <p>Конечная точка (endpoint) клинического исследования — не просто измеряемый параметр, который нужно вписать в программу. Её нормативная функция — дать доказательство по конкретной гипотезе о клинических функциональных характеристиках, результативности или безопасности изделия в заявленной целевой популяции. Назвать показатель недостаточно: и Решение №29 ЕАЭС, и ГОСТ Р ИСО 14155-2022 прямо требуют обосновать, почему выбран именно этот показатель и именно такой способ его измерения.</p>
+
+      <p><strong>Терминологическая оговорка, с которой стоит начать.</strong> Решение Совета ЕЭК №29 использует термины «основная конечная точка» и «дополнительная конечная точка» — основная проверяет основную гипотезу, дополнительная — дополнительную. ГОСТ Р ИСО 14155-2022 (пп. 3.22, 3.23) вводит термины «первичная конечная точка» и «вторичная конечная точка» — первичная используется для получения доказательств клинических функциональных характеристик, результативности или безопасности, вторичная — для оценки вторичных целей исследования. Это не два разных требования, а одна и та же концепция в двух документах с разной терминологией. В этой статье мы используем пару первичная/вторичная (терминология ГОСТ) и указываем пару основная/дополнительная (терминология Решения №29) при первом упоминании — не переносите одну терминологию в текст, ссылающийся на другой документ, без пояснения.</p>
+
+      <h2>Короткий ответ</h2>
+      <p><strong>Суть в четырёх предложениях.</strong> Обоснование конечной точки нормативно обязательно, а не факультативно: ГОСТ (приложение А, п. А.6.1(c)) требует указать первичные и вторичные конечные точки с обоснованием их выбора и измерения, а первичная точка должна дополнительно соответствовать требованиям к исследуемому изделию и быть клинически значимой. Конечная точка не может выбираться независимо от остального протокола — нормативная цепочка выглядит как «заявленное назначение/claim → клиническая цель → гипотеза → первичная точка → целевая популяция → способ измерения → статистический анализ → вывод о заявленном свойстве», и разрыв в любом звене этой цепочки делает точку нормативно уязвимой. Для медицинских изделий, в отличие от лекарственных препаратов, естественной и специфичной категорией первичной точки является клиническая результативность самого устройства — но только если она непосредственно связана с назначением изделия и имеет клинический смысл, а не является чисто стендовым техническим показателем. Официального перечня «типичных ошибок» при выборе конечных точек не существует ни у Росздравнадзора, ни у ЕЭК — проблемы, разбираемые ниже, логически выведены из требований ГОСТ, а не взяты из официального списка.</p>
+
+      <h2>1. Нормативная база</h2>
+      <p><strong>Решение Совета ЕЭК от 12.02.2016 №29</strong> (действующая редакция от 26.01.2024) — описание дизайна должно включать основные и дополнительные конечные точки с обоснованием их выбора и измерения; Приложение №2 требует включить основную и дополнительные конечные точки как самостоятельный элемент программы. — <a href="/biblioteka/files/npa-eaes/reshenie-ot-12-02-2016-n-29-o-pravilah-provedeniya-klinicheskih-i-kliniko-laboratornyh-isp.pdf" target="_blank" rel="noopener" class="inline-link">скачать в библиотеке НПА</a>.</p>
+      <p><strong>ГОСТ Р ИСО 14155-2022</strong> — пп. 3.22–3.23 (определения первичной и вторичной конечной точки); приложение А, п. А.6.1(c) — требование обосновать выбор и измерение конечных точек, включая комбинированные; п. А.5 — связь целей, гипотез, конечных точек и целевой популяции; п. А.7(d) — уровень и статистическая значимость первичной точки, общая стратегия статистического тестирования; приложение I — требования к подтверждающим исследованиям. — <a href="/biblioteka/files/gosty-mi-obschego-naznacheniya/gost-r-iso-14155-2022-klinicheskie-issledovaniya-medicinskih-izdeliy-provodimye-s-uchastie.pdf" target="_blank" rel="noopener" class="inline-link">скачать в библиотеке НПА</a>.</p>
+      <p><strong>Рекомендация Коллегии ЕЭК от 11.02.2025 №2</strong> — включила ГОСТ Р ИСО 14155-2022 (разделы 4–10, приложения А, H, I) в перечень стандартов, добровольное применение которых обеспечивает соответствие Общим требованиям безопасности и эффективности медицинских изделий — это усиливает практическую значимость именно тех приложений, на которые опирается эта статья.</p>
+      <p class="lead-note">Нормативная база проверена по состоянию на 03.09.2026.</p>
+      <div class="warn-box"><strong>⚠ Взгляд на будущее (не влияет на текущие требования)</strong><p>В марте 2026 года на международном уровне опубликован ISO 14155:2026 (издание 4), заменивший ISO 14155:2020, с уточнениями по clinical performance, критериям приемлемости и концепции estimands. Это не означает автоматической замены ГОСТ Р ИСО 14155-2022 — российский национальный стандарт по-прежнему идентичен ISO 14155:2020 и продолжает действовать без изменений, применимых к теме этой статьи.</p></div>
+
+      <h2>2. Обоснование обязательно — недостаточно просто назвать показатель</h2>
+      <p>И Решение №29, и ГОСТ требуют не перечисления, а обоснования.</p>
+      <p>Решение №29 требует включить в описание дизайна основные и дополнительные конечные точки <strong>с обоснованием их выбора и измерения</strong>. ГОСТ (п. А.6.1(c)) идёт ещё точнее: должны быть указаны первичные и вторичные конечные точки с обоснованием выбора и измерения; для комбинированных точек действует то же правило. Ключевая формулировка стандарта: <strong>первичная конечная точка должна соответствовать предъявляемым требованиям к исследуемому изделию и быть клинически значимой</strong>.</p>
+      <p><strong>Практическое правило:</strong> endpoint должен быть обоснован минимум по двум направлениям — почему выбран именно этот показатель, и почему выбран именно этот способ и момент его измерения. Формулировка вида «первичная точка — снижение показателя X» без объяснения, почему именно этот показатель отражает заявленное клиническое свойство изделия и почему измерение происходит именно в этот момент времени, не удовлетворяет требованию.</p>
+
+      <h2>3. Конечная точка как звено логической цепочки, а не изолированный показатель</h2>
+      <p>Это прямое продолжение уже разобранной в других материалах логики программы КИ.</p>
+      <p>ГОСТ определяет клинические функциональные характеристики (п. 3.11) как функционирование изделия или реакцию субъекта на изделие, связанные с его предусмотренным назначением при правильном применении к соответствующим субъектам. Результативность (п. 3.20) определена как достижение клинически значимого запланированного результата в целевой популяции при применении изделия по назначению. Первичная точка (п. 3.22) должна давать доказательства именно клинических функциональных характеристик, результативности или безопасности — то есть привязана к назначению изделия по определению, а не по случайному совпадению.</p>
+      <p>Пункт А.5 связывает это в явную цепочку: задачи исследования должны служить его цели, касаться гипотез и соответствующих конечных точек применительно к целевой популяции; задачи должны быть непосредственно связаны с предварительными спецификациями и заранее определёнными первичными точками; заявления (claims) об изделии должны быть связаны с критериями пригодности субъектов и пользователей.</p>
+      <p><strong>Полная нормативная цепочка:</strong></p>
+      <div class="chain-box">заявленное назначение (claim) → клиническая цель → гипотеза → <u>первичная конечная точка</u> → целевая популяция → способ измерения → статистический анализ → вывод о заявленном свойстве</div>
+      <p>Проверка конечной точки экспертизой хорошо раскладывается на четыре содержательных вопроса: согласована ли точка с назначением и остальным досье; клинически ли она значима; пригодны ли дизайн и популяция для её измерения; способен ли статистический план сделать предусмотренный вывод. Это аналитическая модель, а не буквальный официальный четырёхступенчатый тест, но она напрямую опирается на требования пп. А.5–А.7 ГОСТ.</p>
+
+      <h2>4. Статус первичной точки — выше, но не абсолютно</h2>
+      <p>Статус первичной (основной) точки действительно выше вторичных, но нормативные требования к этому статусу точнее, чем упрощённая формула «исследование положительно только при статистической значимости по первичной точке».</p>
+      <p>Пункт А.7(d) ГОСТ требует определить уровень и статистическую значимость первичной конечной точки и общую стратегию статистического тестирования, если применимо. Первичная гипотеза (п. 3.25) формируется на основе заранее установленной первичной точки и обычно используется для расчёта объёма выборки.</p>
+      <p><strong>Для подтверждающего исследования связь жёстче</strong>: приложение I требует заранее определить гипотезу для первичной точки и надёжный статистический метод её анализа — подтверждающим называется именно то исследование, в котором гипотезы относительно первичных точек заранее заданы и анализируются предусмотренными в плане клинического исследования подтверждающими статистическими тестами.</p>
+      <p>Но поисковые (feasibility) исследования могут не иметь заранее установленной первичной статистической гипотезы вообще. Поэтому правильная формулировка: в подтверждающем исследовании первичная точка — основной носитель подтверждающего статистического вывода; универсального правила «любое КИ признаётся положительным только при статистической значимости первичной точки» ГОСТ не устанавливает.</p>
+
+      <h2>5. Конечные точки, специфичные для медицинских изделий</h2>
+      <p>Здесь важно не создать слишком широкую классификацию, которой в норме нет, но категория действительно существует.</p>
+      <p>ГОСТ допускает первичные точки, доказывающие три группы характеристик: клинические функциональные характеристики, результативность или безопасность. Особенно device-specific здесь категория клинической результативности — она может выражаться не только через состояние пациента, но и через <strong>функционирование самого изделия</strong>, если это функционирование связано с предусмотренным назначением и оценивается в соответствующем клиническом контексте.</p>
+      <p><strong>Практический пример.</strong> Точность функционирования устройства, успешность технического выполнения процедуры, корректность получения результата, стабильность функционирования импланта — принципиально могут быть клиническими конечными точками, если они непосредственно относятся к назначению изделия и имеют клинический смысл.</p>
+      <div class="warn-box"><strong>⚠ Где проходит граница</strong><p>«Время до отказа прибора» как чисто стендовый показатель нельзя автоматически назвать клинической конечной точкой по ГОСТ Р ИСО 14155-2022. Если это ресурсное испытание без субъектов и без прямой связи с клиническим результатом — это техническое доказательство надёжности изделия, а не endpoint клинического исследования. Смешение технического испытания и клинической конечной точки — типичная содержательная ошибка.</p></div>
+      <p>Для изделий диагностики in vitro Решение №29 разделяет ещё нагляднее: аналитическая эффективность — способность выявлять или измерять аналит; клиническая эффективность — способность давать результаты, коррелирующие с конкретным клиническим или физиологическим состоянием целевой популяции. Поэтому диагностическая точность и связанные показатели — гораздо более естественные конечные точки для ИВД, чем классические лекарственные исходы вроде выживаемости или динамики симптомов.</p>
+
+      <h2>6. Суррогатные конечные точки: специальной нормы нет, но обоснование строже общего</h2>
+      <p>В Решении №29 и ГОСТ Р ИСО 14155-2022 нет отдельной категории «суррогатная конечная точка» и специального правила её валидации.</p>
+      <p>Это не означает, что выбор суррогата ничем не ограничен. Такой показатель, выбранный как первичная точка, всё равно подпадает под общие требования п. А.6.1(c) (обоснование выбора и измерения, соответствие требованиям к изделию, клиническая значимость) и п. А.5 (научное обоснование клинической значимости измеряемого эффекта).</p>
+      <p><strong>Практический вывод:</strong> чем дальше показатель от непосредственной клинической пользы, тем более развёрнутое обоснование причинной или прогностической связи с клинически значимым результатом потребуется — это вывод из общих требований к обоснованности, а не отдельно процитированная норма. Не путайте это с регулированием суррогатных точек для лекарственных препаратов (там ЕАЭС регулирует их подробнее) — переносить лекарственные правила на медицинские изделия напрямую нельзя.</p>
+
+      <h2>7. Композитные конечные точки: здесь норма есть прямо</h2>
+      <p>В отличие от суррогатных точек, композитные (составные) точки регулируются ГОСТ явно.</p>
+      <p>Пункт А.6.1(c) прямо предусматривает комбинированные конечные точки и требует обосновать их выбор и измерение. В примечании к нему указано: композитная точка — это заранее установленная комбинация более чем одной конечной точки, применять которую следует осторожно; компоненты должны иметь относительно сопоставимую клиническую значимость, частоту и ожидаемую реакцию на механизм воздействия.</p>
+      <p>Отдельно требования к отчёту о клиническом исследовании прямо предусматривают представление <strong>результатов компонентов</strong> составной точки, если такая точка использовалась.</p>
+      <p><strong>Практическое правило:</strong> композитную точку нельзя использовать как способ скрыть разнонаправленные результаты компонентов. Её состав должен быть заранее определён и обоснован, а результаты каждого компонента должны быть раскрыты в отчёте отдельно, а не только в виде агрегированного показателя.</p>
+
+      <h2>8. Проблемы, логически выведенные из норм (а не официальный перечень)</h2>
+      <p>Публичного документа Росздравнадзора или ЕЭК с перечнем типичных ошибок при выборе конечных точек не существует. Ниже — проблемы, которые логически следуют из требований пп. А.5–А.7 ГОСТ, а не цитаты официального списка:</p>
+      <ul>
+        <li>конечная точка не связана с заявленным назначением или клиническим утверждением об изделии;</li>
+        <li>первичная точка формально названа, но не является клинически значимой;</li>
+        <li>выбор точки или метода её измерения не обоснован;</li>
+        <li>точка не соответствует заявленной целевой популяции;</li>
+        <li>момент оценки не позволяет продемонстрировать заявленный эффект;</li>
+        <li>первичная точка не связана с основной гипотезой исследования;</li>
+        <li>объём выборки рассчитан исходя из другого показателя, а не из заявленной первичной точки;</li>
+        <li>отсутствует заранее заданная статистическая стратегия анализа первичной точки;</li>
+        <li>множественные конечные точки анализируются без предусмотренной стратегии контроля общего статистического вывода;</li>
+        <li>составная точка объединяет клинически несопоставимые компоненты, либо результаты компонентов скрыты в итоговом анализе.</li>
+      </ul>
+
+      <h2>Частые вопросы</h2>
+      <details class="faq-item"><summary>«Первичная» и «основная» конечная точка — это одно и то же?</summary><p>По сути да, но термины происходят из разных документов: «основная»/«дополнительная» — терминология Решения №29 ЕАЭС, «первичная»/«вторичная» — терминология ГОСТ Р ИСО 14155-2022. Выбирайте одну терминологию, соответствующую документу, на который вы ссылаетесь, и не смешивайте их в одном разделе без пояснения.</p></details>
+      <details class="faq-item"><summary>Достаточно ли просто указать конечную точку без объяснений?</summary><p>Нет. И Решение №29, и ГОСТ Р ИСО 14155-2022 прямо требуют обосновать выбор конечной точки и способ/момент её измерения, а не только назвать сам показатель.</p></details>
+      <details class="faq-item"><summary>Может ли конечной точкой быть чисто техническая характеристика изделия?</summary><p>Может, если она непосредственно связана с предусмотренным назначением изделия и имеет клинический смысл (это категория клинической результативности по ГОСТ). Но чисто стендовый технический показатель без связи с клиническим контекстом и без участия субъектов — не конечная точка клинического исследования, а техническое испытание.</p></details>
+      <details class="faq-item"><summary>Регулируются ли суррогатные конечные точки для медицинских изделий?</summary><p>Специальной категории и отдельного правила валидации суррогатных точек в Решении №29 и ГОСТ Р ИСО 14155-2022 нет. Но выбор суррогата подпадает под общие требования обоснованности и клинической значимости — чем дальше показатель от прямой клинической пользы, тем более развёрнутое обоснование связи потребуется.</p></details>
+      <details class="faq-item"><summary>Можно ли использовать составную (композитную) конечную точку?</summary><p>Да, это прямо предусмотрено ГОСТ (п. А.6.1(c)), но с условиями: состав должен быть заранее определён и обоснован, компоненты должны иметь сопоставимую клиническую значимость, а результаты каждого компонента должны быть отдельно раскрыты в отчёте, а не только в виде общего показателя.</p></details>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/kak-sostavit-programmu-klinicheskikh-ispytanij">Как составить программу клинических испытаний медизделия</a>
+        <a class="related-card" href="/blog/kriterii-vklyucheniya-isklyucheniya-ki">Критерии включения и исключения в КИ</a>
+        <a class="related-card" href="/blog/zamechaniya-k-programme-ki-kak-otvechat">Замечания к программе КИ: как отвечать</a>
+        <a class="related-card" href="/glossariy">Глоссарий терминов</a>
+        <a class="related-card" href="/blog">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Проектируете дизайн исследования и выбираете конечные точки?</h2>
+          <p>Probarium поможет обосновать первичную и вторичные конечные точки, связать их с заявленным назначением изделия и статистическим планом исследования — так, чтобы выбор выдержал экспертную проверку.</p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/konechnye-tochki-ki-medizdeliya-kak-vybrat)">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой конечной точке"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li><a href="https://t.me/tandelovtat" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener">MAX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Конечные точки клинического исследования медизделия: как выбрать",
+  "description": "Первичные и вторичные конечные точки клинического исследования медизделия — требования к обоснованию выбора, связь с назначением изделия, композитные и суррогатные точки по ГОСТ Р ИСО 14155-2022 и Решению №29 ЕАЭС.",
+  "author": {"@type": "Person", "name": "Артемий-Татуш Танделов", "jobTitle": "Генеральный директор Probarium", "url": "https://t.me/tandelovtat"},
+  "publisher": {"@type": "Organization", "name": "Probarium"},
+  "mainEntityOfPage": "https://probarium.ru/blog/konechnye-tochki-ki-medizdeliya-kak-vybrat",
+  "datePublished": "2026-09-03",
+  "dateModified": "2026-09-03"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://probarium.ru/blog"},
+    {"@type": "ListItem", "position": 3, "name": "Конечные точки КИ: как выбрать", "item": "https://probarium.ru/blog/konechnye-tochki-ki-medizdeliya-kak-vybrat"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "«Первичная» и «основная» конечная точка — это одно и то же?", "acceptedAnswer": {"@type": "Answer", "text": "По сути да, но термины происходят из разных документов: «основная»/«дополнительная» — терминология Решения №29 ЕАЭС, «первичная»/«вторичная» — терминология ГОСТ Р ИСО 14155-2022."}},
+    {"@type": "Question", "name": "Достаточно ли просто указать конечную точку без объяснений?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. И Решение №29, и ГОСТ Р ИСО 14155-2022 прямо требуют обосновать выбор конечной точки и способ/момент её измерения, а не только назвать сам показатель."}},
+    {"@type": "Question", "name": "Может ли конечной точкой быть чисто техническая характеристика изделия?", "acceptedAnswer": {"@type": "Answer", "text": "Может, если она непосредственно связана с предусмотренным назначением изделия и имеет клинический смысл. Но чисто стендовый технический показатель без связи с клиническим контекстом и без участия субъектов — не конечная точка клинического исследования."}},
+    {"@type": "Question", "name": "Регулируются ли суррогатные конечные точки для медицинских изделий?", "acceptedAnswer": {"@type": "Answer", "text": "Специальной категории и отдельного правила валидации суррогатных точек в Решении №29 и ГОСТ Р ИСО 14155-2022 нет. Но выбор суррогата подпадает под общие требования обоснованности и клинической значимости."}},
+    {"@type": "Question", "name": "Можно ли использовать составную (композитную) конечную точку?", "acceptedAnswer": {"@type": "Answer", "text": "Да, это прямо предусмотрено ГОСТ (п. А.6.1(c)), но с условиями: состав должен быть заранее определён и обоснован, а результаты каждого компонента должны быть отдельно раскрыты в отчёте."}}
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
