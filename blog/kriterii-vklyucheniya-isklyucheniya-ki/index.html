@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Критерии включения и исключения в КИ: как задать корректно — Probarium</title>
+<meta name="description" content="Как правильно формулировать критерии включения и исключения в клиническом испытании медизделия — согласно Приложению №2 Решения №29 ЕАЭС и ГОСТ Р ИСО 14155-2022. Критерии как механизм согласования заявленного назначения с реально исследуемой популяцией, а не независимый чек-лист.">
+<link rel="canonical" href="https://probarium.ru/blog/kriterii-vklyucheniya-isklyucheniya-ki">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Критерии включения и исключения в КИ: как задать корректно">
+<meta property="og:description" content="Критерии включения/исключения в КИ медизделия — как они связывают назначение изделия, целевую популяцию и конечные точки исследования.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/kriterii-vklyucheniya-isklyucheniya-ki">
+<meta property="og:image" content="https://probarium.ru/og-image.png">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:10px;padding:16px 20px;margin:8px 0 20px;font-size:14px;color:#0C447C;font-weight:600;line-height:1.7;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110814948', 'ym');
+    ym(110814948, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110814948" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog">Блог</a> / <span aria-current="page">Критерии включения/исключения в КИ</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>11 мин чтения</span><span>3 сентября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Критерии включения и исключения в КИ: как задать корректно</h1>
+    <p class="lead">Как правильно формулировать критерии включения и исключения в клиническом испытании медизделия — согласно Приложению №2 Решения №29 ЕАЭС и ГОСТ Р ИСО 14155-2022. Критерии как механизм согласования заявленного назначения с реально исследуемой популяцией, а не независимый чек-лист.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <p>Критерии включения и исключения в клиническом испытании медицинского изделия часто оформляют как отдельный технический раздел программы — список условий, которым должен соответствовать субъект. На деле это не изолированный чек-лист, а механизм, через который заявленное назначение изделия и его целевая популяция превращаются в конкретных людей, на которых будет получено клиническое доказательство. Ошибка в этом разделе не остаётся локальной проблемой одного пункта — она подрывает связь между тем, что вы заявляете об изделии, и тем, что реально способно подтвердить исследование.</p>
+
+      <h2>Короткий ответ</h2>
+      <p><strong>Суть в четырёх предложениях.</strong> Критерии включения и исключения — обязательный элемент программы КИ по Приложению №2 Решения №29 ЕАЭС, но перечисления критериев без их прямого обоснования нормативно достаточно: отдельная пояснительная записка под каждым критерием прямо не предписана. При этом ГОСТ Р ИСО 14155-2022 создаёт косвенное, но чёткое требование обоснованности — критерии должны логически вытекать из назначения изделия, целевой популяции, целей исследования и профиля риска, а не задаваться произвольно. Полноценная логическая цепочка программы выглядит так: назначение и показания → целевая популяция → цель и гипотеза → дизайн и конечные точки → критерии включения/исключения → фактически исследуемая выборка → статистика → допустимость распространения вывода обратно на заявленную целевую популяцию; критерии в этой цепочке играют роль «ворот», через которые заявленная популяция превращается в реально исследуемую. Официального перечня «типичных ошибок» в формулировании критериев для медизделий не существует ни у Росздравнадзора, ни у ЕЭК — три содержательных проблемы, разбираемые ниже, выведены логически из требований ГОСТ Р ИСО 14155-2022 и Рекомендации №27 ЕЭК, а не взяты из официального списка.</p>
+
+      <h2>1. Нормативная база</h2>
+      <p><strong>Решение Совета ЕЭК от 12.02.2016 №29</strong> (действующая редакция от 26.01.2024) — Приложение №2, раздел II, подп. «с»: программа должна включать критерии включения, критерии исключения при выборе субъектов, критерии и процедуры прекращения или приостановления участия. — <a href="/biblioteka/files/npa-eaes/reshenie-ot-12-02-2016-n-29-o-pravilah-provedeniya-klinicheskih-i-kliniko-laboratornyh-isp.pdf" target="_blank" rel="noopener" class="inline-link">скачать в библиотеке НПА</a>.</p>
+      <p><strong>ГОСТ Р ИСО 14155-2022</strong> — приложение А, п. А.6.3 «Субъекты клинических исследований»: отдельно должны быть указаны критерии включения и исключения, критерии и процедуры прекращения участия/утраты связи, момент включения, момент рандомизации, длительность участия, необходимое число субъектов, предполагаемый срок набора, отношение исследуемой популяции к целевой популяции, сведения об уязвимых группах, беременных и кормящих женщинах, если применимо. Пункт А.6.4 требует выявить факторы, способные ухудшить результаты исследования или их интерпретацию, и описать способы их учёта, прямо называя среди таких способов выбор субъектов. Пункт 5.7 и приложение А.15 — специальный режим для уязвимых групп. — <a href="/biblioteka/files/gosty-mi-obschego-naznacheniya/gost-r-iso-14155-2022-klinicheskie-issledovaniya-medicinskih-izdeliy-provodimye-s-uchastie.pdf" target="_blank" rel="noopener" class="inline-link">скачать в библиотеке НПА</a>.</p>
+      <p><strong>Рекомендация Коллегии ЕЭК от 23.12.2024 №27</strong> (заменила Рекомендацию №14 от 21.05.2019, которая с 27.12.2024 не применяется) — требует согласования сферы применения изделия с назначением и подтверждения эффективности/безопасности по соответствующим показаниям.</p>
+      <p><strong>Приказ Минздрава России от 13.05.2026 №421н</strong> (действует с 01.09.2026) — регулирует проведение клинических испытаний для оценки безопасности и эффективности; отдельного специального правила о содержании критериев включения/исключения не устанавливает. — <a href="/biblioteka/files/ispytaniya/prikaz-421n.pdf" target="_blank" rel="noopener" class="inline-link">скачать в библиотеке НПА</a>.</p>
+      <p class="lead-note">Нормативная база проверена по состоянию на 03.09.2026.</p>
+      <div class="warn-box"><strong>⚠ Важное уточнение по концепции статьи</strong><p>Официального актуального документа с перечнем «типичных ошибок» именно в формулировании критериев включения/исключения для медицинских изделий не существует. Три содержательных проблемы в разделе 4 ниже — это аналитические выводы из требований ГОСТ Р ИСО 14155-2022 и Рекомендации №27, а не цитаты официального списка.</p></div>
+
+      <h2>2. Специфика для медизделий — не отдельная методология, а специфический предмет обоснования</h2>
+      <p>Сам подход к построению критериев включения/исключения общий для клинических исследований в целом: заранее определить популяцию, защитить субъектов, снизить систематические искажения, обеспечить интерпретируемость результатов. Отдельной методологии критериев, специально созданной только для медизделий и принципиально отличающейся от общей практики клинических исследований, не существует.</p>
+      <p>Но ГОСТ Р ИСО 14155-2022 построен вокруг оценки клинических функциональных характеристик, результативности и безопасности именно медицинского изделия, связывая клинические функциональные характеристики с предусмотренным назначением изделия при его правильном применении к соответствующим субъектам. Это не сводится к упрощённой формуле «в фарме изучают биологическое действие вещества, здесь — технические характеристики» — клиническое исследование медизделия всё равно оценивает клинический результат и безопасность человека, просто предмет доказательства иной: определение медицинского изделия прямо подчёркивает, что его первичное предназначенное действие не достигается фармакологическими, иммунологическими или метаболическими средствами.</p>
+      <p><strong>Практический вывод:</strong> содержание критериев для медизделия определяется назначением изделия, способом его применения, характеристиками пользователя или пациента, рисками, возможным взаимодействием с процедурами и другими изделиями, и тем, какие функциональные характеристики изделия исследуются.</p>
+
+      <h2>3. Критерии — не независимый чек-лист, а звено логической цепочки</h2>
+      <p>Это центральный тезис статьи, и он хорошо подтверждается структурой нормативных требований.</p>
+      <p>В Приложении №2 Решения №29 в одной структуре программы последовательно стоят назначение и предназначенная группа пациентов, дизайн, цели и гипотезы, основные и дополнительные конечные точки, выборка и её расчёт, критерии отбора и статистические методы — они не рассредоточены по разным разделам, а идут единой смысловой линией. ГОСТ усиливает эту связь: цель и конечные точки относятся к целевой популяции; заявления об изделии должны быть связаны с критериями пригодности; пункт А.6.3 прямо требует показать отношение исследуемой популяции к целевой; факторы, способные исказить результат, должны учитываться в том числе посредством выбора субъектов.</p>
+      <p><strong>Полная логическая цепочка программы:</strong></p>
+      <div class="chain-box">назначение и показания → целевая популяция → цель и гипотеза → дизайн и конечные точки → <u>критерии включения/исключения</u> → фактически исследуемая выборка → статистика → допустимость распространения вывода обратно на заявленную целевую популяцию</div>
+      <p>Критерии здесь играют роль «ворот»: именно через них заявленная целевая популяция превращается в исследуемую. Ошибка на этом этапе разрывает всю цепочку — даже безупречно проведённое исследование не сможет обоснованно подтвердить заявленное назначение, если критерии отбора были сформулированы независимо от него.</p>
+
+      <h2>4. Три содержательные проблемы — логически выведенные, не из официального списка</h2>
+
+      <h3>Проблема 1: критерии шире заявленного назначения</h3>
+      <p>Обосновывается наиболее сильно из трёх. Если критерии допускают субъектов вне предусмотренного назначения, показаний или приемлемого профиля риска, исследование перестаёт надёжно подтверждать заявленное применение — действующая Рекомендация №27 ЕЭК прямо требует согласования сферы применения с назначением и подтверждения эффективности/безопасности по соответствующим показаниям.</p>
+
+      <h3>Проблема 2: критерии не согласованы с целевой популяцией</h3>
+      <p>Прямой системный дефект по требованиям ГОСТ (пп. А.5, А.6.3): цель и конечные точки исследования привязаны к целевой популяции, а критерии пригодности субъектов должны отражать именно её, а не произвольно более узкую или более широкую группу.</p>
+
+      <h3>Проблема 3: критерии не учитывают факторы, способные исказить результат</h3>
+      <p>Хорошо подтверждается пунктом А.6.4 ГОСТ: стандарт прямо требует описывать известные или предполагаемые факторы, способные ухудшить результаты исследования или их интерпретацию, и методы их учёта — включая отбор субъектов, дизайн, стратификацию или статистический анализ.</p>
+
+      <p><strong>Отдельно про «слишком узкие критерии».</strong> Интуитивно кажется, что чрезмерно узкие критерии — тоже самостоятельная ошибка, потому что мешают набрать нужную выборку в разумный срок. Пункт А.6.3 ГОСТ действительно требует указать необходимое число субъектов и предполагаемый срок их набора, поэтому чрезмерное сужение популяции может сделать план практически невыполнимым. Но это не отдельно названное нормативное правило «критерии не должны быть слишком узкими» — это логический вывод из требования реализуемости дизайна и обоснованности выборки, а не официально сформулированная ошибка.</p>
+
+      <h2>5. Уязвимые группы — не очередная строка exclusion criteria</h2>
+      <p>Решение №29 требует включать в программу описание этических аспектов, включая интересы уязвимых субъектов. ГОСТ Р ИСО 14155-2022 идёт значительно глубже: пункт 5.7 устанавливает принцип — исследование уязвимой группы допустимо, когда его нельзя провести с неуязвимыми субъектами, и должно быть специально направлено на проблемы здоровья именно этой группы; применимы дополнительные требования этического комитета. Для субъектов, неспособных самостоятельно дать согласие, предусмотрен законный представитель; отдельно урегулированы дети и подростки; пункт 5.8.3.4 подробно регулирует исследования в условиях неотложной помощи.</p>
+      <p>Приложение А.15 дополнительно требует описания включаемой уязвимой группы, процесса скрининга для её выявления и защиты, специального процесса информированного согласия и особой ответственности этического комитета. Пункт А.6.3(k) отдельно называет уязвимые группы, беременных и кормящих женщин.</p>
+      <p><strong>Практический вывод:</strong> критерий «беременность», «несовершеннолетие», «недееспособность» нельзя рассматривать просто как ещё одну строку в списке критериев исключения. Сначала нужно решить, относится ли эта группа к вашей целевой популяции и научно и этически оправдано ли её включение вообще, — и только затем формулировать критерий и выполнять специальные процедурные требования, применимые именно к этой группе.</p>
+
+      <h2>Частые вопросы</h2>
+      <details class="faq-item"><summary>Требует ли норма отдельного письменного обоснования для каждого критерия включения/исключения?</summary><p>Нет, формулировки «обосновать каждый критерий отдельной запиской» в нормативных требованиях нет — Приложение №2 Решения №29 требует их перечисления. Но ГОСТ Р ИСО 14155-2022 создаёт косвенное требование обоснованности: критерии должны логически вытекать из назначения, целевой популяции, целей и профиля риска исследования.</p></details>
+      <details class="faq-item"><summary>Есть ли официальный список типичных ошибок в критериях включения/исключения для медизделий?</summary><p>Нет. Ни Росздравнадзор, ни ЕЭК не публикуют такого перечня. Практические проблемы, которые стоит проверить перед подачей, выведены логически из требований ГОСТ Р ИСО 14155-2022 и Рекомендации №27 ЕЭК.</p></details>
+      <details class="faq-item"><summary>Чем формулирование критериев для медизделия отличается от фармацевтической практики?</summary><p>Принципиальной отдельной методологии нет — общая логика построения критериев (защита субъектов, снижение искажений, интерпретируемость результатов) общая для клинических исследований в целом. Специфика в предмете: для медизделия критерии должны отражать назначение изделия, способ его применения, взаимодействие с процедурами и характеристики, которые исследуются, а не биологическое действие вещества.</p></details>
+      <details class="faq-item"><summary>Достаточно ли критериев исключения по возрасту или полу для работы с уязвимыми группами?</summary><p>Нет. Включение уязвимой группы (несовершеннолетние, беременные, недееспособные лица) в критерии — не техническая строка списка, а вопрос, требующий отдельного обоснования допустимости самого включения этой группы и выполнения специальных процедурных требований (законный представитель, особый режим информированного согласия, дополнительная роль этического комитета).</p></details>
+      <details class="faq-item"><summary>Как связаны критерии включения/исключения с остальной программой исследования?</summary><p>Критерии — часть единой логической цепочки: назначение → целевая популяция → цель и конечные точки → критерии отбора → фактическая выборка → статистика → возможность распространить вывод на заявленную популяцию. Критерии не могут формулироваться независимо от остальных элементов этой цепочки.</p></details>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/kak-sostavit-programmu-klinicheskikh-ispytanij">Как составить программу клинических испытаний медизделия</a>
+        <a class="related-card" href="/blog/protokol-programma-ki-medizdeliya-ekspertiza">Протокол (программа) КИ: как подготовить документ к экспертизе</a>
+        <a class="related-card" href="/blog/zamechaniya-k-programme-ki-kak-otvechat">Замечания к программе КИ: как отвечать</a>
+        <a class="related-card" href="/glossariy">Глоссарий терминов</a>
+        <a class="related-card" href="/blog">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Составляете критерии включения и исключения для программы КИ?</h2>
+          <p>Probarium поможет выстроить критерии так, чтобы они были согласованы с заявленным назначением изделия, целевой популяцией и конечными точками исследования — а не оформлены как изолированный технический список.</p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/kriterii-vklyucheniya-isklyucheniya-ki)">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и целевой популяции исследования"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li><a href="https://t.me/tandelovtat" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener">MAX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Критерии включения и исключения в КИ: как задать корректно",
+  "description": "Критерии включения/исключения в КИ медизделия — как они связывают назначение изделия, целевую популяцию и конечные точки исследования, по Приложению №2 Решения №29 ЕАЭС и ГОСТ Р ИСО 14155-2022.",
+  "author": {"@type": "Person", "name": "Артемий-Татуш Танделов", "jobTitle": "Генеральный директор Probarium", "url": "https://t.me/tandelovtat"},
+  "publisher": {"@type": "Organization", "name": "Probarium"},
+  "mainEntityOfPage": "https://probarium.ru/blog/kriterii-vklyucheniya-isklyucheniya-ki",
+  "datePublished": "2026-09-03",
+  "dateModified": "2026-09-03"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://probarium.ru/blog"},
+    {"@type": "ListItem", "position": 3, "name": "Критерии включения/исключения в КИ", "item": "https://probarium.ru/blog/kriterii-vklyucheniya-isklyucheniya-ki"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Требует ли норма отдельного письменного обоснования для каждого критерия включения/исключения?", "acceptedAnswer": {"@type": "Answer", "text": "Нет — Приложение №2 Решения №29 требует их перечисления, а не отдельной записки под каждым пунктом. Но ГОСТ Р ИСО 14155-2022 создаёт косвенное требование обоснованности: критерии должны логически вытекать из назначения, целевой популяции, целей и профиля риска исследования."}},
+    {"@type": "Question", "name": "Есть ли официальный список типичных ошибок в критериях включения/исключения для медизделий?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Ни Росздравнадзор, ни ЕЭК не публикуют такого перечня. Практические проблемы выведены логически из требований ГОСТ Р ИСО 14155-2022 и Рекомендации №27 ЕЭК."}},
+    {"@type": "Question", "name": "Чем формулирование критериев для медизделия отличается от фармацевтической практики?", "acceptedAnswer": {"@type": "Answer", "text": "Принципиальной отдельной методологии нет. Специфика в предмете: для медизделия критерии должны отражать назначение изделия, способ его применения и характеристики, которые исследуются, а не биологическое действие вещества."}},
+    {"@type": "Question", "name": "Достаточно ли критериев исключения по возрасту или полу для работы с уязвимыми группами?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Включение уязвимой группы требует отдельного обоснования допустимости и выполнения специальных процедурных требований — законный представитель, особый режим информированного согласия, дополнительная роль этического комитета."}},
+    {"@type": "Question", "name": "Как связаны критерии включения/исключения с остальной программой исследования?", "acceptedAnswer": {"@type": "Answer", "text": "Критерии — часть единой логической цепочки: назначение → целевая популяция → цель и конечные точки → критерии отбора → фактическая выборка → статистика → возможность распространить вывод на заявленную популяцию."}}
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
