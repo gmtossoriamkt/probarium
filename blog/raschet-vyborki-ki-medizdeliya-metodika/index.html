@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Расчёт выборки для КИ медизделия: методика и обоснование — Probarium</title>
+<meta name="description" content="Как рассчитать и обосновать объём выборки клинического исследования медицинского изделия — требования ГОСТ Р ИСО 14155-2022 (приложение А.7) и Решения №29 ЕАЭС. Разбираем компоненты расчёта, источники ожидаемого эффекта, single-arm дизайны, learning curve оператора и типовые ошибки.">
+<link rel="canonical" href="https://probarium.ru/blog/raschet-vyborki-ki-medizdeliya-metodika">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Расчёт выборки для КИ медизделия: методика и обоснование">
+<meta property="og:description" content="Расчёт объёма выборки для КИ медизделия — от первичной конечной точки до итогового числа участников с учётом выбывания. Требования ГОСТ Р ИСО 14155-2022 и Решения №29.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/raschet-vyborki-ki-medizdeliya-metodika">
+<meta property="og:image" content="https://probarium.ru/og-image.png">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 20px;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110814948', 'ym');
+    ym(110814948, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110814948" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog">Блог</a> / <span aria-current="page">Расчёт выборки для КИ</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>Pillar</span><span>16 мин чтения</span><span>4 сентября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Расчёт выборки для КИ медизделия: методика и обоснование</h1>
+    <p class="lead">Как рассчитать и обосновать объём выборки клинического исследования медицинского изделия — требования ГОСТ Р ИСО 14155-2022 (приложение А.7) и Решения №29 ЕАЭС. Разбираем компоненты расчёта, источники ожидаемого эффекта, single-arm дизайны, learning curve оператора и типовые ошибки.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <p>Объём выборки клинического исследования медицинского изделия — не самостоятельная цифра, которую можно указать в программе и забыть. Это математическое следствие исследовательского вопроса: конкретной первичной конечной точки, выбранного дизайна, ожидаемого клинического эффекта и допустимого уровня статистической ошибки. Нормативные документы не устанавливают единую формулу расчёта — они требуют раскрыть весь путь от гипотезы до итогового числа участников, включая все использованные параметры и их источники.</p>
+
+      <h2>Короткий ответ</h2>
+      <p><strong>Суть в пяти предложениях.</strong> Ни ГОСТ Р ИСО 14155-2022, ни Решение №29 ЕАЭС не устанавливают универсальную математическую формулу расчёта выборки для медицинских изделий — приложение А, п. А.7 ГОСТ требует не назвать метод, а раскрыть все статистические параметры и предпосылки, использованные для расчёта, включая клинические данные, ожидаемый эффект, уровень значимости, мощность, соотношение рандомизации и ожидаемое выбывание участников. Решение №29 (Приложение №2) прямо требует включить в программу расчёт объёма выборки, включающий ожидаемую долю выбывания — то есть указания одного итогового числа без раскрытия метода недостаточно ни на союзном, ни на методологическом уровне. Специфика медицинских изделий по сравнению с лекарственными препаратами проявляется не в отдельной формуле, а в дополнительных факторах: влияние оператора и его обучения (learning curve) может изменить не саму формулу, а модель анализа и, как следствие, требуемое число наблюдений; для одногрупповых (single-arm) исследований расчёт строится не через сравнение с контрольной группой, а через сопоставление с заранее заданным критерием результативности. Официального перечня «типичных ошибок» расчёта выборки для медизделий не существует ни у Росздравнадзора, ни у ЕЭК — раздел о типовых проблемах ниже логически выведен из требований ГОСТ, а не взят из официального списка.</p>
+
+      <h2>1. Нормативная база</h2>
+      <p><strong>Решение Совета ЕЭК от 12.02.2016 №29</strong> (действующая редакция от 26.01.2024, Решение №7, вступила в силу 27.07.2024) — Приложение №2 требует включить в программу исследования объём выборки, расчёт объёма выборки (включая ожидаемую долю выбывания субъектов) и статистические методы анализа данных как отдельные, самостоятельные элементы. — <a href="/biblioteka/files/npa-eaes/reshenie-ot-12-02-2016-n-29-o-pravilah-provedeniya-klinicheskih-i-kliniko-laboratornyh-isp.pdf" target="_blank" rel="noopener" class="inline-link">скачать в библиотеке НПА</a>.</p>
+      <p><strong>ГОСТ Р ИСО 14155-2022</strong> — приложение А (обязательное), п. А.7 «Статистический дизайн и анализ» — требует раскрыть анализируемые популяции, описательную статистику, аналитические процедуры, уровень значимости, стратегию статистического тестирования, расчёт выборки, промежуточные анализы, подход к множественности сравнений и пропущенным данным. Подпункт А.7(e) — центральное требование к расчёту и обоснованию размера выборки. — <a href="/biblioteka/files/gosty-mi-obschego-naznacheniya/gost-r-iso-14155-2022-klinicheskie-issledovaniya-medicinskih-izdeliy-provodimye-s-uchastie.pdf" target="_blank" rel="noopener" class="inline-link">скачать в библиотеке НПА</a>.</p>
+      <p class="lead-note">Нормативная база проверена по состоянию на 04.09.2026. Решение №50 от 08.07.2025 (вступило в силу 24.02.2026) изменило регистрационные требования Решения №46, но не вводит новой методики расчёта выборки.</p>
+      <div class="warn-box"><strong>⚠ Важное уточнение по концепции статьи</strong><p>Официального документа с перечнем типичных ошибок расчёта выборки для медизделий не существует. Раздел 9 ниже — логический вывод из требований п. А.7 ГОСТ и Приложения №2 Решения №29, а не цитата официального чек-листа.</p></div>
+
+      <h2>2. Что именно требует ГОСТ: не формула, а полное раскрытие расчёта</h2>
+      <p>Пункт А.7(e) ГОСТ требует, чтобы в расчёте и обосновании размера выборки учитывались:</p>
+      <ul>
+        <li>все релевантные клинические данные, относящиеся к исследуемому показателю и величине эффекта;</li>
+        <li>предположения об ожидаемых результатах в группах лечения, если применимо;</li>
+        <li>корректировки в связи с заранее запланированными промежуточными анализами;</li>
+        <li>величина обнаруживаемого эффекта (а для non-inferiority — соответствующая граница, обоснованная с учётом эффекта компаратора);</li>
+        <li>соотношение рандомизации (например, 1:1 или 1:2);</li>
+        <li>ожидаемая частота исключения или выбывания участников (отказ от лечения, потеря для наблюдения, смерть, если она сама не является конечной точкой).</li>
+      </ul>
+      <p>Ключевая формулировка стандарта: <strong>все статистические параметры и методы, использованные для расчёта размера выборки, должны быть чётко указаны</strong>.</p>
+      <div class="chain-box">Первичная конечная точка → статистическая гипотеза → параметр эффекта → ожидаемое значение эффекта → вариабельность или базовая частота события → уровень значимости → мощность → тип сравнения → соотношение рандомизации → метод расчёта → исходное число → поправка на выбывание → итоговое число.</div>
+      <p><strong>Практический вывод:</strong> формулировка «объём выборки — 120 пациентов, обоснован ожидаемым эффектом» сама по себе требованиям А.7 не соответствует. Норма требует раскрыть весь путь, показанный выше.</p>
+      <p><strong>Двухуровневая конструкция требований:</strong> Решение №29 говорит, что расчёт должен присутствовать в программе исследования; ГОСТ Р ИСО 14155-2022 раскрывает, из чего именно должно состоять это статистическое обоснование.</p>
+
+      <h2>3. Не предписана формула, но метод не произволен</h2>
+      <p>Ни ГОСТ, ни Решение №29 не устанавливают конкретную математическую формулу расчёта. Решение №29 требует наличия расчёта и статистических методов, но не указывает конкретный метод. ГОСТ требует раскрыть «статистические параметры и методы», прямо предполагая возможность разных методов в зависимости от дизайна.</p>
+      <p><strong>Но это не означает полной свободы выбора.</strong> Метод ограничен: целью исследования, первичной конечной точкой, типом гипотезы (superiority/non-inferiority/equivalence), распределением показателя, дизайном исследования, требуемым контролем статистической ошибки, имеющимися клиническими данными и научной обоснованностью предпосылок. Свобода выбора метода есть; свободы выбрать произвольный метод без объяснения нет.</p>
+
+      <h2>4. Уровень значимости и мощность</h2>
+      <p>ГОСТ отдельно регулирует эти параметры: для проверки гипотез обычные значения двустороннего α = 0,05, одностороннего α = 0,025 и мощности в диапазоне от 0,8 до 1−α не требуют отдельного обоснования. Иные значения допускаются, но должны быть обусловлены особенностями изделия или исследования.</p>
+      <p><strong>Практическое правило:</strong> если вы используете стандартные значения (α = 0,05, мощность ≥ 0,8) — дополнительно объяснять их выбор не требуется. Если отклоняетесь от них — нужно прямо обосновать, почему именно для вашего изделия или дизайна выбраны другие значения.</p>
+
+      <h2>5. Откуда брать ожидаемый эффект</h2>
+      <p>Ни ГОСТ, ни Решение №29 не устанавливают закрытый перечень или формальную иерархию источников для допущения об ожидаемом эффекте. Пункт А.7 требует учитывать «все релевантные клинические данные» и обосновывать предположения об ожидаемом результате. Решение №29 прямо признаёт клинические данные, полученные из научной литературы, из опыта клинического применения и из клинических исследований — включая данные аналогичного изделия, но с обязательным доказательством его эквивалентности заявляемому по назначению, техническим и биологическим характеристикам.</p>
+      <p><strong>Практическая (не нормативная) иерархия надёжности источников:</strong></p>
+      <table>
+        <tr><th>Источник</th><th>Комментарий</th></tr>
+        <tr><td>Данные предыдущих исследований самого изделия</td><td>Обычно самый сильный источник</td></tr>
+        <tr><td>Пилотное/поисковое исследование</td><td>Допустимо как научное основание предпосылок</td></tr>
+        <tr><td>Данные эквивалентного изделия</td><td>Допустимо, но переносимость нужно отдельно обосновать</td></tr>
+        <tr><td>Опубликованная научная литература</td><td>Прямо согласуется с подходом ГОСТ и Решения №29</td></tr>
+        <tr><td>Клинический опыт, real-world data</td><td>Потенциально допустим</td></tr>
+        <tr><td>Экспертная оценка</td><td>Не запрещена прямо, но сама по себе — более слабое основание</td></tr>
+      </table>
+      <div class="warn-box"><strong>⚠ Осторожно с формулировкой</strong><p>Нельзя писать, что экспертная оценка нормативно признана равнозначным источником — такой нормы нет. Если объективных данных недостаточно, экспертные предпосылки могут использоваться при планировании, но должны быть явно обозначены как таковые и максимально научно обоснованы, а не поданы наравне с данными исследований.</p></div>
+
+      <h2>6. Ожидаемое выбывание (dropout): формула и обоснование доли</h2>
+      <p>Решение №29 прямо требует расчёт выборки «в том числе ожидаемой доли выбывания субъектов». ГОСТ (п. А.7) требует учитывать ожидаемую частоту исключения (отказ от лечения, потеря для наблюдения, отдельные случаи смерти) и отдельно управлять, обосновывать и документировать отсутствующие данные.</p>
+      <p>Нормы вида «доля выбывания рассчитывается по предыдущим N исследованиям» или «допустим максимум X%» не существует — это обоснованная предпосылка, а не формально регулируемое значение. Разумные источники обоснования: аналогичные предыдущие исследования, пилотные данные, опубликованные исследования той же популяции, исторические данные спонсора или конкретной сети исследовательских центров, ожидаемая продолжительность наблюдения, тяжесть заболевания, инвазивность процедур.</p>
+      <p><strong>Формула перехода от требуемого числа наблюдений к числу включаемых участников:</strong></p>
+      <div class="chain-box">Если статистически необходимо N_required оцениваемых участников, а ожидаемая доля выбывания — d, то число участников для включения: <strong>N_enroll = N_required / (1 − d)</strong>.<br><br>Например, если необходимо 174 оцениваемых участника, а ожидаемое выбывание — 15%: N_enroll = 174 / (1 − 0,15) ≈ 205.</div>
+      <p><strong>Именно исходная предпосылка о доле выбывания (в примере — 15%) требует клинического обоснования</strong>, а не сама формула перехода.</p>
+
+      <h2>7. Single-arm (одногрупповые) исследования: другая логика расчёта</h2>
+      <p>Для одногруппового дизайна (уже разобранного как требующего отдельного обоснования отсутствия контроля в <a href="/blog/dizajn-klinicheskogo-issledovaniya-medizdeliya-vidy" class="inline-link">статье о выборе дизайна исследования</a>) расчёт выборки строится принципиально иначе, чем при сравнении групп.</p>
+      <p>Historical control не является обязательным элементом — ГОСТ признаёт, что контрольная группа может быть параллельной, ретроспективной, либо субъект может служить собственным контролем, но расчёт для single-arm design может строиться и без явной исторической группы:</p>
+      <ul>
+        <li>проверка одной доли против заранее заданного критерия результативности (performance goal);</li>
+        <li>проверка среднего значения против клинически значимого порога;</li>
+        <li>доказательство, что нижняя граница доверительного интервала превышает заранее заданное значение;</li>
+        <li>расчёт, исходящий только из требуемой точности доверительного интервала;</li>
+        <li>сравнение времени до события с историческим ориентиром;</li>
+        <li>точный биномиальный дизайн для редкого исхода.</li>
+      </ul>
+      <p>Типовая статистическая постановка: H₀: p ≤ p₀ против H₁: p = p₁ &gt; p₀, где p₀ — критерий результативности (performance goal или неприемлемый уровень), а p₁ — ожидаемое значение. Для расчёта нужны p₀, ожидаемое p₁, уровень значимости, мощность, тип теста и ожидаемое выбывание.</p>
+      <p><strong>Ключевой вопрос эксперта для single-arm расчёта — не столько выбор формулы, сколько источник p₀: почему он клинически релевантен, и сопоставима ли историческая или внешняя популяция, из которой он взят, с текущей исследуемой популяцией.</strong> Это часто делает single-arm расчёт концептуально сложнее обычного сравнительного дизайна 1:1, даже если формула проще.</p>
+
+      <h2>8. Как learning curve и множественность влияют на расчёт</h2>
+      <h3>Learning curve — не автоматическая поправка, а изменение модели</h3>
+      <p>ГОСТ требует при необходимости обосновать количество процедур, которое должен выполнить отдельный пользователь в рамках обучения, и определить анализ этих данных; если оценка риска показывает необходимость обучения, спонсор должен предусмотреть соответствующий объём.</p>
+      <p><strong>Это не означает, что к N механически добавляется «процент на обучение».</strong> Learning curve — отдельный аспект статистического дизайна, но он может повлиять на объём выборки, если дизайн предполагает отдельную оценку результатов после достижения proficiency, исключение обучающих случаев из основного анализа, стратификацию по оператору или моделирование эффекта оператора/центра. Тогда учёт обучения меняет число наблюдений, пригодных для основного анализа, и это должно отражаться в расчёте.</p>
+      <h3>Множественные конечные точки — параметр расчёта, когда влияет на вероятность ошибки</h3>
+      <p>Если множественность относится к подтверждающим гипотезам, она может напрямую менять требуемый объём выборки — например, при использовании поправки Бонферрони для двух совместных первичных гипотез при общем α = 0,05 каждая может тестироваться при α = 0,025, что обычно повышает требуемое N. Правило распространяется на несколько первичных конечных точек, несколько парных сравнений, промежуточные анализы, иерархическое тестирование.</p>
+      <p>Но если вторичные точки чисто вспомогательные (supportive/exploratory) и не участвуют в подтверждающем выводе, их множественность может не влиять на основной расчёт выборки. Универсального правила «при нескольких конечных точках всегда умножаем выборку» не существует.</p>
+
+      <h2>9. Типовые проблемы расчёта, логически выведенные из норм</h2>
+      <p>Официального перечня ошибок не существует. Ниже — проблемы, логически следующие из требований п. А.7 ГОСТ и Приложения №2 Решения №29:</p>
+      <ul>
+        <li>итоговое число участников указано без раскрытия самого расчёта;</li>
+        <li>метод расчёта назван, но исходные параметры не раскрыты;</li>
+        <li>расчёт основан не на первичной конечной точке, а на вторичной или более удобной переменной;</li>
+        <li>не указаны уровень значимости и мощность, хотя дизайн предполагает проверку гипотезы;</li>
+        <li>ожидаемый эффект не обоснован источником;</li>
+        <li>вариабельность или базовая частота события взяты произвольно, без указания источника;</li>
+        <li>для non-inferiority не обоснована граница (margin);</li>
+        <li>не учтена запланированная множественность или промежуточный анализ, хотя они меняют вероятность ошибки первого рода;</li>
+        <li>не учтено соотношение рандомизации;</li>
+        <li>ожидаемое выбывание не учтено, несмотря на прямое требование Решения №29;</li>
+        <li>доля выбывания указана произвольно (например, «20%») без какого-либо обоснования;</li>
+        <li>рассчитано число оцениваемых участников, но оно ошибочно выдано за число участников для включения;</li>
+        <li>для single-arm исследования отсутствует обоснованный внешний критерий результативности, от которого зависит расчёт;</li>
+        <li>эффект перенесён с другого изделия или другой популяции без обоснования переносимости;</li>
+        <li>игнорируется кластеризация по центрам или операторам, хотя это заложено дизайном;</li>
+        <li>после изменения первичной конечной точки или статистического метода расчёт выборки не пересчитан;</li>
+        <li>указанная формула и фактически полученное число математически не согласуются между собой;</li>
+        <li>в программе исследования и статистическом плане анализа используются разные исходные предпосылки.</li>
+      </ul>
+
+      <h2>Частые вопросы</h2>
+      <details class="faq-item"><summary>Есть ли нормативная формула расчёта выборки для медицинских изделий?</summary><p>Нет. Ни ГОСТ Р ИСО 14155-2022, ни Решение №29 не устанавливают единую обязательную формулу — метод выбирается исходя из первичной конечной точки, типа гипотезы и дизайна исследования, но все использованные параметры и допущения должны быть явно раскрыты и обоснованы.</p></details>
+      <details class="faq-item"><summary>Обязательна ли мощность именно 80%?</summary><p>Нет, но она стандартна: ГОСТ признаёт мощность в диапазоне от 0,8 до 1−α как не требующую отдельного обоснования. Иные значения допустимы, но должны быть обусловлены особенностями изделия или исследования.</p></details>
+      <details class="faq-item"><summary>Можно ли рассчитать выборку без контрольной группы?</summary><p>Да, для single-arm дизайна расчёт строится через сопоставление с заранее заданным критерием результативности, а не через сравнение с контрольной группой. Ключевой момент — обоснование источника этого критерия, а не выбор формулы.</p></details>
+      <details class="faq-item"><summary>Нужно ли прибавлять процент на ожидаемое выбывание?</summary><p>Да, это прямое требование Решения №29. Формула перехода: число участников для включения = число требуемых оцениваемых участников / (1 − ожидаемая доля выбывания). Обоснования требует именно доля выбывания, а не сама формула.</p></details>
+      <details class="faq-item"><summary>Нужно ли учитывать learning curve оператора в расчёте выборки?</summary><p>Не автоматически как поправку к числу, но если дизайн предусматривает исключение обучающих случаев или стратификацию по оператору — это меняет число наблюдений для основного анализа, и это нужно отразить в расчёте.</p></details>
+      <details class="faq-item"><summary>Можно ли использовать effect size из опубликованной статьи?</summary><p>Да, это прямо согласуется с подходом ГОСТ и Решения №29, которые признают научную литературу как источник клинических данных для обоснования предпосылок. Но переносимость данных на вашу исследуемую популяцию нужно обосновать отдельно.</p></details>
+      <details class="faq-item"><summary>Нужен ли формальный расчёт мощности для поисковых (exploratory) исследований?</summary><p>Не всегда. ГОСТ допускает для некоторых поисковых и обсервационных исследований научное обоснование объёма выборки вместо формального расчёта мощности.</p></details>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/konechnye-tochki-ki-medizdeliya-kak-vybrat">Конечные точки клинического исследования медизделия</a>
+        <a class="related-card" href="/blog/dizajn-klinicheskogo-issledovaniya-medizdeliya-vidy">Дизайн клинического исследования медизделия</a>
+        <a class="related-card" href="/blog/kak-sostavit-programmu-klinicheskikh-ispytanij">Как составить программу клинических испытаний медизделия</a>
+        <a class="related-card" href="/glossariy">Глоссарий терминов</a>
+        <a class="related-card" href="/blog">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Рассчитываете выборку для клинического исследования медизделия?</h2>
+          <p>Probarium поможет построить статистически обоснованный расчёт объёма выборки — от первичной конечной точки и выбранного дизайна до итогового числа участников с учётом ожидаемого выбывания.</p>
+          <p style="margin-top:14px;"><a href="mailto:info@probarium.ru?subject=Расчёт объёма выборки клинического исследования" class="btn btn-outline">Обсудить расчёт выборки</a></p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/raschet-vyborki-ki-medizdeliya-metodika)">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемом дизайне исследования"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li><a href="https://t.me/tandelovtat" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener">MAX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Расчёт выборки для КИ медизделия: методика и обоснование",
+  "description": "Как рассчитать и обосновать объём выборки клинического исследования медицинского изделия — требования ГОСТ Р ИСО 14155-2022 (приложение А.7) и Решения №29 ЕАЭС. Компоненты расчёта, источники ожидаемого эффекта, single-arm дизайны, learning curve оператора, типовые ошибки.",
+  "author": {"@type": "Person", "name": "Артемий-Татуш Танделов", "jobTitle": "Генеральный директор Probarium", "url": "https://t.me/tandelovtat"},
+  "publisher": {"@type": "Organization", "name": "Probarium"},
+  "mainEntityOfPage": "https://probarium.ru/blog/raschet-vyborki-ki-medizdeliya-metodika",
+  "datePublished": "2026-09-04",
+  "dateModified": "2026-09-04"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://probarium.ru/blog"},
+    {"@type": "ListItem", "position": 3, "name": "Расчёт выборки для КИ", "item": "https://probarium.ru/blog/raschet-vyborki-ki-medizdeliya-metodika"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Есть ли нормативная формула расчёта выборки для медицинских изделий?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Ни ГОСТ Р ИСО 14155-2022, ни Решение №29 не устанавливают единую обязательную формулу — метод выбирается исходя из первичной конечной точки, типа гипотезы и дизайна исследования, но все использованные параметры и допущения должны быть явно раскрыты и обоснованы."}},
+    {"@type": "Question", "name": "Обязательна ли мощность именно 80%?", "acceptedAnswer": {"@type": "Answer", "text": "Нет, но она стандартна: ГОСТ признаёт мощность в диапазоне от 0,8 до 1−α как не требующую отдельного обоснования. Иные значения допустимы, но должны быть обусловлены особенностями изделия или исследования."}},
+    {"@type": "Question", "name": "Можно ли рассчитать выборку без контрольной группы?", "acceptedAnswer": {"@type": "Answer", "text": "Да, для single-arm дизайна расчёт строится через сопоставление с заранее заданным критерием результативности, а не через сравнение с контрольной группой."}},
+    {"@type": "Question", "name": "Нужно ли прибавлять процент на ожидаемое выбывание?", "acceptedAnswer": {"@type": "Answer", "text": "Да, это прямое требование Решения №29. Формула перехода: число участников для включения = число требуемых оцениваемых участников / (1 − ожидаемая доля выбывания)."}},
+    {"@type": "Question", "name": "Нужно ли учитывать learning curve оператора в расчёте выборки?", "acceptedAnswer": {"@type": "Answer", "text": "Не автоматически как поправку к числу, но если дизайн предусматривает исключение обучающих случаев или стратификацию по оператору — это меняет число наблюдений для основного анализа."}},
+    {"@type": "Question", "name": "Можно ли использовать effect size из опубликованной статьи?", "acceptedAnswer": {"@type": "Answer", "text": "Да, это согласуется с подходом ГОСТ и Решения №29, которые признают научную литературу как источник клинических данных. Переносимость данных на вашу популяцию нужно обосновать отдельно."}},
+    {"@type": "Question", "name": "Нужен ли формальный расчёт мощности для поисковых (exploratory) исследований?", "acceptedAnswer": {"@type": "Answer", "text": "Не всегда. ГОСТ допускает для некоторых поисковых и обсервационных исследований научное обоснование объёма выборки вместо формального расчёта мощности."}}
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
