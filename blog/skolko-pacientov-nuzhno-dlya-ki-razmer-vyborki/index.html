@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Сколько пациентов нужно для КИ медизделия: от чего зависит размер выборки — Probarium</title>
+<meta name="description" content="Сколько пациентов нужно для клинического испытания медицинского изделия — от чего зависит размер выборки на практике, с числовыми примерами для пропорций, непрерывных показателей и IVD-тестов. Универсального минимума не существует.">
+<link rel="canonical" href="https://probarium.ru/blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Сколько пациентов нужно для КИ медизделия: от чего зависит размер выборки">
+<meta property="og:description" content="Размер выборки для КИ медизделия зависит от ожидаемого эффекта, вариабельности, мощности и dropout — разбираем на числовых примерах, а не абстрактно.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki">
+<meta property="og:image" content="https://probarium.ru/og-image.png">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 20px;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110814948', 'ym');
+    ym(110814948, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110814948" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog">Блог</a> / <span aria-current="page">Сколько пациентов нужно для КИ</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>10 мин чтения</span><span>8 сентября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Сколько пациентов нужно для КИ медизделия: от чего зависит размер выборки</h1>
+    <p class="lead">Сколько пациентов нужно для клинического испытания медицинского изделия — от чего зависит размер выборки на практике, с числовыми примерами для пропорций, непрерывных показателей и IVD-тестов. Универсального минимума не существует.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <p>Количество пациентов в клиническом испытании медицинского изделия нельзя определить по универсальной таблице. Для одного исследования может быть достаточно нескольких десятков наблюдений, для другого потребуется несколько сотен. Всё зависит от того, что именно нужно доказать, насколько большой эффект ожидается и с какой статистической надёжностью его нужно подтвердить. Нормативного правила «30 пациентов для КИ медизделия» не существует.</p>
+
+      <p><strong>Как эта статья соотносится с методикой расчёта.</strong> Здесь мы разбираем, от каких факторов зависит размер выборки, на конкретных числовых примерах — чтобы заранее прикинуть масштаб проекта. Если вы уже пишете сам статистический раздел программы КИ, подробную методологию (требования ГОСТ Р ИСО 14155-2022, обоснование параметров, single-arm дизайны, множественность конечных точек) разбирает статья <a href="/blog/raschet-vyborki-ki-medizdeliya-metodika" class="inline-link">«Расчёт выборки для КИ медизделия: методика и обоснование»</a>.</p>
+
+      <h2>Короткий ответ</h2>
+      <p><strong>Суть в четырёх предложениях.</strong> Правила ЕАЭС (п. 11 Правил, утверждённых Решением Совета ЕЭК №29) не устанавливают минимальное число пациентов — требуют лишь, чтобы количество наблюдений было достаточным для статистической достоверности, воспроизводимости результатов и научной обоснованности выводов. Размер выборки определяется взаимодействием нескольких факторов: ожидаемого эффекта, вариабельности данных, требуемой статистической мощности, типа первичной конечной точки, выбранного дизайна и ожидаемого выбывания участников — и каждый из них может кратно менять итоговое число. Класс риска изделия напрямую не диктует размер выборки — прямой таблицы «класс риска → число пациентов» не существует, класс риска влияет на объём необходимых клинических доказательств и, в отдельных случаях, на требование многоцентровости. Правила ЕАЭС допускают использование существующих клинических данных (литература, предыдущее клиническое применение, данные по эквивалентным изделиям) для сокращения объёма нового исследования — но только для тех аспектов, которые действительно покрываются этими данными.</p>
+
+      <h2>Есть ли минимальное количество пациентов</h2>
+      <p>Нет. Задача производителя — не набрать условные 30 или 50 пациентов, а обосновать, почему выбранного количества достаточно для конкретного исследования.</p>
+      <p>В программе КИ должны быть определены: дизайн исследования; цели и гипотезы; основные и дополнительные конечные точки; объём выборки; расчёт объёма выборки с учётом ожидаемых выбываний; статистические методы анализа. Размер выборки рассчитывают после того, как понятна основная логика исследования — не наоборот.</p>
+
+      <h2>Что сильнее всего влияет на размер выборки</h2>
+      <p><strong>Ожидаемый эффект.</strong> Чем меньше разница, которую нужно подтвердить, тем больше пациентов потребуется. Доказать разницу между 90% и 80% успешных процедур значительно проще, чем между 85% и 80%.</p>
+      <p><strong>Разброс данных.</strong> Если значения сильно отличаются от пациента к пациенту, исследованию требуется больше наблюдений, чтобы отделить реальный эффект от случайной вариабельности.</p>
+      <p><strong>Статистическая мощность.</strong> Чем выше требуемая вероятность обнаружить реально существующий эффект, тем больше выборка. В расчётах часто используют мощность 80% или 90%, но конкретное значение определяется статистическим планом исследования.</p>
+      <p><strong>Первичная конечная точка.</strong> Расчёт зависит от того, что является главным результатом КИ — доля успешных процедур, изменение количественного показателя, частота осложнений, чувствительность диагностического теста или другой клинически значимый показатель. Разным конечным точкам соответствуют разные статистические модели.</p>
+      <p><strong>Дизайн исследования.</strong> Выборка будет различаться для исследования с контрольной группой, одногруппового исследования, superiority-дизайна, non-inferiority, многоцентрового исследования. Сначала выбирают дизайн, а уже затем рассчитывают N.</p>
+      <p><strong>Выбывания пациентов.</strong> Часть включённых участников может не дойти до основного анализа — поэтому расчётное число пациентов и фактический план набора не одно и то же.</p>
+
+      <h2>Пример: 90% против 80%</h2>
+      <p>Предположим, исследуется доля успешных процедур. Ожидается: исследуемое изделие — 90% успеха, контроль — 80%, уровень значимости 0,05, мощность 80%.</p>
+      <p>При стандартном приближённом расчёте потребуется около <strong>199 пациентов в каждой группе</strong>, или примерно <strong>398 пациентов всего</strong>.</p>
+      <p>Теперь изменим только предполагаемый эффект. Если ожидается не 90% против 80%, а 85% против 80% — разница всего 5 процентных пунктов — расчётная выборка увеличивается примерно до <strong>906 пациентов на группу</strong>.</p>
+      <div class="warn-box"><strong>⚠ Ключевое наблюдение</strong><p>Чем меньше эффект, который требуется показать, тем быстрее растёт необходимый размер выборки. Именно поэтому оценка ожидаемого эффекта — один из самых чувствительных этапов планирования КИ.</p></div>
+
+      <h2>Пример: количественный показатель</h2>
+      <p>Ожидаемая разница между группами — 5 единиц, стандартное отклонение — 10, мощность 80%. Потребуется ориентировочно <strong>63 пациента на группу</strong>, или около <strong>126 участников всего</strong>.</p>
+      <p>Если ожидаемая разница снизится до 3 единиц при том же разбросе данных, выборка вырастет примерно до <strong>175 пациентов на группу</strong>. На размер исследования влияет не только сам эффект, но и то, насколько стабильны измеряемые показатели.</p>
+
+      <h2>Как учитывать dropout</h2>
+      <p>Предположим, для статистического анализа необходимо получить данные 100 пациентов, ожидаемый dropout — 10%. Недостаточно просто прибавить 10 человек — расчёт: <strong>100 / (1 − 0,10) ≈ 112 пациентов</strong>. При dropout 20%: <strong>100 / (1 − 0,20) = 125 пациентов</strong>.</p>
+      <p>В протоколе обычно различают необходимое число анализируемых пациентов и планируемое число включённых пациентов. Чем длительнее исследование и чем больше визитов, тем выше может быть риск потери данных.</p>
+      <p><strong>Что считается выбыванием.</strong> Не обязательно только пациент, официально отказавшийся от участия — причиной потери данных может стать пропущенный ключевой визит, отсутствие результата первичной конечной точки, существенное нарушение протокола, невозможность завершить процедуру, потеря пациента для последующего наблюдения. Ожидаемую долю выбываний нужно оценивать ещё до запуска исследования.</p>
+
+      <h2>А если это IVD</h2>
+      <p>Для диагностических изделий расчёт устроен немного иначе. Правила ЕАЭС также не устанавливают фиксированного количества образцов или пациентов — требование состоит в том, чтобы количество лабораторных тестов обеспечивало статистическую достоверность результатов.</p>
+      <p>Например, нужно подтвердить чувствительность теста около 90%. Если требуется оценить её с 95%-ным доверительным интервалом и точностью около ±5 процентных пунктов, упрощённый расчёт даёт примерно <strong>139 пациентов с подтверждённым заболеванием</strong>.</p>
+      <p>Но это число положительных случаев, а не общее число обследованных. Если заболевание встречается примерно у 10% целевой популяции, для получения 139 положительных пациентов потенциально может потребоваться обследовать около <strong>1 390 человек</strong>. При распространённости 5% — около <strong>2 780</strong>.</p>
+      <p>В реальном клинико-лабораторном исследовании дизайн может предусматривать отдельный набор положительных и отрицательных образцов, поэтому расчёт проводят под конкретную схему испытания.</p>
+
+      <h2>Зависит ли выборка от класса риска</h2>
+      <p>Напрямую нет. Таблицы вида «класс 1 → 20 пациентов, класс 3 → 100 пациентов» не существует. Класс риска влияет прежде всего на требования к объёму клинических доказательств и организации исследования.</p>
+      <p>Для изделий классов 3, 2б и имплантируемых изделий правила ЕАЭС в предусмотренных случаях требуют многоцентрового исследования, если эффективность и безопасность не могут быть подтверждены иным способом. Но многоцентровость сама по себе не задаёт N — исследование на трёх базах теоретически может иметь меньшую общую выборку, чем одноцентровое исследование другого изделия.</p>
+
+      <h2>Можно ли уменьшить объём КИ за счёт существующих данных</h2>
+      <p>Иногда да. Правила ЕАЭС позволяют использовать клинические данные из научной литературы, предыдущего клинического применения, ранее проведённых исследований, данных по сопоставимым изделиям при соблюдении условий эквивалентности.</p>
+      <p>Производитель должен оценить, достаточно ли этих материалов для подтверждения безопасности и эффективности. Если данных не хватает только по отдельным аспектам, новое исследование может быть сфокусировано именно на этих пробелах — но несколько научных публикаций не заменяют КИ автоматически: нужно доказать, что данные относятся к конкретному изделию, назначению и заявляемым характеристикам.</p>
+
+      <h2>Что нужно знать до расчёта N</h2>
+      <table>
+        <tr><th>Что нужно определить</th><th>Пример</th></tr>
+        <tr><td>Целевая популяция</td><td>пациенты с конкретным диагнозом</td></tr>
+        <tr><td>Первичная конечная точка</td><td>доля успешных процедур</td></tr>
+        <tr><td>Тип исследования</td><td>контрольное / одногрупповое</td></tr>
+        <tr><td>Гипотеза</td><td>superiority / non-inferiority</td></tr>
+        <tr><td>Ожидаемый эффект</td><td>90% против 80%</td></tr>
+        <tr><td>Разброс данных</td><td>стандартное отклонение</td></tr>
+        <tr><td>Мощность</td><td>например, 80% или 90%</td></tr>
+        <tr><td>Ожидаемый dropout</td><td>например, 10–15%</td></tr>
+      </table>
+      <p>Без этих параметров можно получить только очень грубую оценку.</p>
+
+      <h2>Как предварительно оценить масштаб исследования</h2>
+      <p>Для раннего планирования полезно считать не один, а три сценария:</p>
+      <p><strong>Оптимистичный</strong> — эффект большой, dropout низкий, набор пациентов быстрый.</p>
+      <p><strong>Базовый</strong> — наиболее вероятные значения параметров.</p>
+      <p><strong>Консервативный</strong> — эффект меньше ожидаемого, вариабельность выше, dropout больше.</p>
+      <div class="chain-box">Так можно заранее увидеть, например: базовый сценарий — 120 пациентов, консервативный — 220 пациентов, и понять, выдерживает ли проект второй сценарий по бюджету и срокам.</div>
+
+      <h2>Почему N влияет на стоимость не напрямую</h2>
+      <p>Количество пациентов — один из главных драйверов бюджета, но не единственный. На стоимость КИ также влияют: количество клинических баз, число визитов, длительность наблюдения, стоимость исследований на каждом визите, лабораторная диагностика, расходные материалы, мониторинг, статистическая обработка, логистика, работа с данными. Два исследования по 100 пациентов могут иметь совершенно разную стоимость.</p>
+
+      <h2>Частые ошибки при оценке выборки</h2>
+      <p><strong>«Возьмём 30 пациентов — обычно хватает».</strong> Размер выборки должен следовать из расчёта, а не из практики другого проекта.</p>
+      <p><strong>Сначала выбрать N, потом придумать конечную точку.</strong> Порядок должен быть обратным.</p>
+      <p><strong>Заложить слишком оптимистичный эффект.</strong> Это искусственно уменьшает расчётное N и повышает риск недостаточной мощности исследования.</p>
+      <p><strong>Не учесть dropout.</strong> В результате к финальному анализу может не остаться необходимого количества данных.</p>
+      <p><strong>Изменить дизайн и не пересчитать N.</strong> Смена основной конечной точки, компаратора или гипотезы требует повторной статистической оценки. Если такое изменение происходит уже после начала исследования — это отдельный, более чувствительный вопрос, разобранный в статье <a href="/blog/zamechanie-k-raschetu-vyborki-kak-otvechat" class="inline-link">«Замечание к расчёту выборки: как пересчитать и ответить эксперту»</a>.</p>
+
+      <h2>Частые вопросы</h2>
+      <details class="faq-item"><summary>Есть ли минимальное количество пациентов для КИ медизделия?</summary><p>Нет. Правила ЕАЭС не устанавливают универсальное минимальное число — требуют лишь, чтобы количество наблюдений было достаточным для статистической достоверности, воспроизводимости результатов и научной обоснованности выводов.</p></details>
+      <details class="faq-item"><summary>Зависит ли размер выборки от класса риска изделия?</summary><p>Напрямую нет. Класс риска влияет на объём необходимых клинических доказательств и, для отдельных категорий (классы 3, 2б, имплантируемые изделия), на требование многоцентровости — но не задаёт конкретное число пациентов.</p></details>
+      <details class="faq-item"><summary>Можно ли использовать данные из научной литературы вместо части КИ?</summary><p>Да, в предусмотренных случаях — при условии, что данные относятся именно к вашему изделию, назначению и заявляемым характеристикам, либо к доказанно эквивалентному изделию. Полностью заменить клиническое испытание такими данными обычно нельзя.</p></details>
+      <details class="faq-item"><summary>Как для IVD-теста связаны число пациентов и распространённость заболевания?</summary><p>Расчёт для чувствительности теста определяет требуемое число пациентов с подтверждённым заболеванием (положительных случаев). Чтобы набрать это число, при низкой распространённости заболевания в популяции может потребоваться обследовать значительно больше людей, чем итоговое число положительных случаев.</p></details>
+      <details class="faq-item"><summary>Что если после начала исследования нужно изменить размер выборки?</summary><p>Это более сложная ситуация, чем пересчёт на этапе планирования — подробнее в статье о работе с замечаниями к расчёту выборки.</p></details>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/raschet-vyborki-ki-medizdeliya-metodika">Расчёт выборки для КИ медизделия: методика и обоснование</a>
+        <a class="related-card" href="/blog/konechnye-tochki-ki-medizdeliya-kak-vybrat">Конечные точки клинического исследования медизделия</a>
+        <a class="related-card" href="/blog/dizajn-klinicheskogo-issledovaniya-medizdeliya-vidy">Дизайн клинического исследования медизделия</a>
+        <a class="related-card" href="/blog/zamechanie-k-raschetu-vyborki-kak-otvechat">Замечание к расчёту выборки: как пересчитать и ответить эксперту</a>
+        <a class="related-card" href="/glossariy">Глоссарий терминов</a>
+        <a class="related-card" href="/blog">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Нужен предварительный расчёт выборки под ваш проект?</h2>
+          <p>Probarium поможет определить дизайн клинического исследования, сформировать конечные точки, рассчитать объём выборки и подобрать клинические базы под требуемое число участников.</p>
+          <p style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="mailto:info@probarium.ru?subject=Подбор формы клинических испытаний" class="btn btn-outline">Подобрать форму испытаний</a>
+            <a href="mailto:info@probarium.ru?subject=Расчёт стоимости КИ" class="btn btn-outline">Рассчитать стоимость</a>
+          </p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki)">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемом масштабе исследования"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li><a href="https://t.me/tandelovtat" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener">MAX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Сколько пациентов нужно для КИ медизделия: от чего зависит размер выборки",
+  "description": "Сколько пациентов нужно для клинического испытания медицинского изделия — от чего зависит размер выборки на практике, с числовыми примерами для пропорций, непрерывных показателей и IVD-тестов. Универсального минимума не существует.",
+  "author": {"@type": "Person", "name": "Артемий-Татуш Танделов", "jobTitle": "Генеральный директор Probarium", "url": "https://t.me/tandelovtat"},
+  "publisher": {"@type": "Organization", "name": "Probarium"},
+  "mainEntityOfPage": "https://probarium.ru/blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki",
+  "datePublished": "2026-09-08",
+  "dateModified": "2026-09-08"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://probarium.ru/blog"},
+    {"@type": "ListItem", "position": 3, "name": "Сколько пациентов нужно для КИ", "item": "https://probarium.ru/blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Есть ли минимальное количество пациентов для КИ медизделия?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Правила ЕАЭС не устанавливают универсальное минимальное число — требуют лишь, чтобы количество наблюдений было достаточным для статистической достоверности, воспроизводимости результатов и научной обоснованности выводов."}},
+    {"@type": "Question", "name": "Зависит ли размер выборки от класса риска изделия?", "acceptedAnswer": {"@type": "Answer", "text": "Напрямую нет. Класс риска влияет на объём необходимых клинических доказательств и, для отдельных категорий (классы 3, 2б, имплантируемые изделия), на требование многоцентровости — но не задаёт конкретное число пациентов."}},
+    {"@type": "Question", "name": "Можно ли использовать данные из научной литературы вместо части КИ?", "acceptedAnswer": {"@type": "Answer", "text": "Да, в предусмотренных случаях — при условии, что данные относятся именно к вашему изделию, назначению и заявляемым характеристикам, либо к доказанно эквивалентному изделию."}},
+    {"@type": "Question", "name": "Как для IVD-теста связаны число пациентов и распространённость заболевания?", "acceptedAnswer": {"@type": "Answer", "text": "Расчёт для чувствительности теста определяет требуемое число пациентов с подтверждённым заболеванием. Чтобы набрать это число, при низкой распространённости заболевания может потребоваться обследовать значительно больше людей."}},
+    {"@type": "Question", "name": "Что если после начала исследования нужно изменить размер выборки?", "acceptedAnswer": {"@type": "Answer", "text": "Это более сложная ситуация, чем пересчёт на этапе планирования — подробнее в статье о работе с замечаниями к расчёту выборки."}}
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
