@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Статистическая мощность исследования медизделия: простыми словами — Probarium</title>
+<meta name="description" content="Статистическая мощность клинического исследования медизделия простыми словами — что означает, почему часто используют 80% и 90%, как влияет на размер выборки, и почему нет единого нормативного требования к мощности для медицинских изделий.">
+<link rel="canonical" href="https://probarium.ru/blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Статистическая мощность исследования медизделия: простыми словами">
+<meta property="og:description" content="Статистическая мощность исследования медизделия — ошибки I и II рода, влияние на размер выборки, статистическая vs клиническая значимость, почему post-hoc мощность неинформативна.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya">
+<meta property="og:image" content="https://probarium.ru/og-image.png">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 20px;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110814948', 'ym');
+    ym(110814948, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110814948" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog">Блог</a> / <span aria-current="page">Статистическая мощность</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>11 мин чтения</span><span>9 сентября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Статистическая мощность исследования медизделия: простыми словами</h1>
+    <p class="lead">Статистическая мощность клинического исследования медизделия простыми словами — что означает, почему часто используют 80% и 90%, как влияет на размер выборки, и почему нет единого нормативного требования к мощности для медицинских изделий.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <p>При планировании клинического исследования медицинского изделия разработчик рано или поздно сталкивается с вопросом: сколько пациентов или наблюдений нужно включить в исследование? Ответ «чем больше, тем лучше» неправильный. Слишком маленькая выборка может не обнаружить реальный эффект. Чрезмерно большая — потребует лишних ресурсов и способна сделать статистически значимой разницу, которая практически не имеет клинического значения. Один из ключевых параметров, который связывает дизайн исследования и размер выборки, — статистическая мощность.</p>
+
+      <p><strong>Как эта статья соотносится с другими материалами серии.</strong> О том, от каких факторов вообще зависит размер выборки, с числовыми примерами — статья <a href="/blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki" class="inline-link">«Сколько пациентов нужно для КИ медизделия»</a>. О полной методологии расчёта по ГОСТ Р ИСО 14155-2022 — <a href="/blog/raschet-vyborki-ki-medizdeliya-metodika" class="inline-link">«Расчёт выборки для КИ медизделия: методика и обоснование»</a>. Здесь мы разбираем глубже одно конкретное понятие — саму мощность: что она означает, откуда берутся 80% и 90%, и почему её нельзя рассматривать в отрыве от размера эффекта.</p>
+
+      <h2>Короткий ответ</h2>
+      <p><strong>Суть в четырёх предложениях.</strong> Статистическая мощность — это вероятность обнаружить эффект заданного размера, если этот эффект действительно существует (Power = 1 − β, где β — вероятность ошибки II рода); у исследования нет мощности «вообще» — она всегда определяется относительно конкретного ожидаемого эффекта. Значения 80% и 90% — распространённая статистическая практика (ICH E9 традиционно устанавливает β на уровне 10–20%), но не универсальное регуляторное требование: ни российские, ни ЕАЭС правила не устанавливают единого нормативного порога мощности для клинических исследований медицинских изделий. При прочих равных чем выше требуемая мощность, тем больше нужна выборка, но размер эффекта часто важнее самой мощности — недооценка ожидаемого эффекта или переоценка вариабельности данных способна сделать формально правильно рассчитанное исследование фактически недостаточно мощным. Статистическая значимость (p &lt; 0,05) не равнозначна клинической значимости, а отсутствие статистической значимости не равнозначно доказанному отсутствию эффекта — для интерпретации результата нужно смотреть не только на p-value, но и на оценку эффекта и доверительный интервал.</p>
+
+      <h2>Что такое статистическая мощность</h2>
+      <p>Формально: <strong>Power = 1 − β</strong>, где β — вероятность ошибки II рода, то есть ситуации, когда реальный эффект существует, но исследование его не обнаруживает.</p>
+      <p>Представим, что новое медицинское изделие действительно сокращает среднее время процедуры на 10 минут по сравнению с применяемым методом. Если исследование имеет мощность 80% относительно такой разницы, это означает, что при заданных статистических предпосылках дизайн рассчитан так, чтобы с вероятностью 80% обнаружить эффект такого размера, если он действительно существует. Оставшиеся 20% соответствуют риску ошибки II рода.</p>
+      <p><strong>У исследования нет мощности «вообще».</strong> Она определяется относительно конкретного эффекта, который исследование должно обнаружить. Поэтому фраза «мощность нашего исследования составляет 80%» без описания гипотезы и ожидаемого эффекта говорит значительно меньше, чем может показаться.</p>
+
+      <h2>Ошибки I и II рода простыми словами</h2>
+      <table>
+        <tr><th>Реальность</th><th>Исследование обнаружило эффект</th><th>Исследование не обнаружило эффект</th></tr>
+        <tr><td>Эффект существует</td><td>Верный результат — мощность 1 − β</td><td>Ошибка II рода — β</td></tr>
+        <tr><td>Эффекта нет</td><td>Ошибка I рода — α</td><td>Верный результат</td></tr>
+      </table>
+      <p>Ошибка I рода — ложноположительный результат: исследование показывает эффект, которого в действительности нет. Ошибка II рода — ложноотрицательный: эффект существует, но исследование его не обнаружило. Именно вероятность избежать второй ситуации и характеризует статистическая мощность.</p>
+
+      <h2>Почему часто используют мощность 80% или 90%</h2>
+      <p>В расчётах выборки часто встречаются значения мощности 80% и 90%. Это связано с принятой статистической практикой: ICH E9 указывает, что вероятность ошибки II рода традиционно устанавливают на уровне 10–20%, что соответствует мощности 80–90%.</p>
+      <p><strong>Но из этого нельзя делать вывод «для исследования медицинского изделия регулятор требует мощность не менее 80%».</strong> Российские и ЕАЭС требования говорят о достаточности количества наблюдений для статистической достоверности, воспроизводимости результатов и научной обоснованности выводов. Единого нормативного порога мощности для всех исследований медицинских изделий нет. Поэтому 80% или 90% — не автоматическая отметка «правильного» исследования; выбранную мощность необходимо рассматривать вместе с остальными предпосылками расчёта.</p>
+
+      <h2>Как мощность влияет на размер выборки</h2>
+      <p>При прочих равных чем выше требуемая мощность, тем больше должна быть выборка — если исследователь хочет снизить вероятность пропустить существующий эффект, ему потребуется больше наблюдений.</p>
+      <p>Ориентировочно: переход от 80% к 90% мощности при неизменных остальных параметрах способен увеличить необходимую выборку примерно на 25–30%.</p>
+      <p>Но мощность — только один параметр расчёта. Размер выборки также зависит от уровня значимости α, ожидаемого эффекта, вариабельности показателя, дизайна исследования, числа групп, соотношения участников между ними, односторонней или двусторонней гипотезы и ожидаемого числа выбываний. Поэтому нельзя сказать «для исследования медицинского изделия нужно 100 пациентов», не зная его дизайна.</p>
+
+      <h2>Размер эффекта иногда важнее самой мощности</h2>
+      <p>Предположим, разработчик сравнивает новое изделие с существующим и рассчитывает выборку исходя из того, что новое устройство сократит время процедуры на 20 минут — расчёт показывает, что достаточно относительно небольшой выборки.</p>
+      <p>Но что произойдёт, если реальная разница составляет всего 5 минут? Исследование, рассчитанное на обнаружение гораздо более крупного эффекта, может оказаться недостаточно мощным для выявления реального результата. Поэтому до расчёта выборки необходимо определить эффект, который исследование должно уметь обнаружить.</p>
+      <h3>Статистическая значимость не равна клинической</h3>
+      <p>При очень большой выборке статистически значимой может стать совсем небольшая разница. Исследование может показать p &lt; 0,05, но обнаруженная разница между изделиями окажется настолько малой, что не будет иметь практического значения для врача или пациента. Поэтому при планировании исследования необходимо ориентироваться не просто на любую обнаруживаемую разницу, а на клинически обоснованный эффект — в статистике для этого используются, в частности, понятия target difference и минимального клинически значимого различия (MCID).</p>
+
+      <h2>Что происходит, если выборка слишком маленькая</h2>
+      <p>Представим, что реальное различие между двумя изделиями существует, но в исследовании участвовало слишком мало пациентов. Случайная вариабельность может оказаться настолько большой относительно объёма данных, что статистический тест не покажет значимого результата — получаем p &gt; 0,05.</p>
+      <p><strong>Но из этого нельзя автоматически заключить, что эффекта нет.</strong> Это означает лишь, что при выбранном анализе не удалось отвергнуть нулевую гипотезу. В недостаточно мощном исследовании причиной может оказаться ошибка II рода. Поэтому результат «статистически значимых различий не обнаружено» не равнозначен результату «доказано отсутствие клинически значимого различия». Для интерпретации результата необходимо смотреть не только на p-value, но и на оценку эффекта и доверительный интервал.</p>
+
+      <h2>А если просто набрать очень много пациентов?</h2>
+      <p>Это тоже не оптимальное решение. Чрезмерная выборка может сделать статистически значимой клинически несущественную разницу. Кроме того, исследование требует времени, денег, работы исследовательских центров и участия людей. Задача расчёта выборки — не получить максимально возможное n, а определить достаточный и научно обоснованный объём данных для ответа на заранее сформулированный вопрос: расчёт ведётся на обнаружение клинически значимого эффекта, а не любого сколь угодно малого различия.</p>
+
+      <h2>От чего ещё зависит расчёт выборки</h2>
+      <p>Если первичная конечная точка — непрерывная величина (время процедуры, давление, лабораторный показатель), для расчёта обычно потребуются ожидаемая разница между группами, стандартное отклонение, уровень значимости и требуемая мощность.</p>
+      <p>Если результат бинарный (осложнение произошло или не произошло) — важными параметрами становятся ожидаемые частоты события в сравниваемых группах. При редких событиях необходимая выборка может быть очень большой.</p>
+      <p>Формула расчёта определяется не только желаемой мощностью, но и тем, какой именно вопрос задаёт исследование и какой показатель выбран первичной конечной точкой.</p>
+
+      <h2>Superiority и non-inferiority — это разные задачи</h2>
+      <p>В исследовании <strong>superiority</strong> задача — показать превосходство одного метода или изделия над другим по заданному критерию.</p>
+      <p>В исследовании <strong>non-inferiority</strong> вопрос другой: показать, что новое изделие не хуже сравниваемого более чем на заранее установленную величину — <strong>non-inferiority margin</strong>, которая должна быть обоснована до анализа результатов и непосредственно влияет на расчёт выборки.</p>
+      <div class="warn-box"><strong>⚠ Важное уточнение</strong><p>Взять расчёт выборки из исследования superiority и механически перенести его в дизайн non-inferiority нельзя. Существует и третий вариант — equivalence, когда исследование должно показать, что различие находится внутри заранее определённых границ эквивалентности.</p></div>
+
+      <h2>Для диагностических медизделий расчёт может быть другим</h2>
+      <p>Не каждое клиническое исследование медизделия сводится к сравнению средних или частоты осложнений. Для диагностического изделия ключевыми показателями могут быть чувствительность, специфичность, площадь под ROC-кривой (AUC), показатели согласованности результатов.</p>
+      <p>В таких исследованиях выборка рассчитывается с учётом выбранной диагностической метрики, а распространённость заболевания способна существенно влиять на общее количество обследуемых пациентов — если для оценки чувствительности требуется определённое количество пациентов с заболеванием, а заболевание встречается лишь у небольшой доли обследуемых, общая выборка может оказаться значительно больше числа пациентов, непосредственно используемых для оценки чувствительности.</p>
+
+      <h2>Не забудьте про выбывания</h2>
+      <p>Расчёт показал, что для анализа нужны 100 участников — это ещё не означает, что набрать нужно ровно 100. Часть участников может выбыть, не завершить исследование или оказаться недоступной для анализа.</p>
+      <div class="chain-box"><strong>n для набора = расчётное n / (1 − доля выбываний).</strong><br><br>Например, если для анализа необходимо 100 участников и ожидается 10% выбываний: 100 / 0,9 ≈ 112 участников. Просто прибавить к 100 десять человек было бы недостаточно: 10% от уже увеличенного количества — не то же самое, что 10% от исходных 100.</div>
+
+      <h2>Откуда взять ожидаемый эффект и вариабельность</h2>
+      <p>Исходные параметры можно обосновывать данными предыдущих исследований, опубликованной литературой, пилотными исследованиями, реестрами и real-world data, а также экспертными предпосылками, если они надлежащим образом обоснованы.</p>
+      <p><strong>Главная опасность — выбрать слишком оптимистичные значения.</strong> Если разработчик завысит ожидаемый эффект или недооценит вариабельность, математический расчёт может дать небольшую выборку. Формально формула будет применена правильно, но исходные предпосылки сделают исследование слабее, чем кажется. Хороший расчёт выборки — это прежде всего обоснование исходных параметров, а не нажатие кнопки в статистической программе.</p>
+
+      <h2>Что делать, если данных ещё нет</h2>
+      <p>Если надёжных данных об ожидаемом эффекте или вариабельности недостаточно, возможные подходы: пилотное или feasibility-исследование, использование консервативных предпосылок и научное обоснование выбранного размера выборки. Главное — не подбирать удобный ожидаемый эффект только потому, что с ним получается приемлемое количество пациентов. Неопределённость исходных данных сама является частью статистического планирования и должна учитываться при выборе дизайна.</p>
+
+      <h2>Можно ли пересчитать мощность после исследования</h2>
+      <p>Здесь важно различать две ситуации.</p>
+      <p><strong>Пересмотр размера выборки может быть частью заранее предусмотренного дизайна.</strong> ICH E9 допускает пересчёт размера выборки в определённых ситуациях, если такая процедура спланирована и надлежащим образом документирована.</p>
+      <p><strong>Другое дело — рассчитать post hoc power</strong> уже после получения результата и попытаться с её помощью объяснить, почему исследование оказалось статистически незначимым. Такой подход считается малоинформативным: наблюдаемая post hoc-мощность тесно связана с уже полученным p-value и практически не добавляет новой информации. Для интерпретации результата полезнее оценивать величину эффекта и её доверительный интервал.</p>
+      <p><strong>Мощность прежде всего нужна для планирования исследования, а не для оправдания его результата задним числом.</strong> Если вам уже пришло замечание эксперта к расчёту выборки — это отдельная, более чувствительная ситуация, разобранная в статье <a href="/blog/zamechanie-k-raschetu-vyborki-kak-otvechat" class="inline-link">«Замечание к расчёту выборки: как пересчитать и ответить эксперту»</a>.</p>
+
+      <h2>Практическая последовательность</h2>
+      <div class="chain-box">Первичная конечная точка → гипотеза → клинически значимый эффект → α и мощность → вариабельность или частота события → расчёт выборки → поправка на выбывания → проверка множественности → фиксация предпосылок в протоколе.</div>
+      <p>Начинать со слов «нам нужно исследование на 50 пациентах» неправильно. Сначала определяется, какой вывод должно позволить сделать исследование, а уже затем рассчитывается количество наблюдений, необходимое для этого вывода.</p>
+
+      <h2>Частые вопросы</h2>
+      <details class="faq-item"><summary>Требует ли регулятор мощность не менее 80% для исследований медизделий?</summary><p>Нет. Ни российские, ни ЕАЭС требования не устанавливают единого нормативного порога мощности. 80% и 90% — распространённая статистическая практика (традиция ICH E9), а не обязательное требование.</p></details>
+      <details class="faq-item"><summary>Что важнее — мощность или размер эффекта?</summary><p>Оба параметра взаимосвязаны, но размер эффекта часто более чувствителен: недооценка ожидаемого эффекта резко увеличивает требуемую выборку, тогда как изменение мощности с 80% до 90% влияет менее драматично (ориентировочно +25–30%).</p></details>
+      <details class="faq-item"><summary>Означает ли p &gt; 0,05, что эффекта нет?</summary><p>Нет. Это означает лишь, что при выбранном анализе не удалось отвергнуть нулевую гипотезу — причиной может быть как реальное отсутствие эффекта, так и недостаточная мощность исследования (ошибка II рода).</p></details>
+      <details class="faq-item"><summary>Можно ли рассчитать мощность после получения результатов исследования (post hoc power)?</summary><p>Технически можно, но это считается малоинформативным — post hoc-мощность тесно связана с уже полученным p-value и не добавляет новой информации. Для интерпретации результата полезнее оценка эффекта и доверительный интервал.</p></details>
+      <details class="faq-item"><summary>Одинаковый ли расчёт выборки для superiority и non-inferiority исследований?</summary><p>Нет. Для non-inferiority нужна дополнительно обоснованная граница (non-inferiority margin), которая напрямую влияет на расчёт — механически перенести расчёт из superiority-дизайна нельзя.</p></details>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki">Сколько пациентов нужно для КИ медизделия</a>
+        <a class="related-card" href="/blog/raschet-vyborki-ki-medizdeliya-metodika">Расчёт выборки для КИ медизделия: методика и обоснование</a>
+        <a class="related-card" href="/blog/dizajn-klinicheskogo-issledovaniya-medizdeliya-vidy">Дизайн клинического исследования медизделия</a>
+        <a class="related-card" href="/glossariy">Глоссарий терминов</a>
+        <a class="related-card" href="/blog">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Нужна помощь с расчётом мощности и выборки для вашего исследования?</h2>
+          <p>Probarium поможет определить клинически значимый эффект, обосновать параметры расчёта и рассчитать статистически и клинически осмысленный объём выборки для вашего медицинского изделия.</p>
+          <p style="margin-top:14px;"><a href="mailto:info@probarium.ru?subject=Расчёт статистической мощности клинического исследования" class="btn btn-outline">Обсудить расчёт мощности исследования</a></p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya)">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемом дизайне исследования"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li><a href="https://t.me/tandelovtat" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener">MAX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Статистическая мощность исследования медизделия: простыми словами",
+  "description": "Статистическая мощность клинического исследования медизделия простыми словами — что означает, почему часто используют 80% и 90%, как влияет на размер выборки, и почему нет единого нормативного требования к мощности для медицинских изделий.",
+  "author": {"@type": "Person", "name": "Артемий-Татуш Танделов", "jobTitle": "Генеральный директор Probarium", "url": "https://t.me/tandelovtat"},
+  "publisher": {"@type": "Organization", "name": "Probarium"},
+  "mainEntityOfPage": "https://probarium.ru/blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya",
+  "datePublished": "2026-09-09",
+  "dateModified": "2026-09-09"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://probarium.ru/blog"},
+    {"@type": "ListItem", "position": 3, "name": "Статистическая мощность", "item": "https://probarium.ru/blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Требует ли регулятор мощность не менее 80% для исследований медизделий?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Ни российские, ни ЕАЭС требования не устанавливают единого нормативного порога мощности. 80% и 90% — распространённая статистическая практика (традиция ICH E9), а не обязательное требование."}},
+    {"@type": "Question", "name": "Что важнее — мощность или размер эффекта?", "acceptedAnswer": {"@type": "Answer", "text": "Оба параметра взаимосвязаны, но размер эффекта часто более чувствителен: недооценка ожидаемого эффекта резко увеличивает требуемую выборку, тогда как изменение мощности с 80% до 90% влияет менее драматично (ориентировочно +25–30%)."}},
+    {"@type": "Question", "name": "Означает ли p > 0,05, что эффекта нет?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Это означает лишь, что при выбранном анализе не удалось отвергнуть нулевую гипотезу — причиной может быть как реальное отсутствие эффекта, так и недостаточная мощность исследования (ошибка II рода)."}},
+    {"@type": "Question", "name": "Можно ли рассчитать мощность после получения результатов исследования (post hoc power)?", "acceptedAnswer": {"@type": "Answer", "text": "Технически можно, но это считается малоинформативным — post hoc-мощность тесно связана с уже полученным p-value и не добавляет новой информации."}},
+    {"@type": "Question", "name": "Одинаковый ли расчёт выборки для superiority и non-inferiority исследований?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Для non-inferiority нужна дополнительно обоснованная граница (non-inferiority margin), которая напрямую влияет на расчёт — механически перенести расчёт из superiority-дизайна нельзя."}}
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
