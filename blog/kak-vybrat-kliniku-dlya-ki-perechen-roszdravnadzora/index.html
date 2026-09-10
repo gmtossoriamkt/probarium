@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Где провести клинические испытания медизделия: как выбрать клинику из Перечня Росздравнадзора — Probarium</title>
+<meta name="description" content="Наличие клиники в Перечне Росздравнадзора — только первый фильтр при выборе площадки для КИ медизделия. Разбираем, как проверить лицензию, класс риска, исследовательскую команду, пациентопоток и провести site feasibility до заключения договора.">
+<link rel="canonical" href="https://probarium.ru/blog/kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Где провести клинические испытания медизделия: как выбрать клинику из Перечня Росздравнадзора">
+<meta property="og:description" content="Как выбрать клинику для клинических испытаний медизделия — от Перечня Росздравнадзора до site feasibility и договора.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora">
+<meta property="og:image" content="https://probarium.ru/og-image.png">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 20px;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110814948', 'ym');
+    ym(110814948, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110814948" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog">Блог</a> / <span aria-current="page">Выбор клиники для КИ</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>13 мин чтения</span><span>10 сентября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Где провести клинические испытания медизделия: как выбрать клинику из Перечня Росздравнадзора</h1>
+    <p class="lead">Наличие клиники в Перечне Росздравнадзора — только первый фильтр при выборе площадки для КИ медизделия. Разбираем, как проверить лицензию, класс риска, исследовательскую команду, пациентопоток и провести site feasibility до заключения договора.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <p>Наличие клиники в Перечне Росздравнадзора — только первый фильтр при выборе площадки для клинических испытаний медицинского изделия. Для конкретного КИ нужно дополнительно проверить профиль медицинской лицензии, специалистов, инфраструктуру, опыт работы с медицинскими изделиями и реальную возможность набрать необходимое количество пациентов.</p>
+
+      <h2>Короткий ответ</h2>
+      <p><strong>Суть в четырёх предложениях.</strong> Формулировка «клиника аккредитована Росздравнадзором» неточна — корректнее говорить, что медицинская организация включена в Перечень медицинских организаций, имеющих право проводить клинические испытания медицинских изделий, после установления соответствия требованиям правил государственной регистрации. Проверка должна идти от изделия к организации: назначение МИ → область медицинского применения → необходимые работы и услуги → лицензия конкретной медицинской организации, а не наоборот. Класс риска изделия и регистрационный маршрут (национальная процедура, специальный маршрут для отечественных изделий с обязательным использованием сети НМИЦ, или процедура ЕАЭС с собственной системой уполномоченных организаций) определяют разные требования к площадке, поэтому логику выбора нужно строить именно в таком порядке. Хороший выбор площадки находится на пересечении четырёх факторов — регуляторное соответствие, профиль медицинской организации, исследовательская команда и доступная популяция пациентов, — и проверка только первого фактора может дать формально допустимый центр, который не выполнит программу в требуемые сроки.</p>
+
+      <h2>Что такое Перечень Росздравнадзора</h2>
+      <p>Росздравнадзор ведёт Перечень медицинских организаций, имеющих право проводить клинические испытания медицинских изделий. Организация попадает в него после установления соответствия требованиям, предусмотренным правилами государственной регистрации медицинских изделий (ПП РФ №1684, действует с 1 марта 2025 года).</p>
+      <p>В Перечне предусмотрены сведения о медицинской организации, её адресе и контактах, а также перечне работ и услуг в соответствии с лицензией на медицинскую деятельность. Но Перечень не является рейтингом исследовательских центров — он не показывает реальный пациентопоток, скорость рекрутинга, опыт конкретного главного исследователя, стоимость проекта или сроки договорных процедур.</p>
+      <p>Наличие организации в Перечне отвечает на вопрос «можно ли рассматривать эту организацию для проведения КИ?», но ещё не отвечает на вопрос «подходит ли она для нашего исследования?».</p>
+
+      <h2>Сначала определите формат клинических испытаний</h2>
+      <p>До выбора площадки нужно определить, какое клиническое подтверждение требуется конкретному изделию.</p>
+      <p>Клинические испытания медицинских изделий могут проводиться в форме анализа и оценки клинических данных либо в форме испытаний с участием человека. Приказ Минздрава России №421н предусматривает случаи, когда требуется КИ с участием человека: новый вид медицинского изделия, применение новых сложных или специальных методов, определённые изменения конструкции или назначения изделия, недостаточность имеющихся данных об эффективности и безопасности, использование новых контактирующих с организмом материалов или изменение характера такого контакта.</p>
+      <p>В остальных предусмотренных случаях клинические испытания проводятся посредством анализа и оценки клинических данных. Если КИ с участием человека не требуется, пациентопоток и рекрутинг не будут основными критериями выбора организации.</p>
+
+      <h2>Почему недостаточно найти клинику в Перечне</h2>
+      <p>Следующий фильтр — медицинская лицензия. ПП РФ №1684 требует, чтобы лицензия медицинской организации содержала работы и услуги, соответствующие назначению и области применения медицинского изделия, в отношении которого проводится исследование.</p>
+      <div class="chain-box">Назначение МИ → область медицинского применения → необходимые работы и услуги → лицензия конкретной медицинской организации.</div>
+      <p>Наличие многопрофильного федерального центра в Перечне само по себе не означает, что в нём можно проводить КИ любого медицинского изделия.</p>
+      <p>Если сведения в Перечне и действующей лицензии расходятся, лучше не считать площадку автоматически подходящей, а сначала уточнить актуальный статус и устранить расхождение.</p>
+
+      <h2>Проверьте конкретную площадку проведения КИ</h2>
+      <p>У одного юридического лица могут быть несколько корпусов, филиалов и адресов осуществления медицинской деятельности. Недостаточно проверить только название организации — нужно понимать, где фактически будет проводиться исследование, и сопоставить этот адрес со сведениями лицензии.</p>
+      <p>Особенно это важно для крупных федеральных организаций и медицинских сетей: договор может заключаться с головным юридическим лицом, а исследование фактически выполняться в другом подразделении.</p>
+
+      <h2>Учитывайте класс риска изделия</h2>
+      <p>Для КИ с участием человека медицинских изделий классов потенциального риска 2б и 3 ПП №1684 предусматривает наличие отделения или палаты интенсивной терапии и реанимации. Это требование не универсально для всех медицинских изделий — оно не распространяется таким же образом на исследования без участия человека, изделия классов 1 и 2а и IVD.</p>
+      <p>Класс потенциального риска желательно определить ещё до формирования короткого списка площадок.</p>
+
+      <h2>Проверьте исследовательскую команду</h2>
+      <p>Для медицинских изделий, не относящихся к IVD, специалисты медицинской организации, непосредственно проводящие процедуры КИ или принимающие связанные с ними решения, должны иметь высшее медицинское образование по специальности, соответствующей области медицинского применения изделия.</p>
+      <p>Но формальное соответствие специальности — только нормативный минимум. Для конкретного проекта имеет смысл дополнительно оценить опыт предполагаемого главного исследователя, работу с нужной категорией пациентов, опыт КИ именно медицинских изделий, наличие необходимой исследовательской команды, возможность команды выделить ресурсы новому проекту.</p>
+      <p>Опыт PI в КИ медизделий не установлен ПП №1684 как отдельное самостоятельное условие включения организации в Перечень — правильнее рассматривать его как практический критерий выбора площадки, а не как ещё одно требование Росздравнадзора.</p>
+
+      <h2>Как проверить предыдущий опыт клиники</h2>
+      <p>После формирования первичного списка можно использовать Реестр выданных разрешений на клинические испытания медицинских изделий Росздравнадзора. В нём предусмотрен поиск в том числе по медицинской организации — можно увидеть сведения о медицинском изделии, производителе, виде изделия, классе потенциального риска, медицинских организациях и статусе исследования.</p>
+      <div class="warn-box"><strong>⚠ Реестр — не рейтинг качества клиник</strong><p>Из него нельзя достоверно определить: сколько пациентов набрал конкретный центр; насколько быстро проходил рекрутинг; кто был главным исследователем; насколько качественно центр выполнял протокол; были ли существенные отклонения; насколько быстро проходили договорные и внутренние процедуры. Данные реестра — дополнительный сигнал при выборе, а не окончательная оценка площадки.</p></div>
+
+      <h2>Site feasibility: второй этап выбора клиники</h2>
+      <p>После нормативного отбора начинается практическая оценка площадки — site feasibility. ПП №1684 и Приказ №421н не устанавливают site feasibility как отдельную обязательную регуляторную процедуру — это инструмент предварительной оценки способности конкретного центра выполнить программу исследования.</p>
+      <p>На этом этапе имеет смысл оценивать: предполагаемого PI и исследовательскую команду; количество потенциально подходящих пациентов; реалистичную скорость рекрутинга; необходимое оборудование; лабораторные и диагностические возможности; наличие конкурирующих исследований; доступность персонала; сроки внутренних согласований и договора; стоимость проведения КИ; готовность центра работать с документацией и процедурами проекта.</p>
+      <p>Именно feasibility часто отделяет формально подходящую площадку от реально подходящей.</p>
+
+      <h2>Почему пациентопоток критичен</h2>
+      <p>Предположим, по программе необходимо включить 100 пациентов за 10 месяцев. Крупный федеральный центр может иметь сильного исследователя и подходящую лицензию, но находить только несколько соответствующих протоколу пациентов в месяц. Региональная клиника при этом может иметь значительно больший поток нужной популяции — и в Перечне Росздравнадзора этого не видно.</p>
+      <p>Оценивать нужно не общую посещаемость клиники, а количество пациентов, потенциально соответствующих критериям включения и исключения конкретного исследования. У центра стоит запросить оценку доступной популяции, ожидаемый темп включения и сведения о конкурирующих исследованиях.</p>
+      <p>Если один центр не обеспечивает требуемую выборку в приемлемые сроки, следует рассмотреть многоцентровый дизайн.</p>
+
+      <h2>Что проверить до заключения договора</h2>
+      <table>
+        <tr><th>Критерий</th><th>Что проверять</th></tr>
+        <tr><td>Перечень РЗН</td><td>Актуальное включение организации</td></tr>
+        <tr><td>Лицензия</td><td>Работы и услуги по назначению МИ</td></tr>
+        <tr><td>Площадка</td><td>Адрес фактического проведения КИ</td></tr>
+        <tr><td>Класс риска</td><td>Дополнительные требования к инфраструктуре</td></tr>
+        <tr><td>Специалисты</td><td>Соответствие медицинской специальности</td></tr>
+        <tr><td>Опыт центра</td><td>Предыдущие КИ по реестру РЗН</td></tr>
+        <tr><td>PI</td><td>CV, профиль и релевантный опыт</td></tr>
+        <tr><td>Пациенты</td><td>Доступная популяция и прогноз рекрутинга</td></tr>
+        <tr><td>Оборудование</td><td>Соответствие требованиям программы</td></tr>
+        <tr><td>Команда</td><td>Доступность необходимого персонала</td></tr>
+        <tr><td>Конкурирующие КИ</td><td>Риск конкуренции за пациентов</td></tr>
+        <tr><td>Срок запуска</td><td>Договорные и внутренние процедуры</td></tr>
+        <tr><td>Стоимость</td><td>Состав работ и коммерческое предложение</td></tr>
+      </table>
+      <p>До заключения договора можно запросить CV главного исследователя, сведения об оборудовании, предварительную оценку пациентопотока, информацию о предыдущих исследованиях и применяемых СОП. Предварительные переговоры, запрос коммерческого предложения и feasibility можно проводить до официального обращения с пакетом документов на КИ.</p>
+
+      <h2>Какие СОП должны быть у центра</h2>
+      <p>Для медицинских изделий, не относящихся к IVD, ПП №1684 предусматривает СОП, охватывающие квалификацию и обучение персонала, взаимодействие с комитетом по этике, получение информированного согласия, порядок проведения КИ и ведение документации. Для КИ программного обеспечения с искусственным интеллектом предусмотрены дополнительные процедуры, связанные с созданием и верификацией наборов данных.</p>
+      <div class="warn-box"><strong>⚠ Не путайте практику ISO 14155 и прямые требования ПП №1684</strong><p>Не стоит автоматически представлять любую практику ISO 14155 как прямое требование постановления. Например, отдельная СОП под названием «Мониторинг клинических исследований» непосредственно постановлением не установлена.</p></div>
+
+      <h2>Что происходит после выбора медицинской организации</h2>
+      <p>После предварительной квалификации площадки начинается формальный этап взаимодействия. По Приказу №421н медицинская организация рассматривает полученные заявление и документы в срок не более 10 рабочих дней со дня их получения и принимает решение о возможности или невозможности проведения клинических испытаний.</p>
+      <p>При положительном решении стороны переходят к договорным процедурам. Программа КИ составляется медицинской организацией совместно с заявителем, а утверждает её руководитель медицинской организации или уполномоченное лицо. Продолжительность исследования медицинская организация определяет с учётом назначения и сложности изделия.</p>
+      <p>При этом конкретная последовательность регуляторных действий зависит от вида изделия и маршрута КИ. Для исследований с участием человека в случаях, когда требуется разрешение Росздравнадзора, его наличие необходимо учитывать при формировании пакета документов для медицинской организации — универсальная схема «сначала клиника, потом разрешение» или «сначала разрешение, потом выбор клиники» подходит не для всех проектов.</p>
+
+      <h2>Совет по этике: когда он нужен</h2>
+      <p>При КИ с участием человека применяется этический маршрут. После утверждения программы необходимые документы направляет заявитель в Совет по этике в сфере обращения медицинских изделий. По Приказу №421н срок рассмотрения составляет не более 30 рабочих дней со дня поступления документов.</p>
+      <p>ПП №1684 и Приказ №421н не устанавливают отдельное заключение локального этического комитета каждой медицинской организации как универсальный обязательный этап КИ медицинского изделия — у конкретного центра могут существовать собственные внутренние процедуры, и их стоит уточнять при feasibility.</p>
+      <p>Для клинических испытаний без участия человека посредством анализа и оценки клинических данных заключение Совета по этике не требуется.</p>
+
+      <h2>Всегда ли требуется разрешение Росздравнадзора</h2>
+      <p>Нет. Действующее регулирование предусматривает исключения, при которых отдельное разрешение Росздравнадзора на КИ с участием человека не требуется. Они зависят от категории изделия и регистрационного маршрута — в частности, отдельные правила предусмотрены для IVD, программного обеспечения — медицинского изделия, специального маршрута для отечественных МИ и некоторых других случаев.</p>
+      <p>Нельзя использовать для всех проектов одну схему: разрешение РЗН → клиника → КИ. Необходимость разрешения и последовательность действий нужно определять для конкретного изделия и выбранного регистрационного маршрута.</p>
+
+      <h2>Особый маршрут для отечественных медицинских изделий</h2>
+      <p>Для отечественных медицинских изделий ПП №1684 предусматривает специальный регистрационный маршрут, который заявитель может выбрать наряду с другими предусмотренными процедурами. При использовании этого маршрута клинические испытания должны проводиться в медицинских организациях, соответствующих установленным требованиям и включённых в сеть национальных медицинских исследовательских центров (НМИЦ).</p>
+      <p>Для такого проекта недостаточно выбрать любую организацию из обычного Перечня Росздравнадзора — при этом квоты испытаний во ВНИИИМТ и НМИЦ для отечественных изделий ограничены, поэтому планировать такие испытания стоит заранее.</p>
+      <div class="warn-box"><strong>⚠ Требование НМИЦ не универсально</strong><p>Требование НМИЦ нельзя распространять на все отечественные медицинские изделия — оно относится именно к специальному маршруту регистрации, выбираемому заявителем, а не ко всем отечественным изделиям автоматически.</p></div>
+
+      <h2>Как выбирать площадку для IVD</h2>
+      <p>Для медицинских изделий для диагностики in vitro используется тот же Перечень Росздравнадзора, но требования к организациям установлены отдельно. Здесь проверяют, в частности, наличие лицензии по лабораторной и клинической лабораторной диагностике, соответствующей лаборатории, необходимых условий работы с биологическими материалами и квалифицированных специалистов.</p>
+      <p>Алгоритм выбора клиники для хирургического или терапевтического изделия нельзя механически переносить на клинико-лабораторные испытания IVD.</p>
+
+      <h2>Национальный маршрут и ЕАЭС — не одно и то же</h2>
+      <p>До выбора площадки нужно также определить, по какой процедуре регистрируется медицинское изделие. Для национальной процедуры РФ используется Перечень медицинских организаций Росздравнадзора. Для клинических и клинико-лабораторных исследований в рамках ЕАЭС действует отдельная система уполномоченных организаций.</p>
+      <p>Одна медицинская организация может присутствовать в обеих системах, но это не происходит автоматически. Логика должна быть такой: сначала регистрационный маршрут → затем соответствующий перечень организаций → затем выбор конкретной площадки.</p>
+
+      <h2>Когда имеет смысл многоцентровое исследование</h2>
+      <p>Если необходимую выборку сложно набрать в одной организации, можно рассматривать многоцентровый дизайн. Росздравнадзор определяет многоцентровое исследование как клиническое исследование, которое проводится по единому плану в двух или более исследовательских центрах.</p>
+      <p>Практически такой подход может быть нужен при большой выборке, редкой патологии, узких критериях включения или недостаточном пациентопотоке одного центра.</p>
+      <div class="warn-box"><strong>⚠ Замена площадки после старта — не формальность</strong><p>Отдельный детальный нормативный алгоритм замены или добавления площадки после получения разрешения в ПП №1684 и Приказе №421н не установлен. Не стоит строить проект на предположении, что после запуска КИ дополнительный центр всегда можно будет подключить простой формальной процедурой — состав площадок лучше максимально проработать заранее.</p></div>
+
+      <h2>Красные флаги при выборе клиники</h2>
+      <p>Даже если медицинская организация присутствует в Перечне Росздравнадзора, стоит внимательнее оценить площадку, если: невозможно подтвердить нужный профиль лицензии; не определён главный исследователь; центр обещает быстрый набор, но не может оценить количество подходящих пациентов; оборудование и инфраструктура не сопоставлены с программой КИ; коммерческое предложение не содержит понятного состава работ; клиника не может назвать реалистичный срок договорных процедур и старта; представители центра смешивают требования национальной процедуры и ЕАЭС; для многоцентрового проекта состав площадок предлагается определить уже после начала регуляторной процедуры.</p>
+      <p>Такие признаки не обязательно означают, что центр нельзя использовать — но они показывают, какие вопросы необходимо закрыть до договора.</p>
+
+      <h2>Алгоритм выбора клиники для КИ</h2>
+      <h3>Шаг 1. Определить формат клинических испытаний</h3>
+      <p>Требуется ли исследование с участием человека или достаточно анализа и оценки клинических данных.</p>
+      <h3>Шаг 2. Определить регистрационный маршрут</h3>
+      <p>Национальная процедура РФ, специальный маршрут для отечественного МИ или процедура ЕАЭС предъявляют разные требования.</p>
+      <h3>Шаг 3. Сформировать первичный список организаций</h3>
+      <p>Для национального маршрута — по актуальному Перечню Росздравнадзора.</p>
+      <h3>Шаг 4. Проверить медицинскую лицензию и площадку</h3>
+      <p>Работы и услуги должны соответствовать назначению и области применения изделия.</p>
+      <h3>Шаг 5. Проверить дополнительные нормативные требования</h3>
+      <p>В том числе класс риска, инфраструктуру и квалификацию специалистов.</p>
+      <h3>Шаг 6. Изучить предыдущие КИ центра</h3>
+      <p>Для этого можно использовать Реестр разрешений Росздравнадзора.</p>
+      <h3>Шаг 7. Провести предварительный feasibility</h3>
+      <p>Оценить PI, команду, оборудование, пациентопоток, конкурирующие исследования и прогноз рекрутинга.</p>
+      <h3>Шаг 8. Сравнить сроки и стоимость</h3>
+      <p>Известность клиники не компенсирует невозможность набрать выборку или многомесячные внутренние согласования.</p>
+      <h3>Шаг 9. Определить необходимость нескольких центров</h3>
+      <p>Лучше сделать это до запуска регуляторного процесса, а не после возникновения проблем с рекрутингом.</p>
+
+      <h2>Частые вопросы</h2>
+      <details class="faq-item"><summary>Означает ли наличие клиники в Перечне Росздравнадзора, что она подходит для моего исследования?</summary><p>Нет. Перечень — первый нормативный фильтр, подтверждающий право организации проводить КИ вообще. Дальше нужно отдельно проверить лицензию именно под назначение вашего изделия, класс риска, исследовательскую команду и реальный пациентопоток.</p></details>
+      <details class="faq-item"><summary>Обязательно ли проводить КИ отечественного изделия именно в НМИЦ?</summary><p>Только если вы выбираете специальный регистрационный маршрут для отечественных медицинских изделий — это один из нескольких предусмотренных маршрутов, а не универсальное требование ко всем отечественным изделиям.</p></details>
+      <details class="faq-item"><summary>Можно ли использовать Реестр разрешений Росздравнадзора как рейтинг клиник?</summary><p>Нет. Реестр показывает, участвовала ли организация в КИ ранее и с какими изделиями, но не показывает скорость рекрутинга, качество выполнения протокола или квалификацию конкретного исследователя.</p></details>
+      <details class="faq-item"><summary>Нужно ли заключение локального этического комитета в каждой клинике?</summary><p>Это не установлено как универсальный обязательный этап ПП №1684 или Приказом №421н — но у конкретного центра могут быть собственные внутренние процедуры, которые стоит уточнить при feasibility.</p></details>
+      <details class="faq-item"><summary>Одна и та же клиника подходит для национальной процедуры и для ЕАЭС?</summary><p>Не автоматически. Для национальной процедуры используется Перечень Росздравнадзора, для процедуры ЕАЭС — отдельная система уполномоченных организаций. Организация может присутствовать в обеих системах, но это нужно проверять отдельно.</p></details>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/kak-sostavit-programmu-klinicheskikh-ispytanij">Как составить программу клинических испытаний медизделия</a>
+        <a class="related-card" href="/blog/razreshenie-na-ki-po-pravilam-eaes">Разрешение на КИ по правилам ЕАЭС</a>
+        <a class="related-card" href="/blog/dizajn-klinicheskogo-issledovaniya-medizdeliya-vidy">Дизайн клинического исследования медизделия</a>
+        <a class="related-card" href="/glossariy">Глоссарий терминов</a>
+        <a class="related-card" href="/blog">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Подбираете клинику для клинических испытаний вашего медизделия?</h2>
+          <p>Probarium поможет подобрать медицинские организации под конкретное изделие и программу КИ: проверить Перечень Росздравнадзора и профиль лицензии, провести предварительный feasibility, оценить исследовательскую команду и пациентопоток и сравнить подходящие площадки до запуска исследования.</p>
+          <p style="margin-top:14px;"><a href="mailto:info@probarium.ru?subject=Подбор клиники для клинических испытаний" class="btn btn-outline">Подобрать клинику для КИ</a></p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora)">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой клинической базе"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li><a href="https://t.me/tandelovtat" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener">MAX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Где провести клинические испытания медизделия: как выбрать клинику из Перечня Росздравнадзора",
+  "description": "Наличие клиники в Перечне Росздравнадзора — только первый фильтр при выборе площадки для КИ медизделия. Как проверить лицензию, класс риска, исследовательскую команду, пациентопоток и провести site feasibility до заключения договора.",
+  "author": {"@type": "Person", "name": "Артемий-Татуш Танделов", "jobTitle": "Генеральный директор Probarium", "url": "https://t.me/tandelovtat"},
+  "publisher": {"@type": "Organization", "name": "Probarium"},
+  "mainEntityOfPage": "https://probarium.ru/blog/kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora",
+  "datePublished": "2026-09-10",
+  "dateModified": "2026-09-10"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://probarium.ru/blog"},
+    {"@type": "ListItem", "position": 3, "name": "Выбор клиники для КИ", "item": "https://probarium.ru/blog/kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Означает ли наличие клиники в Перечне Росздравнадзора, что она подходит для моего исследования?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Перечень — первый нормативный фильтр, подтверждающий право организации проводить КИ вообще. Дальше нужно отдельно проверить лицензию именно под назначение вашего изделия, класс риска, исследовательскую команду и реальный пациентопоток."}},
+    {"@type": "Question", "name": "Обязательно ли проводить КИ отечественного изделия именно в НМИЦ?", "acceptedAnswer": {"@type": "Answer", "text": "Только если вы выбираете специальный регистрационный маршрут для отечественных медицинских изделий — это один из нескольких предусмотренных маршрутов, а не универсальное требование ко всем отечественным изделиям."}},
+    {"@type": "Question", "name": "Можно ли использовать Реестр разрешений Росздравнадзора как рейтинг клиник?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Реестр показывает, участвовала ли организация в КИ ранее и с какими изделиями, но не показывает скорость рекрутинга, качество выполнения протокола или квалификацию конкретного исследователя."}},
+    {"@type": "Question", "name": "Нужно ли заключение локального этического комитета в каждой клинике?", "acceptedAnswer": {"@type": "Answer", "text": "Это не установлено как универсальный обязательный этап ПП №1684 или Приказом №421н — но у конкретного центра могут быть собственные внутренние процедуры, которые стоит уточнить при feasibility."}},
+    {"@type": "Question", "name": "Одна и та же клиника подходит для национальной процедуры и для ЕАЭС?", "acceptedAnswer": {"@type": "Answer", "text": "Не автоматически. Для национальной процедуры используется Перечень Росздравнадзора, для процедуры ЕАЭС — отдельная система уполномоченных организаций."}}
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
