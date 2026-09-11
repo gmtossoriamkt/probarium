@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Требования к медицинской организации для проведения КИ медизделия: полный разбор — Probarium</title>
+<meta name="description" content="Полный разбор требований к медицинской организации для проведения клинических испытаний медизделия — Перечень Росздравнадзора, соответствие лицензии, классы риска, обязательные СОП, квалификация персонала, система качества. Опорный справочник по ПП №1684 и приказу №421н.">
+<link rel="canonical" href="https://probarium.ru/blog/trebovaniya-k-medorganizacii-dlya-ki-medizdeliya">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Требования к медицинской организации для проведения КИ медизделия: полный разбор">
+<meta property="og:description" content="Требования к медицинской организации для проведения КИ медизделия — Перечень, лицензия, классы риска, СОП, персонал, система качества. Опорный разбор.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/trebovaniya-k-medorganizacii-dlya-ki-medizdeliya">
+<meta property="og:image" content="https://probarium.ru/og-image.png">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 20px;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110814948', 'ym');
+    ym(110814948, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110814948" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog">Блог</a> / <span aria-current="page">Требования к медорганизации</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>Pillar</span><span>14 мин чтения</span><span>10 сентября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Требования к медицинской организации для проведения КИ медизделия: полный разбор</h1>
+    <p class="lead">Полный разбор требований к медицинской организации для проведения клинических испытаний медизделия — Перечень Росздравнадзора, соответствие лицензии, классы риска, обязательные СОП, квалификация персонала, система качества. Опорный справочник по ПП №1684 и приказу №421н.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <p>Чтобы проводить клинические испытания медицинских изделий, медицинской организации недостаточно быть просто аккредитованной клиникой с хорошей репутацией. Требования установлены отдельно и охватывают не только формальное включение в Перечень, но и содержательное соответствие: профиль лицензии, инфраструктуру под класс риска изделия, обязательные СОП, квалификацию персонала и систему качества. Это опорный справочник по каждому из этих требований.</p>
+
+      <p><strong>Как эта статья соотносится с практическим руководством по выбору клиники.</strong> Если вы уже ищете конкретную площадку и хотите пошаговый алгоритм с чек-листом и red flags — статья <a href="/blog/kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora" class="inline-link">«Где провести клинические испытания медизделия: как выбрать клинику из Перечня Росздравнадзора»</a>. Здесь мы разбираем не «как выбрать», а «что именно проверяет закон у медицинской организации» — детальный разбор каждого требования, на который практическая статья может ссылаться.</p>
+
+      <h2>Короткий ответ</h2>
+      <p><strong>Суть в четырёх предложениях.</strong> Требования к медицинским организациям, проводящим клинические испытания медицинских изделий, установлены правилами государственной регистрации медицинских изделий (ПП РФ №1684 от 30.11.2024, действуют с 1 марта 2025 года) и порядком проведения клинических испытаний (приказ Минздрава №421н, действует с 1 сентября 2026 года, заменил приказ №885н) — а не отдельным специальным приказом именно о Перечне медицинских организаций. Организация попадает в Перечень Росздравнадзора после установления соответствия этим требованиям, и соответствие проверяется не разово: медицинская лицензия должна содержать работы и услуги, соответствующие назначению и области применения конкретного медицинского изделия, а не быть просто «широкой» лицензией многопрофильного центра. Требования дифференцированы по классу потенциального риска изделия — для классов 2б и 3 при испытаниях с участием человека предусмотрено наличие отделения или палаты интенсивной терапии и реанимации, тогда как для изделий классов 1 и 2а такого требования нет. Организация обязана иметь определённый комплект СОП (квалификация и обучение персонала, взаимодействие с комитетом по этике, информированное согласие, порядок проведения КИ, ведение документации), а специалисты, непосредственно проводящие процедуры КИ, должны иметь высшее медицинское образование по специальности, соответствующей области применения изделия.</p>
+
+      <h2>1. Нормативная база</h2>
+      <p><strong>ПП РФ №1684 от 30.11.2024</strong> (действует с 01.03.2025) — правила государственной регистрации медицинских изделий; устанавливают требования к медицинским организациям, проводящим клинические испытания.</p>
+      <p><strong>Приказ Минздрава России №421н</strong> (действует с 01.09.2026, заменил приказ №885н от 30.08.2021) — порядок проведения оценки соответствия медицинских изделий в форме технических испытаний, токсикологических исследований, клинических испытаний.</p>
+      <p><strong>Реестр выданных разрешений на клинические испытания медицинских изделий Росздравнадзора</strong> — публичный сервис для проверки предыдущего опыта медицинской организации.</p>
+      <p class="lead-note">Нормативная база проверена по состоянию на 10.09.2026.</p>
+      <div class="warn-box"><strong>⚠ Важное уточнение по источникам</strong><p>Требования к Перечню медицинских организаций регулируются именно ПП №1684 и приказом №421н, а не каким-либо отдельным ведомственным приказом, специально посвящённым Перечню. Организации, уже включённые в Перечень до 1 марта 2025 года, были обязаны уведомить Росздравнадзор о соответствии новым требованиям — этот переход подтверждён официальной страницей Росздравнадзора.</p></div>
+
+      <h2>2. Что такое Перечень и как в него попадают</h2>
+      <p>Росздравнадзор ведёт Перечень медицинских организаций, имеющих право проводить клинические испытания медицинских изделий. Организация попадает в него после установления соответствия требованиям, предусмотренным ПП №1684.</p>
+      <p>Перечень содержит сведения об организации, её адресе, контактах и перечне работ и услуг в соответствии с медицинской лицензией. Само по себе включение в Перечень подтверждает, что организация формально имеет право проводить КИ — это не рейтинг качества и не гарантия готовности выполнить конкретный проект.</p>
+
+      <h2>3. Требование к медицинской лицензии</h2>
+      <p>Лицензия медицинской организации должна содержать работы и услуги, соответствующие назначению и области применения медицинского изделия, в отношении которого проводится исследование.</p>
+      <div class="chain-box">Назначение МИ → область медицинского применения → необходимые работы и услуги по лицензии → соответствие лицензии конкретной организации.</div>
+      <p>Это означает, что лицензия проверяется не абстрактно («есть лицензия — подходит»), а применительно к конкретному изделию. Многопрофильный федеральный центр с широкой лицензией не гарантированно подходит для любого изделия — важна именно релевантная строка лицензии.</p>
+
+      <h2>4. Требования по классу риска</h2>
+      <p>Для клинических испытаний с участием человека медицинских изделий классов потенциального риска 2б и 3 ПП №1684 предусматривает наличие в медицинской организации отделения или палаты интенсивной терапии и реанимации.</p>
+      <p>Это требование не универсально:</p>
+      <table>
+        <tr><th>Класс риска</th><th>Требование к реанимации/интенсивной терапии</th></tr>
+        <tr><td>Класс 1</td><td>Не предусмотрено</td></tr>
+        <tr><td>Класс 2а</td><td>Не предусмотрено</td></tr>
+        <tr><td>Класс 2б</td><td>Предусмотрено (для КИ с участием человека)</td></tr>
+        <tr><td>Класс 3</td><td>Предусмотрено (для КИ с участием человека)</td></tr>
+      </table>
+      <p>Класс потенциального риска изделия целесообразно определить ещё до формирования списка потенциальных площадок — это одна из первых развилок, определяющих круг подходящих организаций.</p>
+
+      <h2>5. Обязательные СОП медицинской организации</h2>
+      <p>Для медицинских изделий, не относящихся к IVD, ПП №1684 предусматривает наличие у медицинской организации стандартных операционных процедур (СОП), охватывающих:</p>
+      <ul>
+        <li>квалификацию и обучение персонала;</li>
+        <li>взаимодействие с комитетом по этике;</li>
+        <li>получение информированного согласия;</li>
+        <li>порядок проведения клинических испытаний;</li>
+        <li>ведение документации.</li>
+      </ul>
+      <p>Для клинических испытаний программного обеспечения с использованием технологий искусственного интеллекта дополнительно предусмотрены процедуры, связанные с созданием и верификацией наборов данных.</p>
+      <div class="warn-box"><strong>⚠ Не путайте общепринятую практику ISO 14155 и прямые требования ПП №1684</strong><p>Отдельная СОП с названием «Мониторинг клинических исследований» ПП №1684 прямо не установлена как обязательная. Это не означает, что мониторинг не нужен — но представлять любую практику из ISO 14155 как буквальное нормативное требование постановления некорректно.</p></div>
+
+      <h2>6. Квалификация персонала</h2>
+      <p>Для медицинских изделий, не относящихся к IVD, специалисты медицинской организации, непосредственно проводящие процедуры клинических испытаний или принимающие связанные с ними решения, должны иметь высшее медицинское образование по специальности, соответствующей области медицинского применения изделия.</p>
+      <p>Формальное соответствие специальности — нормативный минимум. Дополнительно на практике целесообразно оценивать опыт предполагаемого главного исследователя именно в клинических испытаниях медицинских изделий (не обязательно лекарственных препаратов — это разные направления практики), опыт работы с целевой популяцией пациентов и доступность команды для нового проекта. Эти критерии не установлены ПП №1684 как отдельное самостоятельное условие включения организации в Перечень — это практические критерии выбора конкретной площадки поверх нормативного минимума.</p>
+
+      <h2>7. Требования для IVD — отдельная логика</h2>
+      <p>Для медицинских изделий для диагностики in vitro применяется тот же Перечень Росздравнадзора, но конкретные требования к организации установлены отдельно от требований для обычных медицинских изделий: наличие лицензии по лабораторной и клинической лабораторной диагностике, соответствующей лаборатории, условий работы с биологическими материалами и квалифицированных специалистов.</p>
+      <p>Алгоритм проверки требований, применимый к хирургическому или терапевтическому изделию, нельзя механически переносить на клинико-лабораторные испытания IVD.</p>
+
+      <h2>8. Национальная процедура и ЕАЭС — разные системы организаций</h2>
+      <p>Для национальной процедуры регистрации используется Перечень медицинских организаций Росздравнадзора. Для клинических и клинико-лабораторных исследований в рамках правил ЕАЭС (Решение Совета ЕЭК №29) действует отдельная система уполномоченных организаций, не совпадающая автоматически с национальным Перечнем.</p>
+      <p>Одна медицинская организация может присутствовать в обеих системах, но включение в одну не означает автоматического включения в другую — соответствие нужно проверять отдельно для каждой процедуры.</p>
+
+      <h2>9. Особый маршрут для отечественных медицинских изделий</h2>
+      <p>ПП №1684 предусматривает специальный регистрационный маршрут для отечественных медицинских изделий. При использовании этого маршрута клинические испытания должны проводиться в медицинских организациях, включённых в сеть национальных медицинских исследовательских центров (НМИЦ), соответствующих установленным требованиям.</p>
+      <p>Это требование не распространяется на все отечественные медицинские изделия автоматически — оно относится именно к выбору специального регистрационного маршрута, а не к отечественному происхождению изделия как таковому. Квоты на испытания во ВНИИИМТ и НМИЦ для отечественных изделий ограничены, что стоит учитывать при планировании сроков.</p>
+
+      <h2>10. Как проверить предыдущий опыт организации</h2>
+      <p>Реестр выданных разрешений на клинические испытания медицинских изделий Росздравнадзора позволяет искать информацию, в том числе по медицинской организации: сведения о медицинском изделии, производителе, классе потенциального риска, вовлечённых организациях и статусе исследования.</p>
+      <div class="warn-box"><strong>⚠ Реестр — не инструмент оценки качества</strong><p>Из данных реестра нельзя достоверно определить скорость рекрутинга, качество выполнения протокола конкретным центром, наличие существенных отклонений от программы или эффективность работы конкретного исследователя. Это дополнительный сигнал для проверки, а не окончательная оценка.</p></div>
+
+      <h2>11. Как организация проходит согласование заявления</h2>
+      <p>По приказу №421н медицинская организация рассматривает полученные заявление и документы в срок не более <strong>10 рабочих дней</strong> со дня их получения и принимает решение о возможности или невозможности проведения клинических испытаний.</p>
+      <p>При положительном решении программа КИ составляется медицинской организацией совместно с заявителем, а утверждает её руководитель медицинской организации или уполномоченное лицо.</p>
+
+      <h2>12. Совет по этике — отдельный обязательный маршрут при КИ с участием человека</h2>
+      <p>После утверждения программы необходимые документы направляются заявителем в Совет по этике в сфере обращения медицинских изделий. Срок рассмотрения составляет не более <strong>30 рабочих дней</strong> со дня поступления документов.</p>
+      <p>Заключение локального этического комитета конкретной медицинской организации, в отличие от заключения Совета по этике, не установлено ПП №1684 и приказом №421н как универсальный обязательный этап для каждого центра — но у отдельных организаций могут существовать собственные внутренние процедуры, которые нужно уточнять индивидуально.</p>
+      <p>Для клинических испытаний без участия человека (посредством анализа и оценки клинических данных) заключение Совета по этике не требуется.</p>
+
+      <h2>Сводная таблица требований</h2>
+      <table>
+        <tr><th>Требование</th><th>К кому применяется</th><th>Источник</th></tr>
+        <tr><td>Включение в Перечень Росздравнадзора</td><td>Все организации, проводящие КИ по нацпроцедуре</td><td>ПП №1684</td></tr>
+        <tr><td>Лицензия, соответствующая назначению МИ</td><td>Все организации</td><td>ПП №1684</td></tr>
+        <tr><td>Отделение/палата реанимации</td><td>Классы риска 2б, 3 (КИ с участием человека)</td><td>ПП №1684</td></tr>
+        <tr><td>Комплект обязательных СОП</td><td>Организации, работающие с не-IVD МИ</td><td>ПП №1684</td></tr>
+        <tr><td>Высшее медицинское образование специалистов</td><td>Специалисты, проводящие процедуры не-IVD КИ</td><td>ПП №1684</td></tr>
+        <tr><td>Лицензия по лабораторной диагностике</td><td>Организации, работающие с IVD</td><td>ПП №1684</td></tr>
+        <tr><td>Включение в сеть НМИЦ</td><td>Только для специального маршрута отечественных МИ</td><td>ПП №1684</td></tr>
+        <tr><td>Рассмотрение заявления за 10 рабочих дней</td><td>Все организации</td><td>Приказ №421н</td></tr>
+        <tr><td>Рассмотрение Советом по этике за 30 рабочих дней</td><td>КИ с участием человека</td><td>Приказ №421н</td></tr>
+      </table>
+
+      <h2>Частые вопросы</h2>
+      <details class="faq-item"><summary>Какой документ устанавливает требования к Перечню медицинских организаций для КИ?</summary><p>ПП РФ №1684 от 30.11.2024 (действует с 1 марта 2025 года) и приказ Минздрава №421н (действует с 1 сентября 2026 года, заменил приказ №885н) — требования установлены этими актами, а не отдельным специальным ведомственным приказом о Перечне.</p></details>
+      <details class="faq-item"><summary>Требуется ли отделение реанимации для проведения любого КИ медизделия?</summary><p>Нет. Это требование установлено только для КИ с участием человека медицинских изделий классов потенциального риска 2б и 3 — для классов 1 и 2а такого требования нет.</p></details>
+      <details class="faq-item"><summary>Можно ли использовать одну и ту же медицинскую организацию для национальной процедуры и для ЕАЭС?</summary><p>Не автоматически. Для национальной процедуры используется Перечень Росздравнадзора, для процедуры ЕАЭС — отдельная система уполномоченных организаций по Решению №29. Организация может входить в обе системы, но включение нужно проверять отдельно.</p></details>
+      <details class="faq-item"><summary>Обязательно ли проводить КИ отечественного изделия в НМИЦ?</summary><p>Только если выбран специальный регистрационный маршрут для отечественных медицинских изделий — это один из нескольких предусмотренных маршрутов, а не требование ко всем отечественным изделиям автоматически.</p></details>
+      <details class="faq-item"><summary>Требуется ли заключение локального этического комитета медицинской организации отдельно от Совета по этике?</summary><p>Это не установлено как универсальное обязательное требование ПП №1684 и приказом №421н, но у конкретной организации могут существовать собственные внутренние процедуры, которые нужно уточнять индивидуально.</p></details>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora">Как выбрать клинику для КИ из Перечня Росздравнадзора</a>
+        <a class="related-card" href="/blog/kak-sostavit-programmu-klinicheskikh-ispytanij">Как составить программу клинических испытаний медизделия</a>
+        <a class="related-card" href="/blog/razreshenie-na-ki-po-pravilam-eaes">Разрешение на КИ по правилам ЕАЭС</a>
+        <a class="related-card" href="/glossariy">Глоссарий терминов</a>
+        <a class="related-card" href="/blog">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Нужна помощь с проверкой соответствия медицинской организации требованиям для КИ?</h2>
+          <p>Probarium поможет проверить соответствие лицензии, инфраструктуры, СОП и персонала медицинской организации требованиям для проведения клинических испытаний вашего медицинского изделия.</p>
+          <p style="margin-top:14px;"><a href="mailto:info@probarium.ru?subject=Проверка требований к медицинской организации для КИ" class="btn btn-outline">Проверить соответствие медицинской организации</a></p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/trebovaniya-k-medorganizacii-dlya-ki-medizdeliya)">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой медицинской организации"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li><a href="https://t.me/tandelovtat" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener">MAX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Требования к медицинской организации для проведения КИ медизделия: полный разбор",
+  "description": "Полный разбор требований к медицинской организации для проведения клинических испытаний медизделия — Перечень Росздравнадзора, соответствие лицензии, классы риска, обязательные СОП, квалификация персонала, система качества. Опорный справочник по ПП №1684 и приказу №421н.",
+  "author": {"@type": "Person", "name": "Артемий-Татуш Танделов", "jobTitle": "Генеральный директор Probarium", "url": "https://t.me/tandelovtat"},
+  "publisher": {"@type": "Organization", "name": "Probarium"},
+  "mainEntityOfPage": "https://probarium.ru/blog/trebovaniya-k-medorganizacii-dlya-ki-medizdeliya",
+  "datePublished": "2026-09-10",
+  "dateModified": "2026-09-10"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
+    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://probarium.ru/blog"},
+    {"@type": "ListItem", "position": 3, "name": "Требования к медорганизации", "item": "https://probarium.ru/blog/trebovaniya-k-medorganizacii-dlya-ki-medizdeliya"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Какой документ устанавливает требования к Перечню медицинских организаций для КИ?", "acceptedAnswer": {"@type": "Answer", "text": "ПП РФ №1684 от 30.11.2024 (действует с 1 марта 2025 года) и приказ Минздрава №421н (действует с 1 сентября 2026 года, заменил приказ №885н) — требования установлены этими актами, а не отдельным специальным ведомственным приказом о Перечне."}},
+    {"@type": "Question", "name": "Требуется ли отделение реанимации для проведения любого КИ медизделия?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Это требование установлено только для КИ с участием человека медицинских изделий классов потенциального риска 2б и 3 — для классов 1 и 2а такого требования нет."}},
+    {"@type": "Question", "name": "Можно ли использовать одну и ту же медицинскую организацию для национальной процедуры и для ЕАЭС?", "acceptedAnswer": {"@type": "Answer", "text": "Не автоматически. Для национальной процедуры используется Перечень Росздравнадзора, для процедуры ЕАЭС — отдельная система уполномоченных организаций по Решению №29."}},
+    {"@type": "Question", "name": "Обязательно ли проводить КИ отечественного изделия в НМИЦ?", "acceptedAnswer": {"@type": "Answer", "text": "Только если выбран специальный регистрационный маршрут для отечественных медицинских изделий — это один из нескольких предусмотренных маршрутов, а не требование ко всем отечественным изделиям автоматически."}},
+    {"@type": "Question", "name": "Требуется ли заключение локального этического комитета медицинской организации отдельно от Совета по этике?", "acceptedAnswer": {"@type": "Answer", "text": "Это не установлено как универсальное обязательное требование ПП №1684 и приказом №421н, но у конкретной организации могут существовать собственные внутренние процедуры, которые нужно уточнять индивидуально."}}
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
