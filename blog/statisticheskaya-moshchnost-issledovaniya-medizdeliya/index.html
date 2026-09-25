@@ -6,12 +6,12 @@
 <meta name="theme-color" content="#1C232E">
 <title>Статистическая мощность исследования медизделия: простыми словами — Probarium</title>
 <meta name="description" content="Статистическая мощность клинического исследования медизделия простыми словами — что означает, почему часто используют 80% и 90%, как влияет на размер выборки, и почему нет единого нормативного требования к мощности для медицинских изделий.">
-<link rel="canonical" href="https://probarium.ru/blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya">
+<link rel="canonical" href="https://probarium.ru/blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya/">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Статистическая мощность исследования медизделия: простыми словами">
 <meta property="og:description" content="Статистическая мощность исследования медизделия — ошибки I и II рода, влияние на размер выборки, статистическая vs клиническая значимость, почему post-hoc мощность неинформативна.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://probarium.ru/blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya">
+<meta property="og:url" content="https://probarium.ru/blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya/">
 <meta property="og:image" content="https://probarium.ru/og-image.png">
 <meta property="og:locale" content="ru_RU">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -186,7 +186,7 @@ body.nav-open{overflow:hidden;}
         <li><a href="/uslugi">Услуги</a></li>
         <li><a href="/o-kompanii">О компании</a></li>
         <li><a href="/npa">НПА</a></li>
-        <li><a href="/blog">Блог</a></li>
+        <li><a href="/blog/">Блог</a></li>
         <li><a href="/kontakty">Контакты</a></li>
       </ul>
     </nav>
@@ -199,7 +199,7 @@ body.nav-open{overflow:hidden;}
     <a href="/uslugi">Услуги</a>
     <a href="/o-kompanii">О компании</a>
     <a href="/npa">НПА</a>
-    <a href="/blog">Блог</a>
+    <a href="/blog/">Блог</a>
     <a href="/kontakty">Контакты</a>
     <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
   </nav>
@@ -207,7 +207,7 @@ body.nav-open{overflow:hidden;}
 <main id="main">
 
   <nav class="container breadcrumbs" aria-label="Хлебные крошки">
-    <a href="/">Главная</a> / <a href="/blog">Блог</a> / <span aria-current="page">Статистическая мощность</span>
+    <a href="/">Главная</a> / <a href="/blog/">Блог</a> / <span aria-current="page">Статистическая мощность</span>
   </nav>
 
   <div class="container page-intro">
@@ -222,7 +222,7 @@ body.nav-open{overflow:hidden;}
 
       <p>При планировании клинического исследования медицинского изделия разработчик рано или поздно сталкивается с вопросом: сколько пациентов или наблюдений нужно включить в исследование? Ответ «чем больше, тем лучше» неправильный. Слишком маленькая выборка может не обнаружить реальный эффект. Чрезмерно большая — потребует лишних ресурсов и способна сделать статистически значимой разницу, которая практически не имеет клинического значения. Один из ключевых параметров, который связывает дизайн исследования и размер выборки, — статистическая мощность.</p>
 
-      <p><strong>Как эта статья соотносится с другими материалами серии.</strong> О том, от каких факторов вообще зависит размер выборки, с числовыми примерами — статья <a href="/blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki" class="inline-link">«Сколько пациентов нужно для КИ медизделия»</a>. О полной методологии расчёта по ГОСТ Р ИСО 14155-2022 — <a href="/blog/raschet-vyborki-ki-medizdeliya-metodika" class="inline-link">«Расчёт выборки для КИ медизделия: методика и обоснование»</a>. Здесь мы разбираем глубже одно конкретное понятие — саму мощность: что она означает, откуда берутся 80% и 90%, и почему её нельзя рассматривать в отрыве от размера эффекта.</p>
+      <p><strong>Как эта статья соотносится с другими материалами серии.</strong> О том, от каких факторов вообще зависит размер выборки, с числовыми примерами — статья <a href="/blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki/" class="inline-link">«Сколько пациентов нужно для КИ медизделия»</a>. О полной методологии расчёта по ГОСТ Р ИСО 14155-2022 — <a href="/blog/raschet-vyborki-ki-medizdeliya-metodika/" class="inline-link">«Расчёт выборки для КИ медизделия: методика и обоснование»</a>. Здесь мы разбираем глубже одно конкретное понятие — саму мощность: что она означает, откуда берутся 80% и 90%, и почему её нельзя рассматривать в отрыве от размера эффекта.</p>
 
       <h2>Короткий ответ</h2>
       <p><strong>Суть в четырёх предложениях.</strong> Статистическая мощность — это вероятность обнаружить эффект заданного размера, если этот эффект действительно существует (Power = 1 − β, где β — вероятность ошибки II рода); у исследования нет мощности «вообще» — она всегда определяется относительно конкретного ожидаемого эффекта. Значения 80% и 90% — распространённая статистическая практика (ICH E9 традиционно устанавливает β на уровне 10–20%), но не универсальное регуляторное требование: ни российские, ни ЕАЭС правила не устанавливают единого нормативного порога мощности для клинических исследований медицинских изделий. При прочих равных чем выше требуемая мощность, тем больше нужна выборка, но размер эффекта часто важнее самой мощности — недооценка ожидаемого эффекта или переоценка вариабельности данных способна сделать формально правильно рассчитанное исследование фактически недостаточно мощным. Статистическая значимость (p &lt; 0,05) не равнозначна клинической значимости, а отсутствие статистической значимости не равнозначно доказанному отсутствию эффекта — для интерпретации результата нужно смотреть не только на p-value, но и на оценку эффекта и доверительный интервал.</p>
@@ -291,7 +291,7 @@ body.nav-open{overflow:hidden;}
       <p>Здесь важно различать две ситуации.</p>
       <p><strong>Пересмотр размера выборки может быть частью заранее предусмотренного дизайна.</strong> ICH E9 допускает пересчёт размера выборки в определённых ситуациях, если такая процедура спланирована и надлежащим образом документирована.</p>
       <p><strong>Другое дело — рассчитать post hoc power</strong> уже после получения результата и попытаться с её помощью объяснить, почему исследование оказалось статистически незначимым. Такой подход считается малоинформативным: наблюдаемая post hoc-мощность тесно связана с уже полученным p-value и практически не добавляет новой информации. Для интерпретации результата полезнее оценивать величину эффекта и её доверительный интервал.</p>
-      <p><strong>Мощность прежде всего нужна для планирования исследования, а не для оправдания его результата задним числом.</strong> Если вам уже пришло замечание эксперта к расчёту выборки — это отдельная, более чувствительная ситуация, разобранная в статье <a href="/blog/zamechanie-k-raschetu-vyborki-kak-otvechat" class="inline-link">«Замечание к расчёту выборки: как пересчитать и ответить эксперту»</a>.</p>
+      <p><strong>Мощность прежде всего нужна для планирования исследования, а не для оправдания его результата задним числом.</strong> Если вам уже пришло замечание эксперта к расчёту выборки — это отдельная, более чувствительная ситуация, разобранная в статье <a href="/blog/zamechanie-k-raschetu-vyborki-kak-otvechat/" class="inline-link">«Замечание к расчёту выборки: как пересчитать и ответить эксперту»</a>.</p>
 
       <h2>Практическая последовательность</h2>
       <div class="chain-box">Первичная конечная точка → гипотеза → клинически значимый эффект → α и мощность → вариабельность или частота события → расчёт выборки → поправка на выбывания → проверка множественности → фиксация предпосылок в протоколе.</div>
@@ -312,11 +312,11 @@ body.nav-open{overflow:hidden;}
     <div class="container">
       <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
       <div class="related-grid">
-        <a class="related-card" href="/blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki">Сколько пациентов нужно для КИ медизделия</a>
-        <a class="related-card" href="/blog/raschet-vyborki-ki-medizdeliya-metodika">Расчёт выборки для КИ медизделия: методика и обоснование</a>
-        <a class="related-card" href="/blog/dizajn-klinicheskogo-issledovaniya-medizdeliya-vidy">Дизайн клинического исследования медизделия</a>
+        <a class="related-card" href="/blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki/">Сколько пациентов нужно для КИ медизделия</a>
+        <a class="related-card" href="/blog/raschet-vyborki-ki-medizdeliya-metodika/">Расчёт выборки для КИ медизделия: методика и обоснование</a>
+        <a class="related-card" href="/blog/dizajn-klinicheskogo-issledovaniya-medizdeliya-vidy/">Дизайн клинического исследования медизделия</a>
         <a class="related-card" href="/glossariy">Глоссарий терминов</a>
-        <a class="related-card" href="/blog">Все статьи блога</a>
+        <a class="related-card" href="/blog/">Все статьи блога</a>
       </div>
     </div>
   </section>
@@ -377,7 +377,7 @@ body.nav-open{overflow:hidden;}
           <li><a href="/npa">НПА</a></li>
           <li><a href="/reestry">Реестры</a></li>
           <li><a href="/glossariy">Глоссарий</a></li>
-          <li><a href="/blog">Блог</a></li>
+          <li><a href="/blog/">Блог</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -410,7 +410,7 @@ body.nav-open{overflow:hidden;}
   "description": "Статистическая мощность клинического исследования медизделия простыми словами — что означает, почему часто используют 80% и 90%, как влияет на размер выборки, и почему нет единого нормативного требования к мощности для медицинских изделий.",
   "author": {"@type": "Person", "name": "Артемий-Татуш Танделов", "jobTitle": "Генеральный директор Probarium", "url": "https://t.me/tandelovtat"},
   "publisher": {"@type": "Organization", "name": "Probarium"},
-  "mainEntityOfPage": "https://probarium.ru/blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya",
+  "mainEntityOfPage": "https://probarium.ru/blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya/",
   "datePublished": "2026-09-09",
   "dateModified": "2026-09-09"
 }
@@ -421,8 +421,8 @@ body.nav-open{overflow:hidden;}
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
-    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://probarium.ru/blog"},
-    {"@type": "ListItem", "position": 3, "name": "Статистическая мощность", "item": "https://probarium.ru/blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya"}
+    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://probarium.ru/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "Статистическая мощность", "item": "https://probarium.ru/blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya/"}
   ]
 }
 </script>
