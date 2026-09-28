@@ -9,15 +9,17 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://probarium.ru/blog</loc>
+    <loc>https://probarium.ru/blog/</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://probarium.ru/blog/priostanovili-ki</loc>
+    <loc>https://probarium.ru/blog/priostanovili-ki/</loc>
+    <lastmod>2026-08-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://probarium.ru/blog/otchet-zavernuli</loc>
+    <loc>https://probarium.ru/blog/otchet-zavernuli/</loc>
+    <lastmod>2026-09-28</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -128,22 +130,31 @@
     <loc>https://probarium.ru/uslugi</loc>
     <priority>0.8</priority>
   </url>
-  <url><loc>https://probarium.ru/blog/sroki-vydachi-razresheniya-na-ki</loc></url>
-  <url><loc>https://probarium.ru/blog/razreshenie-na-ki-po-pravilam-eaes</loc></url>
-  <url><loc>https://probarium.ru/blog/kak-sostavit-programmu-klinicheskikh-ispytanij</loc></url>
-  <url><loc>https://probarium.ru/blog/protokol-programma-ki-medizdeliya-ekspertiza</loc></url>
-  <url><loc>https://probarium.ru/blog/zamechaniya-k-programme-ki-kak-otvechat</loc></url>
-  <url><loc>https://probarium.ru/blog/kriterii-vklyucheniya-isklyucheniya-ki</loc></url>
-  <url><loc>https://probarium.ru/blog/konechnye-tochki-ki-medizdeliya-kak-vybrat</loc></url>
-  <url><loc>https://probarium.ru/blog/dizajn-klinicheskogo-issledovaniya-medizdeliya-vidy</loc></url>
-  <url><loc>https://probarium.ru/blog/raschet-vyborki-ki-medizdeliya-metodika</loc></url>
-  <url><loc>https://probarium.ru/blog/zamechanie-k-raschetu-vyborki-kak-otvechat</loc></url>
-  <url><loc>https://probarium.ru/blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki</loc></url>
-  <url><loc>https://probarium.ru/blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya</loc></url>
-  <url><loc>https://probarium.ru/blog/perechen-medorganizaciy-ki-kak-proverit-kliniku</loc></url>
-  <url><loc>https://probarium.ru/blog/kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora</loc></url>
-  <url><loc>https://probarium.ru/blog/trebovaniya-k-medorganizacii-dlya-ki-medizdeliya</loc></url>
-  <url><loc>https://probarium.ru/blog/klinika-ne-nabiraet-pacientov-chto-delat</loc></url>
-  <url><loc>https://probarium.ru/blog/mnogocentrovoe-ki-medizdeliya</loc></url>
-  <url><loc>https://probarium.ru/blog/kak-vybrat-glavnogo-issledovatelya-dlya-ki</loc></url>
+  <url><loc>https://probarium.ru/blog/sroki-vydachi-razresheniya-na-ki/</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://probarium.ru/blog/razreshenie-na-ki-po-pravilam-eaes/</loc><lastmod>2026-08-31</lastmod></url>
+  <url><loc>https://probarium.ru/blog/kak-sostavit-programmu-klinicheskikh-ispytanij/</loc><lastmod>2026-09-01</lastmod></url>
+  <url><loc>https://probarium.ru/blog/protokol-programma-ki-medizdeliya-ekspertiza/</loc><lastmod>2026-09-01</lastmod></url>
+  <url><loc>https://probarium.ru/blog/zamechaniya-k-programme-ki-kak-otvechat/</loc><lastmod>2026-09-02</lastmod></url>
+  <url><loc>https://probarium.ru/blog/kriterii-vklyucheniya-isklyucheniya-ki/</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://probarium.ru/blog/konechnye-tochki-ki-medizdeliya-kak-vybrat/</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://probarium.ru/blog/dizajn-klinicheskogo-issledovaniya-medizdeliya-vidy/</loc><lastmod>2026-09-04</lastmod></url>
+  <url><loc>https://probarium.ru/blog/raschet-vyborki-ki-medizdeliya-metodika/</loc><lastmod>2026-09-04</lastmod></url>
+  <url><loc>https://probarium.ru/blog/zamechanie-k-raschetu-vyborki-kak-otvechat/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://probarium.ru/blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki/</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://probarium.ru/blog/statisticheskaya-moshchnost-issledovaniya-medizdeliya/</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://probarium.ru/blog/perechen-medorganizaciy-ki-kak-proverit-kliniku/</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://probarium.ru/blog/kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora/</loc><lastmod>2026-09-16</lastmod></url>
+  <url><loc>https://probarium.ru/blog/trebovaniya-k-medorganizacii-dlya-ki-medizdeliya/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://probarium.ru/blog/klinika-ne-nabiraet-pacientov-chto-delat/</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://probarium.ru/blog/mnogocentrovoe-ki-medizdeliya/</loc><lastmod>2026-09-22</lastmod></url>
+  <url><loc>https://probarium.ru/blog/kak-vybrat-glavnogo-issledovatelya-dlya-ki/</loc><lastmod>2026-09-24</lastmod></url>
+  <url><loc>https://probarium.ru/blog/nuzhny-li-ki/</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://probarium.ru/blog/otkazali-v-razreshenii/</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://probarium.ru/blog/klinicheskaya-ocenka-ili-ki/</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://probarium.ru/blog/kogda-ki-ne-trebuyutsya/</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://probarium.ru/blog/ki-po-klassam-riska/</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://probarium.ru/blog/kak-poluchit-razreshenie-na-ki/</loc><lastmod>2026-08-19</lastmod></url>
+  <url><loc>https://probarium.ru/blog/ki-dlya-analoga/</loc><lastmod>2026-08-19</lastmod></url>
+  <url><loc>https://probarium.ru/blog/dokumenty-dlya-razresheniya-ki/</loc><lastmod>2026-08-20</lastmod></url>
+  <url><loc>https://probarium.ru/blog/stoimost-klinicheskih-ispytanij-medizdeliya/</loc><lastmod>2026-09-28</lastmod></url>
 </urlset>
