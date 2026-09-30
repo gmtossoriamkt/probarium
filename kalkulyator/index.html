@@ -98,6 +98,8 @@ body.nav-open{overflow:hidden;}
   .header-cta{display:none;}
   .burger{display:flex;}
 }
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;margin:0;}
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -203,14 +205,14 @@ body.nav-open{overflow:hidden;}
         <h2 id="range-h2">Диапазон стоимости по направлениям (текстовая версия)</h2>
         <p>Если калькулятор недоступен, ниже — базовые ориентиры в текстовом виде.</p>
       </div>
-      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <div class="table-wrap"><table style="width:100%;border-collapse:collapse;font-size:13px;">
         <thead><tr>
           <th style="border:1px solid var(--border);padding:10px 14px;text-align:left;background:var(--white);color:var(--blue-deep);">Направление</th>
           <th style="border:1px solid var(--border);padding:10px 14px;text-align:left;background:var(--white);color:var(--blue-deep);">Срок</th>
           <th style="border:1px solid var(--border);padding:10px 14px;text-align:left;background:var(--white);color:var(--blue-deep);">Ориентировочно, от</th>
         </tr></thead>
         <tbody id="range-table-body" style="color:var(--gray-text);"></tbody>
-      </table>
+      </table></div>
     </div>
   </section>
 

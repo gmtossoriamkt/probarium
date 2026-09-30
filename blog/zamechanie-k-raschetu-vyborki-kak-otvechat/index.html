@@ -143,6 +143,8 @@ body.nav-open{overflow:hidden;}
 .warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
 .chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
 .article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 20px;}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;margin:0;}
 .article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
 .article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
 .article-body table + p{margin-top:-6px;}
@@ -270,14 +272,14 @@ body.nav-open{overflow:hidden;}
       </table>
 
       <h2>6. Четыре возможных результата пересчёта — практическая матрица решений</h2>
-      <table>
+      <div class="table-wrap"><table>
         <tr><th>Что обнаружили</th><th>Что делать</th></tr>
         <tr><td>Расчёт корректен, но плохо документирован</td><td>Дополнить обоснование, число не менять</td></tr>
         <tr><td>Ошибка в параметре, новое число ≤ фактически запланированного или уже набранного</td><td>Документировать исправление + анализ чувствительности</td></tr>
         <tr><td>Новое число больше запланированного, исследование ещё идёт</td><td>Оценить проспективную поправку к программе или необходимость дополнительного набора участников</td></tr>
         <tr><td>Новое число больше фактически набранного, исследование завершено</td><td>Не выдавать постфактум-расчёт за исходный; оценивать дефицит доказательств как таковой</td></tr>
         <tr><td>Требуется другая конечная точка/гипотеза/метод</td><td>Рассматривать как изменение дизайна исследования, а не технический пересчёт</td></tr>
-      </table>
+      </table></div>
       <p>Последняя строка — граница, отделяющая техническую правку от содержательной проблемы: если ответ на замечание требует именно этого, вопрос выходит за рамки статистического ответа и становится вопросом клинической стратегии.</p>
 
       <h2>7. Как не создать впечатление подгонки результата</h2>

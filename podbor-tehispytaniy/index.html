@@ -76,6 +76,8 @@ section{padding:40px 0;}
 .fallback-table th, .fallback-table td{border:1px solid var(--border);padding:10px 14px;text-align:left;}
 .fallback-table th{background:var(--white);color:var(--blue-deep);}
 .fallback-table td{background:var(--white);color:var(--gray-text);}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;margin:0;}
 
 details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:10px;}
 details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
@@ -267,7 +269,7 @@ body.nav-open{overflow:hidden;}
           <tr><td>Да</td><td>Да</td><td>Технические испытания + ЭМС + валидация ПО</td></tr>
         </tbody>
       </table>
-      <table class="fallback-table">
+      <div class="table-wrap"><table class="fallback-table">
         <thead><tr><th>Контакт с телом</th><th>Тип контакта</th><th>Комплект токсикологических испытаний</th></tr></thead>
         <tbody>
           <tr><td>Нет</td><td>—</td><td>Токсикологические испытания, скорее всего, не требуются</td></tr>
@@ -275,7 +277,7 @@ body.nav-open{overflow:hidden;}
           <tr><td>Да</td><td>Внутренняя среда организма</td><td>Расширенный набор с оценкой системной токсичности</td></tr>
           <tr><td>Да</td><td>Имплантация</td><td>Полный набор биосовместимости, включая местную реакцию после имплантации</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
   </section>
 

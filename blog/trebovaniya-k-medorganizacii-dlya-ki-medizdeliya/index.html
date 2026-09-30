@@ -143,6 +143,8 @@ body.nav-open{overflow:hidden;}
 .warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
 .chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
 .article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 20px;}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;margin:0;}
 .article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
 .article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
 .article-body table + p{margin-top:-6px;}
@@ -297,7 +299,7 @@ body.nav-open{overflow:hidden;}
       <p>Для клинических испытаний без участия человека (посредством анализа и оценки клинических данных) заключение Совета по этике не требуется.</p>
 
       <h2>Сводная таблица требований</h2>
-      <table>
+      <div class="table-wrap"><table>
         <tr><th>Требование</th><th>К кому применяется</th><th>Источник</th></tr>
         <tr><td>Включение в Перечень Росздравнадзора</td><td>Все организации, проводящие КИ по нацпроцедуре</td><td>ПП №1684</td></tr>
         <tr><td>Лицензия, соответствующая назначению МИ</td><td>Все организации</td><td>ПП №1684</td></tr>
@@ -308,7 +310,7 @@ body.nav-open{overflow:hidden;}
         <tr><td>Включение в сеть НМИЦ</td><td>Только для специального маршрута отечественных МИ</td><td>ПП №1684</td></tr>
         <tr><td>Рассмотрение заявления за 10 рабочих дней</td><td>Все организации</td><td>Приказ №421н</td></tr>
         <tr><td>Рассмотрение Советом по этике за 30 рабочих дней</td><td>КИ с участием человека</td><td>Приказ №421н</td></tr>
-      </table>
+      </table></div>
 
       <h2>Частые вопросы</h2>
       <details class="faq-item"><summary>Какой документ устанавливает требования к Перечню медицинских организаций для КИ?</summary><p>ПП РФ №1684 от 30.11.2024 (действует с 1 марта 2025 года) и приказ Минздрава №421н (действует с 1 сентября 2026 года, заменил приказ №885н) — требования установлены этими актами, а не отдельным специальным ведомственным приказом о Перечне.</p></details>

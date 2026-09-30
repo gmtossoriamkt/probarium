@@ -140,6 +140,8 @@ body.nav-open{overflow:hidden;}
 .step p{font-size:14px;color:var(--gray-text);margin:0;}
 
 .article-body table{width:100%;border-collapse:collapse;margin:18px 0 24px;background:var(--white);font-size:14px;}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;margin:0;}
 .article-body th,.article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
 .article-body th{background:var(--blue-pale);color:var(--blue-deep);}
 .article-body a.inline-link{color:#0C447C;text-decoration:underline;text-underline-offset:2px;}
@@ -238,7 +240,7 @@ body.nav-open{overflow:hidden;}
       <p>Это отдельная процедура. Для изделия, которому требуются КИ с участием человека, применяется маршрут в рамках государственной регистрации, и календарь складывается из нескольких этапов.</p>
 
       <h2>Какие сроки нужно учитывать</h2>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Этап</th><th>Срок / ориентир</th></tr></thead>
         <tbody>
           <tr><td>Устранение выявленных при первичной проверке нарушений и представление недостающих документов</td><td>до <strong>30 рабочих дней</strong></td></tr>
@@ -248,7 +250,7 @@ body.nav-open{overflow:hidden;}
           <tr><td>Представление возражений на экспертное заключение</td><td>до <strong>10 рабочих дней</strong></td></tr>
           <tr><td>Рассмотрение Росздравнадзором поступивших возражений</td><td>до <strong>30 рабочих дней</strong></td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <h2>Сколько рассматривает документы Совет по этике</h2>
       <p>С 1 сентября 2026 года приказ Минздрава России № 421н (п. 36 Порядка) устанавливает для Совета по этике срок <strong>не более 30 рабочих дней со дня поступления документов на рассмотрение</strong>.</p>

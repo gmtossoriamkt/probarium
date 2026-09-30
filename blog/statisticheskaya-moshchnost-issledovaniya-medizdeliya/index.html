@@ -143,6 +143,8 @@ body.nav-open{overflow:hidden;}
 .warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
 .chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
 .article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 20px;}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;margin:0;}
 .article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
 .article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
 .article-body table + p{margin-top:-6px;}
@@ -233,11 +235,11 @@ body.nav-open{overflow:hidden;}
       <p><strong>У исследования нет мощности «вообще».</strong> Она определяется относительно конкретного эффекта, который исследование должно обнаружить. Поэтому фраза «мощность нашего исследования составляет 80%» без описания гипотезы и ожидаемого эффекта говорит значительно меньше, чем может показаться.</p>
 
       <h2>Ошибки I и II рода простыми словами</h2>
-      <table>
+      <div class="table-wrap"><table>
         <tr><th>Реальность</th><th>Исследование обнаружило эффект</th><th>Исследование не обнаружило эффект</th></tr>
         <tr><td>Эффект существует</td><td>Верный результат — мощность 1 − β</td><td>Ошибка II рода — β</td></tr>
         <tr><td>Эффекта нет</td><td>Ошибка I рода — α</td><td>Верный результат</td></tr>
-      </table>
+      </table></div>
       <p>Ошибка I рода — ложноположительный результат: исследование показывает эффект, которого в действительности нет. Ошибка II рода — ложноотрицательный: эффект существует, но исследование его не обнаружило. Именно вероятность избежать второй ситуации и характеризует статистическая мощность.</p>
 
       <h2>Почему часто используют мощность 80% или 90%</h2>
