@@ -153,6 +153,10 @@ details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
   padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
 .consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
 .consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+@media (max-width:374px){
+  .final-cta{padding:24px;}
+  .final-cta .copy,.final-cta form{min-width:0;flex-basis:100%;}
+}
 
 .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
 .related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}

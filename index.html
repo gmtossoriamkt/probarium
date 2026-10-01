@@ -172,6 +172,10 @@
   }
   .consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
   .consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+@media (max-width:374px){
+  .final-cta{padding:24px;}
+  .final-cta .copy,.final-cta form{min-width:0;flex-basis:100%;}
+}
 
   footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
   .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
