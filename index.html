@@ -72,15 +72,19 @@
   .header-cta{font-size:13px;padding:10px 18px;}
 
   /* hero */
-  .hero{padding:64px 0 40px;text-align:center;}
+  .hero{padding:56px 0 48px;}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center;}
+  .hero-media{margin:0;}
+  .hero-media img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:16px;
+    box-shadow:0 18px 40px -16px rgba(15,42,77,.28);background:var(--blue-pale);}
   .eyebrow{
     display:inline-block;background:var(--blue-pale);color:#0C447C;font-size:12px;font-weight:500;
     padding:6px 14px;border-radius:4px;margin-bottom:20px;font-family:'IBM Plex Mono',monospace;letter-spacing:0.04em;text-transform:uppercase;
   }
-  .hero h1{font-size:38px;max-width:820px;margin:0 auto 18px;}
-  .hero p.hero-subtitle{font-size:18px;font-weight:600;color:var(--blue-deep);max-width:640px;margin:0 auto 18px;line-height:1.5;}
-  .hero p.lead{font-size:16px;color:var(--gray-text);max-width:580px;margin:0 auto 32px;}
-  .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:8px;}
+  .hero h1{font-size:38px;margin:0 0 18px;}
+  .hero p.hero-subtitle{font-size:18px;font-weight:600;color:var(--blue-deep);max-width:640px;margin:0 0 18px;line-height:1.5;}
+  .hero p.lead{font-size:16px;color:var(--gray-text);max-width:580px;margin:0 0 32px;}
+  .hero-actions{display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap;margin-bottom:8px;}
 
   .trust-strip{
     background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
@@ -187,6 +191,11 @@
   .footer-bottom{border-top:1px solid var(--border);padding-top:20px;
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
 
+  @media (max-width:900px){
+    .hero{padding:40px 0 36px;}
+    .hero-grid{grid-template-columns:1fr;gap:32px;}
+    .hero-media{max-width:480px;}
+  }
   @media (max-width:820px){
     nav.main-nav{display:none;}
     .hero h1{font-size:28px;}
@@ -290,14 +299,22 @@ body.nav-open{overflow:hidden;}
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container">
-      <span class="eyebrow">&gt; Агрегатор клинических испытаний медизделий</span>
-      <h1>Клинические испытания медизделий — <span style="color:var(--gold);">без месяцев на поиск центра.</span></h1>
-      <p class="hero-subtitle">Контрактная исследовательская организация (агрегатор) полного цикла: клинические испытания медицинских изделий и всё, что для них нужно — доклиника, токсикология, технические испытания — для регистрации в РФ и ЕАЭС.</p>
-      <p class="lead">Организуем и подбираем аккредитованный центр под ваше изделие за часы, берём на себя весь путь до регистрации.</p>
-      <div class="hero-actions">
-        <a href="/podbor-ispytaniy" class="btn btn-primary">Подобрать форму испытаний</a>
-        <a href="/kalkulyator" class="btn btn-outline">Рассчитать стоимость</a>
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">&gt; Агрегатор клинических испытаний медизделий</span>
+        <h1>Клинические испытания медизделий — <span style="color:var(--gold);">без месяцев на поиск центра.</span></h1>
+        <p class="hero-subtitle">Контрактная исследовательская организация (агрегатор) полного цикла: клинические испытания медицинских изделий и всё, что для них нужно — доклиника, токсикология, технические испытания — для регистрации в РФ и ЕАЭС.</p>
+        <p class="lead">Организуем и подбираем аккредитованный центр под ваше изделие за часы, берём на себя весь путь до регистрации.</p>
+        <div class="hero-actions">
+          <a href="/podbor-ispytaniy" class="btn btn-primary">Подобрать форму испытаний</a>
+          <a href="/kalkulyator" class="btn btn-outline">Рассчитать стоимость</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <picture>
+          <source type="image/webp" srcset="/assets/img/hero-stend-640.webp 640w, /assets/img/hero-stend-1080.webp 1080w" sizes="(max-width:520px) calc(100vw - 48px), 480px">
+          <img src="/assets/img/hero-stend-1080.jpg" srcset="/assets/img/hero-stend-640.jpg 640w, /assets/img/hero-stend-1080.jpg 1080w" sizes="(max-width:520px) calc(100vw - 48px), 480px" width="1080" height="720" alt="Техническое испытание медицинского изделия на измерительном стенде: прибор подключён к измерительному оборудованию, специалист в перчатке регулирует настройки" loading="eager" fetchpriority="high" decoding="async">
+        </picture>
       </div>
     </div>
   </section>
