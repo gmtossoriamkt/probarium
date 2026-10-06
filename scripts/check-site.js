@@ -57,7 +57,20 @@ try {
 } catch (e) { /* не git-репозиторий — все предупреждения остаются предупреждениями */ }
 
 const unent = s => s.replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
-const strip = s => unent(s.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+// текст без тегов: переносы и блочные теги дают пробел, строчные (<a>, <strong>…) исчезают без пробела — остаётся только текст анкора
+const strip = s => unent(s.replace(/<\/?(?:br|p|li|ul|ol|div|h[1-6])\b[^>]*>/gi, ' ').replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim();
+
+// видимый FAQ: <details><summary>вопрос</summary>ответ</details>, а если таких нет — пары <h3>вопрос</h3>ответ под <h2>FAQ / Частые вопросы</h2>
+function visibleFaq(h) {
+  const det = [...h.matchAll(/<details[^>]*>\s*<summary[^>]*>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g)].map(m => [strip(m[1]), strip(m[2])]);
+  if (det.length) return det;
+  const hm = h.match(/<h2[^>]*>[^<]*(?:FAQ|Частые вопросы)[^<]*<\/h2>/i);
+  if (!hm) return [];
+  let seg = h.slice(hm.index + hm[0].length);
+  const end = seg.search(/<h2[\s>]|<\/section>/i);
+  if (end >= 0) seg = seg.slice(0, end);
+  return [...seg.matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>([\s\S]*?)(?=<h3[\s>]|$)/g)].map(m => [strip(m[1]), strip(m[2])]);
+}
 
 const pageExists = u => {
   const p = u.split('#')[0].split('?')[0].replace(/^\//, '');
@@ -84,7 +97,7 @@ for (const f of files) {
   const faq = lds.find(j => j && j['@type'] === 'FAQPage');
   if (faq) {
     faqPages++;
-    const vis = [...h.matchAll(/<details[^>]*>\s*<summary[^>]*>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g)].map(m => [strip(m[1]), strip(m[2])]);
+    const vis = visibleFaq(h);
     const ent = faq.mainEntity || [];
     const msgs = [];
     if (vis.length !== ent.length) msgs.push('вопросов в видимом блоке ' + vis.length + ', в JSON-LD ' + ent.length);
