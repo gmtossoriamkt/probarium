@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Как читать смету КИ медизделия: разбор КП построчно — Probarium</title>
+<meta name="description" content="Как сравнить коммерческие предложения на КИ медизделия: за проект, центр, пациента и месяц, скрининг, мониторинг, EDC и дополнительные соглашения.">
+<link rel="canonical" href="https://probarium.ru/blog/kak-chitat-smetu-ki-medizdeliya/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Как читать смету КИ медизделия: разбор КП построчно">
+<meta property="og:description" content="Как сравнить коммерческие предложения на КИ медизделия: за проект, центр, пациента и месяц, скрининг, мониторинг, EDC и дополнительные соглашения.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/kak-chitat-smetu-ki-medizdeliya/">
+<meta property="og:image" content="https://probarium.ru/og-image.png">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+@media (max-width:374px){
+  .final-cta{padding:24px;}
+  .final-cta .copy,.final-cta form{min-width:0;flex-basis:100%;}
+}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:0;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;}
+.article-body blockquote{border-left:4px solid var(--blue-sky);background:var(--blue-pale);border-radius:0 8px 8px 0;padding:12px 18px;margin:8px 0 18px;font-size:15px;color:var(--graphite);font-style:italic;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113257593', 'ym');
+    ym(113257593, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113257593" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog/">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog/">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog/">Блог</a> / <span aria-current="page">Как читать смету КИ</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>9 мин чтения</span><span>6 октября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Как читать смету КИ медизделия: разбираем коммерческое предложение построчно</h1>
+    <p class="lead">Два коммерческих предложения на клинические испытания медицинского изделия могут отличаться на миллион рублей — и более дешёвое в итоге окажется дороже.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <p>Причина проста: одна компания включает клинику, мониторинг и статистику в общую цену, другая выносит их отдельно, третья указывает стартовую стоимость, а пациентов, командировки и дополнительные месяцы считает по факту.</p>
+
+      <p>Поэтому сравнивать КИ только по строке «Итого» неправильно. Сначала нужно понять, <strong>за что именно вы платите и в каких единицах считается каждая статья</strong>.</p>
+
+      <p>Ориентиры по бюджету КИ на 2026 год и статьи расходов в целом мы разбирали в статье <a href="/blog/stoimost-klinicheskih-ispytanij-medizdeliya/" class="inline-link">«Сколько стоят клинические испытания медизделия в 2026 году»</a>. Здесь — практический инструмент: как прочитать конкретную смету и привести два КП к одной базе.</p>
+
+      <h2>Короткий ответ</h2>
+
+      <p>Удобно разделить бюджет КИ с участием человека на пять частей:</p>
+
+      <p><strong>1. За проект</strong> — программа КИ, настройка системы сбора данных, статистика, итоговый отчёт.</p>
+
+      <p><strong>2. За центр</strong> — запуск площадки, работа исследовательской команды, мониторинг центра.</p>
+
+      <p><strong>3. За пациента и визиты</strong> — скрининг, процедуры, обследования, расходные материалы.</p>
+
+      <p><strong>4. За время</strong> — управление проектом, сопровождение электронной системы сбора данных и другие помесячные расходы.</p>
+
+      <p><strong>5. Переменные расходы</strong> — командировки, переводы, логистика, дополнительные работы по дополнительным соглашениям.</p>
+
+      <p>Это не нормативная классификация. Ни приказ Минздрава № 421н, ни ПП № 1684 не устанавливают обязательную структуру коммерческой сметы КИ. Это практический способ привести разные предложения к одной базе и понять реальную стоимость проекта.</p>
+
+      <h2>Как читать смету КИ</h2>
+
+      <p>Первое, что стоит сделать с коммерческим предложением, — поставить рядом с каждой строкой единицу расчёта.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Статья</th><th>Как обычно считается</th></tr>
+        <tr><td>Программа КИ</td><td>за проект</td></tr>
+        <tr><td>Подготовка исследования</td><td>за проект</td></tr>
+        <tr><td>Запуск клинического центра</td><td>за центр</td></tr>
+        <tr><td>Скрининг</td><td>за кандидата</td></tr>
+        <tr><td>Визиты и процедуры</td><td>за пациента / визит</td></tr>
+        <tr><td>Мониторинг</td><td>за центр / визит</td></tr>
+        <tr><td>Электронная система сбора данных (EDC)</td><td>настройка + месяц</td></tr>
+        <tr><td>Управление данными</td><td>за проект / объём данных</td></tr>
+        <tr><td>Статистика</td><td>за проект</td></tr>
+        <tr><td>Управление проектом</td><td>за проект или месяц</td></tr>
+        <tr><td>Итоговый отчёт</td><td>за проект</td></tr>
+        <tr><td>Командировки</td><td>по факту</td></tr>
+      </table>
+      </div>
+
+      <p>Именно здесь часто обнаруживается причина разницы между двумя КП.</p>
+
+      <p>Например, предложение на 2,5 млн ₽ может включать 60 пациентов и 10 визитов монитора. Другое предложение на 2,1 млн ₽ — только базовые работы, а клиника, пациенты и командировки оплачиваются отдельно.</p>
+
+      <p>По заголовку второе дешевле. По итоговой стоимости — совсем не обязательно.</p>
+
+      <h2>Программа КИ и подготовка проекта</h2>
+
+      <p>До включения первого пациента нужно подготовить само исследование: определить дизайн, выборку, конечные точки, график процедур, критерии включения и исключения, документацию для клиники.</p>
+
+      <p>По приказу № 421н программа КИ составляется совместно заявителем и медицинской организацией и утверждается руководителем медицинской организации. Поэтому строка «разработка программы КИ» в коммерческом предложении означает стоимость работы исполнителя над документом, а не государственный платёж.</p>
+
+      <p>Отдельно могут оцениваться статистическое обоснование выборки, индивидуальные регистрационные карты (CRF), форма информированного согласия, настройка базы данных и подготовка документов.</p>
+
+      <p>Здесь важно проверить дублирование. Например, если расчёт выборки уже входит в разработку программы, он не должен неожиданно появиться второй раз в строке «статистика».</p>
+
+      <h2>«Разрешение Росздравнадзора» — не госпошлина</h2>
+
+      <p>В смете может стоять:</p>
+
+      <p><strong>«Получение разрешения на КИ — 100 000 ₽».</strong></p>
+
+      <p>Это не означает, что 100 000 ₽ нужно перечислить государству.</p>
+
+      <p>Отдельной государственной пошлины именно за разрешение на проведение КИ медицинского изделия Налоговый кодекс не устанавливает. Такая строка обычно означает работу подрядчика: подготовку документов, подачу и сопровождение процедуры. Что входит в комплект — в статье <a href="/blog/dokumenty-dlya-razresheniya-ki/" class="inline-link">«Документы для разрешения на КИ»</a>.</p>
+
+      <p>Само разрешение требуется в зависимости от маршрута регистрации. По общему маршруту КИ с участием человека проводится после получения разрешения Росздравнадзора; для ряда российских изделий предусмотрен специальный маршрут со своими условиями, а для ИВД и программного обеспечения разрешение не требуется. Поэтому правило «импортное изделие — разрешение нужно, российское — нет» некорректно.</p>
+
+      <p>То же относится к этике: отдельной государственной пошлины за рассмотрение материалов Советом по этике для медизделий нет, но подготовка и сопровождение пакета могут быть платными услугами.</p>
+
+      <h2>Клинический центр</h2>
+
+      <p>Строка «Клинический центр — 800 000 ₽» сама по себе почти ничего не говорит о бюджете.</p>
+
+      <p>Нужно выяснить, что в неё включено:</p>
+
+      <ul>
+        <li>запуск площадки;</li>
+        <li>работа главного исследователя и координатора;</li>
+        <li>скрининг;</li>
+        <li>визиты пациентов;</li>
+        <li>процедуры и обследования;</li>
+        <li>расходные материалы;</li>
+        <li>хранение документации;</li>
+        <li>закрытие центра.</li>
+      </ul>
+
+      <p>Структура оплаты клинике нормативно не установлена — это договорные отношения. Поэтому один центр может выставить общую цену, другой — стоимость за каждого пациента, третий — отдельно запуск и каждую процедуру.</p>
+
+      <h2>Сколько стоит один пациент</h2>
+
+      <p>Универсальной цены «один пациент в КИ = 50 000 ₽» не существует.</p>
+
+      <p>Практическая модель выглядит так:</p>
+
+      <p><strong>Стоимость пациента = скрининг + визиты + процедуры + исследования + расходные материалы + наблюдение.</strong></p>
+
+      <p>Причём разные визиты могут стоить по-разному. Визит с КТ, лабораторией и процедурой нельзя автоматически приравнять к контрольному визиту через три месяца.</p>
+
+      <p>Отдельный риск — <strong>отсев на скрининге</strong> (screen failure): кандидат прошёл скрининг, но не подошёл для включения.</p>
+
+      <p>Допустим, в исследование нужно включить 60 пациентов, а ожидаемый отсев на скрининге — 20%.</p>
+
+      <p>Тогда потребуется проверить:</p>
+
+      <p><strong>60 / (1 − 0,20) = 75 кандидатов.</strong></p>
+
+      <p>Из них 15 не войдут в исследование, но скрининг уже был проведён и может подлежать оплате.</p>
+
+      <p>Если скрининг стоит условные 10 000 ₽, это ещё <strong>150 000 ₽ бюджета</strong>.</p>
+
+      <p>А если фактический отсев окажется 35%, понадобится уже 93 кандидата — на 18 скринингов больше первоначального плана.</p>
+
+      <p>Именно поэтому в КП должна быть не просто строка «60 пациентов», а отдельно понятна стоимость скрининга и условия оплаты выбывших на скрининге. Как обосновывается сама выборка — в статье <a href="/blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki/" class="inline-link">«Сколько пациентов нужно для КИ медизделия»</a>.</p>
+
+      <h2>Мониторинг</h2>
+
+      <p>Мониторинг — ещё одна строка, которую нельзя оценивать по слову «включён».</p>
+
+      <p>Нужно спросить:</p>
+
+      <p><strong>сколько именно визитов монитора включено?</strong></p>
+
+      <p>Например:</p>
+
+      <blockquote>Мониторинг — включён, до 8 визитов.</blockquote>
+
+      <p>Это понятное условие.</p>
+
+      <p>А формулировка:</p>
+
+      <blockquote>Мониторинг — включён.</blockquote>
+
+      <p>оставляет вопрос: что произойдёт, если исследованию понадобится десятый или двенадцатый визит?</p>
+
+      <p>При этом закон не требует обязательно покупать отдельную услугу мониторинга у CRO. Контроль исследования может быть организован различными способами; ГОСТ Р ИСО 14155-2022 описывает практики мониторинга, но сам стандарт применяется добровольно.</p>
+
+      <p>Для бюджета важнее другое: <strong>кто выполняет функцию контроля, какой объём работы включён и сколько стоит превышение этого объёма.</strong></p>
+
+      <h2>Система сбора данных, управление данными и статистика — это не одна услуга</h2>
+
+      <p>Электронная система сбора данных (EDC) — система, в которой собираются данные исследования.</p>
+
+      <p>Управление данными — работа с этими данными: проверки, запросы по данным, очистка, сверка и закрытие базы.</p>
+
+      <p>Статистика — анализ подготовленного массива данных.</p>
+
+      <p>Эти три строки могут находиться рядом, но означают разные работы.</p>
+
+      <p>EDC при этом не является обязательным требованием приказа № 421н: исследование нормативно может использовать и бумажные CRF. Поэтому наличие EDC — вопрос организации конкретного проекта, а не обязательная услуга.</p>
+
+      <p>Особое внимание стоит обратить на помесячную оплату. Если сопровождение EDC и управление проектом считаются за месяц, задержка набора пациентов автоматически увеличивает бюджет.</p>
+
+      <h2>Почему фиксированная цена может измениться</h2>
+
+      <p>Допустим, в договоре указано:</p>
+
+      <p><strong>КИ — 2 500 000 ₽.</strong></p>
+
+      <p>Ниже мелким текстом:</p>
+
+      <ul>
+        <li>дополнительные пациенты оплачиваются отдельно;</li>
+        <li>командировки — по фактическим расходам;</li>
+        <li>дополнительные визиты монитора — отдельно;</li>
+        <li>продление проекта — отдельно;</li>
+        <li>изменение программы — по дополнительному соглашению.</li>
+      </ul>
+
+      <p>Тогда 2,5 млн ₽ — фиксированная цена только для определённого сценария.</p>
+
+      <p>Поэтому ещё до подписания договора желательно зафиксировать стоимость:</p>
+
+      <ul>
+        <li>дополнительного пациента;</li>
+        <li>дополнительного центра;</li>
+        <li>дополнительного визита монитора;</li>
+        <li>дополнительного месяца управления проектом и сопровождения EDC;</li>
+        <li>дополнительных статистических работ;</li>
+        <li>изменения программы.</li>
+      </ul>
+
+      <p>Дополнительное соглашение (change order) само по себе не проблема. Проблема возникает, когда заранее неизвестно, <strong>что считается дополнительной работой и сколько она будет стоить</strong>.</p>
+
+      <h2>Пример: как смета меняется в ходе КИ</h2>
+
+      <p>Возьмём условное исследование:</p>
+
+      <ul>
+        <li>60 пациентов;</li>
+        <li>один центр;</li>
+        <li>четыре визита;</li>
+        <li>отсев на скрининге — 20%;</li>
+        <li>набор — 6 месяцев;</li>
+        <li>наблюдение — 3 месяца;</li>
+        <li>EDC;</li>
+        <li>мониторинг;</li>
+        <li>статистика.</li>
+      </ul>
+
+      <p>Предположим, базовая смета рассчитана именно на эти параметры.</p>
+
+      <p>Теперь меняется только одно условие: отсев на скрининге оказался не 20%, а 35%.</p>
+
+      <p>Вместо 75 кандидатов нужно проверить 93. При условной цене скрининга 10 000 ₽ это <strong>+180 000 ₽</strong>.</p>
+
+      <p>Теперь другой сценарий: набор пациентов занял девять месяцев вместо шести.</p>
+
+      <p>Если управление проектом стоит условно 100 000 ₽ в месяц, а сопровождение EDC — 20 000 ₽, три дополнительных месяца дадут ещё:</p>
+
+      <p><strong>300 000 + 60 000 = 360 000 ₽.</strong></p>
+
+      <p>Исходный дизайн исследования не изменился. Выборка всё ещё 60 пациентов. Но бюджет вырос из-за двух переменных параметров. Как не допустить затягивания набора — в статьях <a href="/blog/klinika-ne-nabiraet-pacientov-chto-delat/" class="inline-link">«Клиника не набирает пациентов»</a> и <a href="/blog/kak-uskorit-klinicheskie-ispytaniya-medizdeliya/" class="inline-link">«Как ускорить КИ медизделия без потери качества»</a>.</p>
+
+      <p>Цифры здесь учебные — это не прайс Probarium и не среднерыночные тарифы. Их задача — показать механику расчёта.</p>
+
+      <h2>А если добавить второй центр?</h2>
+
+      <p>Второй центр не означает автоматическое удвоение стоимости всего КИ.</p>
+
+      <p>Повторятся расходы на запуск площадки, работу команды центра, инициирующий визит, часть мониторинга и некоторые технические расходы.</p>
+
+      <p>Но программа исследования, основная статистика и итоговый отчёт остаются общими для проекта.</p>
+
+      <p>Поэтому второй центр может увеличить бюджет, но одновременно ускорить набор пациентов и сократить помесячные расходы.</p>
+
+      <p>Считать нужно весь сценарий, а не только стоимость запуска второй площадки. Подробнее — в статье <a href="/blog/mnogocentrovoe-ki-medizdeliya/" class="inline-link">«Многоцентровое КИ медизделия»</a>.</p>
+
+      <h2>7 вопросов перед подписанием КП</h2>
+
+      <p>Перед сравнением предложений двух подрядчиков задайте каждому одинаковые вопросы:</p>
+
+      <ol>
+        <li>Сколько пациентов и скринингов включено в цену?</li>
+        <li>Сколько центров заложено в бюджет?</li>
+        <li>Сколько визитов пациента и монитора включено?</li>
+        <li>Какие расходы оплачиваются отдельно по факту — командировки, переводы, логистика?</li>
+        <li>Какие услуги считаются помесячно?</li>
+        <li>Сколько стоят дополнительный пациент, центр, месяц и визит монитора?</li>
+        <li>Какова итоговая сумма к оплате с учётом налогового режима исполнителя?</li>
+      </ol>
+
+      <p>Последний пункт особенно важен: сравнивать нужно сумму, которую заказчик реально заплатит, а не две цены с разным налоговым режимом. С 2026 года основная ставка НДС — 22%, а исполнители на УСН могут применять ставки 5% или 7%.</p>
+
+      <h2>Вывод</h2>
+
+      <p>Стоимость клинического испытания — это не одна цифра.</p>
+
+      <p>Для сравнения двух КП сначала разложите каждое предложение на одинаковые единицы:</p>
+
+      <p><strong>за проект → за центр → за пациента/визит → за месяц → расходы по факту.</strong></p>
+
+      <p>После этого добавьте возможные дополнительные соглашения.</p>
+
+      <p>Именно так становится видно, почему предложение на 2,1 млн ₽ может оказаться дороже предложения на 2,5 млн ₽.</p>
+
+      <p>Особенно внимательно смотрите не на самые дорогие строки, а на самые неопределённые.</p>
+
+      <p><strong>«Мониторинг включён» — нормально, если написано, сколько визитов включено.<br>
+        «Мониторинг включён» без объёма и стоимости превышения — уже бюджетный риск.</strong></p>
+
+      <h2>Частые вопросы</h2>
+      <details class="faq-item"><summary>Есть ли госпошлина за разрешение на КИ медизделия?</summary><p>Нет. Налоговый кодекс не устанавливает отдельную госпошлину за выдачу разрешения на клинические испытания медицинского изделия. Строка «получение разрешения» в смете — это стоимость работы исполнителя по подготовке и сопровождению документов.</p></details>
+      <details class="faq-item"><summary>Сколько стоит один пациент в КИ медизделия?</summary><p>Универсальной цены нет. Стоимость пациента складывается из скрининга, визитов, процедур, обследований, расходных материалов и наблюдения, а разные визиты могут стоить по-разному. Отдельно нужно учитывать оплату кандидатов, отсеянных на скрининге.</p></details>
+      <details class="faq-item"><summary>Почему смета может вырасти после подписания договора?</summary><p>Обычно из-за переменных параметров: отсев на скрининге выше плана, набор дольше, нужны дополнительные визиты монитора или изменения программы. Если стоимость этих работ заранее зафиксирована в договоре, рост бюджета предсказуем; если нет — он становится риском.</p></details>
+      <details class="faq-item"><summary>Обязательно ли использовать электронную систему сбора данных?</summary><p>Нет. Приказ № 421н не требует EDC: исследование может вестись и на бумажных CRF. Наличие EDC — вопрос организации проекта, но если её сопровождение оплачивается помесячно, задержки набора увеличивают бюджет.</p></details>
+      <details class="faq-item"><summary>Удваивает ли второй центр стоимость КИ?</summary><p>Нет. Повторяются расходы на запуск площадки, работу команды центра и часть мониторинга, но программа, основная статистика и итоговый отчёт остаются общими. Второй центр может даже снизить итоговый бюджет, если сократит срок проекта и помесячные расходы.</p></details>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/stoimost-klinicheskih-ispytanij-medizdeliya/">Сколько стоят клинические испытания медизделия в 2026 году</a>
+        <a class="related-card" href="/blog/kak-uskorit-klinicheskie-ispytaniya-medizdeliya/">Как ускорить клинические испытания медизделия без потери качества</a>
+        <a class="related-card" href="/blog/mnogocentrovoe-ki-medizdeliya/">Многоцентровое КИ медизделия: когда нужно и как организовать</a>
+        <a class="related-card" href="/blog/skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki/">Сколько пациентов нужно для КИ медизделия</a>
+        <a class="related-card" href="/blog/klinika-ne-nabiraet-pacientov-chto-delat/">Клиника не набирает пациентов: что делать</a>
+        <a class="related-card" href="/glossariy/">Глоссарий терминов</a>
+        <a class="related-card" href="/blog/">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Нужно сравнить коммерческие предложения на КИ?</h2>
+          <p>Probarium рассчитывает бюджет КИ после определения дизайна исследования, выборки, числа центров и объёма процедур. Это позволяет ещё до старта разделить фиксированные и переменные расходы и заранее определить, какие изменения проекта могут увеличить итоговую стоимость. Подробнее — на странице <a href="/klinicheskie-ispytaniya-medizdeliy/" class="inline-link">клинических испытаний медизделий</a>.</p>
+          <p style="margin-top:14px;"><a href="mailto:info@probarium.ru?subject=Разбор сметы клинических испытаний" class="btn btn-outline">Сравнить КП на КИ</a></p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/kak-chitat-smetu-ki-medizdeliya)">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой форме испытаний"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog/">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li><a href="https://t.me/tandelovtat" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener">MAX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Как читать смету КИ медизделия: разбираем коммерческое предложение построчно",
+  "description": "Как сравнить коммерческие предложения на КИ медизделия: за проект, центр, пациента и месяц, скрининг, мониторинг, EDC и дополнительные соглашения.",
+  "author": {
+    "@type": "Person",
+    "name": "Артемий-Татуш Танделов",
+    "jobTitle": "Генеральный директор Probarium",
+    "url": "https://t.me/tandelovtat"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Probarium"
+  },
+  "mainEntityOfPage": "https://probarium.ru/blog/kak-chitat-smetu-ki-medizdeliya/",
+  "datePublished": "2026-10-06",
+  "dateModified": "2026-10-06"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://probarium.ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://probarium.ru/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как читать смету КИ",
+      "item": "https://probarium.ru/blog/kak-chitat-smetu-ki-medizdeliya/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Есть ли госпошлина за разрешение на КИ медизделия?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Налоговый кодекс не устанавливает отдельную госпошлину за выдачу разрешения на клинические испытания медицинского изделия. Строка «получение разрешения» в смете — это стоимость работы исполнителя по подготовке и сопровождению документов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит один пациент в КИ медизделия?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Универсальной цены нет. Стоимость пациента складывается из скрининга, визитов, процедур, обследований, расходных материалов и наблюдения, а разные визиты могут стоить по-разному. Отдельно нужно учитывать оплату кандидатов, отсеянных на скрининге."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему смета может вырасти после подписания договора?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Обычно из-за переменных параметров: отсев на скрининге выше плана, набор дольше, нужны дополнительные визиты монитора или изменения программы. Если стоимость этих работ заранее зафиксирована в договоре, рост бюджета предсказуем; если нет — он становится риском."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Обязательно ли использовать электронную систему сбора данных?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Приказ № 421н не требует EDC: исследование может вестись и на бумажных CRF. Наличие EDC — вопрос организации проекта, но если её сопровождение оплачивается помесячно, задержки набора увеличивают бюджет."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Удваивает ли второй центр стоимость КИ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Повторяются расходы на запуск площадки, работу команды центра и часть мониторинга, но программа, основная статистика и итоговый отчёт остаются общими. Второй центр может даже снизить итоговый бюджет, если сократит срок проекта и помесячные расходы."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
