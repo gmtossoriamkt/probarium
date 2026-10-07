@@ -104,21 +104,22 @@
   .section-head p{color:var(--gray-text);font-size:15px;}
 
   /* direction cards */
-  .grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+  .grid-4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;}
   .card{
     background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px;
   }
   .card-photo{margin:0 0 18px;height:200px;}
-  .card-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--pos,center);
-    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 14%,#000 86%,transparent 100%);
+  .card-photo img{--fade:14px;display:block;width:100%;height:100%;object-fit:cover;object-position:var(--pos,center);
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 var(--fade),#000 calc(100% - var(--fade)),transparent 100%),linear-gradient(to bottom,transparent 0,#000 var(--fade),#000 calc(100% - var(--fade)),transparent 100%);
     -webkit-mask-composite:source-in;
-    mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 14%,#000 86%,transparent 100%);
+    mask-image:linear-gradient(to right,transparent 0,#000 var(--fade),#000 calc(100% - var(--fade)),transparent 100%),linear-gradient(to bottom,transparent 0,#000 var(--fade),#000 calc(100% - var(--fade)),transparent 100%);
     mask-composite:intersect;}
   .card .icon{width:44px;height:44px;border-radius:10px;background:var(--blue-pale);
     display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
   .card h3{font-size:17px;margin-bottom:8px;}
   .card p{font-size:14px;color:var(--gray-text);margin-bottom:14px;}
   .card a.more{font-size:13px;font-weight:600;color:var(--blue-sky);}
+  @media (max-width:640px){.grid-4{grid-template-columns:minmax(0,1fr);}}
   .card.card-primary{grid-column:1/-1;background:var(--blue-pale);border-color:#C7DEF3;}
   .card.card-primary h3{font-size:20px;}
   .card.card-primary p{font-size:15px;color:#0C447C;max-width:640px;}
@@ -350,8 +351,8 @@ body.nav-open{overflow:hidden;}
         <article class="card card-primary">
           <figure class="card-photo" style="--pos:60% 58%">
           <picture>
-            <source type="image/webp" srcset="/assets/img/card-klinicheskie-ispytaniya-640.webp 640w, /assets/img/card-klinicheskie-ispytaniya-1080.webp 1080w" sizes="(max-width:560px) calc(100vw - 98px), (max-width:1160px) calc(100vw - 98px), 1064px">
-            <img src="/assets/img/card-klinicheskie-ispytaniya-1080.jpg" srcset="/assets/img/card-klinicheskie-ispytaniya-640.jpg 640w, /assets/img/card-klinicheskie-ispytaniya-1080.jpg 1080w" sizes="(max-width:560px) calc(100vw - 98px), (max-width:1160px) calc(100vw - 98px), 1064px" width="1080" height="720" alt="Клинические испытания медицинского изделия: прибор у постели пациента, врач работает с планшетом" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="/assets/img/card-klinicheskie-ispytaniya-640.webp 640w, /assets/img/card-klinicheskie-ispytaniya-1080.webp 1080w, /assets/img/card-klinicheskie-ispytaniya-1536.webp 1536w" sizes="(max-width:1208px) calc(100vw - 98px), 1062px">
+            <img src="/assets/img/card-klinicheskie-ispytaniya-1080.jpg" srcset="/assets/img/card-klinicheskie-ispytaniya-640.jpg 640w, /assets/img/card-klinicheskie-ispytaniya-1080.jpg 1080w, /assets/img/card-klinicheskie-ispytaniya-1536.jpg 1536w" sizes="(max-width:1208px) calc(100vw - 98px), 1062px" width="1080" height="720" alt="Клинические испытания медицинского изделия: прибор у постели пациента, врач работает с планшетом" loading="lazy" decoding="async">
           </picture>
         </figure>
         <div class="icon" aria-hidden="true">
@@ -362,10 +363,10 @@ body.nav-open{overflow:hidden;}
           <a class="more" href="/klinicheskie-ispytaniya-medizdeliy">Подробнее →</a>
         </article>
         <article class="card">
-          <figure class="card-photo" style="--pos:38% 55%">
+          <figure class="card-photo" style="--pos:50% 30%">
           <picture>
-            <source type="image/webp" srcset="/assets/img/card-doklinika-toksikologiya-640.webp 640w, /assets/img/card-doklinika-toksikologiya-1080.webp 1080w" sizes="(max-width:560px) calc(100vw - 98px), 270px">
-            <img src="/assets/img/card-doklinika-toksikologiya-1080.jpg" srcset="/assets/img/card-doklinika-toksikologiya-640.jpg 640w, /assets/img/card-doklinika-toksikologiya-1080.jpg 1080w" sizes="(max-width:560px) calc(100vw - 98px), 270px" width="1080" height="720" alt="Доклинические исследования: лабораторный стенд с образцами материалов, пробирками и испытательной машиной" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="/assets/img/card-doklinika-toksikologiya-640.webp 640w, /assets/img/card-doklinika-toksikologiya-1080.webp 1080w, /assets/img/card-doklinika-toksikologiya-1536.webp 1536w" sizes="(max-width:640px) calc(100vw - 98px), (max-width:1208px) calc(50vw - 84px), 496px">
+            <img src="/assets/img/card-doklinika-toksikologiya-1080.jpg" srcset="/assets/img/card-doklinika-toksikologiya-640.jpg 640w, /assets/img/card-doklinika-toksikologiya-1080.jpg 1080w, /assets/img/card-doklinika-toksikologiya-1536.jpg 1536w" sizes="(max-width:640px) calc(100vw - 98px), (max-width:1208px) calc(50vw - 84px), 496px" width="1080" height="720" alt="Доклинические исследования: лабораторный стенд с образцами материалов, пробирками и испытательной машиной" loading="lazy" decoding="async">
           </picture>
         </figure>
         <span class="badge-support">Сопутствующая услуга</span>
@@ -377,10 +378,10 @@ body.nav-open{overflow:hidden;}
           <a class="more" href="/doklinicheskie-issledovaniya">Подробнее →</a>
         </article>
         <article class="card">
-          <figure class="card-photo" style="--pos:66% 72%">
+          <figure class="card-photo" style="--pos:60% 62%">
           <picture>
-            <source type="image/webp" srcset="/assets/img/card-tehnicheskie-ispytaniya-640.webp 640w, /assets/img/card-tehnicheskie-ispytaniya-1080.webp 1080w" sizes="(max-width:560px) calc(100vw - 98px), 270px">
-            <img src="/assets/img/card-tehnicheskie-ispytaniya-1080.jpg" srcset="/assets/img/card-tehnicheskie-ispytaniya-640.jpg 640w, /assets/img/card-tehnicheskie-ispytaniya-1080.jpg 1080w" sizes="(max-width:560px) calc(100vw - 98px), 270px" width="1080" height="720" alt="Технические испытания медицинского изделия: прибор на стенде электромагнитной совместимости с измерительным оборудованием" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="/assets/img/card-tehnicheskie-ispytaniya-640.webp 640w, /assets/img/card-tehnicheskie-ispytaniya-1080.webp 1080w, /assets/img/card-tehnicheskie-ispytaniya-1536.webp 1536w" sizes="(max-width:640px) calc(100vw - 98px), (max-width:1208px) calc(50vw - 84px), 496px">
+            <img src="/assets/img/card-tehnicheskie-ispytaniya-1080.jpg" srcset="/assets/img/card-tehnicheskie-ispytaniya-640.jpg 640w, /assets/img/card-tehnicheskie-ispytaniya-1080.jpg 1080w, /assets/img/card-tehnicheskie-ispytaniya-1536.jpg 1536w" sizes="(max-width:640px) calc(100vw - 98px), (max-width:1208px) calc(50vw - 84px), 496px" width="1080" height="720" alt="Технические испытания медицинского изделия: прибор на стенде электромагнитной совместимости с измерительным оборудованием" loading="lazy" decoding="async">
           </picture>
         </figure>
         <span class="badge-support">Сопутствующая услуга</span>
