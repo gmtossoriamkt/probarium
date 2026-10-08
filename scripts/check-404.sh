@@ -11,7 +11,7 @@ check() {
 }
 check "" 200
 check "blog/" 200
-check "kontakty" 200
+check "kontakty/" 200
 check "net-takoj-stranicy-12345" 404
 check "blog/net-takoj-stati-777" 404
 check "uslugi/zzz.html" 404
