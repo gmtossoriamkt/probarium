@@ -75,6 +75,15 @@
   /* появление блоков при прокрутке (включается скриптом, не трогает hero) */
   .js-reveal .reveal{opacity:0;translate:0 16px;transition:opacity .5s ease,translate .5s ease;}
   .js-reveal .reveal.is-visible{opacity:1;translate:0 0;}
+  /* превью калькулятора */
+  .calc-preview{max-width:860px;margin:0 auto;background:var(--white);border:1px solid var(--border);border-radius:16px;padding:28px;}
+  .calc-preview .q{font-size:13px;font-weight:600;color:var(--graphite);margin-bottom:14px;}
+  .calc-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;}
+  .calc-option{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border:1px solid var(--border);border-radius:10px;
+    background:var(--bg);color:var(--blue-deep);font-size:14.5px;font-weight:500;line-height:1.35;transition:border-color .2s ease,background-color .2s ease,color .2s ease;}
+  .calc-option::after{content:"→";color:var(--gold);font-weight:700;flex-shrink:0;}
+  .calc-option:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  @media (hover:hover) and (pointer:fine){.calc-option:hover{border-color:var(--gold);background:var(--white);}}
   /* hero */
   .hero{padding:40px 0 40px;}
   .hero-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:center;}
@@ -485,6 +494,26 @@ body.nav-open{overflow:hidden;}
     </div>
   </section>
 
+  <!-- ПРЕВЬЮ КАЛЬКУЛЯТОРА -->
+  <section aria-labelledby="calc-h2" class="sec-white">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="calc-h2">Калькулятор стоимости исследований</h2>
+        <p>Ориентировочный расчёт стоимости и сроков клинических, доклинических и технических испытаний.</p>
+      </div>
+      <div class="calc-preview">
+        <p class="q" id="calc-q">Направление испытаний</p>
+        <div class="calc-options" role="group" aria-labelledby="calc-q">
+          <a class="calc-option" href="/kalkulyator?direction=analiz">Анализ клинических данных</a>
+          <a class="calc-option" href="/kalkulyator?direction=human">Испытания с участием человека</a>
+          <a class="calc-option" href="/kalkulyator?direction=ivd">Клинико-лабораторные испытания ИВД</a>
+          <a class="calc-option" href="/kalkulyator?direction=ems">Испытания ЭМС</a>
+          <a class="calc-option" href="/kalkulyator?direction=software">Валидация ПО медизделия</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- КЕЙСЫ -->
   <section aria-labelledby="cases-h2" class="sec-tint">
     <div class="container">
@@ -718,7 +747,7 @@ function toggleMobileNav(){
 <script>
 (function(){
   if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var sel='section:not(.hero) .section-head,section:not(.hero) .card,.segment,.trigger,.case-card,.roadmap-band,.npa-list,.final-cta';
+  var sel='section:not(.hero) .section-head,section:not(.hero) .card,.segment,.trigger,.case-card,.roadmap-band,.calc-preview,.npa-list,.final-cta';
   var els=[].slice.call(document.querySelectorAll(sel));
   if(!els.length) return;
   document.documentElement.classList.add('js-reveal');

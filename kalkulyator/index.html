@@ -374,6 +374,11 @@ function calculate(){
 }
 
 updateDirectionOptions();
+(function(){
+  var m = /[?&]direction=([a-z]+)/.exec(location.search);
+  var sel = document.getElementById('direction');
+  if(m && sel && directions.mi.some(function(d){ return d.value === m[1]; })){ sel.value = m[1]; }
+})();
 calculate();
 </script>
 
