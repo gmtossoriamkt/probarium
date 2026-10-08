@@ -51,3 +51,13 @@ header.site-header nav.main-nav a{white-space:nowrap;}
   header.site-header nav.main-nav ul{gap:18px;}
   header.site-header .header-row{gap:16px;}
 }
+
+/* ---- Фон шапки: едва заметный тёплый градиент (фирменный оранжевый #B3701A в очень светлом тоне) ---- */
+header.site-header{
+  background-color:#fff;
+  background-image:linear-gradient(100deg,#FFFFFF 0%,#FFF6EA 50%,#FFFFFF 100%);
+}
+/* при прокрутке — нейтральнее, чтобы не отвлекать от контента */
+header.site-header.is-scrolled{
+  background-image:linear-gradient(100deg,#FFFFFF 0%,#FFFAF3 50%,#FFFFFF 100%);
+}
