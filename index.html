@@ -32,6 +32,7 @@
     --bg:#F5F7FA;
     --white:#FFFFFF;
     --border:#DCE2E8;
+    --tint:#EDF3FA;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
@@ -98,7 +99,11 @@
   .trust-strip ul li{padding:0 20px;border-right:1px solid var(--border);}
   .trust-strip ul li:last-child{border-right:none;}
 
-  section{padding:56px 0;}
+  section{padding:72px 0;}
+  @media (max-width:640px){section{padding:52px 0;}}
+  /* чередование «зон» фона между соседними секциями */
+  .sec-tint{background:var(--tint);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .sec-white{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
   .section-head{max-width:640px;margin:0 auto 36px;text-align:center;}
   .section-head h2{font-size:26px;margin-bottom:10px;}
   .section-head p{color:var(--gray-text);font-size:15px;}
@@ -127,17 +132,27 @@
     padding:3px 9px;border-radius:12px;margin-bottom:10px;border:1px solid var(--border);}
 
   /* audience segments */
-  .segments{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
-  .segment{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;font-size:14px;}
-  .segment strong{display:block;color:var(--blue-deep);font-size:14px;margin-bottom:4px;}
-  .segment span{color:var(--gray-text);font-size:13px;}
+  .segments{display:flex;flex-direction:column;gap:4px;max-width:960px;margin:0 auto;}
+  .segment{display:grid;grid-template-columns:44px minmax(180px,280px) 1fr;column-gap:20px;align-items:center;
+    padding:16px 18px;border:1px solid transparent;border-radius:12px;font-size:14px;}
+  .segment .icon{width:44px;height:44px;border-radius:10px;background:var(--white);border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;}
+  .segment strong{display:block;color:var(--blue-deep);font-size:15px;}
+  .segment > span{color:var(--gray-text);font-size:13.5px;}
+  @media (max-width:700px){
+    .segment{grid-template-columns:44px 1fr;row-gap:4px;}
+    .segment .icon{grid-row:1/3;align-self:start;}
+    .segment strong{grid-column:2;}
+    .segment > span{grid-column:2;}
+  }
 
   /* trust triggers */
-  .triggers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
-  .trigger{padding:18px;border-left:3px solid var(--gold);background:var(--white);border-radius:0 12px 12px 0;
-    border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
-  .trigger h3{font-size:15px;margin-bottom:6px;}
-  .trigger p{font-size:13px;color:var(--gray-text);}
+  .triggers{display:flex;flex-wrap:wrap;gap:36px 28px;counter-reset:trig;}
+  .trigger{flex:1 1 180px;padding:18px 0 0;border-top:2px solid var(--border);counter-increment:trig;}
+  .trigger::before{content:counter(trig,decimal-leading-zero);display:block;font-family:'Space Grotesk',Arial,sans-serif;
+    font-size:44px;font-weight:700;line-height:1;color:var(--blue-sky);margin-bottom:14px;}
+  .trigger h3{font-size:16px;margin-bottom:8px;}
+  .trigger p{font-size:13.5px;color:var(--gray-text);}
 
   /* roadmap */
   .roadmap-band{background:var(--blue-deep);color:#fff;border-radius:16px;padding:36px 32px;}
@@ -397,24 +412,24 @@ body.nav-open{overflow:hidden;}
   </section>
 
   <!-- КОМУ ПОДХОДИТ -->
-  <section aria-labelledby="segments-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <section aria-labelledby="segments-h2" class="sec-tint">
     <div class="container">
       <div class="section-head">
         <h2 id="segments-h2">Кому подходит</h2>
         <p>Работаем с компаниями на любом этапе вывода продукта на рынок РФ и ЕАЭС.</p>
       </div>
       <div class="segments">
-        <div class="segment"><strong>Производители медизделий</strong><span>Подберём форму клинических испытаний, снизим риск отказа в регистрации и сориентируем по срокам и стоимости</span></div>
-        <div class="segment"><strong>Разработчики ИВД</strong><span>Организуем клинико-лабораторные испытания и подготовим пакет документов для регистрации ИВД</span></div>
-        <div class="segment"><strong>Импортёры и уполномоченные представители</strong><span>Поможем адаптировать данные испытаний, полученные за рубежом, под требования регуляторов РФ и ЕАЭС, и перейти на правила Союза</span></div>
-        <div class="segment"><strong>Regulatory affairs</strong><span>Разберёмся в действующей НПА, подберём маршрут регистрации и соберём документацию</span></div>
-        <div class="segment"><strong>Стартапы medtech и ИИ в медицине</strong><span>Организуем валидацию программного обеспечения и составим дорожную карту вывода на рынок</span></div>
+        <div class="segment"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></div><strong>Производители медизделий</strong><span>Подберём форму клинических испытаний, снизим риск отказа в регистрации и сориентируем по срокам и стоимости</span></div>
+        <div class="segment"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M8 15h8"/></svg></div><strong>Разработчики ИВД</strong><span>Организуем клинико-лабораторные испытания и подготовим пакет документов для регистрации ИВД</span></div>
+        <div class="segment"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div><strong>Импортёры и уполномоченные представители</strong><span>Поможем адаптировать данные испытаний, полученные за рубежом, под требования регуляторов РФ и ЕАЭС, и перейти на правила Союза</span></div>
+        <div class="segment"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 14l2 2 4-4"/></svg></div><strong>Regulatory affairs</strong><span>Разберёмся в действующей НПА, подберём маршрут регистрации и соберём документацию</span></div>
+        <div class="segment"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></svg></div><strong>Стартапы medtech и ИИ в медицине</strong><span>Организуем валидацию программного обеспечения и составим дорожную карту вывода на рынок</span></div>
       </div>
     </div>
   </section>
 
   <!-- ПОЧЕМУ МЫ -->
-  <section aria-labelledby="why-h2">
+  <section aria-labelledby="why-h2" class="sec-white">
     <div class="container">
       <div class="section-head">
         <h2 id="why-h2">Почему Probarium</h2>
@@ -448,7 +463,7 @@ body.nav-open{overflow:hidden;}
   </section>
 
   <!-- КЕЙСЫ -->
-  <section aria-labelledby="cases-h2">
+  <section aria-labelledby="cases-h2" class="sec-tint">
     <div class="container">
       <div class="section-head">
         <h2 id="cases-h2">Кейсы</h2>
