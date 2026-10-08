@@ -56,7 +56,17 @@
     border-bottom:1px solid var(--border);
     position:sticky;top:0;z-index:50;
   }
-  .header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+  .header-row{display:flex;align-items:center;gap:24px;padding:14px 24px;}
+  .header-row .main-nav{flex:1;display:flex;justify-content:center;}
+  .header-actions{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+  /* иконки мессенджеров: одинаковые круглые плашки 38px, иконка 24px */
+  .hdr-msg{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;
+    background:var(--white);border:1px solid var(--border);transition:transform .2s ease,border-color .2s ease,background-color .2s ease,box-shadow .2s ease;}
+  .hdr-msg svg,.hdr-msg img{display:block;width:24px;height:24px;flex-shrink:0;}
+  .hdr-msg img{border-radius:6px;object-fit:contain;}
+  .hdr-msg:hover,.hdr-msg:focus-visible{transform:scale(1.08);border-color:var(--gold);background:#FFF8EE;box-shadow:0 2px 8px rgba(179,112,26,.18);}
+  .hdr-msg:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  @media (prefers-reduced-motion:reduce){.hdr-msg{transition:none;}.hdr-msg:hover{transform:none;}}
   .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
   .logo svg{flex-shrink:0;}
   nav.main-nav ul{list-style:none;display:flex;gap:28px;}
@@ -269,6 +279,8 @@
 .mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
 .mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
 .mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav a.hdr-msg{padding:0;border:1px solid var(--border);}
+.mobile-nav a.btn-primary{color:var(--gold-pale);padding:12px 22px;border-bottom:none;}
 .mobile-nav.open{display:flex;}
 body.nav-open{overflow:hidden;}
 .logo svg{flex-shrink:0;}
@@ -276,6 +288,11 @@ body.nav-open{overflow:hidden;}
   nav.main-nav{display:none;}
   .header-cta{display:none;}
   .burger{display:flex;}
+  .header-row{justify-content:space-between;}
+  .header-row .main-nav{display:none;}
+}
+@media (max-width:349px){
+  .header-actions .hdr-msg{display:none;}
 }
 </style>
 <!-- Yandex.Metrika counter -->
@@ -322,16 +339,18 @@ body.nav-open{overflow:hidden;}
         <li><a href="/kontakty">Контакты</a></li>
       </ul>
     </nav>
+    <div class="header-actions">
     <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
-    <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram" class="header-cta" style="display:inline-flex;">
-      <svg width="30" height="30" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg>
+    <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram" class="hdr-msg">
+      <svg width="24" height="24" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg>
     </a>
-    <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX" class="header-cta" style="display:inline-flex;">
-      <img src="/assets/img/max-icon.png" width="30" height="30" alt="MAX" style="border-radius:7px;">
+    <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX" class="hdr-msg">
+      <img src="/assets/img/max-icon.png" width="24" height="24" alt="">
     </a>
     <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
     </button>
+    </div>
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
     <a href="/uslugi">Услуги</a>
@@ -342,11 +361,11 @@ body.nav-open{overflow:hidden;}
     <a href="/kontakty">Контакты</a>
     <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
     <div style="display:flex;gap:12px;margin-top:14px;">
-      <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram">
-        <svg width="32" height="32" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg>
+      <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram" class="hdr-msg">
+        <svg width="24" height="24" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg>
       </a>
-      <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX">
-        <img src="/assets/img/max-icon.png" width="32" height="32" alt="MAX" style="border-radius:7px;">
+      <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX" class="hdr-msg">
+        <img src="/assets/img/max-icon.png" width="24" height="24" alt="">
       </a>
     </div>
   </nav>
