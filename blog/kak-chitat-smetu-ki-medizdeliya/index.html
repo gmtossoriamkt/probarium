@@ -107,6 +107,10 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0
 .footer-col li{margin-bottom:8px;}
 .footer-col a{font-size:13px;color:var(--gray-text);}
 .footer-col a:hover{color:var(--blue-deep);}
+.footer-col li.footer-social{display:flex;gap:12px;margin-top:14px;}
+.footer-col .footer-social a{display:inline-flex;border-radius:10px;transition:transform .2s ease,box-shadow .2s ease;}
+.footer-col .footer-social a:hover,.footer-col .footer-social a:focus-visible{transform:translateY(-2px);box-shadow:0 0 0 3px var(--gold);}
+@media (prefers-reduced-motion:reduce){.footer-col .footer-social a{transition:none;}.footer-col .footer-social a:hover{transform:none;}}
 .footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
   flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
 
@@ -582,8 +586,10 @@ body.nav-open{overflow:hidden;}
           <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
           <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
           <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
-          <li><a href="https://t.me/tandelovtat" target="_blank" rel="noopener">Telegram</a></li>
-          <li><a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener">MAX</a></li>
+          <li class="footer-social">
+            <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg width="40" height="40" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg></a>
+            <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX"><img src="/assets/img/max-icon.png" width="40" height="40" alt="" style="border-radius:9px;"></a>
+          </li>
         </ul>
       </div>
     </div>
