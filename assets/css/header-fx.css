@@ -17,3 +17,15 @@ nav.main-nav a[aria-current]::after{transform:scaleX(1);transition:none;}
 @media (prefers-reduced-motion:reduce){
   nav.main-nav a,nav.main-nav a::after{transition:none;}
 }
+
+/* ---- 4. Hover главной кнопки и 5. логотипа (только устройства с мышью) ---- */
+.logo svg{transition:transform .2s ease;transform-origin:50% 50%;}
+header .btn.header-cta{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;}
+@media (hover:hover) and (pointer:fine){
+  header .btn.header-cta:hover,header .btn.header-cta:focus-visible{transform:scale(1.03);box-shadow:0 6px 20px rgba(179,112,26,.35);}
+  .logo:hover svg{transform:rotate(7deg) scale(1.05);}
+}
+@media (prefers-reduced-motion:reduce){
+  .logo svg,header .btn.header-cta{transition:none;}
+  header .btn.header-cta:hover,.logo:hover svg{transform:none;}
+}
