@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Информированное согласие для КИ медизделия: структура — Probarium</title>
+<meta name="description" content="Как оформить информированное согласие на участие в КИ медизделия: разделы формы, кто получает подпись, когда нужна новая версия, ошибки и чек-лист.">
+<link rel="canonical" href="https://probarium.ru/blog/informirovannoe-soglasie-ki-medizdeliya/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Информированное согласие для КИ медизделия: структура">
+<meta property="og:description" content="Как оформить информированное согласие на участие в КИ медизделия: разделы формы, кто получает подпись, когда нужна новая версия, ошибки и чек-лист.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/informirovannoe-soglasie-ki-medizdeliya/">
+<meta property="og:image" content="https://probarium.ru/assets/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+@media (max-width:374px){
+  .final-cta{padding:24px;}
+  .final-cta .copy,.final-cta form{min-width:0;flex-basis:100%;}
+}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-col li.footer-social{display:flex;gap:12px;margin-top:14px;}
+.footer-col .footer-social a{display:inline-flex;border-radius:10px;transition:transform .2s ease,box-shadow .2s ease;}
+.footer-col .footer-social a:hover,.footer-col .footer-social a:focus-visible{transform:translateY(-2px);box-shadow:0 0 0 3px var(--gold);}
+@media (prefers-reduced-motion:reduce){.footer-col .footer-social a{transition:none;}.footer-col .footer-social a:hover{transform:none;}}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:0;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;}
+.article-body blockquote{border-left:4px solid var(--blue-sky);background:var(--blue-pale);border-radius:0 8px 8px 0;padding:12px 18px;margin:8px 0 18px;font-size:15px;color:var(--graphite);font-style:italic;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113257593', 'ym');
+    ym(113257593, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113257593" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+<link rel="stylesheet" href="/assets/css/header-fx.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog/">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog/">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog/">Блог</a> / <span aria-current="page">Информированное согласие в КИ</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>13 мин чтения</span><span>8 октября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Информированное согласие на участие в КИ медизделия: структура, подписи и ошибки оформления</h1>
+    <p class="lead">Информированное согласие для клинического испытания медицинского изделия — не просто лист с подписью пациента. Это документ и процедура, с помощью которых участник получает информацию об исследовании, понимает риски и добровольно принимает решение об участии.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <p>Проблемы возникают, когда форму согласия копируют из другого исследования, не сверяют с программой КИ или подписывают уже после первой исследовательской процедуры. В результате под вопросом оказывается не только соблюдение прав участника, но и качество доказательной базы исследования.</p>
+
+      <p>Разбираем, какие разделы включить в форму информированного согласия (в международной практике — ICF), кто должен получать подпись, когда требуется повторное согласие и как избежать типичных ошибок. О том, как форму согласия рассматривает Совет по этике, — в статье <a href="/blog/eticheskiy-komitet-ki-medizdeliya/" class="inline-link">«Этический комитет в КИ медизделия»</a>.</p>
+
+      <h2>Короткий ответ</h2>
+
+      <p><strong>Единого утверждённого государством шаблона формы согласия для всех клинических испытаний медицинских изделий в России нет.</strong></p>
+
+      <p>Для подготовки документа необходимо учитывать:</p>
+
+      <ul>
+        <li>ПП РФ № 1684 и приказ Минздрава № 421н — для национальной процедуры регистрации;</li>
+        <li>Решение Совета ЕЭК № 29 — для процедуры ЕАЭС;</li>
+        <li>ГОСТ Р ИСО 14155-2022, прежде всего раздел 5.8, — для содержания и организации процесса информированного согласия;</li>
+        <li>Федеральные законы № 323-ФЗ и № 152-ФЗ — в части медицинских вмешательств и персональных данных;</li>
+        <li>программу КИ и стандартные операционные процедуры (СОП) исследовательского центра.</li>
+      </ul>
+
+      <p>Практически форма согласия состоит из двух частей: <strong>информации для участника</strong> и <strong>подтверждения добровольного согласия с подписями</strong>. Они могут быть объединены в один документ.</p>
+
+      <p>Главное правило: согласие получают до начала исследовательских процедур. Участнику предоставляют понятную информацию, возможность задать вопросы и достаточно времени для решения.</p>
+
+      <h2>1. Нормативная база: какие требования действуют в 2026 году</h2>
+
+      <p>Национальная процедура регистрации медицинских изделий и процедура ЕАЭС используют разные регуляторные документы. Это важно учитывать ещё до подготовки формы.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Документ</th><th>Что регулирует</th></tr>
+        <tr><td>ПП РФ № 1684 от 30.11.2024</td><td>Правила государственной регистрации медизделий, включая условия проведения КИ</td></tr>
+        <tr><td>Приказ Минздрава № 421н от 13.05.2026</td><td>Порядок проведения испытаний для национальной регистрации, включая требования к программе КИ</td></tr>
+        <tr><td>Решение Совета ЕЭК № 29 от 12.02.2016</td><td>Правила КИ по процедуре ЕАЭС</td></tr>
+        <tr><td>ГОСТ Р ИСО 14155-2022</td><td>Надлежащая клиническая практика при исследованиях медизделий с участием человека</td></tr>
+        <tr><td>Федеральный закон № 323-ФЗ</td><td>Информированное добровольное согласие на медицинское вмешательство, условия клинических испытаний медизделий</td></tr>
+        <tr><td>Федеральный закон № 152-ФЗ</td><td>Правовые основания и условия обработки персональных данных</td></tr>
+      </table>
+      </div>
+
+      <p>С 1 сентября 2026 года приказ № 421н заменил приказ № 885н. Для заявлений, поданных до этой даты, применяются ранее установленные требования.</p>
+
+      <p><strong>Важное разграничение:</strong> ГОСТ Р ИСО 14155-2022 подробно описывает содержание и процедуру информированного согласия, но сам стандарт применяется добровольно. Не следует представлять каждое его положение как самостоятельное требование приказа Минздрава: его применимость оценивается с учётом нормативных отсылок, программы исследования и процедур центра.</p>
+
+      <p>Подробнее о маршрутах — в статьях Probarium о <a href="/blog/kak-sostavit-programmu-klinicheskikh-ispytanij/" class="inline-link">программе клинических испытаний</a> и <a href="/blog/kak-poluchit-razreshenie-na-ki/" class="inline-link">получении разрешения на КИ</a>.</p>
+
+      <h2>2. Когда нужно получать информированное согласие</h2>
+
+      <p>Не каждое клиническое испытание медицинского изделия предполагает непосредственное участие пациента.</p>
+
+      <p>Приказ № 421н предусматривает клинические испытания в форме анализа и оценки клинических данных и (или) испытаний с участием человека. Когда испытания с участием человека не требуются — в статье <a href="/blog/kogda-ki-ne-trebuyutsya/" class="inline-link">«Когда КИ медизделия не требуются»</a>.</p>
+
+      <p>Если исследование проводится с непосредственным участием человека и предполагает исследовательские процедуры, процесс получения согласия необходимо организовать до их начала.</p>
+
+      <p>При анализе ранее собранных клинических данных ситуация иная. Необходимость индивидуального согласия зависит от источника данных, характера их использования, правового основания обработки и применимых правил исследования.</p>
+
+      <p>Для изделий диагностики in vitro отдельно оценивают использование остаточных и архивных образцов либо образцов, специально получаемых для исследования. Нельзя автоматически распространять правила одной ситуации на другую.</p>
+
+      <p>Также важно различать два документа:</p>
+
+      <p><strong>Информированное добровольное согласие на медицинское вмешательство</strong> подтверждает согласие пациента на соответствующее вмешательство.</p>
+
+      <p><strong>Согласие на участие в КИ</strong> охватывает исследовательскую цель, процедуры, риски, добровольность, использование данных и право прекратить участие.</p>
+
+      <p>Обычная больничная форма согласия на вмешательство не заменяет автоматически полноценное исследовательское согласие.</p>
+
+      <h2>3. Структура формы согласия: какие разделы включить</h2>
+
+      <p>Раздел 5.8 ГОСТ Р ИСО 14155-2022 даёт практическую основу для подготовки информационной и подписной частей.</p>
+
+      <p>Ниже — рабочая структура. Её необходимо адаптировать к конкретному изделию и программе КИ.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Раздел</th><th>Что указать</th></tr>
+        <tr><td>Сведения об исследовании</td><td>Название КИ, изделие, цель, исследовательский центр</td></tr>
+        <tr><td>Характер участия</td><td>Что именно будет происходить с участником</td></tr>
+        <tr><td>Процедуры и сроки</td><td>Визиты, обследования, продолжительность наблюдения</td></tr>
+        <tr><td>Риски и неудобства</td><td>Известные риски изделия и дополнительных процедур</td></tr>
+        <tr><td>Ожидаемая польза</td><td>Возможная польза и отсутствие гарантированного результата</td></tr>
+        <tr><td>Альтернативы</td><td>Доступные варианты диагностики или лечения</td></tr>
+        <tr><td>Добровольность</td><td>Право отказаться и прекратить участие</td></tr>
+        <tr><td>Конфиденциальность</td><td>Использование данных и круг лиц с разрешённым доступом</td></tr>
+        <tr><td>Расходы и компенсации</td><td>Возможные расходы, компенсации, помощь при причинении вреда</td></tr>
+        <tr><td>Контакты</td><td>К кому обратиться с вопросами или при возникновении проблем</td></tr>
+        <tr><td>Новая информация</td><td>Как участника уведомят о новых существенных сведениях</td></tr>
+        <tr><td>Досрочное прекращение</td><td>Когда и почему участие может быть завершено</td></tr>
+        <tr><td>Подтверждение согласия</td><td>Заявления участника, подписи и даты</td></tr>
+      </table>
+      </div>
+
+      <p>Дополнительные сведения могут потребоваться при рандомизации, использовании контрольного изделия, биологических образцов, участии представителей спонсора или длительном наблюдении.</p>
+
+      <h3>Что написать об исследуемом изделии</h3>
+
+      <p>Пациенту необходимо объяснить, что представляет собой изделие и для чего его будут применять. Недостаточно указать только техническое наименование модели.</p>
+
+      <p>Например, описание диагностической системы должно объяснять, какую информацию она получает, как проводится обследование и чем исследовательская процедура отличается от стандартной.</p>
+
+      <p>Если изделие не зарегистрировано для исследуемого применения, информацию о его статусе следует раскрыть корректно, без создания впечатления, что эффективность уже окончательно подтверждена.</p>
+
+      <h3>Как описать риски</h3>
+
+      <p>Риски нужно раскрывать применительно к конкретному изделию.</p>
+
+      <p>Для диагностического прибора это могут быть дискомфорт, дополнительное обследование или риск ошибочного результата. Для инвазивного изделия — риски вмешательства. Для программного обеспечения как медицинского изделия — последствия возможной ошибки алгоритма в предусмотренном сценарии применения.</p>
+
+      <p>Нельзя заменять раздел о рисках формулировкой «изделие полностью безопасно». Если отдельные риски ещё недостаточно изучены, это также необходимо объяснить.</p>
+
+      <h3>Как описать пользу</h3>
+
+      <p>В форме нельзя обещать участнику улучшение состояния, если программа исследования не даёт оснований для такого обещания.</p>
+
+      <p>Корректная логика: участие может не принести непосредственной пользы конкретному человеку, но результаты исследования могут помочь оценить безопасность и эффективность изделия.</p>
+
+      <h2>4. Информационный листок и форма подписи: один документ или два?</h2>
+
+      <p>ГОСТ Р ИСО 14155-2022 допускает организацию информационной и подписной частей как единого документа либо отдельных частей.</p>
+
+      <p>Практически удобно использовать один документ, в котором сначала изложена информация, а затем размещены заявления участника и поля подписей.</p>
+
+      <p>В шапке рекомендуется указывать:</p>
+
+      <ul>
+        <li>название и идентификатор исследования;</li>
+        <li>наименование и модель медицинского изделия;</li>
+        <li>медицинскую организацию;</li>
+        <li>номер версии и дату формы согласия;</li>
+        <li>идентификатор программы КИ.</li>
+      </ul>
+
+      <p>Номер версии особенно важен при изменениях программы или проведении многоцентрового исследования.</p>
+
+      <p>Само наличие версии не подтверждает надлежащее согласие: исследователь должен использовать именно актуальный документ, предусмотренный для соответствующего этапа исследования.</p>
+
+      <h2>5. Примеры формулировок</h2>
+
+      <p>Ниже приведены учебные фрагменты, а не универсальная форма, утверждённая регулятором.</p>
+
+      <p><strong>Введение</strong></p>
+
+      <blockquote>Вам предлагается принять участие в клиническом исследовании медицинского изделия [наименование]. Перед принятием решения ознакомьтесь с информацией об исследовании. Вы можете задать вопросы исследователю и обсудить участие с близкими или лечащим врачом. Участие является добровольным.</blockquote>
+
+      <p><strong>Описание процедур</strong></p>
+
+      <blockquote>Ваше участие продлится приблизительно [срок]. Исследование включает [количество] визитов. Во время визитов будут выполнены [перечень процедур]. Процедуры [указать] проводятся дополнительно в рамках исследования и не относятся к обычному обследованию.</blockquote>
+
+      <p><strong>Добровольность</strong></p>
+
+      <blockquote>Вы можете отказаться от участия или прекратить его в любой момент без объяснения причин. Это не лишает вас права на обычную медицинскую помощь. При прекращении участия исследователь объяснит, какие действия могут потребоваться для вашей безопасности.</blockquote>
+
+      <p><strong>Новая информация</strong></p>
+
+      <blockquote>Если во время исследования появятся новые сведения, которые могут повлиять на ваше решение продолжать участие, исследователь сообщит вам о них.</blockquote>
+
+      <p>Такие фрагменты необходимо дополнить конкретными рисками, альтернативами, условиями обработки данных и другими сведениями, предусмотренными исследованием.</p>
+
+      <h2>6. Кто получает согласие и когда его подписывать</h2>
+
+      <p>По ГОСТ Р ИСО 14155-2022 информирование и получение согласия организует исследователь или надлежащим образом уполномоченное лицо.</p>
+
+      <p>При делегировании необходимо учитывать квалификацию сотрудника, характер его обязанностей и СОП исследовательского центра.</p>
+
+      <p>Нельзя считать, что любой координатор или представитель производителя вправе самостоятельно получать согласие только потому, что он участвует в организации КИ.</p>
+
+      <h3>Порядок получения согласия</h3>
+
+      <p><strong>Шаг 1.</strong> Исследовательская команда предоставляет актуальную информационную форму.</p>
+
+      <p><strong>Шаг 2.</strong> Участнику объясняют цель, процедуры, риски, альтернативы и условия участия.</p>
+
+      <p><strong>Шаг 3.</strong> Участник получает возможность задать вопросы и достаточно времени для принятия решения.</p>
+
+      <p><strong>Шаг 4.</strong> При добровольном согласии оформляются предусмотренные подписи и даты.</p>
+
+      <p><strong>Шаг 5.</strong> Участнику передают копию документа, а оригинал сохраняют в документации исследования.</p>
+
+      <p><strong>Шаг 6.</strong> Процесс получения согласия документируют в первичных записях.</p>
+
+      <p>Подписывать форму необходимо до исследовательских процедур. При этом обычные диагностические действия, выполненные независимо от КИ, не следует автоматически считать нарушением. Важно установить, какие действия были частью исследования.</p>
+
+      <h3>Нужна ли подпись на каждой странице?</h3>
+
+      <p>ГОСТ не устанавливает универсального требования подписывать каждую страницу формы. Однако такое правило может быть предусмотрено СОП клиники или принятой процедурой документооборота.</p>
+
+      <p>Точное время подписания также не является универсальным обязательным реквизитом. Но его фиксация полезна, если в тот же день выполняются исследовательские процедуры: так проще подтвердить, что согласие было получено до них.</p>
+
+      <h2>7. Особые случаи: несовершеннолетние, свидетели и электронное согласие</h2>
+
+      <p>Для несовершеннолетних и участников, не способных самостоятельно выразить согласие, действуют дополнительные требования к защите прав и законному представительству. Допустимость включения конкретной группы необходимо оценивать по законодательству РФ, а не только по стандарту, и отдельно обосновывать в программе КИ.</p>
+
+      <p>Если участник не умеет читать, может потребоваться участие независимого свидетеля и специальное документирование процесса.</p>
+
+      <p>Для электронной формы согласия стандарт предусматривает возможность электронных датированных подписей. Однако это не означает, что любая система дистанционного подписания автоматически подходит для российского КИ. Необходимо проверить требования к электронной подписи, идентификации, хранению и аудиторскому следу.</p>
+
+      <p><strong>Практический вывод:</strong> бумажный и электронный процессы требуют одинаково надёжного подтверждения того, что человек получил информацию и добровольно согласился.</p>
+
+      <h2>8. Персональные данные: согласие на КИ не решает всё автоматически</h2>
+
+      <p>Клиническое исследование связано с обработкой сведений о здоровье, которые относятся к специальным категориям персональных данных.</p>
+
+      <p>В форме согласия необходимо объяснить, кто и для каких целей использует информацию участника, кому может предоставляться доступ к исследовательским записям и какие меры конфиденциальности предусмотрены.</p>
+
+      <p>При этом согласие на участие в КИ и правовое основание обработки персональных данных — не полностью тождественные вопросы. Отдельно проверяют требования Федерального закона № 152-ФЗ, распределение ролей между медицинской организацией и спонсором, передачу данных и условия их хранения.</p>
+
+      <p>Если участник прекращает участие, это не означает автоматического уничтожения всех ранее полученных исследовательских данных. Дальнейшая обработка определяется применимыми правовыми основаниями, сроками хранения и обязательствами по обеспечению достоверности исследования.</p>
+
+      <h2>9. Когда требуется новая версия формы согласия</h2>
+
+      <p>Форма согласия должна соответствовать действующей программе исследования.</p>
+
+      <p>Повторное информирование необходимо оценивать при изменениях, способных повлиять на решение участника продолжать участие. Например:</p>
+
+      <ul>
+        <li>выявлен новый существенный риск изделия;</li>
+        <li>добавлена исследовательская процедура;</li>
+        <li>увеличена продолжительность участия;</li>
+        <li>изменён порядок наблюдения;</li>
+        <li>существенно изменились условия использования данных.</li>
+      </ul>
+
+      <p>Не каждое исправление опечатки требует повторного подписания всеми участниками. Но изменение информации о рисках или процедурах нельзя считать простой редакционной правкой.</p>
+
+      <p>Новая версия должна пройти применимый порядок рассмотрения и введения в действие, включая оценку необходимости повторного этического рассмотрения. Для уже включённых участников определяется необходимость повторного информирования и документирования согласия на продолжение.</p>
+
+      <h2>10. Кейс: в форме согласия три визита, а в программе — четыре</h2>
+
+      <p>Производитель проводит клиническое испытание диагностического изделия.</p>
+
+      <p>Программа предусматривает четыре визита, дополнительное обследование и последующий контакт для оценки безопасности.</p>
+
+      <p>В форме согласия указаны только три визита. Дополнительное обследование не раскрыто. Кроме того, форма содержит фразу:</p>
+
+      <p>«Участник обязуется завершить исследование».</p>
+
+      <p>Здесь сразу несколько проблем.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Ошибка</th><th>Почему важна</th><th>Что исправить</th></tr>
+        <tr><td>Три визита вместо четырёх</td><td>Участник не знает полной продолжительности</td><td>Привести описание к программе</td></tr>
+        <tr><td>Не указана дополнительная процедура</td><td>Не раскрыты характер участия и возможные риски</td><td>Добавить процедуру и связанные сведения</td></tr>
+        <tr><td>Обязательство завершить КИ</td><td>Противоречит принципу добровольности</td><td>Закрепить право на прекращение участия</td></tr>
+        <tr><td>Не описан контроль безопасности</td><td>Неполная информация о наблюдении</td><td>Указать формат и сроки контакта</td></tr>
+      </table>
+      </div>
+
+      <p>Корректный вариант раздела о добровольности:</p>
+
+      <blockquote>Участие в исследовании является добровольным. Вы можете прекратить участие в любой момент без объяснения причин. Отказ не повлияет на качество обычной медицинской помощи. Исследователь объяснит, какие действия могут быть необходимы для безопасного прекращения участия.</blockquote>
+
+      <p>Если по ошибочной форме уже включены участники, недостаточно просто заменить файл.</p>
+
+      <p>Необходимо оценить характер отклонения, возможное влияние на права и безопасность участников, порядок этического рассмотрения исправленной версии, необходимость повторного информирования и корректирующие действия.</p>
+
+      <p>Такая ситуация может потребовать корректирующих и предупреждающих действий (CAPA): анализа причины ошибки, исправления документа, обучения команды и внедрения проверки соответствия формы программе до начала набора.</p>
+
+      <p>Нельзя заранее утверждать, что любая ошибка автоматически делает все данные участника непригодными. Последствия зависят от нарушения и его оценки.</p>
+
+      <h2>11. Чек-лист перед запуском набора</h2>
+
+      <p>Перед тем как передать форму согласия в исследовательский центр, проверьте:</p>
+
+      <ol>
+        <li>Указаны актуальные сведения об исследовании и изделии.</li>
+        <li>Цель КИ изложена понятным языком.</li>
+        <li>Количество визитов и процедуры совпадают с программой.</li>
+        <li>Отдельно раскрыты исследовательские действия и риски.</li>
+        <li>Польза не представлена как гарантированный результат.</li>
+        <li>Описаны альтернативы и право на отказ.</li>
+        <li>Указаны условия конфиденциальности и контакты.</li>
+        <li>Используется актуальная версия документа.</li>
+        <li>Определено, кто вправе получать согласие.</li>
+        <li>Предусмотрены выдача копии, хранение оригинала и документирование беседы.</li>
+      </ol>
+
+      <p>Этот чек-лист не заменяет требования законодательства, ГОСТ или СОП, но помогает обнаружить основные несоответствия до начала включения участников. Как согласовать с программой критерии отбора участников — в статье <a href="/blog/kriterii-vklyucheniya-isklyucheniya-ki/" class="inline-link">«Критерии включения и исключения в КИ»</a>.</p>
+
+      <h2>Частые вопросы</h2>
+      <details class="faq-item"><summary>Есть ли официальный шаблон формы согласия для КИ медизделия?</summary><p>Нет. ПП № 1684 и приказ № 421н не утверждают универсальную форму для всех исследований. Структуру разрабатывают с учётом ГОСТ Р ИСО 14155-2022, программы КИ и процедур исследовательского центра.</p></details>
+      <details class="faq-item"><summary>Можно ли использовать обычное согласие на медицинское вмешательство?</summary><p>Не без проверки содержания. Исследовательское согласие должно раскрывать сведения именно об участии в КИ: цель, процедуры, риски, добровольность и использование данных.</p></details>
+      <details class="faq-item"><summary>Можно ли подписать форму согласия в день первого визита?</summary><p>Да, если участник получил необходимую информацию и достаточно времени для решения, а согласие оформлено до исследовательских процедур.</p></details>
+      <details class="faq-item"><summary>Нужно ли переподписывать форму на каждом визите?</summary><p>Универсального требования нет. Повторное согласие рассматривают, в частности, при появлении существенной новой информации или изменении условий исследования.</p></details>
+      <details class="faq-item"><summary>Может ли пациент отказаться после подписания?</summary><p>Да. Добровольность участия и возможность прекратить его в любой момент — принципиальные элементы информированного согласия.</p></details>
+      <details class="faq-item"><summary>Можно ли использовать электронную форму согласия?</summary><p>Такая возможность предусмотрена ГОСТ, но конкретный способ электронного оформления необходимо проверить на соответствие требованиям к электронной подписи, идентификации и хранению документов.</p></details>
+
+      <h2>Вывод</h2>
+
+      <p>Информированное согласие для КИ медицинского изделия — это не шаблон, который можно заполнить один раз и использовать во всех исследованиях.</p>
+
+      <p><strong>Качественная форма согласия должна одновременно соответствовать программе КИ, раскрывать значимую информацию участнику и поддерживаться документированной процедурой получения согласия.</strong></p>
+
+      <p>Поэтому работу лучше начинать со сверки программы исследования, анализа рисков и СОП медицинской организации. Только после этого формировать информационный листок и подписную часть.</p>
+
+      <h2>Нормативные источники</h2>
+
+      <ul>
+        <li>Постановление Правительства РФ от 30.11.2024 № 1684 — Правила государственной регистрации медицинских изделий.</li>
+        <li>Приказ Минздрава России от 13.05.2026 № 421н — Порядок проведения оценки соответствия медицинских изделий.</li>
+        <li>Решение Совета ЕЭК от 12.02.2016 № 29 — Правила проведения клинических и клинико-лабораторных испытаний (исследований) медицинских изделий.</li>
+        <li>ГОСТ Р ИСО 14155-2022, раздел 5.8.</li>
+        <li>Федеральный закон от 21.11.2011 № 323-ФЗ «Об основах охраны здоровья граждан в Российской Федерации».</li>
+        <li>Федеральный закон от 27.07.2006 № 152-ФЗ «О персональных данных».</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/eticheskiy-komitet-ki-medizdeliya/">Этический комитет в КИ медизделия: роль, документы, сроки</a>
+        <a class="related-card" href="/blog/kriterii-vklyucheniya-isklyucheniya-ki/">Критерии включения и исключения в КИ: как задать корректно</a>
+        <a class="related-card" href="/blog/mnogocentrovoe-ki-medizdeliya/">Многоцентровое КИ медизделия: когда нужно и как организовать</a>
+        <a class="related-card" href="/blog/kak-poluchit-razreshenie-na-ki/">Как получить разрешение на КИ медизделия: пошагово</a>
+        <a class="related-card" href="/blog/kogda-ki-ne-trebuyutsya/">Когда КИ медизделия не требуются: перечень оснований</a>
+        <a class="related-card" href="/glossariy/">Глоссарий терминов</a>
+        <a class="related-card" href="/blog/">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Нужно проверить форму согласия и программу КИ?</h2>
+          <p>Probarium помогает подготовить документацию клинического исследования медицинского изделия: согласовать программу КИ и форму информированного согласия, проверить комплект документов для Совета по этике и организовать взаимодействие с исследовательским центром. Подробнее — на странице <a href="/klinicheskie-ispytaniya-medizdeliy/" style="text-decoration:underline;">клинических испытаний медизделий</a>.</p>
+          <p style="margin-top:14px;"><a href="mailto:info@probarium.ru?subject=Информированное согласие в КИ медизделия" class="btn btn-outline">Проверить форму согласия</a></p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/informirovannoe-soglasie-ki-medizdeliya)">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой форме испытаний"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog/">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li class="footer-social">
+            <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg width="40" height="40" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg></a>
+            <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX"><img src="/assets/img/max-icon.png" width="40" height="40" alt="" style="border-radius:9px;"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Информированное согласие на участие в КИ медизделия: структура, подписи и ошибки оформления",
+  "description": "Как оформить информированное согласие на участие в КИ медизделия: разделы формы, кто получает подпись, когда нужна новая версия, ошибки и чек-лист.",
+  "author": {
+    "@type": "Person",
+    "name": "Артемий-Татуш Танделов",
+    "jobTitle": "Генеральный директор Probarium",
+    "url": "https://t.me/tandelovtat"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Probarium"
+  },
+  "mainEntityOfPage": "https://probarium.ru/blog/informirovannoe-soglasie-ki-medizdeliya/",
+  "datePublished": "2026-10-08",
+  "dateModified": "2026-10-08"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://probarium.ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://probarium.ru/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Информированное согласие в КИ",
+      "item": "https://probarium.ru/blog/informirovannoe-soglasie-ki-medizdeliya/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Есть ли официальный шаблон формы согласия для КИ медизделия?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. ПП № 1684 и приказ № 421н не утверждают универсальную форму для всех исследований. Структуру разрабатывают с учётом ГОСТ Р ИСО 14155-2022, программы КИ и процедур исследовательского центра."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать обычное согласие на медицинское вмешательство?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не без проверки содержания. Исследовательское согласие должно раскрывать сведения именно об участии в КИ: цель, процедуры, риски, добровольность и использование данных."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли подписать форму согласия в день первого визита?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, если участник получил необходимую информацию и достаточно времени для решения, а согласие оформлено до исследовательских процедур."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли переподписывать форму на каждом визите?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Универсального требования нет. Повторное согласие рассматривают, в частности, при появлении существенной новой информации или изменении условий исследования."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Может ли пациент отказаться после подписания?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Добровольность участия и возможность прекратить его в любой момент — принципиальные элементы информированного согласия."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать электронную форму согласия?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Такая возможность предусмотрена ГОСТ, но конкретный способ электронного оформления необходимо проверить на соответствие требованиям к электронной подписи, идентификации и хранению документов."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/header-fx.js" defer></script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
