@@ -343,7 +343,7 @@ function renderRoadmap(){
         '<div class="rm-detail-row"><strong>Испытания</strong><span>' + s.tests + '</span></div>' +
         '<div class="rm-detail-row"><strong>Документы</strong><span>' + s.docs + '</span></div>' +
         '<div class="rm-detail-row"><strong>Срок</strong><span>' + s.term + '</span></div>' +
-        '<a href="' + s.link + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">Подробнее об этом этапе (в новой вкладке) →</a>' +
+        '<a href="' + s.link + '?from=roadmap&step=' + (i+1) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">Подробнее об этом этапе (в новой вкладке) →</a>' +
       '</div>' +
       '</div></div>';
   });
