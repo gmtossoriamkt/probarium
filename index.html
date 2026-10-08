@@ -72,6 +72,9 @@
   .btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
   .header-cta{font-size:13px;padding:10px 18px;}
 
+  /* появление блоков при прокрутке (включается скриптом, не трогает hero) */
+  .js-reveal .reveal{opacity:0;translate:0 16px;transition:opacity .5s ease,translate .5s ease;}
+  .js-reveal .reveal.is-visible{opacity:1;translate:0 0;}
   /* hero */
   .hero{padding:40px 0 40px;}
   .hero-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:center;}
@@ -711,6 +714,30 @@ function toggleMobileNav(){
   btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   document.body.classList.toggle('nav-open', isOpen);
 }
+</script>
+<script>
+(function(){
+  if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var sel='section:not(.hero) .section-head,section:not(.hero) .card,.segment,.trigger,.case-card,.roadmap-band,.npa-list,.final-cta';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  if(!els.length) return;
+  document.documentElement.classList.add('js-reveal');
+  var seen=new Map();
+  els.forEach(function(el){
+    var p=el.parentNode,i=seen.get(p)||0;seen.set(p,i+1);
+    el.classList.add('reveal');
+    if(i) el.style.transitionDelay=Math.min(i,4)*80+'ms';
+  });
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el=e.target;io.unobserve(el);
+      el.classList.add('is-visible');
+      setTimeout(function(){el.classList.remove('reveal','is-visible');el.style.transitionDelay='';},1100);
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
 </script>
 <script src="/assets/js/cookie-banner.js" defer></script>
 </body>
