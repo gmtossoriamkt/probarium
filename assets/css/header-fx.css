@@ -1,0 +1,19 @@
+/* Общие эффекты шапки (подключается после inline-стилей страницы) */
+
+/* ---- 1. Подчёркивание пунктов меню + 2. активный пункт ---- */
+nav.main-nav a{position:relative;padding:6px 0;transition:color .2s ease;}
+nav.main-nav a::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:1px;background:var(--gold);
+  transform:scaleX(0);transform-origin:right;transition:transform .24s ease;
+}
+@media (hover:hover) and (pointer:fine){
+  nav.main-nav a:hover::after{transform:scaleX(1);transform-origin:left;}
+}
+nav.main-nav a:focus-visible::after{transform:scaleX(1);transform-origin:left;}
+nav.main-nav a[aria-current]{color:#9E620F;}
+nav.main-nav a[aria-current]::after{transform:scaleX(1);transition:none;}
+.mobile-nav a[aria-current]{color:#9E620F;font-weight:600;}
+.header-row{padding-left:24px;padding-right:24px;}
+@media (prefers-reduced-motion:reduce){
+  nav.main-nav a,nav.main-nav a::after{transition:none;}
+}
