@@ -60,6 +60,7 @@
   .header-row .main-nav{flex:1;display:flex;justify-content:center;}
   .header-actions{display:flex;align-items:center;gap:12px;flex-shrink:0;}
   /* иконки мессенджеров: одинаковые круглые плашки 38px, иконка 24px */
+  .hdr-sep{width:1px;height:28px;background:var(--border);margin:0 4px 0 0;flex-shrink:0;}
   .hdr-msg{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;
     background:var(--white);border:1px solid var(--border);transition:transform .2s ease,border-color .2s ease,background-color .2s ease,box-shadow .2s ease;}
   .hdr-msg svg,.hdr-msg img{display:block;width:24px;height:24px;flex-shrink:0;}
@@ -290,6 +291,9 @@ body.nav-open{overflow:hidden;}
   .burger{display:flex;}
   .header-row{justify-content:space-between;}
   .header-row .main-nav{display:none;}
+  .hdr-sep{display:none;}
+  .header-actions{gap:10px;}
+  .header-actions .burger{margin-left:6px;}
 }
 @media (max-width:349px){
   .header-actions .hdr-msg{display:none;}
@@ -342,6 +346,7 @@ body.nav-open{overflow:hidden;}
     </nav>
     <div class="header-actions">
     <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <span class="hdr-sep" aria-hidden="true"></span>
     <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram" class="hdr-msg">
       <svg width="24" height="24" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg>
     </a>
