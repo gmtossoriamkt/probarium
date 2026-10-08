@@ -119,6 +119,7 @@
     -webkit-mask-composite:source-in;
     mask-image:linear-gradient(to right,transparent 0,#000 var(--fade),#000 calc(100% - var(--fade)),transparent 100%),linear-gradient(to bottom,transparent 0,#000 var(--fade),#000 calc(100% - var(--fade)),transparent 100%);
     mask-composite:intersect;}
+  .icon svg{stroke-linecap:round;stroke-linejoin:round;stroke-width:1.75;transition:stroke .2s ease;}
   .card .icon{width:44px;height:44px;border-radius:10px;background:var(--blue-pale);
     display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
   .card h3{font-size:17px;margin-bottom:8px;}
@@ -145,6 +146,7 @@
     .card,.segment,.segment .icon{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background-color .2s ease;}
     .card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 12px 28px rgba(15,42,77,.12);}
     .card:hover h3{color:var(--gold);}
+    .card:hover .icon svg{stroke:var(--gold);}
     .segment:hover{transform:translateY(-4px);background:var(--white);border-color:var(--gold);box-shadow:0 12px 28px rgba(15,42,77,.10);}
     .segment:hover .icon{border-color:var(--gold);}
     .segment:hover .icon svg{stroke:var(--gold);}
@@ -382,7 +384,7 @@ body.nav-open{overflow:hidden;}
           </picture>
         </figure>
         <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8"><path d="M4 14h4l1-3 3 6 2-9 1 6h5"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
           </div>
           <h3>Клинические испытания медизделий</h3>
           <p>Основное направление Probarium: анализ клинических данных, клиническая оценка, испытания с участием человека, клинико-лабораторные испытания ИВД — подбираем форму испытаний под класс риска и особенности изделия, готовим протокол и сопровождаем весь процесс до получения результата, пригодного для регистрационного досье.</p>
@@ -397,7 +399,7 @@ body.nav-open{overflow:hidden;}
         </figure>
         <span class="badge-support">Сопутствующая услуга</span>
           <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
           </div>
           <h3>Доклиника и токсикология</h3>
           <p>Подключается в рамках подготовки к клиническим испытаниям и регистрации: организуем исследования биосовместимости и токсикологии в аккредитованных лабораториях.</p>
@@ -412,7 +414,7 @@ body.nav-open{overflow:hidden;}
         </figure>
         <span class="badge-support">Сопутствующая услуга</span>
           <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg>
           </div>
           <h3>Технические испытания МИ</h3>
           <p>Сопутствующий этап полного цикла: организуем испытания электромагнитной совместимости и валидацию программного обеспечения перед регистрацией.</p>
@@ -431,7 +433,7 @@ body.nav-open{overflow:hidden;}
       </div>
       <div class="segments">
         <div class="segment"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></div><strong>Производители медизделий</strong><span>Подберём форму клинических испытаний, снизим риск отказа в регистрации и сориентируем по срокам и стоимости</span></div>
-        <div class="segment"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M8 15h8"/></svg></div><strong>Разработчики ИВД</strong><span>Организуем клинико-лабораторные испытания и подготовим пакет документов для регистрации ИВД</span></div>
+        <div class="segment"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></div><strong>Разработчики ИВД</strong><span>Организуем клинико-лабораторные испытания и подготовим пакет документов для регистрации ИВД</span></div>
         <div class="segment"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div><strong>Импортёры и уполномоченные представители</strong><span>Поможем адаптировать данные испытаний, полученные за рубежом, под требования регуляторов РФ и ЕАЭС, и перейти на правила Союза</span></div>
         <div class="segment"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 14l2 2 4-4"/></svg></div><strong>Regulatory affairs</strong><span>Разберёмся в действующей НПА, подберём маршрут регистрации и соберём документацию</span></div>
         <div class="segment"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></svg></div><strong>Стартапы medtech и ИИ в медицине</strong><span>Организуем валидацию программного обеспечения и составим дорожную карту вывода на рынок</span></div>
