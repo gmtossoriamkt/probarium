@@ -38,3 +38,16 @@ header .btn.header-cta{transition:transform .2s ease,box-shadow .2s ease,backgro
 @media (prefers-reduced-motion:reduce){
   .site-header,.site-header .header-row{transition:none;}
 }
+
+/* ---- Шрифт шапки: Space Grotesk (логотип, меню, кнопка) ---- */
+header.site-header .logo{font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;letter-spacing:.03em;}
+header.site-header nav.main-nav a,
+header.site-header .mobile-nav a{font-family:'Space Grotesk',Arial,sans-serif;font-weight:500;letter-spacing:.005em;}
+header.site-header .mobile-nav a[aria-current]{font-weight:600;}
+header.site-header .btn{font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;}
+header.site-header .mobile-nav a.btn{font-weight:600;}
+header.site-header nav.main-nav a{white-space:nowrap;}
+@media (min-width:821px) and (max-width:1000px){
+  header.site-header nav.main-nav ul{gap:18px;}
+  header.site-header .header-row{gap:16px;}
+}
