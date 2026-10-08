@@ -25,3 +25,20 @@
     else if(inList(list)) a.setAttribute('aria-current', 'true');
   });
 })();
+
+/* Компактная шапка с тенью после прокрутки (гистерезис, одно обновление на кадр). */
+(function(){
+  var header = document.querySelector('header.site-header');
+  if(!header) return;
+  var on = false, ticking = false;
+  function update(){
+    ticking = false;
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    if(!on && y > 60){ on = true; header.classList.add('is-scrolled'); }
+    else if(on && y < 20){ on = false; header.classList.remove('is-scrolled'); }
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; window.requestAnimationFrame(update); }
+  }, {passive:true});
+  update();
+})();

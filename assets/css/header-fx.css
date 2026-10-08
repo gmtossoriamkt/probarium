@@ -29,3 +29,12 @@ header .btn.header-cta{transition:transform .2s ease,box-shadow .2s ease,backgro
   .logo svg,header .btn.header-cta{transition:none;}
   header .btn.header-cta:hover,.logo:hover svg{transform:none;}
 }
+
+/* ---- 6. Состояние шапки при прокрутке ---- */
+.site-header{transition:box-shadow .25s ease;}
+.site-header .header-row{transition:padding .25s ease;}
+.site-header.is-scrolled{box-shadow:0 4px 16px rgba(15,42,77,.09);}
+.site-header.is-scrolled .header-row{padding-top:8px;padding-bottom:8px;}
+@media (prefers-reduced-motion:reduce){
+  .site-header,.site-header .header-row{transition:none;}
+}
