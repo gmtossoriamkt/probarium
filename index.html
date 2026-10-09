@@ -254,6 +254,16 @@
   .thesis-text em{font-style:normal;color:#FF6B1A;}
   @media (max-width:640px){.thesis{padding:68px 0;}}
 
+  /* декоративные фигуры в финальном CTA: только transform, 20–30 с на цикл */
+  .cta-shape{position:absolute;pointer-events:none;z-index:0;border-radius:50%;will-change:transform;}
+  .cta-shape.s1{width:360px;height:360px;right:-90px;top:-120px;border:44px solid rgba(255,255,255,.14);animation:ctaFloat 26s ease-in-out infinite;}
+  .cta-shape.s2{width:200px;height:200px;left:-60px;bottom:-70px;background:rgba(15,42,77,.09);animation:ctaFloat 22s ease-in-out infinite reverse;}
+  .cta-shape.s3{width:120px;height:120px;left:46%;bottom:36px;border-radius:24px;border:16px solid rgba(15,42,77,.08);animation:ctaSpin 30s linear infinite;}
+  @keyframes ctaFloat{0%,100%{transform:translate3d(0,0,0) rotate(0);}50%{transform:translate3d(-24px,22px,0) rotate(8deg);}}
+  @keyframes ctaSpin{from{transform:rotate(0);}to{transform:rotate(360deg);}}
+  @media (max-width:640px){.cta-shape.s3{display:none;}.cta-shape.s1{width:240px;height:240px;border-width:30px;}}
+  @media (prefers-reduced-motion:reduce){.cta-shape{animation:none;}}
+
   /* final cta: яркий оранжевый блок на всю ширину */
   section#final-cta{background:#FF6B1A;padding:104px 0;position:relative;overflow:hidden;}
   section#final-cta .container{position:relative;z-index:1;}
@@ -652,6 +662,7 @@ body.nav-open{overflow:hidden;}
 
   <!-- FINAL CTA -->
   <section id="final-cta">
+    <span class="cta-shape s1" aria-hidden="true"></span><span class="cta-shape s2" aria-hidden="true"></span><span class="cta-shape s3" aria-hidden="true"></span>
     <div class="container">
       <div class="final-cta">
         <div class="copy">
@@ -832,6 +843,24 @@ function toggleMobileNav(){
     });
   },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
   els.forEach(function(el){io.observe(el);});
+})();
+</script>
+<script>
+/* Лёгкий parallax фото в хиро: сдвиг до 24 px, только на широких экранах и без prefers-reduced-motion */
+(function(){
+  var el = document.querySelector('.hero-media');
+  if(!el || !window.matchMedia) return;
+  var mq = window.matchMedia('(min-width: 901px) and (prefers-reduced-motion: no-preference)');
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var y = window.pageYOffset || 0;
+    el.style.translate = mq.matches ? ('0 ' + Math.min(24, Math.round(y * 0.07)) + 'px') : '';
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; window.requestAnimationFrame(update); }
+  }, {passive:true});
+  window.addEventListener('resize', update);
 })();
 </script>
 <script src="/assets/js/header-fx.js" defer></script>
