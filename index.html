@@ -247,6 +247,28 @@
   details.faq-item[open] summary::after{content:'\2212';}
   details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
 
+  /* кнопки хиро и финального CTA: стрелка, пружинящий hover, разная форма по важности */
+  .hero-actions .btn,#final-cta .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .25s ease,background-color .2s ease;}
+  .hero-actions .btn-primary::after,#final-cta .btn-primary::after{content:"→";display:inline-block;font-weight:700;
+    transition:transform .3s cubic-bezier(.34,1.56,.64,1);}
+  .hero-actions{align-items:center;}
+  .hero-actions .btn-primary{padding:14px 20px;border-radius:12px;font-size:14px;}
+  .hero-actions .btn-outline{padding:11px 16px;border-radius:10px;font-size:14px;}
+  #final-cta .btn-primary{border-radius:12px;}
+  .hero-actions .btn:active,#final-cta .btn-primary:active{transform:scale(.97);}
+  @media (hover:hover) and (pointer:fine){
+    .hero-actions .btn:hover,.hero-actions .btn:focus-visible,#final-cta .btn-primary:hover,#final-cta .btn-primary:focus-visible{transform:scale(1.04);}
+    .hero-actions .btn-primary:hover,.hero-actions .btn-primary:focus-visible,#final-cta .btn-primary:hover,#final-cta .btn-primary:focus-visible{box-shadow:0 10px 26px rgba(255,107,26,.42);}
+    .hero-actions .btn-outline:hover,.hero-actions .btn-outline:focus-visible{box-shadow:0 8px 20px rgba(15,42,77,.16);}
+    .hero-actions .btn-primary:hover::after,.hero-actions .btn-primary:focus-visible::after,#final-cta .btn-primary:hover::after,#final-cta .btn-primary:focus-visible::after{transform:translateX(6px);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero-actions .btn,#final-cta .btn-primary,.hero-actions .btn::after,#final-cta .btn-primary::after{transition:none;}
+    .hero-actions .btn:hover,#final-cta .btn-primary:hover,.hero-actions .btn:active,#final-cta .btn-primary:active{transform:none;}
+    .hero-actions .btn:hover::after,#final-cta .btn-primary:hover::after{transform:none;}
+  }
+
   /* ключевой тезис: тёмно-синий блок на всю ширину */
   .thesis{background:var(--blue-deep);padding:104px 0;text-align:center;}
   .thesis-text{font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;color:#fff;
