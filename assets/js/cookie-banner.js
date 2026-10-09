@@ -12,9 +12,9 @@
       '#cookie-banner .cookie-banner-text{font-family:Arial,sans-serif;font-size:14px;line-height:1.5;margin:0;' +
         'flex:1;min-width:240px;}' +
       '#cookie-banner .cookie-banner-text a{color:#fff;text-decoration:underline;}' +
-      '#cookie-banner .cookie-banner-btn{background:var(--gold,#B3701A);color:#fff;border:none;border-radius:8px;' +
-        'padding:10px 22px;font-size:14px;font-weight:600;cursor:pointer;flex-shrink:0;font-family:Arial,sans-serif;}' +
-      '#cookie-banner .cookie-banner-btn:hover{background:#9E620F;}' +
+      '#cookie-banner .cookie-banner-btn{background:#FF6B1A;color:#0F2A4D;border:none;border-radius:8px;' +
+        'padding:10px 22px;font-size:14px;font-weight:600;cursor:pointer;flex-shrink:0;font-family:\'Space Grotesk\',Arial,sans-serif;}' +
+      '#cookie-banner .cookie-banner-btn:hover{background:#F6600A;}' +
       '@media (max-width:600px){#cookie-banner .cookie-banner-inner{flex-direction:column;align-items:stretch;text-align:center;}}';
     document.head.appendChild(style);
 

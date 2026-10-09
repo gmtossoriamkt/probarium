@@ -51,3 +51,15 @@ header.site-header nav.main-nav a{white-space:nowrap;}
   header.site-header nav.main-nav ul{gap:18px;}
   header.site-header .header-row{gap:16px;}
 }
+
+/* ---- Основные кнопки (.btn-primary) на всём сайте: яркий оранжевый + Space Grotesk ----
+   Текст тёмно-синий: белый на ярком оранжевом даёт контраст < 3:1, тёмно-синий #0F2A4D на #FF6B1A — ≈5:1 (AA). */
+.btn.btn-primary,
+.mobile-nav a.btn-primary{background:#FF6B1A;color:#0F2A4D;}
+.btn.btn-primary:hover,
+.btn.btn-primary:focus-visible,
+.mobile-nav a.btn-primary:hover{background:#F6600A;color:#0F2A4D;}
+.btn,
+button.btn{font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;}
+header .btn.btn-primary.header-cta:hover,
+header .btn.btn-primary.header-cta:focus-visible{box-shadow:0 6px 20px rgba(255,107,26,.38);}
