@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Страхование пациентов в КИ медизделий: нужно ли — Probarium</title>
+<meta name="description" content="Обязательно ли страховать участников КИ медизделий: отличие от лекарств, правила ЕАЭС, страховка или компенсация вреда, выбор полиса и чек-лист.">
+<link rel="canonical" href="https://probarium.ru/blog/strahovanie-pacientov-ki-medizdeliy/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Страхование пациентов в КИ медизделий: нужно ли">
+<meta property="og:description" content="Обязательно ли страховать участников КИ медизделий: отличие от лекарств, правила ЕАЭС, страховка или компенсация вреда, выбор полиса и чек-лист.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/strahovanie-pacientov-ki-medizdeliy/">
+<meta property="og:image" content="https://probarium.ru/assets/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+@media (max-width:374px){
+  .final-cta{padding:24px;}
+  .final-cta .copy,.final-cta form{min-width:0;flex-basis:100%;}
+}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-col li.footer-social{display:flex;gap:12px;margin-top:14px;}
+.footer-col .footer-social a{display:inline-flex;border-radius:10px;transition:transform .2s ease,box-shadow .2s ease;}
+.footer-col .footer-social a:hover,.footer-col .footer-social a:focus-visible{transform:translateY(-2px);box-shadow:0 0 0 3px var(--gold);}
+@media (prefers-reduced-motion:reduce){.footer-col .footer-social a{transition:none;}.footer-col .footer-social a:hover{transform:none;}}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:0;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;}
+.article-body blockquote{border-left:4px solid var(--blue-sky);background:var(--blue-pale);border-radius:0 8px 8px 0;padding:12px 18px;margin:8px 0 18px;font-size:15px;color:var(--graphite);font-style:italic;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113257593', 'ym');
+    ym(113257593, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113257593" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+<link rel="stylesheet" href="/assets/css/header-fx.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi">Услуги</a></li>
+        <li><a href="/o-kompanii">О компании</a></li>
+        <li><a href="/npa">НПА</a></li>
+        <li><a href="/blog/">Блог</a></li>
+        <li><a href="/kontakty">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi">Услуги</a>
+    <a href="/o-kompanii">О компании</a>
+    <a href="/npa">НПА</a>
+    <a href="/blog/">Блог</a>
+    <a href="/kontakty">Контакты</a>
+    <a href="/kontakty" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog/">Блог</a> / <span aria-current="page">Страхование пациентов в КИ</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>9 мин чтения</span><span>9 октября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Страхование пациентов в клинических испытаниях медизделий: обязательно ли и как оформить</h1>
+    <p class="lead">Производитель медицинского изделия готовится к клиническим испытаниям. Программа исследования согласована, клинический центр выбран, документы для этической оценки почти готовы. Остаётся вопрос: <strong>нужно ли страховать участников и какой полис подойдёт?</strong></p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <p>На практике здесь возникает путаница. Одни специалисты ориентируются на правила клинических исследований лекарств, другие предлагают стандартный полис ответственности производителя, третьи считают, что достаточно письма о готовности компенсировать вред.</p>
+
+      <p>Эти решения не равнозначны. Для медицинских изделий важно различать требования законодательства, правила конкретной процедуры исследования и договорные условия клинического центра.</p>
+
+      <p>Разберём, когда нужен страховой полис, чем отличается документ о компенсации вреда и что необходимо проверить до включения первого пациента.</p>
+
+      <h2>Короткий ответ</h2>
+
+      <p><strong>Универсального требования заключать отдельный договор страхования жизни и здоровья каждого участника клинического испытания медицинского изделия в российском законодательстве не установлено.</strong></p>
+
+      <p>Это принципиальное отличие от клинических исследований лекарственных препаратов. Для них обязательное страхование жизни и здоровья пациентов предусмотрено статьёй 44 Федерального закона № 61-ФЗ «Об обращении лекарственных средств». Автоматически переносить эту норму на исследования медицинских изделий нельзя.</p>
+
+      <p>Однако отсутствие общей обязанности приобрести полис не означает, что вопрос возмещения вреда можно оставить без решения. Вред, причинённый здоровью участника, подлежит возмещению по общим правилам гражданского законодательства, а клинический центр и Совет по этике могут оценивать, как этот вопрос решён в исследовании.</p>
+
+      <h2>Национальная процедура и процедура ЕАЭС</h2>
+
+      <p>Требования необходимо определять по конкретной процедуре. Клинические испытания в рамках национальной регистрации (ПП № 1684 и приказ Минздрава № 421н) и исследования по правилам ЕАЭС нельзя считать одинаковыми.</p>
+
+      <p><strong>По правилам ЕАЭС</strong> (Решение Совета ЕЭК от 12.02.2016 № 29) в комплект документов, предоставляемых для проведения исследования, входит документ об условиях <strong>страхования или возмещения (компенсации) возможного вреда</strong> здоровью участника в соответствии с законодательством государства проведения исследования. То есть правила ЕАЭС прямо допускают как страхование, так и иной механизм компенсации.</p>
+
+      <p><strong>По национальной процедуре</strong> отдельного обязательного требования о страховании участников КИ медизделий нет. Но клинический центр может включить такое условие в свои требования или в договор.</p>
+
+      <p><strong>Практический вывод:</strong> прежде чем обращаться в страховую компанию, установите правовой режим исследования, требования клинического центра и порядок этической оценки.</p>
+
+      <h2>Страховка или компенсация вреда: в чём разница?</h2>
+
+      <p><strong>Страхование</strong> предполагает заключение договора со страховой компанией. При наступлении предусмотренного договором страхового случая выплата производится в соответствии с его условиями.</p>
+
+      <p><strong>Механизм компенсации вреда</strong> предполагает документально оформленный порядок возмещения вреда без обязательного участия страховщика. Например, стороны могут предусмотреть соответствующие обязательства в договорных документах.</p>
+
+      <p>Но то, что правила ЕАЭС допускают альтернативу, не означает, что любое гарантийное письмо автоматически заменяет полис. Документ должен соответствовать применимому законодательству и требованиям процедуры исследования.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Критерий</th><th>Страховой полис</th><th>Документ о компенсации</th></tr>
+        <tr><td>Кто обеспечивает выплату</td><td>Страховщик в пределах договора</td><td>Обязанное лицо согласно закону и документам</td></tr>
+        <tr><td>Основной документ</td><td>Договор страхования, полис, условия</td><td>Соглашение или иной юридически значимый документ</td></tr>
+        <tr><td>Что нужно проверить</td><td>Риски, исключения, лимиты, сроки</td><td>Основания, порядок и реальную исполнимость обязательств</td></tr>
+        <tr><td>Основной риск</td><td>Событие не входит в покрытие</td><td>Механизм недостаточно определён или финансово не обеспечен</td></tr>
+      </table>
+      </div>
+
+      <p>Для инвазивных исследований и испытаний изделий высокого класса риска страхование может оказаться более подходящим способом управления финансовыми рисками. Но выбор следует обосновывать характером вмешательств, а не предположением о всеобщей обязательности полиса.</p>
+
+      <h2>Кто должен организовать финансовую защиту участников?</h2>
+
+      <p>Обычно этот вопрос решает заказчик исследования совместно с клиническим центром. Организационные функции могут быть переданы контрактной исследовательской организации (CRO).</p>
+
+      <p>Важно различать три роли:</p>
+
+      <ul>
+        <li><strong>Заказчик КИ</strong> организует исследование и согласует механизм защиты участников.</li>
+        <li><strong>Клинический центр</strong> обеспечивает медицинскую часть исследования и выполняет предусмотренные договором обязанности.</li>
+        <li><strong>Страховщик</strong>, если заключён договор страхования, принимает на себя определённые договором страховые риски.</li>
+      </ul>
+
+      <p>Распределение обязанностей необходимо зафиксировать письменно. Например, договор с клиническим центром должен позволять понять, кто уведомляет страховщика о происшествии, кто собирает документы и кто обеспечивает медицинскую помощь участнику.</p>
+
+      <p>При этом договор между организациями не может отменить предусмотренную законом ответственность перед пострадавшим пациентом.</p>
+
+      <h2>Какой страховой договор подходит для КИ?</h2>
+
+      <p>Одна из распространённых ошибок — использовать обычный полис гражданской ответственности производителя, не проверив его условия.</p>
+
+      <p>Такой полис может покрывать вред, вызванный недостатком продукции, но не обязательно распространяться на дополнительные процедуры, предусмотренные программой исследования.</p>
+
+      <p>Например, участник может пострадать не из-за дефекта медицинского изделия, а в связи с исследовательской манипуляцией. Если этот риск исключён из договора, рассчитывать на страховую выплату по такому событию нельзя.</p>
+
+      <p>Поэтому перед заключением договора следует проверить:</p>
+
+      <ol>
+        <li><strong>Объект страхования.</strong> Чьи интересы застрахованы и какой вред охватывает договор?</li>
+        <li><strong>Страховые случаи.</strong> Включены ли риски, связанные с применением исследуемого изделия и предусмотренными программой процедурами?</li>
+        <li><strong>Исключения.</strong> Какие обстоятельства позволяют страховщику отказать в выплате?</li>
+        <li><strong>Лимиты.</strong> Достаточны ли суммы покрытия с учётом числа участников и тяжести возможных последствий?</li>
+        <li><strong>Сроки.</strong> Когда начинается и заканчивается покрытие? Что происходит при отсроченных осложнениях?</li>
+        <li><strong>Территория и центры.</strong> Распространяется ли договор на все площадки исследования?</li>
+        <li><strong>Порядок обращения.</strong> Кто уведомляет страховщика, какие документы необходимы и в какие сроки?</li>
+      </ol>
+
+      <p>Отдельного внимания требуют имплантируемые изделия и исследования с длительным наблюдением: возможный вред может проявиться уже после завершения активной фазы КИ.</p>
+
+      <p><strong>Фиксированного универсального страхового лимита для всех КИ медицинских изделий нет.</strong> Суммы определяются с учётом оценки риска и условий конкретного договора. Страховые суммы, установленные для исследований лекарств, нельзя автоматически применять к медизделиям.</p>
+
+      <h2>Какие документы подготовить для клинического центра</h2>
+
+      <p>Для исследований по правилам ЕАЭС документ об условиях страхования или компенсации возможного вреда входит в комплект материалов исследования. По национальной процедуре его состав определяется требованиями клинического центра и договором.</p>
+
+      <p>В зависимости от выбранного механизма могут понадобиться:</p>
+
+      <ul>
+        <li>договор страхования или полис с условиями и приложениями;</li>
+        <li>документ о порядке компенсации вреда, если выбран иной механизм;</li>
+        <li>сведения о сроках действия, лимитах и исключениях;</li>
+        <li>документы, подтверждающие действие страхового покрытия;</li>
+        <li>описание порядка обращения участника за помощью и компенсацией;</li>
+        <li>согласованные положения договора между заказчиком и клиническим центром.</li>
+      </ul>
+
+      <p>Не каждый из этих документов универсально обязателен. Например, подтверждение оплаты страховой премии может запрашиваться клиническим центром в рамках его внутренних требований.</p>
+
+      <p>Главное — чтобы сведения в договоре, программе исследования и документах для участника не противоречили друг другу.</p>
+
+      <h2>Что написать в информированном согласии</h2>
+
+      <p>Участник должен понимать не только медицинские риски исследования, но и порядок действий при причинении вреда.</p>
+
+      <p>В информационном листке целесообразно простым языком объяснить, какой механизм компенсации предусмотрен, к кому обращаться при осложнении, какие документы могут потребоваться и где получить дополнительную информацию. Как устроена форма согласия в целом — в статье <a href="/blog/informirovannoe-soglasie-ki-medizdeliya/" class="inline-link">«Информированное согласие на участие в КИ медизделия»</a>.</p>
+
+      <p>Нельзя создавать впечатление, что любое неблагоприятное событие автоматически признаётся страховым случаем. Решение о выплате зависит от обстоятельств, применимого законодательства и условий договора.</p>
+
+      <p>Также нельзя смешивать компенсацию вреда здоровью с возмещением транспортных расходов или иных затрат на участие в исследовании. Это разные вопросы.</p>
+
+      <p>Отказ участника от дальнейшего участия в КИ сам по себе не означает отказа от права требовать возмещения ранее причинённого вреда.</p>
+
+      <h2>Практический пример: 80 пациентов, два клинических центра</h2>
+
+      <p><strong>Ситуация.</strong> Производитель планирует исследование незарегистрированного медицинского изделия в двух российских клинических центрах. Предполагается включить 80 пациентов.</p>
+
+      <p>Страховая компания предлагает стандартный полис ответственности производителя. Он покрывает вред вследствие дефекта изделия, но не содержит ясных условий об исследовательских процедурах.</p>
+
+      <p>Можно ли начинать КИ?</p>
+
+      <p>Сначала необходимо определить применимые требования и проверить договор. Наличие полиса само по себе не доказывает, что риски исследования надлежащим образом учтены.</p>
+
+      <p><strong>Что сделать до включения первого участника:</strong></p>
+
+      <ol>
+        <li>Сопоставить страховое покрытие с программой КИ и оценкой рисков.</li>
+        <li>Проверить, распространяется ли договор на оба центра и все предусмотренные процедуры.</li>
+        <li>Согласовать достаточные лимиты и период покрытия.</li>
+        <li>Определить порядок уведомления о неблагоприятных событиях.</li>
+        <li>Подготовить документы о страховании или компенсации для клинических центров.</li>
+        <li>Проверить соответствие информационного листка участника фактическим условиям финансовой защиты.</li>
+      </ol>
+
+      <p>Если договор не покрывает существенные риски исследования, нужно обсудить расширение покрытия, другой страховой продукт либо допустимый механизм компенсации. Как организовать работу нескольких центров — в статье <a href="/blog/mnogocentrovoe-ki-medizdeliya/" class="inline-link">«Многоцентровое КИ медизделия»</a>.</p>
+
+      <h2>Чек-лист перед началом КИ</h2>
+
+      <ul>
+        <li>Определён применимый правовой режим исследования: национальная процедура или ЕАЭС.</li>
+        <li>Проверены требования к документу о страховании или компенсации.</li>
+        <li>Финансовые риски сопоставлены с программой КИ.</li>
+        <li>Выбран механизм защиты участников.</li>
+        <li>Проверены страховые случаи, исключения, лимиты и сроки.</li>
+        <li>Установлено распределение обязанностей между заказчиком, CRO и клиническим центром.</li>
+        <li>Документы согласованы с требованиями клинической площадки.</li>
+        <li>В информированном согласии понятным языком описан порядок обращения при причинении вреда.</li>
+        <li>Определён порядок действий при неблагоприятном событии.</li>
+        <li>Предусмотрен пересмотр документов при продлении исследования или изменении его условий.</li>
+      </ul>
+
+      <h2>Частые вопросы</h2>
+      <details class="faq-item"><summary>Обязательно ли страховать участников КИ медицинского изделия?</summary><p>Универсального требования нет — в отличие от клинических исследований лекарств, где страхование обязательно по ст. 44 Федерального закона № 61-ФЗ. Но по правилам ЕАЭС нужен документ об условиях страхования или компенсации вреда, а клинический центр может требовать страхование по своим правилам.</p></details>
+      <details class="faq-item"><summary>Можно ли проводить КИ без страхового полиса?</summary><p>В определённых случаях может использоваться документированный механизм компенсации возможного вреда. Его допустимость нужно проверять для конкретной процедуры и центра. Отсутствие полиса не означает отсутствия ответственности за вред.</p></details>
+      <details class="faq-item"><summary>Кто оплачивает страховку?</summary><p>На практике расходы обычно несёт заказчик исследования. Конкретные финансовые обязанности распределяются договором между участниками организации КИ.</p></details>
+      <details class="faq-item"><summary>Сколько стоит страхование участников?</summary><p>Единой ставки нет. Стоимость зависит от числа участников, характера вмешательств, класса риска изделия, лимитов, продолжительности и других условий страхования. Как учитывать эту статью в общем бюджете — в статье <a href="/blog/stoimost-klinicheskih-ispytanij-medizdeliya/" class="inline-link">«Сколько стоят клинические испытания медизделия в 2026 году»</a>.</p></details>
+      <details class="faq-item"><summary>Что делать, если исследование продлили?</summary><p>Проверить, продолжает ли действовать выбранный механизм защиты. Если срок покрытия заканчивается раньше нового срока исследования, условия нужно своевременно пересмотреть.</p></details>
+      <details class="faq-item"><summary>Что делать, если пациент пострадал?</summary><p>В первую очередь обеспечить необходимую медицинскую помощь, документировать событие и выполнить предусмотренные обязанности по уведомлению. Затем инициировать рассмотрение вопроса о возмещении вреда или страховой выплате.</p></details>
+
+      <h2>Вывод: сначала требования и риски, потом полис</h2>
+
+      <p>Для клинических испытаний медицинских изделий вопрос страхования нельзя решить одной фразой «обязательно» или «необязательно».</p>
+
+      <p>Необходимо определить применимую процедуру, оценить риски для участников, выбрать допустимый механизм финансовой защиты и документально оформить его до начала исследовательских процедур.</p>
+
+      <p><strong>Наличие полиса ещё не гарантирует достаточность покрытия. А отсутствие универсальной обязанности страховать не освобождает от ответственности за причинённый вред.</strong></p>
+
+      <h2>Нормативная база</h2>
+
+      <ul>
+        <li>Федеральный закон от 12.04.2010 № 61-ФЗ «Об обращении лекарственных средств», ст. 44 — обязательное страхование пациентов в клинических исследованиях лекарственных препаратов (для сравнения).</li>
+        <li>Решение Совета ЕЭК от 12.02.2016 № 29 — Правила проведения клинических и клинико-лабораторных испытаний (исследований) медицинских изделий.</li>
+        <li>Постановление Правительства РФ от 30.11.2024 № 1684 — Правила государственной регистрации медицинских изделий.</li>
+        <li>Приказ Минздрава России от 13.05.2026 № 421н — Порядок проведения оценки соответствия медицинских изделий.</li>
+        <li>Гражданский кодекс РФ, глава 59 — обязательства вследствие причинения вреда.</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/informirovannoe-soglasie-ki-medizdeliya/">Информированное согласие на участие в КИ медизделия: структура, подписи и ошибки оформления</a>
+        <a class="related-card" href="/blog/eticheskiy-komitet-ki-medizdeliya/">Этический комитет в КИ медизделия: роль, документы, сроки</a>
+        <a class="related-card" href="/blog/stoimost-klinicheskih-ispytanij-medizdeliya/">Сколько стоят клинические испытания медизделия в 2026 году</a>
+        <a class="related-card" href="/blog/mnogocentrovoe-ki-medizdeliya/">Многоцентровое КИ медизделия: когда нужно и как организовать</a>
+        <a class="related-card" href="/glossariy/">Глоссарий терминов</a>
+        <a class="related-card" href="/blog/">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Готовите клинические испытания медицинского изделия?</h2>
+          <p>Probarium помогает подготовить клиническое исследование: программу, документы для Совета по этике и клинических центров, взаимодействие с площадками. Поможем определить, какие документы о страховании или компенсации вреда нужны для вашего исследования и на каком этапе их подготовить. Подробнее — на странице <a href="/klinicheskie-ispytaniya-medizdeliy/" style="text-decoration:underline;">клинических испытаний медизделий</a>.</p>
+          <p style="margin-top:14px;"><a href="mailto:info@probarium.ru?subject=Страхование участников КИ медизделия" class="btn btn-outline">Обсудить подготовку КИ</a></p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/strahovanie-pacientov-ki-medizdeliy)">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой форме испытаний"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii">О компании</a></li>
+          <li><a href="/komanda">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa">НПА</a></li>
+          <li><a href="/reestry">Реестры</a></li>
+          <li><a href="/glossariy">Глоссарий</a></li>
+          <li><a href="/blog/">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li class="footer-social">
+            <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg width="40" height="40" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg></a>
+            <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX"><img src="/assets/img/max-icon.png" width="40" height="40" alt="" style="border-radius:9px;"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy">Конфиденциальность</a> ·
+        <a href="/cookie">Cookie</a> ·
+        <a href="/terms">Соглашение</a> ·
+        <a href="/disclaimer">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Страхование пациентов в клинических испытаниях медизделий: обязательно ли и как оформить",
+  "description": "Обязательно ли страховать участников КИ медизделий: отличие от лекарств, правила ЕАЭС, страховка или компенсация вреда, выбор полиса и чек-лист.",
+  "author": {
+    "@type": "Person",
+    "name": "Артемий-Татуш Танделов",
+    "jobTitle": "Генеральный директор Probarium",
+    "url": "https://t.me/tandelovtat"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Probarium"
+  },
+  "mainEntityOfPage": "https://probarium.ru/blog/strahovanie-pacientov-ki-medizdeliy/",
+  "datePublished": "2026-10-09",
+  "dateModified": "2026-10-09"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://probarium.ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://probarium.ru/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Страхование пациентов в КИ",
+      "item": "https://probarium.ru/blog/strahovanie-pacientov-ki-medizdeliy/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Обязательно ли страховать участников КИ медицинского изделия?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Универсального требования нет — в отличие от клинических исследований лекарств, где страхование обязательно по ст. 44 Федерального закона № 61-ФЗ. Но по правилам ЕАЭС нужен документ об условиях страхования или компенсации вреда, а клинический центр может требовать страхование по своим правилам."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли проводить КИ без страхового полиса?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В определённых случаях может использоваться документированный механизм компенсации возможного вреда. Его допустимость нужно проверять для конкретной процедуры и центра. Отсутствие полиса не означает отсутствия ответственности за вред."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Кто оплачивает страховку?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На практике расходы обычно несёт заказчик исследования. Конкретные финансовые обязанности распределяются договором между участниками организации КИ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит страхование участников?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Единой ставки нет. Стоимость зависит от числа участников, характера вмешательств, класса риска изделия, лимитов, продолжительности и других условий страхования. Как учитывать эту статью в общем бюджете — в статье «Сколько стоят клинические испытания медизделия в 2026 году»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если исследование продлили?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Проверить, продолжает ли действовать выбранный механизм защиты. Если срок покрытия заканчивается раньше нового срока исследования, условия нужно своевременно пересмотреть."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если пациент пострадал?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В первую очередь обеспечить необходимую медицинскую помощь, документировать событие и выполнить предусмотренные обязанности по уведомлению. Затем инициировать рассмотрение вопроса о возмещении вреда или страховой выплате."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/header-fx.js" defer></script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
