@@ -141,6 +141,9 @@
     background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;
   }
   .card-photo{margin:0 0 18px;height:200px;}
+  /* крупные портретные фото вторых карточек: выше и шире (выходят за поля карточки), одинаковая высота */
+  .card-photo.card-photo-tall{height:420px;margin:0 -10px 18px;}
+  @media (max-width:640px){.card-photo.card-photo-tall{height:340px;margin:0 -6px 16px;}}
   .card-photo img{--fade:14px;display:block;width:100%;height:100%;object-fit:cover;object-position:var(--pos,center);
     -webkit-mask-image:linear-gradient(to right,transparent 0,#000 var(--fade),#000 calc(100% - var(--fade)),transparent 100%),linear-gradient(to bottom,transparent 0,#000 var(--fade),#000 calc(100% - var(--fade)),transparent 100%);
     -webkit-mask-composite:source-in;
@@ -506,10 +509,10 @@ body.nav-open{overflow:hidden;}
           <a class="more" href="/klinicheskie-ispytaniya-medizdeliy">Подробнее →</a>
         </article>
         <article class="card">
-          <figure class="card-photo" style="--pos:50% 30%">
+          <figure class="card-photo card-photo-tall" style="--pos:50% 58%">
           <picture>
-            <source type="image/webp" srcset="/assets/img/card-doklinika-toksikologiya-640.webp 640w, /assets/img/card-doklinika-toksikologiya-1080.webp 1080w, /assets/img/card-doklinika-toksikologiya-1536.webp 1536w" sizes="(max-width:640px) calc(100vw - 98px), (max-width:1208px) calc(50vw - 84px), 496px">
-            <img src="/assets/img/card-doklinika-toksikologiya-1080.jpg" srcset="/assets/img/card-doklinika-toksikologiya-640.jpg 640w, /assets/img/card-doklinika-toksikologiya-1080.jpg 1080w, /assets/img/card-doklinika-toksikologiya-1536.jpg 1536w" sizes="(max-width:640px) calc(100vw - 98px), (max-width:1208px) calc(50vw - 84px), 496px" width="1080" height="720" alt="Доклинические исследования: лабораторный стенд с образцами материалов, пробирками и испытательной машиной" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="/assets/img/card-doklinika-lab-640.webp 640w, /assets/img/card-doklinika-lab-1080.webp 1080w" sizes="(max-width:640px) calc(100vw - 78px), (max-width:1208px) calc(50vw - 64px), 540px">
+            <img src="/assets/img/card-doklinika-lab-1080.jpg" srcset="/assets/img/card-doklinika-lab-640.jpg 640w, /assets/img/card-doklinika-lab-1080.jpg 1080w" sizes="(max-width:640px) calc(100vw - 78px), (max-width:1208px) calc(50vw - 64px), 540px" width="1080" height="1618" alt="Лаборант в стерильной одежде, шапочке и маске загружает образцы в лабораторный анализатор" loading="lazy" decoding="async">
           </picture>
         </figure>
         <span class="badge-support">Сопутствующая услуга</span>
@@ -521,10 +524,10 @@ body.nav-open{overflow:hidden;}
           <a class="more" href="/doklinicheskie-issledovaniya">Подробнее →</a>
         </article>
         <article class="card">
-          <figure class="card-photo" style="--pos:60% 62%">
+          <figure class="card-photo card-photo-tall" style="--pos:50% 78%">
           <picture>
-            <source type="image/webp" srcset="/assets/img/card-tehnicheskie-ispytaniya-640.webp 640w, /assets/img/card-tehnicheskie-ispytaniya-1080.webp 1080w, /assets/img/card-tehnicheskie-ispytaniya-1536.webp 1536w" sizes="(max-width:640px) calc(100vw - 98px), (max-width:1208px) calc(50vw - 84px), 496px">
-            <img src="/assets/img/card-tehnicheskie-ispytaniya-1080.jpg" srcset="/assets/img/card-tehnicheskie-ispytaniya-640.jpg 640w, /assets/img/card-tehnicheskie-ispytaniya-1080.jpg 1080w, /assets/img/card-tehnicheskie-ispytaniya-1536.jpg 1536w" sizes="(max-width:640px) calc(100vw - 98px), (max-width:1208px) calc(50vw - 84px), 496px" width="1080" height="720" alt="Технические испытания медицинского изделия: прибор на стенде электромагнитной совместимости с измерительным оборудованием" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="/assets/img/card-tehnicheskie-multimetr-640.webp 640w, /assets/img/card-tehnicheskie-multimetr-1080.webp 1080w" sizes="(max-width:640px) calc(100vw - 78px), (max-width:1208px) calc(50vw - 64px), 540px">
+            <img src="/assets/img/card-tehnicheskie-multimetr-1080.jpg" srcset="/assets/img/card-tehnicheskie-multimetr-640.jpg 640w, /assets/img/card-tehnicheskie-multimetr-1080.jpg 1080w" sizes="(max-width:640px) calc(100vw - 78px), (max-width:1208px) calc(50vw - 64px), 540px" width="1080" height="1920" alt="Специалист проверяет электронный компонент: в руках отвёртка и деталь, рядом на столе мультиметр и инструменты" loading="lazy" decoding="async">
           </picture>
         </figure>
         <span class="badge-support">Сопутствующая услуга</span>
