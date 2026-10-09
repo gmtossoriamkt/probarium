@@ -63,3 +63,11 @@ header.site-header nav.main-nav a{white-space:nowrap;}
 button.btn{font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;}
 header .btn.btn-primary.header-cta:hover,
 header .btn.btn-primary.header-cta:focus-visible{box-shadow:0 6px 20px rgba(255,107,26,.38);}
+
+/* ---- Подвал: более яркий шрифт (Space Grotesk, насыщенный цвет) ---- */
+footer .footer-col h3{font-family:'Space Grotesk',Arial,sans-serif;font-size:15px;font-weight:700;letter-spacing:.02em;color:var(--blue-deep);margin-bottom:14px;}
+footer .footer-col a{font-family:'Space Grotesk',Arial,sans-serif;font-size:14.5px;font-weight:500;color:var(--graphite);transition:color .2s ease;}
+footer .footer-col a:hover,footer .footer-col a:focus-visible{color:#BF4508;}
+footer .footer-bottom,footer .footer-bottom a{font-family:'Space Grotesk',Arial,sans-serif;font-size:13px;font-weight:500;color:var(--graphite);}
+footer .footer-bottom a:hover{color:#BF4508;}
+footer .footer-col li.footer-social a:hover{color:inherit;}
