@@ -88,6 +88,9 @@ function enhanceArticle(file, slug) {
     if (!h.includes('/assets/js/article-cta.js'))
       h = h.replace('<script src="/assets/js/cookie-banner.js" defer></script>',
         '<script src="/assets/js/article-cta.js" defer></script>\n<script src="/assets/js/cookie-banner.js" defer></script>');
+    if (!h.includes('/assets/js/leads.js'))
+      h = h.replace('<script src="/assets/js/cookie-banner.js" defer></script>',
+        '<script src="/assets/js/leads.js" defer></script>\n<script src="/assets/js/cookie-banner.js" defer></script>');
 
     // финальный блок: ищем и в обычной, и в минифицированной (без кавычек) разметке
     if (!FINAL_RE.test(h)) {

@@ -313,6 +313,7 @@
       <label for="contactEmail">Email</label>
       <input type="email" id="contactEmail" placeholder="you@company.ru">
 
+      <p id="appError" role="alert" style="color:#B3261E;font-size:14px;margin:12px 0 0;display:none;"></p>
       <div class="btn-row">
         <button class="btn ghost" data-back="3">← Назад</button>
         <button class="btn" id="submitApp">Отправить заявку</button>
@@ -324,8 +325,8 @@
       <div class="success">
         <div class="mark">✓</div>
         <h2>Заявка сформирована</h2>
-        <p>Сейчас откроется ваш почтовый клиент с готовым письмом на адрес Probarium.<br>
-        Если этого не произошло — нажмите кнопку ниже, чтобы скопировать данные заявки.</p>
+        <p>Заявка отправлена в Probarium — специалист свяжется с вами в течение рабочего дня.<br>
+        Данные заявки можно сохранить себе — кнопка ниже.</p>
         <div class="btn-row" style="justify-content:center; margin-top:20px;">
           <button class="btn ghost" id="copyApp">Скопировать данные заявки</button>
           <button class="btn" id="restart">Новая заявка</button>
@@ -625,12 +626,34 @@ function buildAppText(){
 }
 
 document.getElementById("submitApp").addEventListener("click", ()=>{
+  const btn = document.getElementById("submitApp");
+  const err = document.getElementById("appError");
   const text = buildAppText();
-  const subject = encodeURIComponent("Заявка на классификацию МИ — " + (document.getElementById("devName").value.trim()||""));
-  const body = encodeURIComponent(text);
+  const devName = document.getElementById("devName").value.trim();
+  const cName = document.getElementById("contactName").value.trim();
+  const cPhone = document.getElementById("contactPhone").value.trim();
+  const cEmail = document.getElementById("contactEmail").value.trim();
   window.lastAppText = text;
-  window.location.href = `mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`;
-  goTo(5);
+  err.style.display = "none";
+  if(!cEmail && !cPhone){
+    err.textContent = "Укажите телефон или email, чтобы мы могли с вами связаться.";
+    err.style.display = "block";
+    return;
+  }
+  const subject = "Заявка на классификацию МИ — " + devName;
+  const mailto = `mailto:${TARGET_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+  const orig = btn.textContent;
+  btn.disabled = true; btn.textContent = "Отправляем…";
+  const payload = {_subject: subject, name: cName, company: document.getElementById("contactCompany").value.trim(),
+                   phone: cPhone, email: cEmail, need: "Классификация медицинского изделия", message: text};
+  const done = ok => {
+    btn.disabled = false; btn.textContent = orig;
+    if(ok){ goTo(5); return; }
+    err.innerHTML = 'Не удалось отправить заявку. Напишите на <a href="' + mailto + '">info@probarium.ru</a> или позвоните +7 985 316-91-04 — данные заявки можно скопировать на следующем шаге.';
+    err.style.display = "block";
+  };
+  if(window.ProbariumLeads){ window.ProbariumLeads.submit(payload).then(r => done(r.ok), () => done(false)); }
+  else { done(false); }
 });
 
 document.getElementById("copyApp").addEventListener("click", ()=>{
@@ -657,6 +680,7 @@ document.getElementById("restart").addEventListener("click", ()=>{
 
 goTo(0);
 </script>
+<script src="/assets/js/leads.js" defer></script>
 <script src="/assets/js/cookie-banner.js" defer></script>
 </body>
 </html>

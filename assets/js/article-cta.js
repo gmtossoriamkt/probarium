@@ -1,4 +1,4 @@
-/* Статьи блога: предзаполнение формы из CTA, отправка без перезагрузки, цели Яндекс.Метрики, оглавление на мобильных. */
+/* Статьи блога: предзаполнение формы из CTA, цели Яндекс.Метрики, оглавление на мобильных. Отправку форм делает leads.js. */
 (function(){
   var COUNTER = 113257593;
   function goal(name, params){
@@ -24,31 +24,7 @@
     }
   });
 
-  // Отправка формы без перезагрузки (Formspree JSON). При сбое — обычная отправка.
-  var form = document.getElementById('cta-form');
-  if(form && window.fetch && window.FormData){
-    form.addEventListener('submit', function(e){
-      if(form.dataset.sending === '1') return;
-      e.preventDefault();
-      form.dataset.sending = '1';
-      var btn = form.querySelector('button[type="submit"]');
-      if(btn) btn.disabled = true;
-      fetch(form.action, {method:'POST', body:new FormData(form), headers:{'Accept':'application/json'}})
-        .then(function(r){
-          if(!r.ok) throw new Error('bad');
-          goal('article_form_submit', {article: article});
-          var ok = document.createElement('div');
-          ok.className = 'form-thanks';
-          ok.setAttribute('role', 'status');
-          ok.textContent = 'Спасибо, заявка отправлена. Мы свяжемся с вами в течение рабочего дня.';
-          form.replaceWith(ok);
-        })
-        .catch(function(){
-          form.dataset.sending = '2';
-          form.submit();
-        });
-    });
-  }
+  // Отправка формы выполняется общим скриптом /assets/js/leads.js
 
   // Оглавление: на узких экранах свёрнуто
   var toc = document.querySelector('details.toc');
