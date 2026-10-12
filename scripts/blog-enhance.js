@@ -216,6 +216,97 @@ function linkArticle(file, slug) {
   });
 }
 
+// ---- JSON-LD (BlogPosting), даты, оглавление ----
+const RU = {а:'a',б:'b',в:'v',г:'g',д:'d',е:'e',ё:'e',ж:'zh',з:'z',и:'i',й:'y',к:'k',л:'l',м:'m',н:'n',о:'o',п:'p',р:'r',с:'s',т:'t',у:'u',ф:'f',х:'h',ц:'c',ч:'ch',ш:'sh',щ:'sch',ъ:'',ы:'y',ь:'',э:'e',ю:'yu',я:'ya'};
+const slugify = s => s.toLowerCase().replace(/[а-яё]/g, c => RU[c]).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 48) || 'section';
+const MONTHS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+const ruDate = iso => { const [y, m, d] = iso.split('-').map(Number); return `${d} ${MONTHS[m - 1]} ${y}`; };
+
+function ldArticle(file, slug) {
+  return edit(file, h => {
+    const url = `https://probarium.ru/blog/${slug}/`;
+    // BlogPosting
+    h = h.replace(/<script type="application\/ld\+json">\s*(\{[\s\S]*?\})\s*<\/script>/g, (m, json) => {
+      let o;
+      try { o = JSON.parse(json); } catch (e) { return m; }
+      if (!/Article|BlogPosting/.test(o['@type'])) return m;
+      const mod = o.dateModified || o.datePublished;
+      const out = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: o.headline,
+        description: o.description,
+        inLanguage: 'ru',
+        image: ['https://probarium.ru/assets/og-cover.jpg'],
+        author: {'@type': 'Person', name: 'Артемий-Татуш Танделов', jobTitle: 'Генеральный директор Probarium', url: 'https://probarium.ru/komanda/', sameAs: ['https://t.me/tandelovtat']},
+        publisher: {'@type': 'Organization', name: 'Probarium', url: 'https://probarium.ru/', logo: {'@type': 'ImageObject', url: 'https://probarium.ru/icon-512.png'}},
+        mainEntityOfPage: {'@type': 'WebPage', '@id': url},
+        datePublished: o.datePublished,
+        dateModified: mod,
+      };
+      return '<script type="application/ld+json">\n' + JSON.stringify(out, null, 2) + '\n</script>';
+    });
+    const art = JSON.parse((h.match(/<script type="application\/ld\+json">\s*(\{[^<]*"@type": "BlogPosting"[\s\S]*?\})\s*<\/script>/) || [, '{}'])[1]);
+    const pub = art.datePublished, mod = art.dateModified;
+
+    // видимая дата обновления (если отличается от даты публикации)
+    h = h.replace(/<!--enh:upd-->[\s\S]*?<!--\/enh:upd-->/g, '');
+    if (pub && mod && mod !== pub) {
+      h = h.replace(/(<div class="article-meta">[\s\S]*?<span>)([^<]*)(<\/span>)(<\/div>)/, (m, a, b, c, d) =>
+        b.trim().startsWith('Обновлено') ? m : `${a}${b}${c}<!--enh:upd--><span>Обновлено: ${ruDate(mod)}</span><!--/enh:upd-->${d}`);
+    }
+
+    // оглавление: больше 8 заголовков H2 в теле статьи
+    h = h.replace(/<!--enh:toc-->[\s\S]*?<!--\/enh:toc-->\n*/g, '');
+    const bs = h.indexOf('<div class="container article-body">');
+    const be = bs >= 0 ? h.indexOf('</section>', bs) : -1;
+    if (bs >= 0 && be > bs) {
+      let body = h.slice(bs, be);
+      const used = new Set();
+      const items = [];
+      body = body.replace(/<h2((?: [^>]*)?)>([\s\S]*?)<\/h2>/g, (m, attrs, inner) => {
+        const text = inner.replace(/<[^>]+>/g, '').trim();
+        let id = (attrs.match(/ id="?([^" >]+)"?/) || [])[1];
+        if (!id) {
+          id = slugify(text);
+          let k = 2, base = id;
+          while (used.has(id)) id = base + '-' + k++;
+          attrs += ` id="${id}"`;
+        }
+        used.add(id);
+        items.push({id, text});
+        return `<h2${attrs}>${inner}</h2>`;
+      });
+      if (items.length > 8) {
+        const toc = marker('toc', `      <details class="toc" open>\n        <summary>Содержание</summary>\n        <ol>\n${items.map(i => `          <li><a href="#${i.id}">${esc(i.text)}</a></li>`).join('\n')}\n        </ol>\n      </details>`);
+        body = body.replace('<div class="container article-body">', '<div class="container article-body">\n\n' + toc + '\n');
+      }
+      h = h.slice(0, bs) + body + h.slice(be);
+    }
+    return h;
+  });
+}
+
+if (run('ld')) {
+  let n = 0;
+  const mods = {};
+  for (const d of fs.readdirSync(path.join(ROOT, 'blog'))) {
+    const f = path.join(ROOT, 'blog', d, 'index.html');
+    if (!fs.existsSync(f)) continue;
+    if (ldArticle(f, d)) n++;
+    const h = fs.readFileSync(f, 'utf8');
+    const m = h.match(/"dateModified":\s*"([^"]+)"/);
+    if (m) mods[d] = m[1];
+  }
+  // sitemap lastmod = dateModified
+  let sm = 0;
+  edit(path.join(ROOT, 'sitemap.xml'), s => s.replace(/(<loc>https:\/\/probarium\.ru\/blog\/([a-z0-9-]+)\/<\/loc>\s*<lastmod>)([^<]+)(<\/lastmod>)/g, (m, a, slug, lm, z) => {
+    if (mods[slug] && mods[slug] !== lm) { sm++; return a + mods[slug] + z; }
+    return m;
+  }));
+  console.log('blog-enhance ld: обновлено статей:', n, '; lastmod в sitemap исправлено:', sm);
+}
+
 if (run('links')) {
   let n = 0;
   for (const d of fs.readdirSync(path.join(ROOT, 'blog'))) {

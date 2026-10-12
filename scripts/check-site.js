@@ -62,7 +62,7 @@ const strip = s => unent(s.replace(/<\/?(?:br|p|li|ul|ol|div|h[1-6])\b[^>]*>/gi,
 
 // видимый FAQ: <details><summary>вопрос</summary>ответ</details>, а если таких нет — пары <h3>вопрос</h3>ответ под <h2>FAQ / Частые вопросы</h2>
 function visibleFaq(h) {
-  const det = [...h.matchAll(/<details[^>]*>\s*<summary[^>]*>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g)].map(m => [strip(m[1]), strip(m[2])]);
+  const det = [...h.matchAll(/<details(?![^>]*class="toc")[^>]*>\s*<summary[^>]*>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g)].map(m => [strip(m[1]), strip(m[2])]);
   if (det.length) return det;
   const hm = h.match(/<h2[^>]*>[^<]*(?:FAQ|Частые вопросы)[^<]*<\/h2>/i);
   if (!hm) return [];
