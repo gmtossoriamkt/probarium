@@ -14,11 +14,14 @@ let files = 0, links = 0;
     if (['node_modules', '.git', 'scratchpad', 'biblioteka', '.local'].includes(e)) continue;
     const q = path.join(d, e);
     if (fs.statSync(q).isDirectory()) { walk(q); continue; }
-    if (!e.endsWith('.html')) continue;
+    if (!e.endsWith('.html') && e !== 'sitemap.xml') continue;
     const raw = fs.readFileSync(q, 'utf8');
     const crlf = raw.includes('\r\n');
     let n = 0;
-    const out = raw.replace(/\r\n/g, '\n').replace(/(href=)("?)(\/[a-z0-9][a-z0-9\-\/]*[a-z0-9])(["?# >])/g, (m, a, qt, p, tail) => {
+    const out = raw.replace(/\r\n/g, '\n')
+      // абсолютные адреса сайта (canonical, og:url, JSON-LD, sitemap)
+      .replace(/(https:\/\/probarium\.ru)(\/[a-z0-9][a-z0-9\-\/]*[a-z0-9])(["<?# ])/g, (m, a, p, tail) => { if (!isDir(p)) return m; n++; return a + p + '/' + tail; })
+      .replace(/(href=)("?)(\/[a-z0-9][a-z0-9\-\/]*[a-z0-9])(["?# >])/g, (m, a, qt, p, tail) => {
       if (!isDir(p)) return m;
       n++;
       return a + qt + p + '/' + tail;
