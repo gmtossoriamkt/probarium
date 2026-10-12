@@ -180,6 +180,7 @@ body.nav-open{overflow:hidden;}
   gtag('config', 'G-ZQRVBWM464');
 </script>
 <link rel="stylesheet" href="/assets/css/header-fx.css">
+<link rel="stylesheet" href="/assets/css/article.css">
 </head>
 <body>
 <a href="#main" class="skip-link">Перейти к содержимому</a>
@@ -429,22 +430,46 @@ body.nav-open{overflow:hidden;}
     </div>
   </section>
 
+<!--enh:next-->
+  <section class="next-steps" aria-labelledby="next-h2">
+    <div class="container">
+      <h2 id="next-h2">Что делать дальше</h2>
+      <div class="next-grid">
+        <div class="next-card"><h3>Проверить комплект документов</h3><p>Проверим комплект перед подачей и подскажем, что нужно доработать.</p><a href="#cta-form" class="btn btn-primary" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Страхование пациентов в КИ" data-need="Клинические испытания">Оставить заявку</a></div>
+        <div class="next-card"><h3>Клинические испытания медицинских изделий</h3><p>Формы испытаний, этапы и условия работы — на странице услуги.</p><a href="/klinicheskie-ispytaniya-medizdeliy/" class="btn btn-outline" data-goal="service_from_article">Перейти к услуге</a></div>
+        <div class="next-card"><h3>Рассчитать стоимость</h3><p>Ориентировочный расчёт по направлению испытаний — в калькуляторе.</p><a href="/kalkulyator/" class="btn btn-outline" data-goal="calc_from_article">Открыть калькулятор</a></div>
+      </div>
+    </div>
+  </section>
+<!--/enh:next-->
+
   <section id="final-cta">
     <div class="container">
       <div class="final-cta">
         <div class="copy">
           <h2>Готовите клинические испытания медицинского изделия?</h2>
           <p>Probarium помогает подготовить клиническое исследование: программу, документы для Совета по этике и клинических центров, взаимодействие с площадками. Поможем определить, какие документы о страховании или компенсации вреда нужны для вашего исследования и на каком этапе их подготовить. Подробнее — на странице <a href="/klinicheskie-ispytaniya-medizdeliy/" style="text-decoration:underline;">клинических испытаний медизделий</a>.</p>
-          <p style="margin-top:14px;"><a href="mailto:info@probarium.ru?subject=Страхование участников КИ медизделия" class="btn btn-outline">Обсудить подготовку КИ</a></p>
+          <p style="margin-top:14px;"><a href="#cta-form" class="btn btn-outline" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Страхование пациентов в КИ" data-need="Клинические испытания">Обсудить подготовку КИ</a></p>
         </div>
-        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+        <form id="cta-form" aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
           <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/strahovanie-pacientov-ki-medizdeliy)">
+          <input type="hidden" name="source_url" value="https://probarium.ru/blog/strahovanie-pacientov-ki-medizdeliy/">
+          <input type="hidden" name="source_article" value="Страхование пациентов в КИ">
           <label class="visually-hidden" for="name">Имя</label>
           <input id="name" name="name" type="text" placeholder="Ваше имя" required>
           <label class="visually-hidden" for="company">Компания</label>
           <input id="company" name="company" type="text" placeholder="Компания">
           <label class="visually-hidden" for="email">Email</label>
           <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="phone">Телефон</label>
+          <input id="phone" name="phone" type="tel" placeholder="Телефон (необязательно)" autocomplete="tel">
+          <label class="visually-hidden" for="need">Что нужно</label>
+          <select id="need" name="need">
+            <option>Клинические испытания</option>
+            <option>Доклиника и токсикология</option>
+            <option>Технические испытания</option>
+            <option>Не знаю, нужна консультация</option>
+          </select>
           <label class="visually-hidden" for="message">Комментарий</label>
           <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой форме испытаний"></textarea>
           <label class="consent">
@@ -627,6 +652,7 @@ function toggleMobileNav(){
 }
 </script>
 <script src="/assets/js/header-fx.js" defer></script>
+<script src="/assets/js/article-cta.js" defer></script>
 <script src="/assets/js/cookie-banner.js" defer></script>
 </body>
 </html>

@@ -180,6 +180,7 @@ body.nav-open{overflow:hidden;}
   gtag('config', 'G-ZQRVBWM464');
 </script>
 <link rel="stylesheet" href="/assets/css/header-fx.css">
+<link rel="stylesheet" href="/assets/css/article.css">
 </head>
 <body>
 <a href="#main" class="skip-link">Перейти к содержимому</a>
@@ -306,6 +307,10 @@ body.nav-open{overflow:hidden;}
       <p>Само разрешение требуется в зависимости от маршрута регистрации. По общему маршруту КИ с участием человека проводится после получения разрешения Росздравнадзора; для ряда российских изделий предусмотрен специальный маршрут со своими условиями, а для ИВД и программного обеспечения разрешение не требуется. Поэтому правило «импортное изделие — разрешение нужно, российское — нет» некорректно.</p>
 
       <p>То же относится к этике: отдельной государственной пошлины за рассмотрение материалов Советом по этике для медизделий нет, но подготовка и сопровождение пакета могут быть платными услугами.</p>
+
+            <!--enh:inline-->
+      <aside class="inline-cta" aria-label="Подсказка"><p>Хотите оценить стоимость и сроки для своего изделия?</p><a href="/kalkulyator/" class="btn btn-primary" data-goal="calc_from_article">Открыть калькулятор</a></aside>
+<!--/enh:inline-->
 
       <h2>Клинический центр</h2>
 
@@ -523,22 +528,46 @@ body.nav-open{overflow:hidden;}
     </div>
   </section>
 
+<!--enh:next-->
+  <section class="next-steps" aria-labelledby="next-h2">
+    <div class="container">
+      <h2 id="next-h2">Что делать дальше</h2>
+      <div class="next-grid">
+        <div class="next-card"><h3>Рассчитать стоимость</h3><p>Ориентировочный расчёт по направлению испытаний — в калькуляторе.</p><a href="/kalkulyator/" class="btn btn-outline" data-goal="calc_from_article">Открыть калькулятор</a></div>
+        <div class="next-card"><h3>Клинические испытания медицинских изделий</h3><p>Формы испытаний, этапы и условия работы — на странице услуги.</p><a href="/klinicheskie-ispytaniya-medizdeliy/" class="btn btn-outline" data-goal="service_from_article">Перейти к услуге</a></div>
+        <div class="next-card"><h3>Обсудить проект</h3><p>Расскажите об изделии — менеджер свяжется и предложит маршрут испытаний.</p><a href="#cta-form" class="btn btn-primary" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Как читать смету КИ" data-need="Не знаю, нужна консультация">Оставить заявку</a></div>
+      </div>
+    </div>
+  </section>
+<!--/enh:next-->
+
   <section id="final-cta">
     <div class="container">
       <div class="final-cta">
         <div class="copy">
           <h2>Нужно сравнить коммерческие предложения на КИ?</h2>
           <p>Probarium рассчитывает бюджет КИ после определения дизайна исследования, выборки, числа центров и объёма процедур. Это позволяет ещё до старта разделить фиксированные и переменные расходы и заранее определить, какие изменения проекта могут увеличить итоговую стоимость. Подробнее — на странице <a href="/klinicheskie-ispytaniya-medizdeliy/" class="inline-link">клинических испытаний медизделий</a>.</p>
-          <p style="margin-top:14px;"><a href="mailto:info@probarium.ru?subject=Разбор сметы клинических испытаний" class="btn btn-outline">Сравнить КП на КИ</a></p>
+          <p style="margin-top:14px;"><a href="#cta-form" class="btn btn-outline" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Как читать смету КИ" data-need="Клинические испытания">Сравнить КП на КИ</a></p>
         </div>
-        <form aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+        <form id="cta-form" aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
           <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/kak-chitat-smetu-ki-medizdeliya)">
+          <input type="hidden" name="source_url" value="https://probarium.ru/blog/kak-chitat-smetu-ki-medizdeliya/">
+          <input type="hidden" name="source_article" value="Как читать смету КИ">
           <label class="visually-hidden" for="name">Имя</label>
           <input id="name" name="name" type="text" placeholder="Ваше имя" required>
           <label class="visually-hidden" for="company">Компания</label>
           <input id="company" name="company" type="text" placeholder="Компания">
           <label class="visually-hidden" for="email">Email</label>
           <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="phone">Телефон</label>
+          <input id="phone" name="phone" type="tel" placeholder="Телефон (необязательно)" autocomplete="tel">
+          <label class="visually-hidden" for="need">Что нужно</label>
+          <select id="need" name="need">
+            <option>Клинические испытания</option>
+            <option>Доклиника и токсикология</option>
+            <option>Технические испытания</option>
+            <option>Не знаю, нужна консультация</option>
+          </select>
           <label class="visually-hidden" for="message">Комментарий</label>
           <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой форме испытаний"></textarea>
           <label class="consent">
@@ -713,6 +742,7 @@ function toggleMobileNav(){
 }
 </script>
 <script src="/assets/js/header-fx.js" defer></script>
+<script src="/assets/js/article-cta.js" defer></script>
 <script src="/assets/js/cookie-banner.js" defer></script>
 </body>
 </html>
