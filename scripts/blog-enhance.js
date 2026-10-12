@@ -10,7 +10,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const {CARDS, CLUSTERS, CLUSTER_OF} = require('./blog-cta-map');
+const {CARDS, CLUSTERS, CLUSTER_OF, HUBS, PROGRAM_MEMBERS, CROSS, POINTERS} = require('./blog-cta-map');
 
 const ROOT = path.resolve(__dirname, '..');
 const phases = process.argv.slice(2);
@@ -176,6 +176,53 @@ ${cards.map(c => `        <article class="case-card">
       <p style="text-align:center;margin-top:28px;"><a class="btn btn-outline" href="/blog/">Все статьи →</a></p>
     </div>
   </section>`;
+}
+
+// ---- Перелинковка: хабы кластеров, связи между кластерами, ссылки «конкурентов» на основную статью ----
+function h1Of(slug) {
+  const h = fs.readFileSync(path.join(ROOT, 'blog', slug, 'index.html'), 'utf8');
+  return h.match(/<h1>([\s\S]*?)<\/h1>/)[1].replace(/<[^>]+>/g, '').trim();
+}
+const RELATED_ANCHOR = /(<a class="?related-card"? href="?\/glossariy\/?"?>)/;
+const hasLink = (h, slug) => new RegExp('href="?/blog/' + slug + '/?"?[ >]').test(h.slice(h.search(/id="?related-h2"?/)));
+
+function linkArticle(file, slug) {
+  const cluster = CLUSTER_OF[slug];
+  const want = [];
+  if (cluster && HUBS[cluster]) HUBS[cluster].forEach(s => want.push(s));
+  if (PROGRAM_MEMBERS.includes(slug)) HUBS.program.forEach(s => want.push(s));
+  (CROSS[slug] || []).forEach(s => want.push(s));
+  const targets = [...new Set(want)].filter(s => s !== slug && fs.existsSync(path.join(ROOT, 'blog', s, 'index.html')));
+  return edit(file, h => {
+    const relAt = h.search(/id="?related-h2"?/);
+    if (relAt < 0) return h;
+    const add = targets.filter(s => !hasLink(h, s));
+    if (add.length) {
+      const cards = add.map(s => `<a class="related-card" href="/blog/${s}/">${h1Of(s)}</a>`).join('\n        ');
+      h = h.replace(RELATED_ANCHOR, (m) => cards + '\n        ' + m);
+    }
+    // ссылка «конкурента» на основную статью по запросу (маркер — для повторных запусков)
+    h = h.replace(/<!--enh:pointer-->[\s\S]*?<!--\/enh:pointer-->/g, '');
+    const ptr = POINTERS[slug];
+    if (ptr) {
+      const at = h.indexOf('<div class="container article-body">');
+      const firstP = at >= 0 ? h.indexOf('</p>', at) : -1;
+      if (firstP > 0) {
+        const p = `<!--enh:pointer-->\n\n      <p>${ptr.text} <a href="/blog/${ptr.main}/" class="inline-link">«${ptr.anchor}»</a>.</p><!--/enh:pointer-->`;
+        h = h.slice(0, firstP + 4) + p + h.slice(firstP + 4);
+      }
+    }
+    return h;
+  });
+}
+
+if (run('links')) {
+  let n = 0;
+  for (const d of fs.readdirSync(path.join(ROOT, 'blog'))) {
+    const f = path.join(ROOT, 'blog', d, 'index.html');
+    if (fs.existsSync(f) && linkArticle(f, d)) n++;
+  }
+  console.log('blog-enhance links: обновлено статей:', n);
 }
 
 if (run('cta')) {

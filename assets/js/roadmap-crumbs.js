@@ -7,7 +7,7 @@
   var step = parseInt(q.get('step'), 10);
   var nav = cur.parentNode;
   var label = (step > 0 && step < 20 ? 'Этап ' + step + ': ' : '') + cur.textContent;
-  nav.innerHTML = '<a href="/">Главная</a> / <a href="/dorozhnaya-karta">Дорожная карта вывода на рынок</a> / ' +
+  nav.innerHTML = '<a href="/">Главная</a> / <a href="/dorozhnaya-karta/">Дорожная карта вывода на рынок</a> / ' +
     '<span aria-current="page"></span>';
   nav.querySelector('[aria-current]').textContent = label;
 })();

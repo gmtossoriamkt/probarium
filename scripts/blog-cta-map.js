@@ -79,3 +79,26 @@ const HUBS = {
 };
 
 module.exports = {CARDS, CLUSTERS, CLUSTER_OF, HUBS};
+
+// Подкластер «программа, дизайн, выборка» — все статьи получают ссылки на хабы HUBS.program
+module.exports.PROGRAM_MEMBERS = [
+  'kak-sostavit-programmu-klinicheskikh-ispytanij', 'protokol-programma-ki-medizdeliya-ekspertiza',
+  'raschet-vyborki-ki-medizdeliya-metodika', 'skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki',
+  'statisticheskaya-moshchnost-issledovaniya-medizdeliya', 'zamechanie-k-raschetu-vyborki-kak-otvechat',
+  'zamechaniya-k-programme-ki-kak-otvechat', 'kriterii-vklyucheniya-isklyucheniya-ki',
+  'konechnye-tochki-ki-medizdeliya-kak-vybrat', 'dizajn-klinicheskogo-issledovaniya-medizdeliya-vidy',
+];
+// Связи между кластерами: «программа/выборка» ↔ «клиники/исследователи»
+module.exports.CROSS = {
+  'kak-sostavit-programmu-klinicheskikh-ispytanij': ['kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora'],
+  'raschet-vyborki-ki-medizdeliya-metodika': ['mnogocentrovoe-ki-medizdeliya'],
+  'kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora': ['kak-sostavit-programmu-klinicheskikh-ispytanij', 'raschet-vyborki-ki-medizdeliya-metodika'],
+  'kak-vybrat-glavnogo-issledovatelya-dlya-ki': ['kak-sostavit-programmu-klinicheskikh-ispytanij'],
+  'mnogocentrovoe-ki-medizdeliya': ['raschet-vyborki-ki-medizdeliya-metodika'],
+};
+// Основная статья по запросу и её «конкуренты»: у вторых — ссылка на основную с анкором по запросу
+module.exports.POINTERS = {
+  'perechen-medorganizaciy-ki-kak-proverit-kliniku': {main: 'kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora', text: 'Общий порядок выбора центра — от Перечня до проверки готовности площадки — в статье', anchor: 'Как выбрать клинику для КИ медизделия'},
+  'trebovaniya-k-medorganizacii-dlya-ki-medizdeliya': {main: 'kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora', text: 'Как применить эти требования при выборе площадки — в статье', anchor: 'Как выбрать клинику для КИ медизделия'},
+  'protokol-programma-ki-medizdeliya-ekspertiza': {main: 'kak-sostavit-programmu-klinicheskikh-ispytanij', text: 'Как составить программу клинических испытаний с нуля — в статье', anchor: 'Как составить программу клинических испытаний медизделия'},
+};
