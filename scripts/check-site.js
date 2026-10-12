@@ -131,8 +131,10 @@ else {
     if (loc.startsWith(ORIGIN + '/') && !pageExists(loc.slice(ORIGIN.length))) err('sitemap.xml', 'страницы нет в репозитории: ' + loc);
     const lm = (e.match(/<lastmod>([^<]*)<\/lastmod>/) || [])[1];
     if (lm !== undefined) {
-      const d = lm.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-      const ok = d && !isNaN(Date.parse(lm)) && new Date(lm).toISOString().slice(0, 10) === lm;
+      // допускаются дата ГГГГ-ММ-ДД или полный формат ГГГГ-ММ-ДДTчч:мм:сс+чч:мм
+      const d = lm.match(/^(\d{4})-(\d{2})-(\d{2})(T\d{2}:\d{2}:\d{2}(Z|[+-]\d{2}:\d{2}))?$/);
+      const day = lm.slice(0, 10);
+      const ok = d && !isNaN(Date.parse(lm)) && new Date(day).toISOString().slice(0, 10) === day;
       if (!ok) err('sitemap.xml', 'некорректный lastmod ' + lm + ' у ' + loc);
     }
   }

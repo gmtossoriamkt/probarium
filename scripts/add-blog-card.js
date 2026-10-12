@@ -77,10 +77,10 @@ if (!args['no-check']) {
   const art = fs.readFileSync(path.join(ROOT, articleFile), 'utf8');
   let published = null;
   for (const m of art.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
-    try { const j = JSON.parse(m[1]); if (j['@type'] === 'TechArticle') published = j.datePublished; } catch (e) { fail('в ' + articleFile + ' невалидный JSON-LD'); }
+    try { const j = JSON.parse(m[1]); if (/Article|BlogPosting/.test(j['@type'])) published = j.datePublished; } catch (e) { fail('в ' + articleFile + ' невалидный JSON-LD'); }
   }
   if (!published) fail('в ' + articleFile + ' нет TechArticle с datePublished');
-  if (published !== dateIso) fail('--date ' + dateIso + ' не совпадает с datePublished статьи (' + published + ')');
+  if (published.slice(0, 10) !== dateIso) fail('--date ' + dateIso + ' не совпадает с datePublished статьи (' + published + ')');
   const h1 = (art.match(/<h1>([\s\S]*?)<\/h1>/) || [])[1];
   const metaDesc = (art.match(/<meta name="description" content="([^"]*)"/) || [])[1];
   if (h1 && norm(h1) !== norm(title)) console.warn('add-blog-card: предупреждение — --title не совпадает с H1 статьи');

@@ -220,7 +220,29 @@ function linkArticle(file, slug) {
 const RU = {а:'a',б:'b',в:'v',г:'g',д:'d',е:'e',ё:'e',ж:'zh',з:'z',и:'i',й:'y',к:'k',л:'l',м:'m',н:'n',о:'o',п:'p',р:'r',с:'s',т:'t',у:'u',ф:'f',х:'h',ц:'c',ч:'ch',ш:'sh',щ:'sch',ъ:'',ы:'y',ь:'',э:'e',ю:'yu',я:'ya'};
 const slugify = s => s.toLowerCase().replace(/[а-яё]/g, c => RU[c]).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 48) || 'section';
 const MONTHS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
-const ruDate = iso => { const [y, m, d] = iso.split('-').map(Number); return `${d} ${MONTHS[m - 1]} ${y}`; };
+const ruDate = iso => { const [y, m, d] = iso.slice(0, 10).split('-').map(Number); return `${d} ${MONTHS[m - 1]} ${y}`; };
+
+// ISO 8601 с временем и поясом (Москва, +03:00). Время берём из git-истории файла: если в тот день, что указан в
+// статье, были коммиты, то для публикации — время первого, для обновления — время последнего; иначе 10:00:00.
+const {execFileSync} = require('child_process');
+const MSK = new Intl.DateTimeFormat('en-CA', {timeZone: 'Europe/Moscow', hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'});
+function moscow(ts) {
+  const p = Object.fromEntries(MSK.formatToParts(new Date(ts * 1000)).map(x => [x.type, x.value]));
+  return {ts, date: `${p.year}-${p.month}-${p.day}`, time: `${p.hour}:${p.minute}:${p.second}`};
+}
+function commitTimes(file) {
+  try {
+    return execFileSync('git', ['log', '--format=%ct', '--', file], {cwd: ROOT}).toString().trim().split('\n').filter(Boolean).map(Number).map(moscow);
+  } catch (e) { return []; }
+}
+function fullIso(file, value, kind) {
+  if (!value) return value;
+  if (value.length > 10) return value; // уже полный формат
+  const same = commitTimes(file).filter(t => t.date === value).sort((a, b) => a.ts - b.ts);
+  if (!same.length) return `${value}T10:00:00+03:00`;
+  const pick = kind === 'pub' ? same[0] : same[same.length - 1];
+  return `${value}T${pick.time}+03:00`;
+}
 
 function ldArticle(file, slug) {
   return edit(file, h => {
@@ -230,7 +252,9 @@ function ldArticle(file, slug) {
       let o;
       try { o = JSON.parse(json); } catch (e) { return m; }
       if (!/Article|BlogPosting/.test(o['@type'])) return m;
-      const mod = o.dateModified || o.datePublished;
+      let pubIso = fullIso(file, o.datePublished, 'pub');
+      let mod = fullIso(file, o.dateModified || o.datePublished, 'mod');
+      if (mod.slice(0, 10) === pubIso.slice(0, 10) && mod < pubIso) mod = pubIso; // обновление не раньше публикации
       const out = {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
@@ -241,7 +265,7 @@ function ldArticle(file, slug) {
         author: {'@type': 'Person', name: 'Артемий-Татуш Танделов', jobTitle: 'Генеральный директор Probarium', url: 'https://probarium.ru/komanda/', sameAs: ['https://t.me/tandelovtat']},
         publisher: {'@type': 'Organization', name: 'Probarium', url: 'https://probarium.ru/', logo: {'@type': 'ImageObject', url: 'https://probarium.ru/icon-512.png'}},
         mainEntityOfPage: {'@type': 'WebPage', '@id': url},
-        datePublished: o.datePublished,
+        datePublished: pubIso,
         dateModified: mod,
       };
       return '<script type="application/ld+json">\n' + JSON.stringify(out, null, 2) + '\n</script>';
@@ -251,7 +275,7 @@ function ldArticle(file, slug) {
 
     // видимая дата обновления (если отличается от даты публикации)
     h = h.replace(/<!--enh:upd-->[\s\S]*?<!--\/enh:upd-->/g, '');
-    if (pub && mod && mod !== pub) {
+    if (pub && mod && mod.slice(0, 10) !== pub.slice(0, 10)) {
       h = h.replace(/(<div class="article-meta">[\s\S]*?<span>)([^<]*)(<\/span>)(<\/div>)/, (m, a, b, c, d) =>
         b.trim().startsWith('Обновлено') ? m : `${a}${b}${c}<!--enh:upd--><span>Обновлено: ${ruDate(mod)}</span><!--/enh:upd-->${d}`);
     }
