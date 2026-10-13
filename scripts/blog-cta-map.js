@@ -47,6 +47,7 @@ const CLUSTER_OF = {
   'zamechaniya-soveta-po-etike-ki-medizdeliya': 'docs',
   'eticheskiy-komitet-ki-medizdeliya': 'docs',
   'informirovannoe-soglasie-ki-medizdeliya': 'docs',
+  'ki-medizdeliya-uyazvimye-gruppy': 'docs',
   'strahovanie-pacientov-ki-medizdeliy': 'docs',
   'kak-sostavit-programmu-klinicheskikh-ispytanij': 'docs',
   'protokol-programma-ki-medizdeliya-ekspertiza': 'docs',

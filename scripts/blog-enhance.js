@@ -64,7 +64,7 @@ ${NEEDS.map(n => `            <option>${n}</option>`).join('\n')}
           <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой форме испытаний"></textarea>
           <label class="consent">
             <input type="checkbox" required>
-            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta" style="text-decoration:underline;">публичной оферты</a></span>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy/" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta/" style="text-decoration:underline;">публичной оферты</a></span>
           </label>
           <button type="submit" class="btn btn-primary">Отправить заявку</button>
         </form>`;
