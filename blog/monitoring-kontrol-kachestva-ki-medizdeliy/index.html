@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Мониторинг КИ медизделия: контроль качества и CAPA</title>
+<meta name="description" content="Как организовать мониторинг КИ медизделия: кто назначает монитора, план мониторинга, SDV и SDR, нежелательные события, отклонения, CAPA и чек-лист.">
+<link rel="canonical" href="https://probarium.ru/blog/monitoring-kontrol-kachestva-ki-medizdeliy/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Мониторинг КИ медизделия: контроль качества и CAPA">
+<meta property="og:description" content="Как организовать мониторинг КИ медизделия: кто назначает монитора, план мониторинга, SDV и SDR, нежелательные события, отклонения, CAPA и чек-лист.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/monitoring-kontrol-kachestva-ki-medizdeliy/">
+<meta property="og:image" content="https://probarium.ru/assets/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Probarium">
+<meta property="article:published_time" content="2026-10-14T10:00:00+03:00">
+<meta property="article:modified_time" content="2026-10-14T10:00:00+03:00">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+@media (max-width:374px){
+  .final-cta{padding:24px;}
+  .final-cta .copy,.final-cta form{min-width:0;flex-basis:100%;}
+}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-col li.footer-social{display:flex;gap:12px;margin-top:14px;}
+.footer-col .footer-social a{display:inline-flex;border-radius:10px;transition:transform .2s ease,box-shadow .2s ease;}
+.footer-col .footer-social a:hover,.footer-col .footer-social a:focus-visible{transform:translateY(-2px);box-shadow:0 0 0 3px var(--gold);}
+@media (prefers-reduced-motion:reduce){.footer-col .footer-social a{transition:none;}.footer-col .footer-social a:hover{transform:none;}}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:0;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;}
+.article-body blockquote{border-left:4px solid var(--blue-sky);background:var(--blue-pale);border-radius:0 8px 8px 0;padding:12px 18px;margin:8px 0 18px;font-size:15px;color:var(--graphite);font-style:italic;}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113257593', 'ym');
+    ym(113257593, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113257593" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQRVBWM464"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQRVBWM464');
+</script>
+<link rel="stylesheet" href="/assets/css/header-fx.css">
+<link rel="stylesheet" href="/assets/css/article.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="/uslugi/">Услуги</a></li>
+        <li><a href="/o-kompanii/">О компании</a></li>
+        <li><a href="/npa/">НПА</a></li>
+        <li><a href="/blog/">Блог</a></li>
+        <li><a href="/kontakty/">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty/" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="/uslugi/">Услуги</a>
+    <a href="/o-kompanii/">О компании</a>
+    <a href="/npa/">НПА</a>
+    <a href="/blog/">Блог</a>
+    <a href="/kontakty/">Контакты</a>
+    <a href="/kontakty/" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog/">Блог</a> / <span aria-current="page">Мониторинг и контроль качества КИ</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>19 мин чтения</span><span>14 октября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Проведение клинических испытаний медицинского изделия: контроль качества и мониторинг</h1>
+    <p class="lead"><strong>Как организовать клиническое испытание медицинского изделия без системных нарушений: распределить ответственность, контролировать безопасность участников, проверять данные и устранять отклонения.</strong></p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+<!--enh:toc-->
+      <details class="toc" open>
+        <summary>Содержание</summary>
+        <ol>
+          <li><a href="#1-normativnaya-osnova-kakie-trebovaniya-uchityva">1. Нормативная основа: какие требования учитывать</a></li>
+          <li><a href="#2-kto-otvechaet-za-kachestvo-klinicheskogo-ispyt">2. Кто отвечает за качество клинического испытания</a></li>
+          <li><a href="#3-podgotovka-centra-chto-proverit-do-pervogo-uch">3. Подготовка центра: что проверить до первого участника</a></li>
+          <li><a href="#4-kak-organizovat-monitoring-ki-medicinskogo-izd">4. Как организовать мониторинг КИ медицинского изделия</a></li>
+          <li><a href="#5-sdv-sdr-i-kachestvo-pervichnyh-dannyh">5. SDV, SDR и качество первичных данных</a></li>
+          <li><a href="#6-bezopasnost-uchastnikov-sobytiya-i-nedostatki-">6. Безопасность участников: события и недостатки изделия</a></li>
+          <li><a href="#7-otkloneniya-ot-programmy-i-capa">7. Отклонения от программы и CAPA</a></li>
+          <li><a href="#8-kakie-pokazateli-kachestva-otslezhivat-vo-vrem">8. Какие показатели качества отслеживать во время КИ</a></li>
+          <li><a href="#9-zavershenie-issledovaniya-chto-proverit-pered-">9. Завершение исследования: что проверить перед закрытием</a></li>
+          <li><a href="#10-chek-list-kontrolya-kachestva-ki-medicinskogo">10. Чек-лист контроля качества КИ медицинского изделия</a></li>
+          <li><a href="#chastye-voprosy">Частые вопросы</a></li>
+          <li><a href="#vyvody">Выводы</a></li>
+          <li><a href="#normativnaya-baza">Нормативная база</a></li>
+        </ol>
+      </details>
+<!--/enh:toc-->
+
+
+      <p>Клиническое испытание медицинского изделия (КИ) — это не только выполнение процедур по программе и сбор результатов. На протяжении всего исследования необходимо подтверждать, что права и безопасность участников защищены, изделие используется надлежащим образом, а полученные данные достоверны и пригодны для оценки безопасности и эффективности.</p>
+
+      <p>Ошибки возникают не только из-за нарушения программы. Причиной могут стать недостаточное обучение персонала, неправильная настройка оборудования, несогласованное обновление программного обеспечения, расхождения между первичными записями и электронной регистрационной картой или несвоевременное реагирование на нежелательное событие.</p>
+
+      <p>Поэтому контроль качества должен быть встроен в исследование с самого начала — от подготовки центра до закрытия базы данных и итогового отчёта.</p>
+
+      <p>Разберём, как организовать мониторинг КИ медицинского изделия, какие документы использовать, что проверять в первую очередь и как действовать при выявлении нарушений. Как подготовить само исследование — выбрать центр, пройти Совет по этике, оформить согласие участников, — мы разбирали в отдельных статьях; ссылки на них — по тексту.</p>
+
+      <h2 id="1-normativnaya-osnova-kakie-trebovaniya-uchityva">1. Нормативная основа: какие требования учитывать</h2>
+
+      <p>При планировании КИ важно сначала определить регистрационную процедуру, в рамках которой будут использоваться результаты исследования. Национальная процедура и процедура ЕАЭС — два разных маршрута с собственными правилами.</p>
+
+      <p><strong>Национальная процедура РФ.</strong> Учитываются Федеральный закон № 323-ФЗ «Об основах охраны здоровья граждан в Российской Федерации», Правила государственной регистрации медицинских изделий (ПП № 1684 от 30.11.2024) и Порядок проведения оценки соответствия медицинских изделий, утверждённый приказом Минздрава России № 421н от 13.05.2026. Приказ действует с 1 сентября 2026 года; испытания, заявления о проведении которых поданы до этой даты, проводятся по ранее установленным требованиям.</p>
+
+      <p><strong>Процедура ЕАЭС.</strong> Применяется Решение Совета ЕЭК № 29 от 12.02.2016 «О Правилах проведения клинических и клинико-лабораторных испытаний (исследований) медицинских изделий» и законодательство государства, где проводится исследование.</p>
+
+      <p><strong>ГОСТ Р ИСО 14155-2022</strong> — стандарт надлежащей клинической практики для исследований медицинских изделий с участием человека. Сам по себе он применяется добровольно, но становится обязательным, если на него прямо ссылается применимый нормативный акт или он включён в договор между участниками исследования.</p>
+
+      <p>При работе с медицинскими данными также учитывают законодательство о персональных данных, медицинской тайне и требования к информационной безопасности.</p>
+
+      <h3>Как разграничить нормативные требования и стандарты</h3>
+
+      <p>Нельзя считать, что все положения стандарта автоматически имеют одинаковую юридическую силу для каждого исследования.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Источник</th><th>Для чего используется</th></tr>
+        <tr><td>Федеральный закон № 323-ФЗ</td><td>Общие требования к охране здоровья, правам пациентов, медицинской тайне и информированному добровольному согласию</td></tr>
+        <tr><td>ПП № 1684</td><td>Государственная регистрация медицинских изделий по национальной процедуре</td></tr>
+        <tr><td>Порядок по приказу № 421н</td><td>Требования к испытаниям для национальной регистрации и оформлению их результатов</td></tr>
+        <tr><td>Решение Совета ЕЭК № 29</td><td>Правила клинических и клинико-лабораторных испытаний по процедуре ЕАЭС</td></tr>
+        <tr><td>ГОСТ Р ИСО 14155-2022</td><td>Подходы к надлежащей клинической практике, управлению качеством, документации и мониторингу</td></tr>
+        <tr><td>Программа КИ, план мониторинга, СОП и договоры</td><td>Конкретные процедуры, обязанности и контрольные мероприятия в исследовании</td></tr>
+      </table>
+      </div>
+
+      <p><strong>Практическое правило:</strong> до начала КИ подготовьте матрицу применимых требований. Для каждого положения укажите источник, ответственное лицо, необходимый документ и способ подтверждения выполнения.</p>
+
+      <p>Это поможет избежать распространённой ошибки — представлять отраслевую рекомендацию как безусловную обязанность, установленную законодательством.</p>
+
+      <h2 id="2-kto-otvechaet-za-kachestvo-klinicheskogo-ispyt">2. Кто отвечает за качество клинического испытания</h2>
+
+      <p>Контроль качества не может быть обязанностью одного монитора. Он распределён между заказчиком исследования, медицинской организацией, исследователем и привлечёнными исполнителями.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Участник</th><th>Основные задачи в системе качества</th></tr>
+        <tr><td>Заказчик (спонсор)</td><td>Организация исследования, выбор исполнителей, назначение мониторов, система управления качеством, контроль рисков и реагирование на существенные проблемы</td></tr>
+        <tr><td>Главный исследователь</td><td>Проведение исследования в центре по программе, безопасность участников, надлежащее ведение документации</td></tr>
+        <tr><td>Исследовательская команда</td><td>Выполнение процедур, внесение данных, регистрация событий и отклонений в пределах делегированных полномочий</td></tr>
+        <tr><td>Монитор</td><td>Проверка выполнения установленных требований, выявление проблем, документирование результатов мониторинга и последующий контроль</td></tr>
+        <tr><td>CRO или иной подрядчик</td><td>Выполнение переданных функций по договору с установленными границами ответственности</td></tr>
+        <tr><td>Специалисты по качеству</td><td>Аудиты, анализ системных проблем, оценка и контроль корректирующих действий</td></tr>
+      </table>
+      </div>
+
+      <p>Монитора назначает заказчик: это может быть его сотрудник или специалист привлечённой контрактной исследовательской организации (CRO). Монитор должен обладать необходимой квалификацией и не должен зависеть от исследовательского центра, который проверяет.</p>
+
+      <p>Перед началом работы полезно сформировать <strong>матрицу ответственности</strong>: кто выполняет действие, кто утверждает решение, кого консультируют и кого уведомляют.</p>
+
+      <p>Особенно важно заранее распределить обязанности при обнаружении серьёзного нежелательного события, технического дефекта изделия, потери данных или нарушения программы.</p>
+
+      <p>Передача функций подрядчику не означает автоматического исчезновения ответственности заказчика или исследователя.</p>
+
+      <h2 id="3-podgotovka-centra-chto-proverit-do-pervogo-uch">3. Подготовка центра: что проверить до первого участника</h2>
+
+      <p>Качество исследования начинается до включения первого участника. Нужно убедиться, что центр располагает необходимыми условиями, исследовательская команда понимает программу, а оборудование и процессы позволяют получать воспроизводимые данные. Как выбирать площадку — в статье <a href="/blog/kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora/" class="inline-link">«Где провести КИ медизделия: как выбрать клинику»</a>.</p>
+
+      <h3>Контрольные точки подготовки</h3>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Область</th><th>Что проверить</th><th>Подтверждающие документы</th></tr>
+        <tr><td>Программа КИ</td><td>Актуальная утверждённая версия, понятные процедуры и временные окна</td><td>Программа, история версий, документы согласования</td></tr>
+        <tr><td>Этическая экспертиза</td><td>Положительное заключение Совета по этике на актуальную версию</td><td>Заключение, перечень одобренных документов</td></tr>
+        <tr><td>Информированное согласие</td><td>Актуальная одобренная версия формы, порядок получения</td><td>Форма согласия, процедура центра</td></tr>
+        <tr><td>Персонал</td><td>Квалификация, обучение, распределение функций</td><td>Резюме, журналы обучения, журнал делегирования</td></tr>
+        <tr><td>Медицинское изделие</td><td>Комплектность, идентификация, условия эксплуатации</td><td>Журнал учёта, инструкции, техническая документация</td></tr>
+        <tr><td>Оборудование</td><td>Пригодность к измерениям, необходимые проверки и калибровки</td><td>Соответствующие журналы и свидетельства</td></tr>
+        <tr><td>Безопасность</td><td>Порядок выявления и эскалации событий</td><td>Инструкции, формы сообщений, контактная схема</td></tr>
+        <tr><td>Данные</td><td>Определённые первоисточники, права доступа, резервное копирование</td><td>План управления данными, описание систем</td></tr>
+        <tr><td>Мониторинг</td><td>Определены методы, объём и частота проверок</td><td>План мониторинга</td></tr>
+        <tr><td>Отклонения</td><td>Есть порядок регистрации и оценки нарушений</td><td>СОП, журнал отклонений, процедура CAPA</td></tr>
+      </table>
+      </div>
+
+      <p>Об этическом этапе и форме согласия подробно — в статьях <a href="/blog/eticheskiy-komitet-ki-medizdeliya/" class="inline-link">«Этический комитет в КИ медизделия»</a> и <a href="/blog/informirovannoe-soglasie-ki-medizdeliya/" class="inline-link">«Информированное согласие на участие в КИ медизделия»</a>.</p>
+
+      <p>Если изделие содержит программное обеспечение, отдельно рекомендуется проверить его версию, конфигурацию, способ обновления и порядок сохранения журналов работы.</p>
+
+      <p>Например, для медицинского датчика недостаточно записать только модель устройства. В зависимости от дизайна исследования может понадобиться прослеживаемость конкретного экземпляра, версии встроенного ПО, настроек измерения и времени регистрации показателя.</p>
+
+      <h2 id="4-kak-organizovat-monitoring-ki-medicinskogo-izd">4. Как организовать мониторинг КИ медицинского изделия</h2>
+
+      <p>Мониторинг — систематическая проверка того, что исследование проводится в соответствии с применимыми требованиями, программой и установленными процедурами, а данные собираются и документируются надлежащим образом.</p>
+
+      <p>Мониторинг не заменяет ежедневный контроль со стороны исследовательского центра. Его задача — выявлять риски и несоответствия, проверять выполнение требований и обеспечивать своевременную эскалацию проблем.</p>
+
+      <h3>Виды мониторинга</h3>
+
+      <p><strong>Очный мониторинг.</strong> Монитор посещает исследовательский центр, проверяет документы, процессы, учёт изделий и выполнение процедур.</p>
+
+      <p><strong>Дистанционный мониторинг.</strong> Определённые проверки проводятся удалённо — через защищённый доступ к электронной системе сбора данных, заверенным копиям документов или другим источникам, если это допускают документы исследования и требования к защите данных.</p>
+
+      <p><strong>Централизованный мониторинг.</strong> Данные нескольких центров анализируются для выявления закономерностей: необычных распределений измерений, пропусков, задержек ввода или повторяющихся отклонений.</p>
+
+      <p><strong>Комбинированный мониторинг.</strong> Использует разные методы в зависимости от рисков и задач конкретного этапа.</p>
+
+      <p>Дистанционный мониторинг не следует отождествлять с телемедицинской помощью: это разные процессы с различными правовыми и организационными основаниями.</p>
+
+      <h3>Как определить периодичность проверок</h3>
+
+      <p>Универсальная формула «один визит каждый месяц» не подходит для всех КИ. При разработке плана мониторинга учитывают:</p>
+
+      <ul>
+        <li>класс потенциального риска и особенности изделия;</li>
+        <li>сложность программы;</li>
+        <li>характер первичных конечных точек;</li>
+        <li>риски для участников;</li>
+        <li>опыт исследовательского центра;</li>
+        <li>интенсивность набора участников;</li>
+        <li>качество данных и выявленные отклонения;</li>
+        <li>наличие программного обеспечения и автоматизированного сбора измерений.</li>
+      </ul>
+
+      <p><strong>Риск-ориентированный подход</strong>, который рекомендует ГОСТ Р ИСО 14155-2022, позволяет направлять больше ресурсов на процессы и данные, ошибка в которых может существенно повлиять на безопасность участников или выводы исследования. При этом фактический объём мониторинга должен соответствовать обязательным требованиям и утверждённым документам исследования.</p>
+
+      <p>Объём мониторинга напрямую влияет на бюджет: как читать эту строку в коммерческом предложении, — в статье <a href="/blog/kak-chitat-smetu-ki-medizdeliya/" class="inline-link">«Как читать смету КИ медизделия»</a>.</p>
+
+      <h3>Что должно быть в плане мониторинга</h3>
+
+      <p>В план рекомендуется включить цели мониторинга, методы проверок, периодичность и условия внеплановых визитов, перечень критических данных, правила выборочной проверки, порядок оформления замечаний и сроки их рассмотрения.</p>
+
+      <p>Также полезно заранее определить критерии эскалации: какие события требуют немедленного уведомления ответственных лиц, а какие могут рассматриваться в рамках обычного последующего контроля.</p>
+
+      <!--enh:inline-->
+      <aside class="inline-cta" aria-label="Подсказка"><p>Хотите оценить стоимость и сроки для своего изделия?</p><a href="/kalkulyator/" class="btn btn-primary" data-goal="calc_from_article">Открыть калькулятор</a></aside>
+<!--/enh:inline-->
+
+      <h2 id="5-sdv-sdr-i-kachestvo-pervichnyh-dannyh">5. SDV, SDR и качество первичных данных</h2>
+
+      <p>Даже правильно проведённое исследование может оказаться проблемным, если невозможно подтвердить происхождение и достоверность результатов. Поэтому мониторинг должен охватывать весь путь данных: от первичного измерения до итогового анализа.</p>
+
+      <h3>Что относится к первичным данным</h3>
+
+      <p>Первичные данные — исходные записи и заверенные копии, необходимые для восстановления хода исследования и оценки полученных результатов. В зависимости от дизайна КИ источниками могут быть:</p>
+
+      <ul>
+        <li>медицинские карты и электронные медицинские записи;</li>
+        <li>лабораторные журналы;</li>
+        <li>записи и файлы медицинского оборудования;</li>
+        <li>журналы работы датчиков;</li>
+        <li>изображения и результаты инструментальных исследований;</li>
+        <li>дневники участников;</li>
+        <li>электронные записи, созданные непосредственно в исследовательской системе.</li>
+      </ul>
+
+      <p>Индивидуальная регистрационная карта (CRF) предназначена для структурированного сбора предусмотренных программой данных; её электронный вариант обозначают eCRF.</p>
+
+      <p>Электронная система может быть первичным источником, если прямой ввод предусмотрен процессом исследования и обеспечены необходимые свойства данных: идентификация автора, прослеживаемость изменений, сохранность и возможность проверки.</p>
+
+      <h3>Чем SDV отличается от SDR</h3>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Критерий</th><th>SDV</th><th>SDR</th></tr>
+        <tr><td>Полное название</td><td>Source Data Verification — сверка с первичными данными</td><td>Source Data Review — обзор первичных данных</td></tr>
+        <tr><td>Основная задача</td><td>Проверить соответствие данных CRF/eCRF первоисточнику</td><td>Оценить первичные записи и процесс получения данных</td></tr>
+        <tr><td>Типичный вопрос</td><td>Совпадает ли значение в eCRF с записью прибора?</td><td>Получено ли измерение в соответствии с программой и корректно ли оно документировано?</td></tr>
+        <tr><td>Что помогает обнаружить</td><td>Ошибки переноса, расхождения значений</td><td>Пропуски процедур, несогласованность записей, системные проблемы качества</td></tr>
+      </table>
+      </div>
+
+      <p>SDV и SDR дополняют друг друга, но не заменяют одна другую.</p>
+
+      <h3>Нужно ли проверять 100% данных</h3>
+
+      <p>Полную проверку всех полей не следует заранее считать обязательной для любого исследования. Но и выборочная сверка не может назначаться исключительно ради сокращения затрат.</p>
+
+      <p>Объём проверки определяется применимыми требованиями, рисками, критичностью данных и планом мониторинга. Повышенного внимания обычно требуют информированное согласие, соответствие критериям включения и исключения, первичные конечные точки, сведения о безопасности и ключевые параметры использования изделия.</p>
+
+      <h3>Особенности электронных данных медицинских изделий</h3>
+
+      <p>При работе с программно-аппаратными системами рекомендуется обеспечить прослеживаемость:</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Параметр</th><th>Зачем он нужен</th></tr>
+        <tr><td>Идентификатор экземпляра изделия</td><td>Связь результата с конкретным устройством</td></tr>
+        <tr><td>Версия встроенного ПО</td><td>Оценка влияния изменений алгоритмов</td></tr>
+        <tr><td>Время измерения и часовой пояс</td><td>Проверка соблюдения временных окон</td></tr>
+        <tr><td>Настройки устройства</td><td>Воспроизводимость условий измерения</td></tr>
+        <tr><td>Статус калибровки или проверки</td><td>Подтверждение пригодности измерительной системы</td></tr>
+        <tr><td>История изменений</td><td>Возможность восстановить действия с записью</td></tr>
+        <tr><td>Сведения о передаче данных</td><td>Выявление потерь, задержек и ошибок синхронизации</td></tr>
+      </table>
+      </div>
+
+      <p>Если значение в eCRF не совпадает с журналом прибора, нужно установить причину: ошибка переноса, сбой синхронизации, неправильная привязка участника или техническая проблема.</p>
+
+      <p>Монитор инициирует запрос на уточнение, а исправление выполняет уполномоченное лицо с сохранением истории изменений.</p>
+
+      <p><strong>Исходное измерение нельзя произвольно заменять «скорректированным» значением.</strong> Если оно получено с нарушением программы, следует сохранить исходную запись и отдельно документировать решение о пригодности данных для анализа.</p>
+
+      <h2 id="6-bezopasnost-uchastnikov-sobytiya-i-nedostatki-">6. Безопасность участников: события и недостатки изделия</h2>
+
+      <p>Контроль безопасности включает своевременное выявление, документирование, оценку и эскалацию событий, которые могут затрагивать участников исследования. Для медицинских изделий важно различать клинические последствия и технические проблемы устройства.</p>
+
+      <h3>Основные категории событий</h3>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Термин</th><th>Рабочее значение</th></tr>
+        <tr><td>Нежелательное событие (AE)</td><td>Неблагоприятное событие у участника, не обязательно связанное с изделием</td></tr>
+        <tr><td>Серьёзное нежелательное событие (SAE)</td><td>Нежелательное событие, соответствующее установленным критериям серьёзности</td></tr>
+        <tr><td>Нежелательное воздействие изделия (ADE)</td><td>Нежелательное событие, связанное с исследуемым изделием</td></tr>
+        <tr><td>Серьёзное нежелательное воздействие изделия (SADE)</td><td>Серьёзное нежелательное событие, связанное с изделием</td></tr>
+        <tr><td>Недостаток изделия (device deficiency)</td><td>Неисправность, дефект, проблема с маркировкой, инструкцией или идентификацией, подлежащая оценке</td></tr>
+      </table>
+      </div>
+
+      <p>Это рабочая терминология ГОСТ Р ИСО 14155-2022. Для конкретного КИ определения, классификация и порядок сообщения должны соответствовать применимым правилам и программе.</p>
+
+      <p>Нельзя автоматически считать, что любое нежелательное событие направляется во все контролирующие органы, а любой технический дефект имеет одинаковый срок сообщения.</p>
+
+      <h3>Что делать при выявлении события</h3>
+
+      <p><strong>Шаг 1. Обеспечить безопасность участника.</strong> Приоритет — необходимые медицинские действия и предотвращение дальнейшего вреда.</p>
+
+      <p><strong>Шаг 2. Зафиксировать факты.</strong> Обстоятельства, время, состояние участника, сведения об изделии и доступные первичные записи.</p>
+
+      <p><strong>Шаг 3. Провести первоначальную оценку.</strong> Серьёзность, возможная связь с изделием и необходимость дополнительных действий.</p>
+
+      <p><strong>Шаг 4. Выполнить уведомления.</strong> По установленным для исследования маршрутам и срокам, включая уведомление этического органа, если этого требуют правила.</p>
+
+      <p><strong>Шаг 5. Организовать последующее наблюдение и расследование.</strong> Дополнительные сведения, оценка повторяемости и возможных системных причин.</p>
+
+      <p><strong>Шаг 6. Документировать результат.</strong> История решений, принятые меры и данные последующего наблюдения.</p>
+
+      <p>При неисправности программного медицинского изделия полезно фиксировать версию ПО, конфигурацию, журналы ошибок и условия возникновения проблемы.</p>
+
+      <p>Даже если неисправность не привела к вреду, её нельзя автоматически считать незначительной: необходима оценка потенциальных последствий и требований к регистрации и сообщению.</p>
+
+      <h3>Когда следует пересматривать условия исследования</h3>
+
+      <p>Повторяющиеся серьёзные события, новый существенный риск или дефект, способный повлиять на безопасность, могут потребовать дополнительных мер: внеплановой оценки риска, дополнительного обучения, ограничения использования отдельных экземпляров, пересмотра документации или приостановки определённых процедур.</p>
+
+      <p>Решения о таких мерах принимает заказчик в рамках своей ответственности за исследование, а этический орган и другие участники уведомляются в предусмотренных правилами случаях. Если меры требуют изменения программы, её новая версия оформляется как поправка, согласуется с медицинской организацией и при необходимости проходит повторное этическое рассмотрение — подробнее в статье <a href="/blog/zamechaniya-soveta-po-etike-ki-medizdeliya/" class="inline-link">«Замечания Совета по этике к КИ медизделия»</a>.</p>
+
+      <h2 id="7-otkloneniya-ot-programmy-i-capa">7. Отклонения от программы и CAPA</h2>
+
+      <p>Отклонение от программы — отступление от предусмотренного порядка действий. Например, участнику провели измерение вне допустимого временного окна, использовали неверную настройку прибора или пропустили обязательную процедуру.</p>
+
+      <p>При этом не всякая техническая неисправность автоматически является отклонением, и не каждая ошибка в данных свидетельствует о нарушении процедуры. Ситуацию нужно классифицировать по фактическим обстоятельствам.</p>
+
+      <h3>Как управлять отклонениями</h3>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Этап</th><th>Практическое действие</th><th>Результат</th></tr>
+        <tr><td>Обнаружение</td><td>Зафиксировать факт и первичные сведения</td><td>Запись об отклонении</td></tr>
+        <tr><td>Первичная оценка</td><td>Определить влияние на безопасность и данные</td><td>Оценка значимости</td></tr>
+        <tr><td>Эскалация</td><td>Уведомить ответственных лиц по установленной процедуре</td><td>Подтверждение сообщения</td></tr>
+        <tr><td>Расследование</td><td>Выявить непосредственные и системные причины</td><td>Результаты анализа первопричины</td></tr>
+        <tr><td>Коррекция</td><td>Устранить выявленное несоответствие, где это возможно</td><td>Документированное исправление</td></tr>
+        <tr><td>CAPA</td><td>Определить меры по устранению причин и предупреждению повторения</td><td>План действий</td></tr>
+        <tr><td>Проверка результативности</td><td>Оценить, сработали ли меры</td><td>Решение о закрытии</td></tr>
+      </table>
+      </div>
+
+      <h3>Коррекция и CAPA — не одно и то же</h3>
+
+      <p><strong>Коррекция</strong> устраняет обнаруженное несоответствие или его непосредственные последствия. Например, уполномоченный сотрудник исправляет ошибочную запись с сохранением истории изменения.</p>
+
+      <p><strong>Корректирующее действие</strong> направлено на устранение причины уже возникшей проблемы.</p>
+
+      <p><strong>Предупреждающее действие</strong> направлено на предотвращение потенциального несоответствия.</p>
+
+      <p>CAPA (корректирующие и предупреждающие действия) не нужно механически открывать на каждую опечатку. Но серьёзное единичное нарушение тоже может потребовать системных действий, даже если оно ещё не повторялось.</p>
+
+      <p>Для анализа первопричины применяют методы «5 почему», диаграмму Исикавы и анализ процессов. Выводы должны подтверждаться фактами, а не сводиться к формуле «сотрудник был невнимателен».</p>
+
+      <h3>Практический кейс: измерения вне временного окна</h3>
+
+      <p><em>Пример условный, не описывает конкретный проект.</em></p>
+
+      <p><strong>Ситуация.</strong> В трёх исследовательских центрах обнаружено, что измерения медицинским датчиком неоднократно проводились на 15 минут позже времени, предусмотренного программой.</p>
+
+      <p><strong>Обнаружение.</strong> Централизованный анализ временных меток показал повторяющийся сдвиг. Монитор сопоставил записи eCRF с журналами устройства.</p>
+
+      <p><strong>Регистрация.</strong> Отклонения внесли в журнал и направили ответственным лицам в сроки, установленные документами исследования.</p>
+
+      <p><strong>Оценка влияния.</strong> Нарушение может повлиять на сопоставимость результатов и оценку конечной точки. Решение о включении таких измерений в анализ принимается по заранее установленным или надлежащим образом документированным статистическим правилам.</p>
+
+      <p><strong>Анализ первопричины.</strong> Локальная инструкция неоднозначно описывала момент измерения, а интерфейс программы показывал напоминание с задержкой.</p>
+
+      <p><strong>CAPA.</strong> Уточнили рабочую инструкцию без изменения требований программы КИ, провели обучение и оценили необходимость корректировки интерфейса. Любое изменение исследуемого ПО предварительно проверили на влияние на безопасность, характеристики изделия и сопоставимость данных.</p>
+
+      <p><strong>Проверка результативности.</strong> На последующих визитах и при централизованном анализе проверили соблюдение временных окон. Отсутствие новых случаев за выбранный период стало одним из критериев оценки эффективности мер.</p>
+
+      <p><strong>Главный вывод:</strong> CAPA результативна не после обучения или изменения инструкции, а после подтверждения, что причина устранена и контроль работает.</p>
+
+      <h2 id="8-kakie-pokazateli-kachestva-otslezhivat-vo-vrem">8. Какие показатели качества отслеживать во время КИ</h2>
+
+      <p>Мониторинг становится полезнее, когда отдельные замечания объединяются в систему показателей. Рекомендуется небольшой набор метрик, соответствующих рискам конкретного исследования.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Показатель</th><th>Что помогает выявить</th></tr>
+        <tr><td>Доля пропущенных критических данных</td><td>Проблемы с выполнением процедур и полнотой записей</td></tr>
+        <tr><td>Число открытых запросов к данным</td><td>Накопление нерешённых расхождений</td></tr>
+        <tr><td>Время закрытия запросов</td><td>Задержки в обработке данных</td></tr>
+        <tr><td>Повторяющиеся отклонения</td><td>Возможные системные причины</td></tr>
+        <tr><td>Доля измерений вне временного окна</td><td>Проблемы с организацией процедур</td></tr>
+        <tr><td>Несвоевременные записи</td><td>Риски для прослеживаемости и достоверности</td></tr>
+        <tr><td>Незакрытые существенные замечания</td><td>Неустранённые проблемы качества</td></tr>
+        <tr><td>Результаты проверки CAPA</td><td>Действенность принятых мер</td></tr>
+      </table>
+      </div>
+
+      <p>Пороговые значения желательно устанавливать заранее и пересматривать при изменении профиля рисков. Показатели оценивают в контексте: большое число запросов к данным может указывать как на проблемы качества, так и на более интенсивную проверку.</p>
+
+      <p>Работа с данными по ходу исследования, а не только в конце, заметно сокращает срок закрытия базы — подробнее в статье <a href="/blog/kak-uskorit-klinicheskie-ispytaniya-medizdeliya/" class="inline-link">«Как ускорить КИ медизделия без потери качества»</a>.</p>
+
+      <h2 id="9-zavershenie-issledovaniya-chto-proverit-pered-">9. Завершение исследования: что проверить перед закрытием</h2>
+
+      <p>Закрытие КИ — это не просто окончание набора и последнего визита. Перед окончательным закрытием нужно убедиться, что открытые вопросы по безопасности, отклонениям, данным и учёту изделий рассмотрены. Рекомендуется проверить:</p>
+
+      <ul>
+        <li>завершённость предусмотренных программой процедур;</li>
+        <li>статус событий безопасности и необходимого последующего наблюдения;</li>
+        <li>полноту первичных записей и CRF/eCRF;</li>
+        <li>статус открытых запросов и расхождений;</li>
+        <li>документирование существенных отклонений;</li>
+        <li>результаты расследований и CAPA;</li>
+        <li>учёт исследуемых изделий и их дальнейшую судьбу;</li>
+        <li>доступность журналов электронных систем и истории изменений;</li>
+        <li>комплектность итоговых документов;</li>
+        <li>порядок хранения и архивирования материалов.</li>
+      </ul>
+
+      <p>Сроки хранения и перечень обязательных документов определяются применимыми требованиями и документацией исследования. Единый срок архивирования для всех процедур без проверки правового основания устанавливать не следует.</p>
+
+      <h2 id="10-chek-list-kontrolya-kachestva-ki-medicinskogo">10. Чек-лист контроля качества КИ медицинского изделия</h2>
+
+      <h3>До начала исследования</h3>
+
+      <ul>
+        <li>Определена применимая регистрационная процедура и нормативная база.</li>
+        <li>Утверждены необходимые версии программы и исследовательских документов, получено заключение Совета по этике.</li>
+        <li>Распределены обязанности между заказчиком, центром, монитором и подрядчиками.</li>
+        <li>Персонал обучен процедурам и работе с изделием.</li>
+        <li>Подтверждена готовность оборудования и информационных систем.</li>
+        <li>Определены первичные источники данных.</li>
+        <li>Подготовлены план мониторинга и порядок регистрации отклонений.</li>
+        <li>Установлены маршруты и сроки сообщений о событиях безопасности.</li>
+      </ul>
+
+      <h3>Во время исследования</h3>
+
+      <ul>
+        <li>Соблюдаются требования к информированному согласию.</li>
+        <li>Проверяются критерии включения и исключения.</li>
+        <li>Измерения проводятся в предусмотренных программой условиях.</li>
+        <li>Контролируются идентификаторы и версии исследуемых изделий.</li>
+        <li>Первичные данные доступны для предусмотренной проверки.</li>
+        <li>Исправления записей прослеживаемы.</li>
+        <li>События безопасности своевременно оцениваются и обрабатываются.</li>
+        <li>Отклонения регистрируются и классифицируются.</li>
+        <li>Существенные и повторяющиеся проблемы проходят анализ первопричины.</li>
+        <li>Результативность CAPA подтверждается документально.</li>
+      </ul>
+
+      <h3>При завершении</h3>
+
+      <ul>
+        <li>Проверена полнота критических данных.</li>
+        <li>Разрешены или документированы открытые вопросы.</li>
+        <li>Завершён предусмотренный контроль безопасности.</li>
+        <li>Оформлены необходимые итоговые отчёты.</li>
+        <li>Урегулирован учёт исследуемых изделий.</li>
+        <li>Определены порядок и сроки архивирования.</li>
+      </ul>
+
+      <p>Чек-лист не заменяет нормативные требования и утверждённые процедуры конкретного КИ.</p>
+
+      <h2 id="chastye-voprosy">Частые вопросы</h2>
+      <details class="faq-item"><summary>Кто отвечает за мониторинг клинического испытания медицинского изделия?</summary><p>Организация мониторинга — обязанность заказчика исследования. Мониторов назначает заказчик: это его сотрудники или специалисты привлечённой CRO. Монитор должен быть квалифицирован и независим от проверяемого исследовательского центра, а его полномочия — документированы.</p></details>
+      <details class="faq-item"><summary>Как часто монитор должен посещать исследовательский центр?</summary><p>Единой периодичности нет. График проверок формируется на основании применимых требований, программы, плана мониторинга и оценки рисков.</p></details>
+      <details class="faq-item"><summary>Можно ли проводить мониторинг дистанционно?</summary><p>Отдельные процедуры — да, если это допускают документы исследования и требования к защите данных. Нужно обеспечить защиту персональных данных, конфиденциальность медицинской информации и надлежащие условия доступа.</p></details>
+      <details class="faq-item"><summary>Обязательно ли проверять 100% первичных данных?</summary><p>Объём сверки определяется применимыми требованиями и планом мониторинга. Риск-ориентированная выборка может быть обоснованной, но критические данные требуют соответствующего уровня контроля.</p></details>
+      <details class="faq-item"><summary>Что делать, если данные eCRF расходятся с журналом прибора?</summary><p>Выяснить причину, сохранить исходные записи и оформить запрос на уточнение. Исправления выполняет уполномоченное лицо с сохранением истории изменений.</p></details>
+      <details class="faq-item"><summary>Является ли любая неисправность изделия серьёзным нежелательным событием?</summary><p>Нет. Недостаток изделия и нежелательное событие у участника — разные категории. Но неисправность без фактического вреда всё равно может требовать расследования и мер по управлению риском.</p></details>
+      <details class="faq-item"><summary>Нужно ли открывать CAPA на каждое отклонение?</summary><p>Не автоматически. Решение зависит от значимости нарушения, его причин, потенциальных последствий и риска повторения. Серьёзное единичное нарушение также может стать основанием для CAPA.</p></details>
+      <details class="faq-item"><summary>Можно ли изменить инструкцию центра, если она мешает выполнять программу?</summary><p>Локальную инструкцию можно уточнять в установленном порядке, но она не должна противоречить утверждённой программе. Если нужно изменить саму процедуру исследования, это оформляется поправкой к программе с согласованием и при необходимости повторным этическим рассмотрением.</p></details>
+      <details class="faq-item"><summary>Как доказать, что CAPA сработала?</summary><p>Заранее определить критерии результативности, затем проверить фактическое выполнение мер и отсутствие проблемы либо снижение риска до приемлемого уровня. Результаты фиксируются документально.</p></details>
+
+      <h2 id="vyvody">Выводы</h2>
+
+      <p>Качество клинического испытания медицинского изделия обеспечивается не количеством мониторинговых визитов и не объёмом заполненных форм. Оно зависит от того, насколько последовательно исследовательская команда управляет рисками, соблюдает программу, сохраняет первичные данные, контролирует безопасность участников и устраняет причины нарушений.</p>
+
+      <p>Рабочая система качества объединяет пять процессов: подготовку центра, мониторинг, управление данными, контроль безопасности и CAPA. Для медицинских изделий к ним добавляется особая задача — обеспечить прослеживаемость самого устройства, его технического состояния, конфигурации и программного обеспечения.</p>
+
+      <p>Чем раньше эти процессы определены и согласованы, тем меньше вероятность обнаружить системные проблемы уже при подготовке итогового отчёта или регистрационного досье.</p>
+
+      <h2 id="normativnaya-baza">Нормативная база</h2>
+
+      <ul>
+        <li>Федеральный закон от 21.11.2011 № 323-ФЗ «Об основах охраны здоровья граждан в Российской Федерации».</li>
+        <li>Постановление Правительства РФ от 30.11.2024 № 1684 — Правила государственной регистрации медицинских изделий.</li>
+        <li>Приказ Минздрава России от 13.05.2026 № 421н — Порядок проведения оценки соответствия медицинских изделий.</li>
+        <li>Решение Совета ЕЭК от 12.02.2016 № 29 — Правила проведения клинических и клинико-лабораторных испытаний (исследований) медицинских изделий.</li>
+        <li>ГОСТ Р ИСО 14155-2022 — надлежащая клиническая практика для исследований медицинских изделий с участием человека.</li>
+        <li>Федеральный закон от 27.07.2006 № 152-ФЗ «О персональных данных».</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/eticheskiy-komitet-ki-medizdeliya/">Этический комитет в КИ медизделия: роль, документы, сроки</a>
+        <a class="related-card" href="/blog/informirovannoe-soglasie-ki-medizdeliya/">Информированное согласие на участие в КИ медизделия: структура, подписи и ошибки оформления</a>
+        <a class="related-card" href="/blog/kak-vybrat-kliniku-dlya-ki-perechen-roszdravnadzora/">Где провести КИ медизделия: как выбрать клинику из Перечня Росздравнадзора</a>
+        <a class="related-card" href="/blog/kak-chitat-smetu-ki-medizdeliya/">Как читать смету КИ медизделия: разбираем коммерческое предложение построчно</a>
+        <a class="related-card" href="/blog/mnogocentrovoe-ki-medizdeliya/">Многоцентровое КИ медизделия: когда нужно и как организовать</a>
+        <a class="related-card" href="/blog/skolko-dlyatsya-ki-medizdeliya-sroki-po-etapam/">Сколько длятся КИ медизделия: реальные сроки по этапам</a>
+        <a class="related-card" href="/blog/stoimost-klinicheskih-ispytanij-medizdeliya/">Сколько стоят клинические испытания медизделия в 2026 году</a>
+        <a class="related-card" href="/glossariy/">Глоссарий терминов</a>
+        <a class="related-card" href="/blog/">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+<!--enh:next-->
+  <section class="next-steps" aria-labelledby="next-h2">
+    <div class="container">
+      <h2 id="next-h2">Что делать дальше</h2>
+      <div class="next-grid">
+        <div class="next-card"><h3>Рассчитать стоимость</h3><p>Ориентировочный расчёт по направлению испытаний — в калькуляторе.</p><a href="/kalkulyator/" class="btn btn-outline" data-goal="calc_from_article">Открыть калькулятор</a></div>
+        <div class="next-card"><h3>Клинические испытания медицинских изделий</h3><p>Формы испытаний, этапы и условия работы — на странице услуги.</p><a href="/klinicheskie-ispytaniya-medizdeliy/" class="btn btn-outline" data-goal="service_from_article">Перейти к услуге</a></div>
+        <div class="next-card"><h3>Обсудить проект</h3><p>Расскажите об изделии — менеджер свяжется и предложит маршрут испытаний.</p><a href="#cta-form" class="btn btn-primary" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Мониторинг и контроль качества КИ" data-need="Не знаю, нужна консультация">Оставить заявку</a></div>
+      </div>
+    </div>
+  </section>
+<!--/enh:next-->
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Нужна помощь с организацией мониторинга КИ?</h2>
+          <p>Probarium помогает оценить готовность исследования, определить критические точки контроля, разработать план мониторинга, организовать мониторинг центров и выстроить работу с отклонениями и CAPA. Подробнее — на странице <a href="/klinicheskie-ispytaniya-medizdeliy/" style="text-decoration:underline;">клинических испытаний медизделий</a>.</p>
+          <p style="margin-top:14px;"><a href="#cta-form" class="btn btn-outline" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Мониторинг и контроль качества КИ" data-need="Клинические испытания">Обсудить мониторинг КИ</a></p>
+        </div>
+        <form id="cta-form" aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/monitoring-kontrol-kachestva-ki-medizdeliy)">
+          <input type="hidden" name="source_url" value="https://probarium.ru/blog/monitoring-kontrol-kachestva-ki-medizdeliy/">
+          <input type="hidden" name="source_article" value="Мониторинг и контроль качества КИ">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="phone">Телефон</label>
+          <input id="phone" name="phone" type="tel" placeholder="Телефон (необязательно)" autocomplete="tel">
+          <label class="visually-hidden" for="need">Что нужно</label>
+          <select id="need" name="need">
+            <option>Клинические испытания</option>
+            <option>Доклиника и токсикология</option>
+            <option>Технические испытания</option>
+            <option>Не знаю, нужна консультация</option>
+          </select>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой форме испытаний"></textarea>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy/" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta/" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy/">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya/">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii/">О компании</a></li>
+          <li><a href="/komanda/">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty/">Лицензии и сертификаты</a></li>
+          <li><a href="/kejsy/">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa/">НПА</a></li>
+          <li><a href="/reestry/">Реестры</a></li>
+          <li><a href="/glossariy/">Глоссарий</a></li>
+          <li><a href="/blog/">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li class="footer-social">
+            <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg width="40" height="40" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg></a>
+            <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX"><img src="/assets/img/max-icon.png" width="40" height="40" alt="" style="border-radius:9px;"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ</span>
+      <span>
+        <a href="/privacy/">Конфиденциальность</a> ·
+        <a href="/cookie/">Cookie</a> ·
+        <a href="/terms/">Соглашение</a> ·
+        <a href="/disclaimer/">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Проведение клинических испытаний медицинского изделия: контроль качества и мониторинг",
+  "description": "Как организовать мониторинг КИ медизделия: кто назначает монитора, план мониторинга, SDV и SDR, нежелательные события, отклонения, CAPA и чек-лист.",
+  "inLanguage": "ru",
+  "image": [
+    "https://probarium.ru/assets/og-cover.jpg"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Артемий-Татуш Танделов",
+    "jobTitle": "Генеральный директор Probarium",
+    "url": "https://probarium.ru/komanda/",
+    "sameAs": [
+      "https://t.me/tandelovtat"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Probarium",
+    "url": "https://probarium.ru/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://probarium.ru/icon-512.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://probarium.ru/blog/monitoring-kontrol-kachestva-ki-medizdeliy/"
+  },
+  "datePublished": "2026-10-14T10:00:00+03:00",
+  "dateModified": "2026-10-14T10:00:00+03:00"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://probarium.ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://probarium.ru/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Мониторинг и контроль качества КИ",
+      "item": "https://probarium.ru/blog/monitoring-kontrol-kachestva-ki-medizdeliy/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Кто отвечает за мониторинг клинического испытания медицинского изделия?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Организация мониторинга — обязанность заказчика исследования. Мониторов назначает заказчик: это его сотрудники или специалисты привлечённой CRO. Монитор должен быть квалифицирован и независим от проверяемого исследовательского центра, а его полномочия — документированы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как часто монитор должен посещать исследовательский центр?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Единой периодичности нет. График проверок формируется на основании применимых требований, программы, плана мониторинга и оценки рисков."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли проводить мониторинг дистанционно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Отдельные процедуры — да, если это допускают документы исследования и требования к защите данных. Нужно обеспечить защиту персональных данных, конфиденциальность медицинской информации и надлежащие условия доступа."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Обязательно ли проверять 100% первичных данных?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Объём сверки определяется применимыми требованиями и планом мониторинга. Риск-ориентированная выборка может быть обоснованной, но критические данные требуют соответствующего уровня контроля."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если данные eCRF расходятся с журналом прибора?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Выяснить причину, сохранить исходные записи и оформить запрос на уточнение. Исправления выполняет уполномоченное лицо с сохранением истории изменений."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Является ли любая неисправность изделия серьёзным нежелательным событием?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Недостаток изделия и нежелательное событие у участника — разные категории. Но неисправность без фактического вреда всё равно может требовать расследования и мер по управлению риском."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли открывать CAPA на каждое отклонение?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не автоматически. Решение зависит от значимости нарушения, его причин, потенциальных последствий и риска повторения. Серьёзное единичное нарушение также может стать основанием для CAPA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли изменить инструкцию центра, если она мешает выполнять программу?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Локальную инструкцию можно уточнять в установленном порядке, но она не должна противоречить утверждённой программе. Если нужно изменить саму процедуру исследования, это оформляется поправкой к программе с согласованием и при необходимости повторным этическим рассмотрением."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как доказать, что CAPA сработала?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Заранее определить критерии результативности, затем проверить фактическое выполнение мер и отсутствие проблемы либо снижение риска до приемлемого уровня. Результаты фиксируются документально."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/header-fx.js" defer></script>
+<script src="/assets/js/article-cta.js" defer></script>
+<script src="/assets/js/leads.js" defer></script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
