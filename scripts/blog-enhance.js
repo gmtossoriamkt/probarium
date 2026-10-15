@@ -80,7 +80,7 @@ function enhanceArticle(file, slug) {
     const cluster = CLUSTERS[clusterKey];
 
     h = stripMarker(h, 'next');
-    h = stripMarker(h, 'inline', '\n\n      ');
+    h = stripMarker(h, 'inline', '\n\n');
 
     // подключение CSS/JS статьи
     if (!h.includes('/assets/css/article.css'))
@@ -148,7 +148,12 @@ function enhanceArticle(file, slug) {
           : `<a href="${c.href}" class="btn btn-primary" data-goal="${c.goal}">${esc(c.label)}</a>`;
         const aside = marker('inline', `      <aside class="inline-cta" aria-label="Подсказка"><p>${esc(cluster.inline.text)}</p>${btn}</aside>`);
         const at = bodyStart + h2s[4].index;
-        h = h.slice(0, at) + aside + '\n\n      ' + h.slice(at);
+        // вставляем в начало строки с заголовком; отступ заголовка приводим к 6 пробелам (идемпотентно)
+        const lineStart = h.lastIndexOf('\n', at) + 1;
+        const onlySpaces = /^[ \t]*$/.test(h.slice(lineStart, at));
+        h = onlySpaces
+          ? h.slice(0, lineStart) + '      ' + aside + '\n\n      ' + h.slice(at)
+          : h.slice(0, at) + aside + '\n\n' + h.slice(at);
       }
     }
     return h;
