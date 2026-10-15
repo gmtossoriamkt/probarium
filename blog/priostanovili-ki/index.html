@@ -3,19 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Приостановили КИ медизделия: причины и план возобновления</title>
-<meta name="description" content="Что значит статус «приостановлено» в реестре КИ Росздравнадзора, типичные причины и пошаговый план возобновления клинического испытания медицинского изделия.">
+<meta name="theme-color" content="#1C232E">
+<title>Приостановили КИ медизделия: что делать и как возобновить</title>
+<meta name="description" content="Почему приостанавливают КИ медизделия, что сделать в первые 72 часа, как устранить причины, когда нужна поправка к программе и повторный Совет по этике.">
 <link rel="canonical" href="https://probarium.ru/blog/priostanovili-ki/">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Приостановили КИ медизделия: причины и план возобновления">
-<meta property="og:description" content="Что значит статус «приостановлено» в реестре КИ Росздравнадзора, типичные причины и пошаговый план возобновления клинического испытания медицинского изделия.">
+<meta property="og:title" content="Приостановили КИ медизделия: что делать и как возобновить">
+<meta property="og:description" content="Почему приостанавливают КИ медизделия, что сделать в первые 72 часа, как устранить причины, когда нужна поправка к программе и повторный Совет по этике.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://probarium.ru/blog/priostanovili-ki/">
 <meta property="og:image" content="https://probarium.ru/assets/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Probarium">
 <meta property="article:published_time" content="2026-07-29T10:00:00+03:00">
-<meta property="article:modified_time" content="2026-08-18T15:45:07+03:00">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="article:modified_time" content="2026-10-15T10:00:00+03:00">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -75,66 +77,6 @@ section{padding:48px 0;}
 .section-head h2{font-size:24px;margin-bottom:8px;}
 .section-head p{color:var(--gray-text);font-size:14px;}
 
-.forms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
-.form-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px;}
-.form-card .badge{display:inline-block;background:var(--blue-pale);color:#0C447C;font-size:12px;font-weight:600;
-  padding:4px 10px;border-radius:14px;margin-bottom:14px;}
-.form-card h3{font-size:17px;margin-bottom:8px;}
-.form-card p{font-size:14px;color:var(--gray-text);margin-bottom:14px;}
-.form-card ul{margin:0 0 14px 18px;font-size:13px;color:var(--gray-text);}
-.form-card ul li{margin-bottom:4px;}
-.form-card a.more{font-size:13px;font-weight:600;color:var(--blue-sky);}
-
-.risk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
-.risk-card{background:var(--white);border:1px solid var(--border);border-left:3px solid var(--blue-sky);
-  border-radius:0 10px 10px 0;padding:16px;font-size:13px;}
-.risk-card strong{display:block;color:var(--blue-deep);font-size:14px;margin-bottom:4px;}
-.risk-card span{color:var(--gray-text);}
-
-.steps{counter-reset:step;}
-.step{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--border);}
-.step:last-child{border-bottom:none;}
-.step .step-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--blue-deep);color:#fff;
-  display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:14px;}
-.step h3{font-size:15px;margin-bottom:4px;}
-.step p{font-size:14px;color:var(--gray-text);}
-
-.doc-list{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:8px 0;}
-.doc-list li{list-style:none;display:flex;gap:10px;align-items:flex-start;padding:12px 24px;
-  border-bottom:1px solid var(--border);font-size:14px;}
-.doc-list li:last-child{border-bottom:none;}
-.doc-list li svg{flex-shrink:0;margin-top:2px;}
-
-.pricing-band{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:26px;
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;}
-.pricing-item .num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:22px;color:var(--blue-deep);}
-.pricing-item .label{font-size:13px;color:var(--gray-text);margin-top:4px;}
-
-.npa-list{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:8px 0;}
-.npa-list li{list-style:none;display:flex;justify-content:space-between;gap:16px;padding:14px 24px;
-  border-bottom:1px solid var(--border);font-size:14px;flex-wrap:wrap;}
-.npa-list li:last-child{border-bottom:none;}
-.npa-list .npa-note{color:var(--gray-text);font-size:13px;}
-.npa-star{color:var(--gold);font-weight:700;}
-
-.triggers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
-.trigger{padding:18px;border-left:3px solid var(--gold);background:var(--white);border-radius:0 12px 12px 0;
-  border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
-.trigger h3{font-size:15px;margin-bottom:6px;}
-.trigger p{font-size:13px;color:var(--gray-text);}
-
-.bases-strip{display:flex;flex-wrap:wrap;gap:12px;}
-.base-chip{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13px;}
-.base-chip strong{display:block;color:var(--blue-deep);font-size:13px;}
-.base-chip span{color:var(--gray-text);font-size:12px;}
-
-.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
-.case-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px;}
-.case-card .tag{font-size:12px;font-weight:600;color:#0C447C;background:var(--blue-pale);
-  display:inline-block;padding:3px 10px;border-radius:14px;margin-bottom:12px;}
-.case-card h3{font-size:16px;margin-bottom:8px;}
-.case-card p{font-size:13px;color:var(--gray-text);}
-
 details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
   padding:16px 20px;margin-bottom:10px;}
 details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
@@ -142,11 +84,6 @@ details.faq-item summary::-webkit-details-marker{display:none;}
 details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
 details.faq-item[open] summary::after{content:'\2212';}
 details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
-
-.lk-band{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:14px;padding:22px 26px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
-.lk-band p{font-size:14px;color:#0C447C;margin:0;max-width:480px;}
-.lk-band a{font-size:13px;font-weight:600;color:var(--blue-deep);white-space:nowrap;border-bottom:1px solid var(--blue-deep);}
 
 .final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
   display:flex;gap:40px;flex-wrap:wrap;}
@@ -166,11 +103,6 @@ details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
 .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
 .related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
 .related-card:hover{border-color:var(--blue-sky);}
-
-.segments{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
-.segment{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;font-size:14px;}
-.segment strong{display:block;color:var(--blue-deep);font-size:14px;margin-bottom:4px;}
-.segment span{color:var(--gray-text);font-size:13px;}
 
 footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
@@ -192,7 +124,6 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 
-
 .burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
 .burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
 .mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
@@ -209,13 +140,27 @@ body.nav-open{overflow:hidden;}
 
 .article-body{max-width:760px;}
 .article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
 .article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
 .article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
 .article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
 .article-body li{margin-bottom:8px;}
 .article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
 .article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
 .article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:0;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;}
+.article-body blockquote{border-left:4px solid var(--blue-sky);background:var(--blue-pale);border-radius:0 8px 8px 0;padding:12px 18px;margin:8px 0 18px;font-size:15px;color:var(--graphite);font-style:italic;}
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -279,62 +224,251 @@ body.nav-open{overflow:hidden;}
 <main id="main">
 
   <nav class="container breadcrumbs" aria-label="Хлебные крошки">
-    <a href="/">Главная</a> / <a href="/blog/">Блог</a> / <span aria-current="page">Приостановили КИ медизделия</span>
+    <a href="/">Главная</a> / <a href="/blog/">Блог</a> / <span aria-current="page">Приостановили КИ</span>
   </nav>
 
   <div class="container page-intro">
-    <div class="article-meta"><span>Провалы КИ</span><span>8 мин чтения</span><span>29 июля 2026</span><span>Обновлено: 18 августа 2026</span></div>
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>10 мин чтения</span><span>29 июля 2026</span><!--enh:upd--><span>Обновлено: 15 октября 2026</span><!--/enh:upd--></div>
     <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
-    <h1>Приостановили КИ медизделия: что делать</h1>
-    <p class="lead">Если в реестре разрешений на КИ статус вашего исследования сменился на «приостановлено» — это не конец проекта, а сигнал устранимого несоответствия. Разбираем, что делать дальше.</p>
+    <h1>КИ приостановили: причины, первые действия и порядок возобновления испытаний медицинского изделия</h1>
+    <p class="lead">Приостановка клинических испытаний (КИ) медицинского изделия может задержать регистрацию, увеличить расходы производителя и поставить под угрозу сроки вывода продукта на рынок. Особенно сложна ситуация, когда исследование уже началось, участники включены, а в одном из клинических центров обнаружены нарушения.</p>
   </div>
 
   <section>
     <div class="container article-body">
 
-      <h2 id="korotkiy-otvet">Короткий ответ</h2>
-      <p>Приостановка клинического испытания медицинского изделия означает временную остановку исследования до устранения выявленной причины — в отличие от досрочного прекращения, это не означает провал проекта. Возобновление возможно после того, как заявитель устранит основание приостановки и согласует это с регулятором и, при необходимости, с этическим комитетом. Реальный срок восстановления зависит от характера нарушения: от нескольких недель при устранимых процедурных дефектах до нескольких месяцев при системных проблемах с протоколом или безопасностью.</p>
+<!--enh:toc-->
+      <details class="toc" open>
+        <summary>Содержание</summary>
+        <ol>
+          <li><a href="#pochemu-mogut-priostanovit-klinicheskie-ispytani">Почему могут приостановить клинические испытания</a></li>
+          <li><a href="#kto-mozhet-priostanovit-ki">Кто может приостановить КИ</a></li>
+          <li><a href="#chto-oznachaet-status-priostanovleno-v-reestre">Что означает статус «приостановлено» в реестре</a></li>
+          <li><a href="#chto-delat-v-pervye-72-chasa-posle-priostanovki-">Что делать в первые 72 часа после приостановки КИ</a></li>
+          <li><a href="#kak-ustranit-narusheniya-i-podgotovit-ki-k-vozob">Как устранить нарушения и подготовить КИ к возобновлению</a></li>
+          <li><a href="#kakie-dokumenty-mogut-potrebovatsya-dlya-vozobno">Какие документы могут потребоваться для возобновления</a></li>
+          <li><a href="#modelnyy-keys-narusheniya-dokumentacii-v-odnom-c">Модельный кейс: нарушения документации в одном центре</a></li>
+          <li><a href="#kakie-oshibki-zatyagivayut-vozobnovlenie-ki">Какие ошибки затягивают возобновление КИ</a></li>
+          <li><a href="#kak-priostanovka-vliyaet-na-sroki-registracii">Как приостановка влияет на сроки регистрации</a></li>
+          <li><a href="#chastye-voprosy">Частые вопросы</a></li>
+          <li><a href="#glavnoe">Главное</a></li>
+          <li><a href="#normativnaya-baza">Нормативная база</a></li>
+        </ol>
+      </details>
+<!--/enh:toc-->
 
-      <h2 id="chto-oznachaet-status-priostanovleno-v-reestre">Что означает статус «приостановлено» в реестре</h2>
-      <p>С 2025 года реестр разрешений на клинические испытания медицинских изделий Росздравнадзора ведётся в электронном формате по <a href="http://publication.pravo.gov.ru/document/0001202508220006?index=1" target="_blank" rel="noopener" style="color:var(--blue-sky);text-decoration:underline;">приказу № 4484 от 22.07.2025</a> «Об утверждении Порядка ведения реестра выданных разрешений на проведение клинических испытаний медицинского изделия» (опубликован 22.08.2025, действует до 31.12.2026). Общая информация о порядке проведения клинических испытаний медизделий — на <a href="https://roszdravnadzor.gov.ru/medproducts/clinical" target="_blank" rel="noopener" style="color:var(--blue-sky);text-decoration:underline;">официальной странице Росздравнадзора</a>. Реестр фиксирует дату и номер разрешения, изделие, класс риска, производителя, клиники и текущий статус — начато, приостановлено, завершено или досрочно прекращено.</p>
-      <p>Статус «приостановлено» отличается от «досрочно прекращено» принципиально: приостановка предполагает, что исследование может быть возобновлено после устранения причины, тогда как досрочное прекращение обычно означает, что исследование в текущем виде продолжаться не будет и потребуется по сути новый проект. Формального перечня критериев перехода между этими двумя статусами в открытых источниках найти не удалось — вероятно, решение принимается индивидуально в каждом случае.</p>
 
-      <h2 id="tipichnye-osnovaniya-dlya-priostanovki">Типичные основания для приостановки</h2>
-      <p>Список ниже отражает общую логику надзора по <a href="https://docs.cntd.ru/document/1200194060" target="_blank" rel="noopener" style="color:var(--blue-sky);text-decoration:underline;">ГОСТ Р ИСО 14155-2022</a>, а не официально опубликованную Росздравнадзором статистику причин — такой разбивки регулятор не ведёт. Отдельная категория оснований — не связанная напрямую с ходом самого испытания, а с исполнением уже выданных регулятором предписаний.</p>
+      <p>Однако приостановка не всегда означает прекращение всего проекта. Иногда достаточно устранить нарушения на отдельной площадке, в других случаях требуется пересмотреть процедуры исследования и заново пройти необходимые согласования.</p>
+
+      <p><strong>Разбираем, почему могут приостановить КИ медицинского изделия, что делать в первую очередь, как устранить причины остановки и при каких условиях возможно возобновление испытаний.</strong> Как выстроить мониторинг, чтобы до приостановки не доходило, — в статье <a href="/blog/monitoring-kontrol-kachestva-ki-medizdeliy/" class="inline-link">«Мониторинг КИ медизделия: контроль качества и CAPA»</a>.</p>
+
+      <h2 id="pochemu-mogut-priostanovit-klinicheskie-ispytani">Почему могут приостановить клинические испытания</h2>
+
+      <p>Причины приостановки КИ могут быть связаны с безопасностью участников, соблюдением программы КИ, качеством данных или организацией работы исследовательского центра.</p>
+
+      <p>К ситуациям, требующим оценки необходимости приостановки, относятся:</p>
+
       <ul>
-        <li>отклонения от протокола, способные повлиять на данные или безопасность субъектов;</li>
-        <li>незапланированные серьёзные нежелательные явления, требующие паузы для оценки риска;</li>
-        <li>замечания этического комитета к защите прав и безопасности участников;</li>
-        <li>нарушения при ведении документации на клинической базе;</li>
-        <li><a href="/blog/perechen-medorganizaciy-ki-kak-proverit-kliniku/" style="color:var(--blue-sky);text-decoration:underline;">проблемы на стороне базы</a> — например, приостановка её аккредитации;</li>
-        <li>неисполнение в установленный срок ранее направленного предписания Росздравнадзора об устранении замечаний по документации или процедуре испытания.</li>
+        <li><strong>Проблемы с безопасностью.</strong> Отказ медицинского изделия, ухудшение состояния участника, нежелательные события, указывающие на потенциально недопустимый риск.</li>
+        <li><strong>Нарушения программы КИ.</strong> Проведение процедур с отклонениями от утверждённой программы, несоблюдение критериев включения или исключения участников.</li>
+        <li><strong>Ошибки в документации.</strong> Расхождения между первичными медицинскими записями и индивидуальными регистрационными картами, неполные сведения, отсутствие обязательных подписей.</li>
+        <li><strong>Недостатки мониторинга.</strong> Несвоевременное выявление отклонений, отсутствие документального подтверждения проверок, недостаточный контроль качества данных.</li>
+        <li><strong>Организационные проблемы.</strong> Изменения в работе исследовательского центра, которые препятствуют выполнению предусмотренных процедур.</li>
       </ul>
 
-      <h2 id="chto-delat-poshagovo">Что делать: пошагово</h2>
+      <p>Не каждое выявленное нарушение автоматически приводит к приостановке. Решение зависит от характера проблемы, её влияния на безопасность участников, достоверность результатов и возможности продолжать исследование с соблюдением установленных требований.</p>
+
+      <h2 id="kto-mozhet-priostanovit-ki">Кто может приостановить КИ</h2>
+
+      <p>Прежде чем планировать возобновление, нужно установить, кто инициировал остановку и какие ограничения введены.</p>
+
+      <p><strong>Заказчик (спонсор) исследования.</strong> Может принять решение о приостановке исследования полностью или в отдельном центре по результатам оценки рисков, мониторинга, аудита или анализа информации о безопасности.</p>
+
+      <p><strong>Исследовательский центр.</strong> При обстоятельствах, препятствующих безопасному или надлежащему проведению испытаний, могут потребоваться приостановка процедур и уведомление заказчика. Полномочия медицинской организации определяются применимыми правилами и договором.</p>
+
+      <p><strong>Росздравнадзор.</strong> Осуществляет государственный контроль за обращением медицинских изделий, включая их клинические испытания, и при выявлении нарушений может принимать меры в пределах своих полномочий. Порядок дальнейших действий зависит от содержания конкретного решения.</p>
+
+      <p><strong>Совет по этике.</strong> По национальной процедуре заключение об этической обоснованности КИ с участием человека выдаёт Совет по этике в сфере обращения медицинских изделий; локальный этический комитет клиники действует по внутренним правилам медицинской организации. Подробнее — в статье <a href="/blog/eticheskiy-komitet-ki-medizdeliya/" class="inline-link">«Этический комитет в КИ медизделия»</a>.</p>
+
+      <p>Важно различать приостановку всего исследования и временную остановку набора новых участников. При прекращении набора отдельные процедуры с уже включёнными участниками — прежде всего наблюдение за их безопасностью — могут продолжаться, если это соответствует условиям исследования и требованиям безопасности.</p>
+
+      <h2 id="chto-oznachaet-status-priostanovleno-v-reestre">Что означает статус «приостановлено» в реестре</h2>
+
+      <p>С 2025 года реестр разрешений на клинические испытания медицинских изделий Росздравнадзора ведётся в электронном формате по <a href="http://publication.pravo.gov.ru/document/0001202508220006?index=1" target="_blank" rel="noopener" style="color:var(--blue-sky);text-decoration:underline;">приказу № 4484 от 22.07.2025</a> «Об утверждении Порядка ведения реестра выданных разрешений на проведение клинических испытаний медицинского изделия» (опубликован 22.08.2025, действует до 31.12.2026) — перед подачей документов проверьте, не утверждён ли новый порядок ведения реестра. Общая информация о порядке проведения клинических испытаний медизделий — на <a href="https://roszdravnadzor.gov.ru/medproducts/clinical" target="_blank" rel="noopener" style="color:var(--blue-sky);text-decoration:underline;">официальной странице Росздравнадзора</a>. Реестр фиксирует дату и номер разрешения, изделие, класс риска, производителя, клиники и текущий статус — начато, приостановлено, завершено или досрочно прекращено.</p>
+
+      <p>Статус «приостановлено» отличается от «досрочно прекращено» принципиально: приостановка предполагает, что исследование может быть возобновлено после устранения причины, тогда как досрочное прекращение обычно означает, что исследование в текущем виде продолжаться не будет и потребуется по сути новый проект. Критерии перехода из статуса «приостановлено» в «досрочно прекращено» нормативно не перечислены — решение зависит от обстоятельств конкретного исследования.</p>
+
+
+      <h2 id="chto-delat-v-pervye-72-chasa-posle-priostanovki-">Что делать в первые 72 часа после приостановки КИ</h2>
+
+      <p>Первые действия определяют, насколько быстро удастся установить причину проблемы и подготовить обоснованный план её устранения.</p>
+
+      <p><strong>72 часа — практический ориентир для организации работы, а не нормативный срок.</strong> Обязательные сроки уведомлений и других действий нужно проверять отдельно.</p>
+
+      <h3>Шаг 1. Зафиксировать причину и основание приостановки</h3>
+
+      <p>Изучите документ, на основании которого введены ограничения, если решение уже оформлено. Зафиксируйте:</p>
+
+      <ul>
+        <li>кто инициировал приостановку;</li>
+        <li>когда принято решение;</li>
+        <li>какие нарушения или риски выявлены;</li>
+        <li>распространяются ли ограничения на один центр или на всё исследование;</li>
+        <li>какие процедуры разрешено продолжать;</li>
+        <li>какие действия необходимы для устранения проблемы.</li>
+      </ul>
+
+      <p>Если приостановка связана с результатами мониторинга, соберите соответствующие отчёты, замечания и подтверждающие материалы. Это позволит избежать ситуации, когда команда устраняет отдельные недостатки, но не решает основную проблему.</p>
+
+      <h3>Шаг 2. Оценить риски для участников и данных</h3>
+
+      <p>Приоритетом остаётся безопасность людей, участвующих в исследовании.</p>
+
+      <p>Заказчику совместно с исследователями нужно определить, могли ли выявленные нарушения повлиять на состояние участников, выполнение программы и достоверность полученных результатов.</p>
+
+      <p>Например, отсутствие подписи в документе и использование медицинского изделия с потенциально опасным дефектом требуют принципиально разных действий.</p>
+
+      <p>Важно не смешивать нарушения документации с серьёзными нежелательными событиями. Порядок сообщения о событиях безопасности определяется их классификацией и применимыми требованиями.</p>
+
+      <h3>Шаг 3. Определить масштаб проблемы</h3>
+
+      <p>Если нарушение обнаружено в одном центре многоцентрового исследования, нужно выяснить, является ли оно локальным: использовались ли аналогичные процедуры на других площадках, проходил ли персонал одинаковое обучение, применялись ли общие инструкции и формы документов.</p>
+
+      <p>Если проблема затрагивает только один центр, меры могут быть сосредоточены на этой площадке. Если обнаружен системный недостаток, потребуется оценить необходимость более широких ограничений. Об особенностях работы с несколькими площадками — в статье <a href="/blog/mnogocentrovoe-ki-medizdeliya/" class="inline-link">«Многоцентровое КИ медизделия»</a>.</p>
+
+      <h3>Шаг 4. Организовать уведомления</h3>
+
+      <p>Определите, кого нужно проинформировать о приостановке и в какие сроки. В зависимости от обстоятельств это могут быть исследователи, заказчик, CRO, Совет по этике, локальный этический комитет, Росздравнадзор и участники исследования.</p>
+
+      <p>Не следует считать, что любое нарушение документации требует одинакового порядка уведомлений. Обязанности зависят от вида события, причины остановки и применимых требований.</p>
+
+      <h3>Шаг 5. Назначить ответственных и составить план</h3>
+
+      <p>После первичной оценки определите ответственных за анализ причин, подготовку документов, взаимодействие с центром и контроль корректирующих действий.</p>
+
+      <p>Результат этого этапа — согласованный рабочий план: какие проблемы нужно устранить, кто выполняет задачи и как будет подтверждаться результат.</p>
+
+      <h2 id="kak-ustranit-narusheniya-i-podgotovit-ki-k-vozob">Как устранить нарушения и подготовить КИ к возобновлению</h2>
+
+      <p>Возобновление начинается не с подачи документов, а с установления причин, из-за которых исследование было остановлено.</p>
+
+      <p>Если проблема связана с документацией, недостаточно исправить отдельные записи. Нужно понять, почему нарушения возникли и могут ли они повториться. Для этого проводят анализ первопричин.</p>
+
+      <p>Например, расхождения между первичными записями и регистрационными картами могут возникать из-за неоднозначных инструкций, недостаточного обучения персонала или ошибок переноса данных.</p>
+
+      <p>После анализа определяют корректирующие и предупреждающие действия (CAPA). В зависимости от характера нарушений они могут включать:</p>
+
+      <ul>
+        <li>уточнение рабочих инструкций;</li>
+        <li>дополнительное обучение исследовательской команды;</li>
+        <li>проверку ранее внесённых данных;</li>
+        <li>усиление мониторинга;</li>
+        <li>изменение процедур контроля качества;</li>
+        <li>документальное подтверждение эффективности принятых мер.</li>
+      </ul>
+
+      <p>Исправления должны оставаться прослеживаемыми. Недопустимо уничтожать первоначальные записи, скрывать ошибки или задним числом оформлять процедуры, которые фактически не выполнялись.</p>
+
+      <p><strong>Выполнение CAPA само по себе не означает разрешения на возобновление КИ.</strong> Нужно подтвердить устранение причин приостановки, оценить остаточные риски и выполнить требования к согласованиям.</p>
+
+      <h3>Если для возобновления нужно изменить программу</h3>
+
+      <p>Если устранение причин требует изменить саму программу КИ — процедуры, критерии включения, порядок наблюдения, — изменения оформляются поправкой: новая версия программы согласуется с медицинской организацией, утверждается её руководителем и при необходимости проходит повторное рассмотрение в Совете по этике. Как отвечать на замечания Совета — в статье <a href="/blog/zamechaniya-soveta-po-etike-ki-medizdeliya/" class="inline-link">«Замечания Совета по этике к КИ медизделия»</a>.</p>
+
+      <h3>Если выявлены новые риски для участников</h3>
+
+      <p>Если в ходе разбора выяснилось, что участники должны знать о новых рисках или изменившихся условиях, нужно оценить необходимость повторного информирования и нового согласия уже включённых участников. Подробнее — в статье <a href="/blog/informirovannoe-soglasie-ki-medizdeliya/" class="inline-link">«Информированное согласие на участие в КИ медизделия»</a>.</p>
+
+      <h2 id="kakie-dokumenty-mogut-potrebovatsya-dlya-vozobno">Какие документы могут потребоваться для возобновления</h2>
+
+      <p>Универсального комплекта документов для всех ситуаций нет. Его состав зависит от причины приостановки, применимого порядка проведения испытаний и требований, предъявленных к конкретному исследованию.</p>
+
+      <p>При нарушениях документации могут потребоваться:</p>
+
       <ol>
-        <li><strong>Изучить формальное основание приостановки</strong> — от него зависит весь дальнейший план.</li>
-        <li><strong>Провести внутренний аудит причины</strong>: изолированный эпизод или системная проблема.</li>
-        <li><strong>Разработать план корректирующих действий</strong>, отвечающий именно на указанную причину.</li>
-        <li><strong>Согласовать план с этическим комитетом</strong>, если приостановка касалась безопасности субъектов.</li>
-        <li><strong>Подать документы о возобновлении</strong> с описанием устранённой причины и принятых мер.</li>
-        <li><strong>Дождаться <a href="/blog/otkazali-v-razreshenii/" style="color:var(--blue-sky);text-decoration:underline;">решения регулятора</a></strong> — публично закреплённого срока рассмотрения именно заявления о возобновлении найти не удалось, на практике закладывайте от нескольких недель.</li>
+        <li>Отчёт о выявленных отклонениях и результатах анализа первопричин.</li>
+        <li>План корректирующих и предупреждающих действий.</li>
+        <li>Подтверждения выполнения предусмотренных мероприятий.</li>
+        <li>Материалы повторных проверок и мониторинга.</li>
+        <li>Документы об обучении исследовательского персонала.</li>
+        <li>Обновлённые версии документов, если изменения необходимы и допустимы.</li>
       </ol>
-      <p>Разумный план возобновления не ограничивается устранением одного конкретного нарушения — стоит также кратко проверить смежные зоны риска (документацию, обучение персонала, мониторинг), чтобы показать регулятору системный подход и снизить риск повторной приостановки по смежному основанию.</p>
 
-      <h2 id="rol-eticheskogo-komiteta-v-vozobnovlenii">Роль этического комитета в возобновлении</h2>
-      <p>Если основанием приостановки стали вопросы защиты прав и безопасности участников, одного согласования с Росздравнадзором недостаточно — потребуется отдельно пройти этический комитет с описанием причины и принятых мер. Это отдельный процессуальный трек, который стоит запускать параллельно с подготовкой документов для регулятора, а не последовательно — иначе сроки возобновления растягиваются вдвое.</p>
+      <p>Это ориентировочный рабочий перечень, а не обязательный для всех случаев пакет.</p>
 
-      <h2 id="tipichnyy-scenariy-obobschenno-bez-privyazki-k-k">Типичный сценарий (обобщённо, без привязки к конкретному проекту)</h2>
-      <p>Производитель медицинского изделия класса 2б проводит испытание с участием человека. В ходе мониторинга выявляются расхождения между индивидуальными регистрационными картами и первичной документацией. Регулятор приостанавливает исследование. Заявитель проводит аудит, устанавливает причину — недостаточное обучение персонала базы, проводит повторное обучение и выборочную проверку карт, подаёт план корректирующих действий. Исследование возобновляется через несколько недель без изменения протокола.</p>
-      <p class="lead-note">Это собирательный сценарий, иллюстрирующий логику процесса, а не описание конкретного реального проекта. Реальные анонимизированные примеры из практики будут добавлены отдельно.</p>
+      <p>До возобновления определите, какие одобрения требуются в конкретной ситуации. ГОСТ Р ИСО 14155-2022 исходит из того, что возобновление приостановленного исследования требует одобрения этического комитета и, когда это необходимо, регулирующих органов.</p>
+
+      <h2 id="modelnyy-keys-narusheniya-dokumentacii-v-odnom-c">Модельный кейс: нарушения документации в одном центре</h2>
+
+      <p><em>Пример модельный. Он иллюстрирует возможный порядок действий и не описывает конкретный проект Probarium.</em></p>
+
+      <p>Производитель медицинского изделия проводит многоцентровое клиническое исследование. Во время мониторинга на одной площадке обнаружены расхождения между первичными медицинскими записями и данными индивидуальных регистрационных карт.</p>
+
+      <p>Проверка показывает, что часть сведений перенесена некорректно, а отдельные записи не содержат необходимого документального подтверждения.</p>
+
+      <p>Заказчик принимает решение временно приостановить исследовательские процедуры в проблемном центре до оценки масштаба нарушений; наблюдение за безопасностью уже включённых участников продолжается.</p>
+
+      <p><strong>Что делает команда?</strong></p>
+
+      <p>Сначала проводится проверка записей и анализ влияния ошибок на достоверность данных и безопасность участников.</p>
+
+      <p>Затем изучаются процедуры работы с документацией. Выясняется, что сотрудники центра неодинаково понимали правила переноса информации в регистрационные карты.</p>
+
+      <p>Команда разрабатывает корректирующие мероприятия: уточняет инструкции, организует обучение персонала, проверяет затронутые записи и усиливает контроль качества.</p>
+
+      <p>Параллельно оценивается, есть ли аналогичные нарушения на других площадках.</p>
+
+      <p>После выполнения мероприятий заказчик анализирует их эффективность, документирует результаты и определяет условия возобновления работы центра. Поскольку программа КИ не менялась, повторное этическое рассмотрение в этом примере не потребовалось — но этот вывод делается по фактическим обстоятельствам, а не по умолчанию.</p>
+
+      <p><strong>Главный вывод:</strong> устранение отдельных ошибок не гарантирует решения проблемы. Для обоснованного возобновления важно установить первопричину нарушений и подтвердить, что принятые меры снижают риск их повторения.</p>
+
+      <h2 id="kakie-oshibki-zatyagivayut-vozobnovlenie-ki">Какие ошибки затягивают возобновление КИ</h2>
+
+      <p><strong>Исправление последствий без анализа причин.</strong> Если команда корректирует документы, но не проверяет процессы, аналогичные ошибки могут возникнуть повторно.</p>
+
+      <p><strong>Недостаточная оценка масштаба.</strong> Проблема, выявленная в одном центре, может быть связана с инструкциями или процедурами, общими для нескольких площадок.</p>
+
+      <p><strong>Неполное документирование.</strong> Даже выполненные корректирующие действия трудно оценить, если нет подтверждений их реализации и эффективности.</p>
+
+      <p><strong>Преждевременное возобновление.</strong> Продолжение процедур до выполнения необходимых условий и получения обязательных одобрений создаёт дополнительные риски.</p>
+
+      <p><strong>Отсутствие координации.</strong> Когда заказчик, CRO и исследовательские центры действуют несогласованно, увеличивается вероятность задержек и повторной работы.</p>
+
+      <h2 id="kak-priostanovka-vliyaet-na-sroki-registracii">Как приостановка влияет на сроки регистрации</h2>
+
+      <p>Приостановка КИ сдвигает общий график регистрации медицинского изделия и добавляет расходы на мониторинг, аудит, обучение персонала, подготовку документации и работу исследовательских центров.</p>
+
+      <p>Продолжительность задержки зависит от характера нарушения, объёма корректирующих действий и необходимости дополнительных проверок и согласований. Поэтому универсального срока возобновления назвать нельзя: оценивать его стоит после установления причины приостановки и определения необходимых мероприятий.</p>
 
       <h2 id="chastye-voprosy">Частые вопросы</h2>
-      <details class="faq-item"><summary>Почему приостановили моё КИ?</summary><p>Из-за рисков для субъектов, нарушений протокола или проблем с данными. Нужно устранить причину и согласовать возобновление.</p></details>
-      <details class="faq-item"><summary>Что делать между приостановкой и прекращением КИ?</summary><p>Использовать окно для устранения причины: исправить нарушения, укрепить данные, согласовать возобновление с регулятором.</p></details>
-      <details class="faq-item"><summary>Как возобновить приостановленное КИ?</summary><p>Устранить причину приостановки, документировать корректирующие меры и согласовать возобновление с регулятором.</p></details>
-      <details class="faq-item"><summary>Чья вина в срыве КИ — клиники или протокола?</summary><p>Зависит от причины. Срыв набора чаще связан с критериями и центром, методологические дефекты — с протоколом.</p></details>
-      <details class="faq-item"><summary>Изменились ли правила клинических испытаний с 1 марта 2025 года?</summary><p>Да — с этой даты действуют новые Правила государственной регистрации медицинских изделий (<a href="http://publication.pravo.gov.ru/document/0001202411300042" target="_blank" rel="noopener">постановление Правительства РФ № 1684 от 30.11.2024 (в действующей редакции)</a>), заменившие прежнее постановление № 1416. Основания и порядок приостановки исследования регулируются этими обновлёнными правилами.</p></details>
-      <details class="faq-item"><summary>Чем приостановка КИ отличается от отказа в разрешении на его проведение?</summary><p>Приостановка означает, что исследование уже шло, но временно остановлено до устранения нарушения — а отказ в разрешении означает, что испытание с участием человека изначально не было допущено экспертизой. Разные ситуации требуют разных действий: при приостановке нужно устранить конкретную причину и согласовать возобновление, при отказе — разобраться с основанием отрицательного заключения и решить, переподавать заявление или подавать возражения. Подробнее об основаниях отказа и стратегии переподачи — в <a href="/blog/otkazali-v-razreshenii/">отдельной статье</a>.</p></details>
+      <details class="faq-item"><summary>Можно ли продолжать КИ в других центрах?</summary><p>Это зависит от масштаба выявленных нарушений и содержания решения о приостановке. Если проблема ограничена одной площадкой, возможность продолжения в других центрах оценивается отдельно с учётом рисков и применимых требований.</p></details>
+      <details class="faq-item"><summary>Нужно ли прекращать наблюдение за участниками?</summary><p>Не автоматически. Меры медицинского наблюдения и защиты уже включённых участников определяются характером риска, программой КИ и условиями приостановки. Безопасность участников остаётся приоритетом.</p></details>
+      <details class="faq-item"><summary>Всегда ли требуется CAPA?</summary><p>Объём корректирующих и предупреждающих действий определяется характером нарушений. При системных проблемах особенно важно устранить первопричину и проверить эффективность мер.</p></details>
+      <details class="faq-item"><summary>Можно ли возобновить КИ сразу после исправления документов?</summary><p>Не всегда. Нужно убедиться, что причины приостановки устранены, остаточные риски приемлемы и получены все требуемые одобрения.</p></details>
+      <details class="faq-item"><summary>Нужно ли снова идти в Совет по этике?</summary><p>Если для возобновления меняется программа КИ или условия участия — как правило, да: новая версия программы согласуется с медицинской организацией и при необходимости проходит повторное этическое рассмотрение. Если программа не меняется, необходимость оценивается по обстоятельствам.</p></details>
+      <details class="faq-item"><summary>Кто определяет срок возобновления?</summary><p>Продолжительность зависит от конкретной ситуации, необходимых мероприятий и процедур согласования. Единого срока для всех исследований нет.</p></details>
+      <details class="faq-item"><summary>Почему приостановили моё КИ?</summary><p>Из-за рисков для субъектов, нарушений программы КИ или проблем с данными. Нужно устранить причину и согласовать возобновление.</p></details>
+      <details class="faq-item"><summary>Чья вина в срыве КИ — клиники или программы?</summary><p>Зависит от причины. Срыв набора чаще связан с критериями и центром, методологические дефекты — с программой КИ.</p></details>
+      <details class="faq-item"><summary>Изменились ли правила клинических испытаний в 2025–2026 годах?</summary><p>Да. С 1 марта 2025 года действуют Правила государственной регистрации медицинских изделий (<a href="http://publication.pravo.gov.ru/document/0001202411300042" class="inline-link">ПП № 1684 от 30.11.2024</a>), заменившие постановление № 1416, а с 1 сентября 2026 года порядок проведения испытаний определяет приказ Минздрава № 421н вместо приказа № 885н. Заявления, поданные до этой даты, рассматриваются по ранее установленным требованиям.</p></details>
+      <details class="faq-item"><summary>Чем приостановка КИ отличается от отказа в разрешении на его проведение?</summary><p>Приостановка означает, что исследование уже шло, но временно остановлено до устранения нарушения — а отказ в разрешении означает, что испытание с участием человека изначально не было допущено экспертизой. Разные ситуации требуют разных действий: при приостановке нужно устранить конкретную причину и согласовать возобновление, при отказе — разобраться с основанием отрицательного заключения и решить, переподавать заявление или подавать возражения. Подробнее об основаниях отказа и стратегии переподачи — в <a href="/blog/otkazali-v-razreshenii/" class="inline-link">отдельной статье</a>.</p></details>
+
+      <h2 id="glavnoe">Главное</h2>
+
+      <p>Приостановка клинических испытаний медицинского изделия требует последовательных действий: установления основания остановки, оценки безопасности участников, определения масштаба нарушений, устранения первопричин и подтверждения готовности к возобновлению.</p>
+
+      <p>Чем точнее организованы документирование, анализ рисков и взаимодействие участников исследования, тем проще обосновать дальнейшие решения и избежать повторения нарушений.</p>
+
+      <p><strong>Главная задача производителя — не просто возобновить КИ как можно быстрее, а обеспечить законность, безопасность и достоверность дальнейшего исследования.</strong></p>
+
+      <h2 id="normativnaya-baza">Нормативная база</h2>
+
+      <ul>
+        <li>Федеральный закон от 21.11.2011 № 323-ФЗ «Об основах охраны здоровья граждан в Российской Федерации».</li>
+        <li>Постановление Правительства РФ от 30.11.2024 № 1684 — Правила государственной регистрации медицинских изделий.</li>
+        <li>Приказ Минздрава России от 13.05.2026 № 421н «Об утверждении Порядка проведения оценки соответствия медицинских изделий в форме технических испытаний, токсикологических исследований, клинических испытаний в целях государственной регистрации медицинских изделий».</li>
+        <li>Решение Совета ЕЭК от 12.02.2016 № 29 — Правила проведения клинических и клинико-лабораторных испытаний (исследований) медицинских изделий.</li>
+        <li>ГОСТ Р ИСО 14155-2022 «Клинические исследования медицинских изделий для людей. Надлежащая клиническая практика».</li>
+      </ul>
 
     </div>
   </section>
@@ -343,25 +477,13 @@ body.nav-open{overflow:hidden;}
     <div class="container">
       <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
       <div class="related-grid">
-        <a class="related-card" href="/blog/klinika-ne-nabiraet-pacientov-chto-delat/">Клиника не набирает пациентов: что делать, когда сроки горят</a>
-        <a class="related-card" href="/blog/otkazali-v-razreshenii/">Отказали в разрешении на КИ медизделия: причины и как переподаться</a>
-        <a class="related-card" href="/blog/otchet-zavernuli/">Отчёт о КИ завернули: что делать</a>
-        <a class="related-card" href="/blog/zamechaniya-k-programme-ki-kak-otvechat/">Замечания к программе КИ: как отвечать и что переделывать</a>
-        <a class="related-card" href="/blog/trebovaniya-k-medorganizacii-dlya-ki-medizdeliya/">Требования к медицинской организации для КИ медизделия</a>
+        <a class="related-card" href="/blog/monitoring-kontrol-kachestva-ki-medizdeliy/">Проведение клинических испытаний медицинского изделия: контроль качества и мониторинг</a>
+        <a class="related-card" href="/blog/zamechaniya-soveta-po-etike-ki-medizdeliya/">Замечания Совета по этике к КИ медизделия: как ответить и что исправить</a>
+        <a class="related-card" href="/blog/mnogocentrovoe-ki-medizdeliya/">Многоцентровое КИ медизделия: когда нужно и как организовать</a>
+        <a class="related-card" href="/blog/eticheskiy-komitet-ki-medizdeliya/">Этический комитет в КИ медизделия: роль, документы, сроки</a>
         <a class="related-card" href="/blog/kak-poluchit-razreshenie-na-ki/">Как получить разрешение на КИ медизделия: пошагово</a>
         <a class="related-card" href="/glossariy/">Глоссарий терминов</a>
         <a class="related-card" href="/blog/">Все статьи блога</a>
-      </div>
-    </div>
-  </section>
-
-  <section aria-labelledby="services-h2">
-    <div class="container">
-      <div class="section-head"><h2 id="services-h2">Смежные разделы</h2></div>
-      <div class="related-grid">
-        <a class="related-card" href="/klinicheskie-ispytaniya-medizdeliy/s-uchastiem-cheloveka/">Испытания с участием человека</a>
-        <a class="related-card" href="/eticheskiy-komitet/">Сопровождение этического комитета</a>
-        <a class="related-card" href="/klinicheskie-bazy/">Аккредитованные клинические базы</a>
       </div>
     </div>
   </section>
@@ -371,7 +493,7 @@ body.nav-open{overflow:hidden;}
     <div class="container">
       <h2 id="next-h2">Что делать дальше</h2>
       <div class="next-grid">
-        <div class="next-card"><h3>Проверить комплект документов</h3><p>Проверим комплект перед подачей и подскажем, что нужно доработать.</p><a href="#cta-form" class="btn btn-primary" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Приостановили КИ медизделия" data-need="Клинические испытания">Оставить заявку</a></div>
+        <div class="next-card"><h3>Проверить комплект документов</h3><p>Проверим комплект перед подачей и подскажем, что нужно доработать.</p><a href="#cta-form" class="btn btn-primary" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Приостановили КИ" data-need="Клинические испытания">Оставить заявку</a></div>
         <div class="next-card"><h3>Клинические испытания медицинских изделий</h3><p>Формы испытаний, этапы и условия работы — на странице услуги.</p><a href="/klinicheskie-ispytaniya-medizdeliy/" class="btn btn-outline" data-goal="service_from_article">Перейти к услуге</a></div>
         <div class="next-card"><h3>Рассчитать стоимость</h3><p>Ориентировочный расчёт по направлению испытаний — в калькуляторе.</p><a href="/kalkulyator/" class="btn btn-outline" data-goal="calc_from_article">Открыть калькулятор</a></div>
       </div>
@@ -383,14 +505,14 @@ body.nav-open{overflow:hidden;}
     <div class="container">
       <div class="final-cta">
         <div class="copy">
-          <h2>Обсудить проект</h2>
-          <p>Если ваше исследование приостановлено — можно обсудить ситуацию и получить предварительную оценку плана возобновления. Подробнее о формате работы — на странице <a href="/klinicheskie-ispytaniya-medizdeliy/" style="color:var(--blue-sky);text-decoration:underline;">клинических испытаний медизделий</a>.</p>
-          <p style="margin-top:14px;"><a href="#cta-form" class="btn btn-outline" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Приостановили КИ медизделия" data-need="Клинические испытания">Обсудить возобновление КИ</a></p>
+          <h2>КИ приостановили — что делать дальше?</h2>
+          <p>Probarium помогает разобраться в причинах приостановки: анализирует исследовательскую документацию и выявленные отклонения, разрабатывает корректирующие мероприятия и готовит материалы для необходимых согласований, включая поправки к программе КИ и ответы Совету по этике. Внешние специалисты не заменяют уполномоченные органы и не могут гарантировать возобновление, но помогают выстроить обоснованный план. Подробнее — на странице <a href="/klinicheskie-ispytaniya-medizdeliy/" style="text-decoration:underline;">клинических испытаний медизделий</a>.</p>
+          <p style="margin-top:14px;"><a href="#cta-form" class="btn btn-outline" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Приостановили КИ" data-need="Клинические испытания">Обсудить приостановку КИ</a></p>
         </div>
         <form id="cta-form" aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
           <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/priostanovili-ki)">
           <input type="hidden" name="source_url" value="https://probarium.ru/blog/priostanovili-ki/">
-          <input type="hidden" name="source_article" value="Приостановили КИ медизделия">
+          <input type="hidden" name="source_article" value="Приостановили КИ">
           <label class="visually-hidden" for="name">Имя</label>
           <input id="name" name="name" type="text" placeholder="Ваше имя" required>
           <label class="visually-hidden" for="company">Компания</label>
@@ -427,7 +549,6 @@ body.nav-open{overflow:hidden;}
         <h3>Услуги</h3>
         <ul>
           <li><a href="/klinicheskie-ispytaniya-medizdeliy/">КИ медизделий</a></li>
-          
           <li><a href="/doklinicheskie-issledovaniya/">Доклиника и токсикология</a></li>
           <li><a href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания</a></li>
         </ul>
@@ -478,8 +599,8 @@ body.nav-open{overflow:hidden;}
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Приостановили КИ медизделия: что делать",
-  "description": "Что значит статус «приостановлено» в реестре КИ Росздравнадзора, типичные причины и пошаговый план возобновления клинического испытания медицинского изделия.",
+  "headline": "КИ приостановили: причины, первые действия и порядок возобновления испытаний медицинского изделия",
+  "description": "Почему приостанавливают КИ медизделия, что сделать в первые 72 часа, как устранить причины, когда нужна поправка к программе и повторный Совет по этике.",
   "inLanguage": "ru",
   "image": [
     "https://probarium.ru/assets/og-cover.jpg"
@@ -507,7 +628,7 @@ body.nav-open{overflow:hidden;}
     "@id": "https://probarium.ru/blog/priostanovili-ki/"
   },
   "datePublished": "2026-07-29T10:00:00+03:00",
-  "dateModified": "2026-08-18T15:45:07+03:00"
+  "dateModified": "2026-10-15T10:00:00+03:00"
 }
 </script>
 <script type="application/ld+json">
@@ -515,9 +636,24 @@ body.nav-open{overflow:hidden;}
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://probarium.ru/"},
-    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://probarium.ru/blog/"},
-    {"@type": "ListItem", "position": 3, "name": "Приостановили КИ медизделия", "item": "https://probarium.ru/blog/priostanovili-ki/"}
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://probarium.ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://probarium.ru/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Приостановили КИ",
+      "item": "https://probarium.ru/blog/priostanovili-ki/"
+    }
   ]
 }
 </script>
@@ -526,15 +662,90 @@ body.nav-open{overflow:hidden;}
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Почему приостановили моё КИ?", "acceptedAnswer": {"@type": "Answer", "text": "Из-за рисков для субъектов, нарушений протокола или проблем с данными. Нужно устранить причину и согласовать возобновление."}},
-    {"@type": "Question", "name": "Что делать между приостановкой и прекращением КИ?", "acceptedAnswer": {"@type": "Answer", "text": "Использовать окно для устранения причины: исправить нарушения, укрепить данные, согласовать возобновление с регулятором."}},
-    {"@type": "Question", "name": "Как возобновить приостановленное КИ?", "acceptedAnswer": {"@type": "Answer", "text": "Устранить причину приостановки, документировать корректирующие меры и согласовать возобновление с регулятором."}},
-    {"@type": "Question", "name": "Чья вина в срыве КИ — клиники или протокола?", "acceptedAnswer": {"@type": "Answer", "text": "Зависит от причины. Срыв набора чаще связан с критериями и центром, методологические дефекты — с протоколом."}},
-    {"@type": "Question", "name": "Изменились ли правила клинических испытаний с 1 марта 2025 года?", "acceptedAnswer": {"@type": "Answer", "text": "Да — с этой даты действуют новые Правила государственной регистрации медицинских изделий (постановление Правительства РФ № 1684 от 30.11.2024 (в действующей редакции)), заменившие прежнее постановление № 1416. Основания и порядок приостановки исследования регулируются этими обновлёнными правилами."}},
-    {"@type": "Question", "name": "Чем приостановка КИ отличается от отказа в разрешении на его проведение?", "acceptedAnswer": {"@type": "Answer", "text": "Приостановка означает, что исследование уже шло, но временно остановлено до устранения нарушения — а отказ в разрешении означает, что испытание с участием человека изначально не было допущено экспертизой. Разные ситуации требуют разных действий: при приостановке нужно устранить конкретную причину и согласовать возобновление, при отказе — разобраться с основанием отрицательного заключения и решить, переподавать заявление или подавать возражения. Подробнее об основаниях отказа и стратегии переподачи — в отдельной статье."}}
+    {
+      "@type": "Question",
+      "name": "Можно ли продолжать КИ в других центрах?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это зависит от масштаба выявленных нарушений и содержания решения о приостановке. Если проблема ограничена одной площадкой, возможность продолжения в других центрах оценивается отдельно с учётом рисков и применимых требований."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли прекращать наблюдение за участниками?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не автоматически. Меры медицинского наблюдения и защиты уже включённых участников определяются характером риска, программой КИ и условиями приостановки. Безопасность участников остаётся приоритетом."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Всегда ли требуется CAPA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Объём корректирующих и предупреждающих действий определяется характером нарушений. При системных проблемах особенно важно устранить первопричину и проверить эффективность мер."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли возобновить КИ сразу после исправления документов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не всегда. Нужно убедиться, что причины приостановки устранены, остаточные риски приемлемы и получены все требуемые одобрения."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли снова идти в Совет по этике?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если для возобновления меняется программа КИ или условия участия — как правило, да: новая версия программы согласуется с медицинской организацией и при необходимости проходит повторное этическое рассмотрение. Если программа не меняется, необходимость оценивается по обстоятельствам."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Кто определяет срок возобновления?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Продолжительность зависит от конкретной ситуации, необходимых мероприятий и процедур согласования. Единого срока для всех исследований нет."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему приостановили моё КИ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Из-за рисков для субъектов, нарушений программы КИ или проблем с данными. Нужно устранить причину и согласовать возобновление."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чья вина в срыве КИ — клиники или программы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от причины. Срыв набора чаще связан с критериями и центром, методологические дефекты — с программой КИ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Изменились ли правила клинических испытаний в 2025–2026 годах?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. С 1 марта 2025 года действуют Правила государственной регистрации медицинских изделий (ПП № 1684 от 30.11.2024), заменившие постановление № 1416, а с 1 сентября 2026 года порядок проведения испытаний определяет приказ Минздрава № 421н вместо приказа № 885н. Заявления, поданные до этой даты, рассматриваются по ранее установленным требованиям."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем приостановка КИ отличается от отказа в разрешении на его проведение?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Приостановка означает, что исследование уже шло, но временно остановлено до устранения нарушения — а отказ в разрешении означает, что испытание с участием человека изначально не было допущено экспертизой. Разные ситуации требуют разных действий: при приостановке нужно устранить конкретную причину и согласовать возобновление, при отказе — разобраться с основанием отрицательного заключения и решить, переподавать заявление или подавать возражения. Подробнее об основаниях отказа и стратегии переподачи — в отдельной статье."
+      }
+    }
   ]
 }
 </script>
+
 <script>
 function toggleMobileNav(){
   var nav = document.getElementById('mobileNav');
