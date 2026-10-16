@@ -33,6 +33,7 @@ const CLUSTER_OF = {
   'mozhno-li-proyti-ki-medizdeliya-za-god': 'cost',
   'kak-uskorit-klinicheskie-ispytaniya-medizdeliya': 'cost',
   'monitoring-kontrol-kachestva-ki-medizdeliy': 'cost',
+  'otkloneniya-ot-programmy-ki-medizdeliya': 'docs',
   'raschet-vyborki-ki-medizdeliya-metodika': 'cost',
   'skolko-pacientov-nuzhno-dlya-ki-razmer-vyborki': 'cost',
   'statisticheskaya-moshchnost-issledovaniya-medizdeliya': 'cost',
