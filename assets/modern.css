@@ -85,6 +85,11 @@ body{counter-reset:sec;}
 .card a.more{color:var(--blue-sky);}
 .segment{padding:22px;}
 .trigger{border-left-width:4px;}
+/* «Почему Probarium» (цифра + текст): внутренние отступы карточек */
+.why-list .trigger{padding:28px 36px;grid-template-columns:88px minmax(0,1fr);column-gap:20px;}
+@media (max-width:820px){
+  .why-list .trigger{padding:22px 20px;grid-template-columns:56px minmax(0,1fr);column-gap:12px;}
+}
 .case-card{padding:26px;}
 .case-card .tag,.form-card .badge{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;}
 
