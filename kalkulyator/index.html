@@ -209,6 +209,7 @@ body.nav-open{overflow:hidden;}
       <div class="calc-wrap">
         <div class="calc-form">
           <label for="direction">Направление испытаний</label>
+          <p style="font-size:13px;color:var(--gray-text);margin:0 0 8px;">Какое направление нужно изделию, зависит прежде всего от наличия аналога с достаточными клиническими данными — подскажет <a href="/podbor-ispytaniy/" style="color:var(--blue-sky);font-weight:600;">определитель формы испытаний</a>.</p>
           <select id="direction" onchange="calculate();"></select>
 
           <label for="centers">Число клинических центров (если применимо)</label>
@@ -225,6 +226,7 @@ body.nav-open{overflow:hidden;}
           <div class="price" id="price-out">—</div>
           <div class="timeline" id="timeline-out">—</div>
           <p class="note">Расчёт индикативный и не является офертой. Точную стоимость и сроки определяет проектный менеджер после изучения технической документации на продукт.</p>
+          <p class="note" id="calc-note" style="margin-top:10px;padding:10px 14px;border-left:3px solid var(--gold);background:var(--white);border-radius:0 8px 8px 0;font-weight:600;">Итоговое решение зависит от назначения изделия, его технических и функциональных особенностей и принимается по результатам экспертизы; расчёт ориентировочный.</p>
           <a href="#final-cta" class="btn btn-primary" style="width:100%;text-align:center;">Запросить точное КП</a>
         </div>
       </div>
@@ -254,7 +256,8 @@ body.nav-open{overflow:hidden;}
         <h2 id="factors-h2">Что влияет на цену</h2>
       </div>
       <div class="factors">
-        <div class="factor"><strong>Класс риска изделия</strong><span>чем выше класс, тем больше объём требуемых испытаний</span></div>
+        <div class="factor"><strong>Аналог и клинические данные</strong><span>наличие аналога с достаточными данными определяет форму испытаний, а значит, и бюджет</span></div>
+        <div class="factor"><strong>Класс риска изделия</strong><span>дополнительный фактор: влияет на объём и строгость требований</span></div>
         <div class="factor"><strong>Число клинических центров</strong><span>многоцентровые исследования дороже одноцентровых</span></div>
         <div class="factor"><strong>Объём выборки</strong><span>размер выборки напрямую влияет на стоимость проведения</span></div>
         <div class="factor"><strong>Сложность дизайна</strong><span>нестандартные дизайны требуют больше ресурсов на разработку протокола</span></div>
