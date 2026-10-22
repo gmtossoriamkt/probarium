@@ -18,9 +18,7 @@
 <meta property="og:site_name" content="Probarium">
 <meta property="article:published_time" content="2026-10-22T10:00:00+03:00">
 <meta property="article:modified_time" content="2026-10-22T10:00:00+03:00">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -184,6 +182,8 @@ body.nav-open{overflow:hidden;}
 </script>
 <link rel="stylesheet" href="/assets/css/header-fx.css">
 <link rel="stylesheet" href="/assets/css/article.css">
+<link rel="stylesheet" href="/assets/modern.css">
+<script defer src="/assets/modern.js"></script>
 </head>
 <body>
 <a href="#main" class="skip-link">Перейти к содержимому</a>
@@ -200,10 +200,26 @@ body.nav-open{overflow:hidden;}
     </a>
     <nav class="main-nav" aria-label="Основная навигация">
       <ul>
-        <li><a href="/uslugi/">Услуги</a></li>
+        <li class="has-sub"><button type="button" class="nav-trigger" aria-haspopup="true">Услуги <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <ul class="sub-menu">
+            <li><a href="/klinicheskie-ispytaniya-medizdeliy/">Клинические испытания МИ<small>Анализ данных, с участием человека, ИВД</small></a></li>
+            <li><a href="/doklinicheskie-issledovaniya/">Доклиника и токсикология<small>Биосовместимость, GLP</small></a></li>
+            <li><a href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания<small>Электробезопасность, ЭМС, ПО</small></a></li>
+            <li><a href="/registraciya-medizdeliy/">Регистрация МИ<small>РФ и ЕАЭС</small></a></li>
+            <li><a href="/razrabotka-dokumentatsii/">Разработка документации<small>Протоколы, отчёты, досье</small></a></li>
+            <li><a href="/uslugi/">Все услуги</a></li>
+          </ul></li>
+        <li><a href="/dorozhnaya-karta/">Как мы работаем</a></li>
+        <li><a href="/kejsy/">Кейсы</a></li>
+        <li class="has-sub"><button type="button" class="nav-trigger" aria-haspopup="true">База знаний <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <ul class="sub-menu">
+            <li><a href="/npa/">НПА и стандарты</a></li>
+            <li><a href="/biblioteka/">Библиотека</a></li>
+            <li><a href="/blog/">Блог</a></li>
+            <li><a href="/glossariy/">Глоссарий</a></li>
+            <li><a href="/faq/">Вопросы и ответы</a></li>
+          </ul></li>
         <li><a href="/o-kompanii/">О компании</a></li>
-        <li><a href="/npa/">НПА</a></li>
-        <li><a href="/blog/">Блог</a></li>
         <li><a href="/kontakty/">Контакты</a></li>
       </ul>
     </nav>
@@ -213,10 +229,21 @@ body.nav-open{overflow:hidden;}
     </button>
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
-    <a href="/uslugi/">Услуги</a>
+    <span class="m-group">Услуги</span>
+    <a class="m-sub" href="/klinicheskie-ispytaniya-medizdeliy/">Клинические испытания МИ</a>
+    <a class="m-sub" href="/doklinicheskie-issledovaniya/">Доклиника и токсикология</a>
+    <a class="m-sub" href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания</a>
+    <a class="m-sub" href="/registraciya-medizdeliy/">Регистрация МИ</a>
+    <a class="m-sub" href="/razrabotka-dokumentatsii/">Разработка документации</a>
+    <a href="/dorozhnaya-karta/">Как мы работаем</a>
+    <a href="/kejsy/">Кейсы</a>
+    <span class="m-group">База знаний</span>
+    <a class="m-sub" href="/npa/">НПА и стандарты</a>
+    <a class="m-sub" href="/biblioteka/">Библиотека</a>
+    <a class="m-sub" href="/blog/">Блог</a>
+    <a class="m-sub" href="/glossariy/">Глоссарий</a>
+    <a class="m-sub" href="/faq/">Вопросы и ответы</a>
     <a href="/o-kompanii/">О компании</a>
-    <a href="/npa/">НПА</a>
-    <a href="/blog/">Блог</a>
     <a href="/kontakty/">Контакты</a>
     <a href="/kontakty/" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
   </nav>
