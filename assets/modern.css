@@ -154,7 +154,7 @@ footer p{color:#B8C4D4;}
   .pb-dock{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:90;gap:8px;padding:8px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:999px;box-shadow:0 12px 32px rgba(15,42,77,.22);transform:translateY(140%);transition:transform .35s var(--ease);}
   .pb-dock.show{transform:none;}
   .pb-dock a{flex:1;text-align:center;padding:12px 10px;border-radius:999px;font-weight:600;font-size:14px;}
-  .pb-dock a.d-main{background:#FF6B1A;color:#fff;}
+  .pb-dock a.d-main{background:#FF6B1A;color:#0F2A4D;}
   .pb-dock a.d-tel{background:var(--blue-pale);color:var(--blue-deep);}
   body{padding-bottom:76px;}
 }
