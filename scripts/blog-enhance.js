@@ -44,8 +44,9 @@ function cardHtml(key, topic) {
 }
 
 function formHtml(slug, canon, topic) {
-  return `<form id="cta-form" aria-label="Форма заявки на консультацию" action="https://formspree.io/f/mzdlwqbk" method="POST">
+  return `<form id="cta-form" aria-label="Форма заявки на консультацию" action="https://functions.yandexcloud.net/d4e389n57q1ils09t0f3" method="POST">
           <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/${slug})">
+          <input type="text" name="_gotcha" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
           <input type="hidden" name="source_url" value="${canon}">
           <input type="hidden" name="source_article" value="${esc(topic)}">
           <label class="visually-hidden" for="name">Имя</label>
