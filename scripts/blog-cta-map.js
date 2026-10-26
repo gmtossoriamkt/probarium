@@ -34,6 +34,7 @@ const CLUSTER_OF = {
   'kak-uskorit-klinicheskie-ispytaniya-medizdeliya': 'cost',
   'monitoring-kontrol-kachestva-ki-medizdeliy': 'cost',
   'peredacha-svedeniy-ki-v-ais-roszdravnadzora': 'clinic',
+  'akt-ocenki-rezultatov-ki-medizdeliya': 'docs',
   'otchet-o-klinicheskih-ispytaniyah-medizdeliya': 'docs',
   'otkloneniya-ot-programmy-ki-medizdeliya': 'docs',
   'nezhelatelnye-sobytiya-ki-medizdeliya': 'docs',
