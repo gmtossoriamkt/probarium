@@ -222,6 +222,12 @@
   .rstep:first-child{border-left:none;}
   .rstep .num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;color:var(--gold-pale);margin-bottom:6px;}
   .rstep p{color:#fff;font-size:13px;margin:0;}
+  a.rstep{display:block;color:inherit;text-decoration:none;border-radius:10px;transition:background-color .15s ease, transform .15s ease, box-shadow .15s ease;}
+  a.rstep:hover{background:rgba(255,255,255,.10);transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.18);}
+  a.rstep:hover .num{color:#fff;}
+  .js a.rstep.rv.in:hover{transform:translateY(-3px);}
+  a.rstep:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+  @media (prefers-reduced-motion:reduce){a.rstep:hover,.js a.rstep.rv.in:hover{transform:none;}}
 
   /* cases */
   .cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
@@ -589,11 +595,11 @@ body.nav-open{overflow:hidden;}
         <h2 id="roadmap-h2">Дорожная карта вывода на рынок</h2>
         <p>Путь от идеи до регистрационного удостоверения, с ключевыми этапами и сроками. Полная интерактивная версия — на отдельной странице.</p>
         <div class="roadmap-steps">
-          <div class="rstep"><div class="num">1</div><p>Определение формы испытаний и стратегии регистрации</p></div>
-          <div class="rstep"><div class="num">2</div><p>Доклиника, токсикология, разработка протокола</p></div>
-          <div class="rstep"><div class="num">3</div><p>Клинические испытания и исследования</p></div>
-          <div class="rstep"><div class="num">4</div><p>Формирование досье и подача на регистрацию</p></div>
-          <div class="rstep"><div class="num">5</div><p>Пострегистрационное сопровождение</p></div>
+          <a class="rstep" href="/dorozhnaya-karta/#etap-1"><div class="num">1</div><p>Определение формы испытаний и стратегии регистрации</p></a>
+          <a class="rstep" href="/dorozhnaya-karta/#etap-2"><div class="num">2</div><p>Доклиника, токсикология, разработка протокола</p></a>
+          <a class="rstep" href="/dorozhnaya-karta/#etap-5"><div class="num">3</div><p>Клинические испытания и исследования</p></a>
+          <a class="rstep" href="/dorozhnaya-karta/#etap-6"><div class="num">4</div><p>Формирование досье и подача на регистрацию</p></a>
+          <a class="rstep" href="/dorozhnaya-karta/"><div class="num">5</div><p>Пострегистрационное сопровождение</p></a>
         </div>
         <p style="margin-top:24px;margin-bottom:0;"><a href="/dorozhnaya-karta/" style="color:#fff;font-weight:600;font-size:14px;border-bottom:1px solid var(--gold);">Открыть интерактивную дорожную карту →</a></p>
       </div>
