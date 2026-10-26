@@ -390,9 +390,13 @@ body.nav-open{overflow:hidden;}
           <label class="visually-hidden" for="message">Комментарий</label>
           <textarea id="message" name="message" rows="3" placeholder="Тип продукта и предполагаемый маршрут регистрации"></textarea>
           <label class="consent">
-            <input type="checkbox" required>
-            <span>Согласен(на) на обработку персональных данных в соответствии с <a href="/privacy/" style="text-decoration:underline;">политикой конфиденциальности</a> (152-ФЗ) и принимаю условия <a href="/oferta/" style="text-decoration:underline;">публичной оферты</a></span>
-          </label>
+<input type="checkbox" name="consent_pd" value="yes" required>
+<span>Даю согласие на обработку персональных данных (имя, компания, email, телефон, текст сообщения) в целях связи со мной по заявке и подготовки коммерческого предложения, в соответствии с <a href="/privacy/" style="text-decoration:underline;">Политикой обработки персональных данных</a></span>
+</label>
+<label class="consent">
+<input type="checkbox" name="consent_offer" value="yes" required>
+<span>Принимаю условия <a href="/oferta/" style="text-decoration:underline;">публичной оферты</a></span>
+</label>
           <button type="submit" class="btn btn-primary">Отправить заявку</button>
         </form>
       </div>
