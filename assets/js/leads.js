@@ -1,48 +1,60 @@
-/* Единая отправка заявок со всех форм сайта (Formspree) с надёжной обработкой ошибок.
+/* Единая отправка заявок со всех форм сайта на функцию Яндекс Облака (JSON).
  *
- *  • Форма отправляется без перезагрузки; успех показывается только если сервер подтвердил приём (HTTP 2xx и ok !== false).
- *  • При ошибке сервера пользователь видит сообщение с телефоном и почтой, данные остаются в форме.
- *  • Если сеть/блокировщик не дают выполнить запрос — пробуем обычную отправку формы (переходом на страницу Formspree).
- *  • Дублирование: если в SECONDARY указан второй приёмник, каждая заявка уходит и туда (независимый канал).
- *  • Заявка, которую не удалось отправить, сохраняется в браузере и досылается при следующем заходе на сайт.
+ *  • Форма отправляется без перезагрузки; успех показывается только если сервер ответил {"ok":true}.
+ *  • На коды ошибок (no_consent_pd, no_consent_offer, no_contact, bad_email, bad_phone, rate_limited…)
+ *    пользователь видит понятное сообщение; кнопка на время отправки блокируется.
+ *  • Неотправленная из-за сети или ответа сервера 5xx заявка сохраняется в браузере и досылается при следующем заходе.
+ *    Ошибки проверки (4xx) в очередь не попадают.
  *
  *  window.ProbariumLeads.submit(fields) — программная отправка (используется классификатором МИ).
  */
 (function(){
-  var PRIMARY = 'https://formspree.io/f/mzdlwqbk';
-  /* Второй независимый приёмник заявок. Пример для второй формы Formspree с другим адресом получателя:
-   *   SECONDARY = [{url: 'https://formspree.io/f/XXXXXXXX'}];
-   * Для сервисов с ключом доступа (Web3Forms и т. п.): {url: '…', extra: {access_key: '…'}} */
-  var SECONDARY = [];
+  var ENDPOINT = 'https://functions.yandexcloud.net/d4e389n57q1ils09t0f3';
   var COUNTER = 113257593;
   var QKEY = 'probarium_lead_queue_v1';
-  var CONTACTS = 'Напишите на info@probarium.ru или позвоните +7 985 316-91-04.';
+  var MAIL = 'info@probarium.ru';
+  var GENERIC = 'Не удалось отправить заявку. Напишите нам на ' + MAIL;
+  var MESSAGES = {
+    no_consent_pd: 'Нужно согласие на обработку персональных данных',
+    no_consent_offer: 'Нужно принять условия оферты',
+    no_contact: 'Укажите email или телефон',
+    bad_email: 'Проверьте адрес email',
+    bad_phone: 'Проверьте номер телефона',
+    rate_limited: 'Слишком много попыток, попробуйте позже или напишите на ' + MAIL
+  };
 
   function goal(name, params){ try{ if(typeof ym === 'function') ym(COUNTER, 'reachGoal', name, params || {}); }catch(e){} }
   var article = (location.pathname.match(/\/blog\/([^\/]+)\//) || [])[1] || '';
 
-  function post(url, body){
-    return fetch(url, {method:'POST', body:body, headers:{'Accept':'application/json'}}).then(function(r){
-      return r.json().catch(function(){ return {}; }).then(function(j){ return {ok: r.ok && j.ok !== false, status: r.status}; });
+  function on(v){ return v === true || v === 'on' || v === 'yes' || v === 'true' || v === '1'; }
+
+  /* Приводим поля к контракту функции: согласия — 'on' только если отмечены, адрес страницы — page */
+  function normalize(fields){
+    var o = {};
+    Object.keys(fields).forEach(function(k){ if(fields[k] !== undefined && fields[k] !== null) o[k] = fields[k]; });
+    ['consent_pd', 'consent_offer'].forEach(function(k){ if(on(o[k])) o[k] = 'on'; else delete o[k]; });
+    o.page = o.page || location.href.split('#')[0];
+    delete o.source_url; delete o.source_page;
+    return o;
+  }
+
+  /* Один запрос. Ответ функции всегда JSON; network=true — запрос не дошёл (сеть, блокировщик) */
+  function post(fields){
+    return fetch(ENDPOINT, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify(fields)
+    }).then(function(r){
+      return r.json().catch(function(){ return {}; }).then(function(j){
+        var ok = r.ok && j.ok === true;
+        var code = ok ? '' : (j.error || 'http_' + r.status);
+        return {ok: ok, status: r.status, error: code, message: ok ? '' : (MESSAGES[code] || GENERIC)};
+      });
+    }, function(){
+      return {ok: false, network: true, status: 0, error: 'network', message: GENERIC};
     });
   }
-  function toFormData(fields, extra){
-    var fd = new FormData();
-    Object.keys(fields).forEach(function(k){ fd.append(k, fields[k]); });
-    if(extra) Object.keys(extra).forEach(function(k){ fd.append(k, extra[k]); });
-    return fd;
-  }
-  /* Отправка во все каналы. Успех — если принял основной ИЛИ любой запасной. network=true — запрос вообще не ушёл. */
-  function sendAll(fields){
-    var tasks = [post(PRIMARY, toFormData(fields))].concat(SECONDARY.map(function(s){
-      return post(s.url, toFormData(fields, s.extra)).catch(function(){ return {ok:false}; });
-    }));
-    return Promise.all(tasks.map(function(p, i){
-      return p.catch(function(){ return {ok:false, network:true, idx:i}; });
-    })).then(function(res){
-      return {ok: res.some(function(r){ return r.ok; }), network: res[0].network === true, results: res};
-    });
-  }
+  function retriable(r){ return r.network === true || r.status >= 500; }
 
   /* Очередь неотправленных заявок */
   function queueGet(){ try{ return JSON.parse(localStorage.getItem(QKEY) || '[]'); }catch(e){ return []; } }
@@ -54,9 +66,9 @@
     var q = queueGet().filter(function(x){ return Date.now() - x.t < 7 * 864e5; });
     if(!q.length){ queueSet([]); return; }
     var next = q.shift();
-    var f = next.f; f._subject = '[ПОВТОРНАЯ ОТПРАВКА] ' + (f._subject || 'Заявка с сайта Probarium');
-    sendAll(f).then(function(r){
-      queueSet(r.ok ? q : [next].concat(q));
+    var f = Object.assign({}, next.f); f._subject = '[ПОВТОРНАЯ ОТПРАВКА] ' + (f._subject || 'Заявка с сайта Probarium');
+    post(f).then(function(r){
+      queueSet(r.ok || !retriable(r) ? q : [next].concat(q));   // 4xx не повторяем
       if(r.ok){ goal('lead_resent'); if(q.length) queueFlush(); }
     });
   }
@@ -64,9 +76,7 @@
   function formFields(form){
     var o = {};
     new FormData(form).forEach(function(v, k){ if(typeof v === 'string') o[k] = v; });
-    if(!o.source_url) o.source_url = location.href.split('#')[0];
-    if(!o.source_page) o.source_page = location.pathname;
-    return o;
+    return normalize(o);
   }
 
   function showError(form, text){
@@ -84,8 +94,7 @@
     if(form.dataset.leadsBound) return;
     form.dataset.leadsBound = '1';
     form.addEventListener('submit', function(e){
-      if(form.dataset.sending === 'native') return;       // обычная отправка (резервный путь)
-      if(!window.fetch || !window.FormData || !window.Promise) return;
+      if(!window.fetch || !window.FormData || !window.Promise) return;   // совсем старый браузер — обычная отправка
       e.preventDefault();
       if(form.dataset.sending === '1') return;
       form.dataset.sending = '1';
@@ -94,7 +103,7 @@
       if(btn){ btn.disabled = true; btn.textContent = 'Отправляем…'; }
       var err = form.querySelector('.form-error'); if(err) err.textContent = '';
       var fields = formFields(form);
-      sendAll(fields).then(function(r){
+      post(fields).then(function(r){
         if(r.ok){
           goal(article ? 'article_form_submit' : 'form_submit', {page: location.pathname});
           var ok = document.createElement('div');
@@ -104,14 +113,9 @@
           form.replaceWith(ok);
           return;
         }
-        if(r.network){            // запрос не ушёл (сеть, блокировщик) — пробуем обычную отправку
-          form.dataset.sending = 'native';
-          form.submit();
-          return;
-        }
-        queuePush(fields);        // сервер ответил ошибкой — не теряем заявку
-        goal('form_error', {page: location.pathname});
-        showError(form, 'Не удалось отправить заявку. ' + CONTACTS);
+        if(retriable(r)) queuePush(fields);   // не теряем заявку при сбое сети или сервера
+        goal('form_error', {page: location.pathname, code: r.error});
+        showError(form, r.message);
         form.dataset.sending = '0';
         if(btn){ btn.disabled = false; btn.textContent = label; }
       });
@@ -119,19 +123,19 @@
   }
 
   window.ProbariumLeads = {
-    /* Программная отправка: возвращает Promise<{ok:boolean}> */
+    /* Программная отправка: возвращает Promise<{ok:boolean, message:string}> */
     submit: function(fields){
-      fields = Object.assign({source_url: location.href.split('#')[0]}, fields);
-      return sendAll(fields).then(function(r){
-        if(!r.ok) queuePush(fields);
+      fields = normalize(Object.assign({page: location.href.split('#')[0]}, fields));
+      return post(fields).then(function(r){
+        if(!r.ok && retriable(r)) queuePush(fields);
         goal(r.ok ? 'form_submit' : 'form_error', {page: location.pathname});
-        return {ok: r.ok, contacts: CONTACTS};
+        return {ok: r.ok, message: r.message, known: !!MESSAGES[r.error], contacts: 'Напишите на ' + MAIL + ' или позвоните +7 985 316-91-04.'};
       });
     }
   };
 
   function init(){
-    [].forEach.call(document.querySelectorAll('form[action*="formspree.io/f/"]'), bind);
+    [].forEach.call(document.querySelectorAll('form[action*="functions.yandexcloud.net"]'), bind);
     queueFlush();
   }
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
