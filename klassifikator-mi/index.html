@@ -79,6 +79,9 @@
 
   label{display:block; font-size:13px; font-weight:600; margin:16px 0 6px; color:var(--navy);}
   label:first-of-type{margin-top:0;}
+  label.consent-row{display:flex; gap:8px; align-items:flex-start; font-size:12.5px; font-weight:400; color:var(--slate-soft); margin:12px 0 0;}
+  label.consent-row input{width:16px; height:16px; margin-top:2px; flex-shrink:0; accent-color:var(--amber);}
+  label.consent-row a{color:var(--navy); text-decoration:underline;}
   input[type=text], input[type=email], input[type=tel], textarea, select{
     width:100%; font-family:var(--sans); font-size:14.5px; padding:11px 14px;
     border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--navy);
@@ -164,6 +167,10 @@
     .cta-ghost{padding:9px 14px; font-size:12.5px;}
     .cta-pill{padding:9px 16px; font-size:12.5px;}
     .choice-grid{grid-template-columns:1fr;}
+  }
+  /* на узких экранах две кнопки в шапке не помещаются; кнопка «Классификатор МИ» ведёт на эту же страницу */
+  @media (max-width:480px){
+    .cta-ghost{display:none;}
   }
 </style>
 </head>
@@ -301,6 +308,9 @@
       <label for="contactEmail">Email</label>
       <input type="email" id="contactEmail" placeholder="you@company.ru">
 
+      <label class="consent-row" for="consentPd"><input type="checkbox" id="consentPd" name="consent_pd" value="yes" required aria-required="true"><span>Даю согласие на обработку персональных данных (имя, компания, email, телефон, текст сообщения) в целях связи со мной по заявке и подготовки коммерческого предложения, в соответствии с <a href="/privacy/">Политикой обработки персональных данных</a></span></label>
+      <label class="consent-row" for="consentOffer"><input type="checkbox" id="consentOffer" name="consent_offer" value="yes" required aria-required="true"><span>Принимаю условия <a href="/oferta/">публичной оферты</a></span></label>
+
       <p id="appError" role="alert" style="color:#B3261E;font-size:14px;margin:12px 0 0;display:none;"></p>
       <div class="btn-row">
         <button class="btn ghost" data-back="3">← Назад</button>
@@ -357,7 +367,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    © 2026 Probarium, клиническое подразделение ГМТ ·
+    © 2026 Probarium, клиническое подразделение ГМТ · ООО «Глобальные Медицинские Технологии», ИНН 9710131540, ОГРН 1247700287834 ·
     <a href="https://probarium.ru/privacy/">Конфиденциальность</a> ·
     <a href="https://probarium.ru/cookie/">Cookie</a> ·
     <a href="https://probarium.ru/cookie/" data-cookie-settings>Настройки cookie</a> ·
@@ -629,12 +639,18 @@ document.getElementById("submitApp").addEventListener("click", ()=>{
     err.style.display = "block";
     return;
   }
+  if(!document.getElementById("consentPd").checked || !document.getElementById("consentOffer").checked){
+    err.textContent = "Для отправки заявки отметьте согласие на обработку персональных данных и принятие условий оферты.";
+    err.style.display = "block";
+    return;
+  }
   const subject = "Заявка на классификацию МИ — " + devName;
   const mailto = `mailto:${TARGET_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
   const orig = btn.textContent;
   btn.disabled = true; btn.textContent = "Отправляем…";
   const payload = {_subject: subject, name: cName, company: document.getElementById("contactCompany").value.trim(),
-                   phone: cPhone, email: cEmail, need: "Классификация медицинского изделия", message: text};
+                   phone: cPhone, email: cEmail, need: "Классификация медицинского изделия", message: text,
+                   consent_pd: "yes", consent_offer: "yes"};
   const done = ok => {
     btn.disabled = false; btn.textContent = orig;
     if(ok){ goTo(5); return; }
@@ -660,6 +676,8 @@ document.getElementById("restart").addEventListener("click", ()=>{
   document.getElementById("contactCompany").value = "";
   document.getElementById("contactPhone").value = "";
   document.getElementById("contactEmail").value = "";
+  document.getElementById("consentPd").checked = false;
+  document.getElementById("consentOffer").checked = false;
   state = { step:0, picked:null, riskClass:null, hasAnalog:null };
   document.getElementById("pathResult").style.display = "none";
   document.getElementById("analogChoices").style.display = "grid";

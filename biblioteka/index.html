@@ -14,7 +14,7 @@
      поисковиках по прямому URL документа.
 -->
 
-<link rel="stylesheet" href="biblioteka.css?v=1">
+<link rel="stylesheet" href="biblioteka.css?v=2">
 
 <section class="lib">
 
@@ -48,8 +48,12 @@
       </div>
       <input type="hidden" name="source" value="Библиотека НПА и ГОСТов">
       <div class="lib-ask-agree">
-        <input type="checkbox" id="libAskAgree" required>
-        <label for="libAskAgree">Согласен с <a href="/privacy">Политикой конфиденциальности</a> и обработкой персональных данных и принимаю условия <a href="/oferta">публичной оферты</a></label>
+        <input type="checkbox" id="libAskAgree" name="consent_pd" value="yes" required>
+        <label for="libAskAgree">Даю согласие на обработку персональных данных (имя, компания, email, телефон, текст сообщения) в целях связи со мной по заявке и подготовки коммерческого предложения, в соответствии с <a href="/privacy/">Политикой обработки персональных данных</a></label>
+      </div>
+      <div class="lib-ask-agree">
+        <input type="checkbox" id="libAskOffer" name="consent_offer" value="yes" required>
+        <label for="libAskOffer">Принимаю условия <a href="/oferta/">публичной оферты</a></label>
       </div>
       <button type="submit" class="lib-ask-submit">Задать вопрос</button>
       <p class="lib-ask-success" id="libAskSuccess" hidden>Спасибо! Заявка отправлена, мы свяжемся с вами в течение одного рабочего дня.</p>
@@ -92,6 +96,8 @@
     </div>
   </div>
 </div>
+
+<div class="lib-legal">ООО «Глобальные Медицинские Технологии», ИНН 9710131540, ОГРН 1247700287834 · <a href="/privacy/">Политика конфиденциальности</a> · <a href="/cookie/">Политика cookie</a> · <a href="/cookie/" data-cookie-settings>Настройки cookie</a></div>
 
 <script src="biblioteka.js?v=1" defer></script>
 <script src="/assets/js/cookie-banner.js" defer></script>

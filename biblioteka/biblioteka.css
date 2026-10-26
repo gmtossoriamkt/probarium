@@ -178,3 +178,7 @@
   .lib-header h1 { font-size: 20px; }
   .lib-subtitle { font-size: 14px; }
 }
+
+/* Нижняя строка: реквизиты и ссылки (152-ФЗ) */
+.lib-legal { width: 100%; border-top: 1px solid var(--lib-border); padding: 12px 1rem; font-family: 'Inter', Arial, sans-serif; font-size: 12px; line-height: 1.5; color: var(--lib-text-muted); text-align: center; }
+.lib-legal a { color: var(--lib-text-secondary); text-decoration: underline; }
