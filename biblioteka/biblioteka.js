@@ -160,6 +160,15 @@ function bindGlobalEvents() {
     });
   }
 
+  const LIB_ERRORS = {
+    no_consent_pd: "Нужно согласие на обработку персональных данных",
+    no_consent_offer: "Нужно принять условия оферты",
+    no_contact: "Укажите email или телефон",
+    bad_email: "Проверьте адрес email",
+    bad_phone: "Проверьте номер телефона",
+    rate_limited: "Слишком много попыток, попробуйте позже или напишите на info@probarium.ru",
+    default: "Не удалось отправить заявку. Напишите нам на info@probarium.ru"
+  };
   const askForm = document.getElementById("libAskForm");
   if (askForm) {
     askForm.addEventListener("submit", async (e) => {
@@ -173,18 +182,35 @@ function bindGlobalEvents() {
       submitBtn.textContent = "Отправляем...";
 
       try {
-        const res = await fetch("https://formspree.io/f/mzdlwqbk", {
+        const data = new FormData(askForm);
+        const contact = String(data.get("contact") || "").trim();
+        const payload = {
+          _subject: "Вопрос из Библиотеки НПА и ГОСТов",
+          name: String(data.get("name") || "").trim(),
+          message: String(data.get("question") || "").trim(),
+          page: location.href.split("#")[0],
+          source: String(data.get("source") || ""),
+          _gotcha: String(data.get("_gotcha") || "")
+        };
+        if (contact.indexOf("@") !== -1) payload.email = contact; else payload.phone = contact;
+        if (data.get("consent_pd")) payload.consent_pd = "on";
+        if (data.get("consent_offer")) payload.consent_offer = "on";
+        const res = await fetch("https://functions.yandexcloud.net/d4e389n57q1ils09t0f3", {
           method: "POST",
-          headers: { "Accept": "application/json" },
-          body: new FormData(askForm)
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify(payload)
         });
-        if (res.ok) {
+        let body = {};
+        try { body = await res.json(); } catch (e) {}
+        if (res.ok && body.ok === true) {
           successEl.hidden = false;
           askForm.reset();
         } else {
+          errorEl.textContent = LIB_ERRORS[body.error] || LIB_ERRORS.default;
           errorEl.hidden = false;
         }
       } catch (err) {
+        errorEl.textContent = LIB_ERRORS.default;
         errorEl.hidden = false;
       } finally {
         submitBtn.disabled = false;

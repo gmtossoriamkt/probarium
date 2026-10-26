@@ -311,6 +311,7 @@
       <label class="consent-row" for="consentPd"><input type="checkbox" id="consentPd" name="consent_pd" value="yes" required aria-required="true"><span>Даю согласие на обработку персональных данных (имя, компания, email, телефон, текст сообщения) в целях связи со мной по заявке и подготовки коммерческого предложения, в соответствии с <a href="/privacy/">Политикой обработки персональных данных</a></span></label>
       <label class="consent-row" for="consentOffer"><input type="checkbox" id="consentOffer" name="consent_offer" value="yes" required aria-required="true"><span>Принимаю условия <a href="/oferta/">публичной оферты</a></span></label>
 
+      <input type="text" id="contactHp" name="_gotcha" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
       <p id="appError" role="alert" style="color:#B3261E;font-size:14px;margin:12px 0 0;display:none;"></p>
       <div class="btn-row">
         <button class="btn ghost" data-back="3">← Назад</button>
@@ -650,14 +651,15 @@ document.getElementById("submitApp").addEventListener("click", ()=>{
   btn.disabled = true; btn.textContent = "Отправляем…";
   const payload = {_subject: subject, name: cName, company: document.getElementById("contactCompany").value.trim(),
                    phone: cPhone, email: cEmail, need: "Классификация медицинского изделия", message: text,
-                   consent_pd: "yes", consent_offer: "yes"};
-  const done = ok => {
+                   consent_pd: "on", consent_offer: "on", _gotcha: document.getElementById("contactHp").value};
+  const done = (ok, msg) => {
     btn.disabled = false; btn.textContent = orig;
     if(ok){ goTo(5); return; }
+    if(msg){ err.textContent = msg; err.style.display = "block"; return; }
     err.innerHTML = 'Не удалось отправить заявку. Напишите на <a href="' + mailto + '">info@probarium.ru</a> или позвоните +7 985 316-91-04 — данные заявки можно скопировать на следующем шаге.';
     err.style.display = "block";
   };
-  if(window.ProbariumLeads){ window.ProbariumLeads.submit(payload).then(r => done(r.ok), () => done(false)); }
+  if(window.ProbariumLeads){ window.ProbariumLeads.submit(payload).then(r => done(r.ok, r.known ? r.message : null), () => done(false)); }
   else { done(false); }
 });
 
