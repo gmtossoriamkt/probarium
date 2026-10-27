@@ -64,6 +64,9 @@
   overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
 }
 .lib-item-meta { font-size: 12px; color: var(--lib-text-muted); margin: 4px 0 0; }
+.lib-item-note { font-size: 12px; color: #8a5a00; margin: 4px 0 0; }
+.lib-modal-note { font-size: 13px; color: #8a5a00; background: #fff6e0; border-radius: 6px; padding: 8px 12px; margin: -8px 0 20px; }
+.lib-modal-note[hidden] { display: none; }
 .lib-item-btn {
   flex-shrink: 0; display: flex; align-items: center; gap: 6px;
   font-size: 13px; padding: 8px 14px; border-radius: var(--lib-radius);

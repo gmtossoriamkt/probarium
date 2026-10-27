@@ -80,6 +80,7 @@ function renderList() {
       <div class="lib-item-body">
         <p class="lib-item-title">${escapeHtml(d.title)}</p>
         <p class="lib-item-meta">${escapeHtml(d.category)}${d.year ? " · " + d.year : ""}</p>
+        ${d.note ? `<p class="lib-item-note">${escapeHtml(d.note)}</p>` : ""}
       </div>
       <button class="lib-item-btn" data-index="${state.documents.indexOf(d)}">
         &#8595; Скачать
@@ -99,6 +100,9 @@ function openModal(doc, updateUrl) {
   document.getElementById("libModalBadge").textContent = `${doc.docType} · ${doc.year || ""}`;
   document.getElementById("libModalTitle").textContent = doc.title;
   document.getElementById("libModalMeta").textContent = doc.category;
+  const noteEl = document.getElementById("libModalNote");
+  noteEl.textContent = doc.note || "";
+  noteEl.hidden = !doc.note;
   document.getElementById("libModalDownload").href = doc.fileUrl;
   document.getElementById("libModalFullpage").href = doc.pageUrl;
   document.getElementById("libModalOverlay").hidden = false;
