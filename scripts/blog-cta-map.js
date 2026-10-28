@@ -36,6 +36,7 @@ const CLUSTER_OF = {
   'peredacha-svedeniy-ki-v-ais-roszdravnadzora': 'clinic',
   'akt-ocenki-rezultatov-ki-medizdeliya': 'docs',
   'otchet-o-klinicheskih-ispytaniyah-medizdeliya': 'docs',
+  'otchet-ki-po-pravilam-eaes': 'docs',
   'otkloneniya-ot-programmy-ki-medizdeliya': 'docs',
   'nezhelatelnye-sobytiya-ki-medizdeliya': 'docs',
   'raschet-vyborki-ki-medizdeliya-metodika': 'cost',
