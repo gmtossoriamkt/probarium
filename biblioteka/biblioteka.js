@@ -80,7 +80,7 @@ function renderList() {
       <div class="lib-item-body">
         <p class="lib-item-title">${escapeHtml(d.title)}</p>
         <p class="lib-item-meta">${escapeHtml(d.category)}${d.year ? " · " + d.year : ""}</p>
-        ${d.note ? `<p class="lib-item-note">${escapeHtml(d.note)}</p>` : ""}
+        ${d.note ? `<p class="lib-item-note">${escapeHtml(d.note)}${d.noteLink ? ` <a href="${d.noteLink}">Открыть Решение № 7</a>` : ""}</p>` : ""}
       </div>
       <button class="lib-item-btn" data-index="${state.documents.indexOf(d)}">
         &#8595; Скачать
@@ -102,6 +102,7 @@ function openModal(doc, updateUrl) {
   document.getElementById("libModalMeta").textContent = doc.category;
   const noteEl = document.getElementById("libModalNote");
   noteEl.textContent = doc.note || "";
+  if (doc.noteLink) { const a = document.createElement("a"); a.href = doc.noteLink; a.textContent = " Открыть Решение № 7"; noteEl.appendChild(a); }
   noteEl.hidden = !doc.note;
   document.getElementById("libModalDownload").href = doc.fileUrl;
   document.getElementById("libModalFullpage").href = doc.pageUrl;
