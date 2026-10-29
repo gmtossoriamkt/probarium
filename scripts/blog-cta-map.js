@@ -38,6 +38,7 @@ const CLUSTER_OF = {
   'otchet-o-klinicheskih-ispytaniyah-medizdeliya': 'docs',
   'otchet-ki-po-pravilam-eaes': 'docs',
   'klinicheskaya-ocenka-medizdeliya-po-literature': 'docs',
+  'obosnovanie-ekvivalentnosti-medizdeliya': 'docs',
   'otkloneniya-ot-programmy-ki-medizdeliya': 'docs',
   'nezhelatelnye-sobytiya-ki-medizdeliya': 'docs',
   'raschet-vyborki-ki-medizdeliya-metodika': 'cost',
