@@ -335,7 +335,7 @@ body.nav-open{overflow:hidden;}
 <script>
 var directions = {
   mi: [
-    {value:'analiz', label:'Анализ клинических данных', base:300000, months:'от 2 недель'},
+    {value:'analiz', label:'Анализ клинических данных', base:300000, months:'от 2 недель', timeLabel:'Подготовка данных'},
     {value:'human', label:'Испытания с участием человека', base:2500000, months:'от 3 месяцев'},
     {value:'ivd', label:'Клинико-лабораторные испытания ИВД', base:900000, months:'от 4 недель'},
     {value:'ems', label:'Испытания ЭМС', base:400000, months:'от 3 недель'},
@@ -386,7 +386,7 @@ function calculate(){
   }
 
   document.getElementById('price-out').textContent = 'от ' + formatPrice(Math.round(low/10000)*10000) + ' до ' + formatPrice(Math.round(high/10000)*10000) + ' ₽';
-  document.getElementById('timeline-out').textContent = 'Срок: ' + dirObj.months + (needsPreclinical ? ' + доклиника от 3 месяцев' : '');
+  document.getElementById('timeline-out').textContent = (dirObj.timeLabel || 'Срок') + ': ' + dirObj.months + (needsPreclinical ? ' + доклиника от 3 месяцев' : '');
 }
 
 updateDirectionOptions();
