@@ -359,7 +359,7 @@ function renderRangeTable(){
   var rows = '';
   directions.mi.forEach(function(d){
     rows += '<tr><td style="border:1px solid var(--border);padding:10px 14px;">'+d.label+'</td>' +
-            '<td style="border:1px solid var(--border);padding:10px 14px;">'+d.months+'</td>' +
+            '<td style="border:1px solid var(--border);padding:10px 14px;">'+(d.timeLabel ? d.timeLabel.toLowerCase()+': ' : '')+d.months+'</td>' +
             '<td style="border:1px solid var(--border);padding:10px 14px;">'+formatPrice(d.base)+' ₽</td></tr>';
   });
   tbody.innerHTML = rows;
