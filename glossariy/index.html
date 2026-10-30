@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Глоссарий терминов клинических исследований и ЕАЭС | Probarium</title>
+<meta name="description" content="Словарь терминов клинических исследований медицинских изделий: GCP, GLP, протокол, ИРК, информированное согласие, заявитель, CRA, клиническая оценка, SaMD. Чёткие определения.">
+<link rel="canonical" href="https://probarium.ru/glossariy/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Глоссарий терминов клинических исследований и ЕАЭС | Probarium">
+<meta property="og:description" content="Словарь терминов клинических исследований медицинских изделий: GCP, GLP, протокол, ИРК, информированное согласие, заявитель, CRA, клиническая оценка, SaMD. Чёткие определения.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://probarium.ru/glossariy/">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+.forms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.form-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px;}
+.form-card .badge{display:inline-block;background:var(--blue-pale);color:#0C447C;font-size:12px;font-weight:600;
+  padding:4px 10px;border-radius:14px;margin-bottom:14px;}
+.form-card h3{font-size:17px;margin-bottom:8px;}
+.form-card p{font-size:14px;color:var(--gray-text);margin-bottom:14px;}
+.form-card ul{margin:0 0 14px 18px;font-size:13px;color:var(--gray-text);}
+.form-card ul li{margin-bottom:4px;}
+.form-card a.more{font-size:13px;font-weight:600;color:var(--blue-sky);}
+
+.risk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+.risk-card{background:var(--white);border:1px solid var(--border);border-left:3px solid var(--blue-sky);
+  border-radius:0 10px 10px 0;padding:16px;font-size:13px;}
+.risk-card strong{display:block;color:var(--blue-deep);font-size:14px;margin-bottom:4px;}
+.risk-card span{color:var(--gray-text);}
+
+.steps{counter-reset:step;}
+.step{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--border);}
+.step:last-child{border-bottom:none;}
+.step .step-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--blue-deep);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:14px;}
+.step h3{font-size:15px;margin-bottom:4px;}
+.step p{font-size:14px;color:var(--gray-text);}
+
+.doc-list{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:8px 0;}
+.doc-list li{list-style:none;display:flex;gap:10px;align-items:flex-start;padding:12px 24px;
+  border-bottom:1px solid var(--border);font-size:14px;}
+.doc-list li:last-child{border-bottom:none;}
+.doc-list li svg{flex-shrink:0;margin-top:2px;}
+
+.pricing-band{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:26px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;}
+.pricing-item .num{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:22px;color:var(--blue-deep);}
+.pricing-item .label{font-size:13px;color:var(--gray-text);margin-top:4px;}
+
+.npa-list{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:8px 0;}
+.npa-list li{list-style:none;display:flex;justify-content:space-between;gap:16px;padding:14px 24px;
+  border-bottom:1px solid var(--border);font-size:14px;flex-wrap:wrap;}
+.npa-list li:last-child{border-bottom:none;}
+.npa-list .npa-note{color:var(--gray-text);font-size:13px;}
+.npa-star{color:var(--gold);font-weight:700;}
+
+.triggers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
+.trigger{padding:18px;border-left:3px solid var(--gold);background:var(--white);border-radius:0 12px 12px 0;
+  border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+.trigger h3{font-size:15px;margin-bottom:6px;}
+.trigger p{font-size:13px;color:var(--gray-text);}
+
+.bases-strip{display:flex;flex-wrap:wrap;gap:12px;}
+.base-chip{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13px;}
+.base-chip strong{display:block;color:var(--blue-deep);font-size:13px;}
+.base-chip span{color:var(--gray-text);font-size:12px;}
+
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.case-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px;}
+.case-card .tag{font-size:12px;font-weight:600;color:#0C447C;background:var(--blue-pale);
+  display:inline-block;padding:3px 10px;border-radius:14px;margin-bottom:12px;}
+.case-card h3{font-size:16px;margin-bottom:8px;}
+.case-card p{font-size:13px;color:var(--gray-text);}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.lk-band{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:14px;padding:22px 26px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.lk-band p{font-size:14px;color:#0C447C;margin:0;max-width:480px;}
+.lk-band a{font-size:13px;font-weight:600;color:var(--blue-deep);white-space:nowrap;border-bottom:1px solid var(--blue-deep);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+@media (max-width:374px){
+  .final-cta{padding:24px;}
+  .final-cta .copy,.final-cta form{min-width:0;flex-basis:100%;}
+}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+.segments{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+.segment{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;font-size:14px;}
+.segment strong{display:block;color:var(--blue-deep);font-size:14px;margin-bottom:4px;}
+.segment span{color:var(--gray-text);font-size:13px;}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-col li.footer-social{display:flex;gap:12px;margin-top:14px;}
+.footer-col .footer-social a{display:inline-flex;border-radius:10px;transition:transform .2s ease,box-shadow .2s ease;}
+.footer-col .footer-social a:hover,.footer-col .footer-social a:focus-visible{transform:translateY(-2px);box-shadow:0 0 0 3px var(--gold);}
+@media (prefers-reduced-motion:reduce){.footer-col .footer-social a{transition:none;}.footer-col .footer-social a:hover{transform:none;}}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:1100px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+</style>
+<link rel="stylesheet" href="/assets/css/header-fx.css">
+<link rel="stylesheet" href="/assets/modern.css">
+<script defer src="/assets/modern.js"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li class="has-sub"><button type="button" class="nav-trigger" aria-haspopup="true">Услуги <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <ul class="sub-menu">
+            <li><a href="/klinicheskie-ispytaniya-medizdeliy/">Клинические испытания МИ<small>Анализ данных, с участием человека, ИВД</small></a></li>
+            <li><a href="/doklinicheskie-issledovaniya/">Доклиника и токсикология<small>Биосовместимость, GLP</small></a></li>
+            <li><a href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания<small>Включая электробезопасность, ЭМС, ПО</small></a></li>
+            <li><a href="/registraciya-medizdeliy/">Регистрация МИ<small>РФ и ЕАЭС</small></a></li>
+            <li><a href="/razrabotka-dokumentatsii/">Разработка документации<small>Протоколы, отчёты, досье</small></a></li>
+            <li><a href="/uslugi/">Все услуги</a></li>
+          </ul></li>
+        <li><a href="/dorozhnaya-karta/">Как мы работаем</a></li>
+        <li><a href="/kejsy/">Кейсы</a></li>
+        <li class="has-sub"><button type="button" class="nav-trigger" aria-haspopup="true">База знаний <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <ul class="sub-menu">
+            <li><a href="/npa/">НПА и стандарты</a></li>
+            <li><a href="/biblioteka/">Библиотека</a></li>
+            <li><a href="/blog/">Блог</a></li>
+            <li><a href="/glossariy/">Глоссарий</a></li>
+            <li><a href="/faq/">Вопросы и ответы</a></li>
+          </ul></li>
+        <li><a href="/o-kompanii/">О компании</a></li>
+        <li><a href="/kontakty/">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty/" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <span class="m-group">Услуги</span>
+    <a class="m-sub" href="/klinicheskie-ispytaniya-medizdeliy/">Клинические испытания МИ</a>
+    <a class="m-sub" href="/doklinicheskie-issledovaniya/">Доклиника и токсикология</a>
+    <a class="m-sub" href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания</a>
+    <a class="m-sub" href="/registraciya-medizdeliy/">Регистрация МИ</a>
+    <a class="m-sub" href="/razrabotka-dokumentatsii/">Разработка документации</a>
+    <a href="/dorozhnaya-karta/">Как мы работаем</a>
+    <a href="/kejsy/">Кейсы</a>
+    <span class="m-group">База знаний</span>
+    <a class="m-sub" href="/npa/">НПА и стандарты</a>
+    <a class="m-sub" href="/biblioteka/">Библиотека</a>
+    <a class="m-sub" href="/blog/">Блог</a>
+    <a class="m-sub" href="/glossariy/">Глоссарий</a>
+    <a class="m-sub" href="/faq/">Вопросы и ответы</a>
+    <a href="/o-kompanii/">О компании</a>
+    <a href="/kontakty/">Контакты</a>
+    <a href="/kontakty/" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+
+<main id="main">
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <span aria-current="page">Глоссарий терминов</span>
+  </nav>
+
+  <div class="container page-intro">
+    <h1>Глоссарий терминов клинических исследований</h1>
+    <p class="lead">Словарь терминов клинических исследований медицинских изделий и регуляторики: GCP, GLP, протокол, ИРК, информированное согласие, заявитель, CRA, клиническая оценка, SaMD — чёткие определения.</p>
+    <div class="intro-actions">
+      <a href="#final-cta" class="btn btn-primary">Запросить коммерческое предложение</a>
+      
+    </div>
+  </div>
+
+  <section aria-labelledby="terms-h2">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="terms-h2">Термины по алфавиту</h2>
+        
+      </div>
+      <div class="segments"><div class="segment"><strong>GCP (Good Clinical Practice)</strong><span>Надлежащая клиническая практика — международный стандарт этических и научных требований к планированию и проведению клинических исследований с участием человека.</span></div><div class="segment"><strong>GLP (Good Laboratory Practice)</strong><span>Надлежащая лабораторная практика — система требований к организации и проведению доклинических лабораторных исследований, обеспечивающая достоверность и легитимность данных.</span></div><div class="segment"><strong>I этап экспертизы</strong><span>Этап экспертизы регистрационных документов медицинского изделия, на котором экспертное учреждение определяет возможность или невозможность проведения клинических испытаний с участием человека (постановление Правительства РФ № 1684, п. 73, 75). Разрешение на проведение испытаний Росздравнадзор выдаёт отдельным решением уже после получения положительного заключения (п. 77).</span></div><div class="segment"><strong>Протокол исследования</strong><span>Документ, описывающий цели, дизайн, методологию, статистические аспекты и организацию клинического исследования.</span></div><div class="segment"><strong>ИРК (индивидуальная регистрационная карта)</strong><span>Документ для фиксации данных по каждому участнику исследования в соответствии с протоколом.</span></div><div class="segment"><strong>Информированное согласие</strong><span>Добровольное согласие участника на включение в исследование, полученное после ознакомления со всеми аспектами, влияющими на его решение.</span></div><div class="segment"><strong>Совет по этике</strong><span>Постоянно действующий орган Министерства здравоохранения РФ, отдельный от локальных этических комитетов медицинских организаций. Выдаёт заключение об этической обоснованности проведения клинического испытания медицинского изделия с участием человека — отдельно от разрешения, которое выдаёт Росздравнадзор как регистрирующий орган. Не путать с этическим комитетом медицинской организации, который рассматривает вопросы GCP при исследованиях лекарственных препаратов.</span></div><div class="segment"><strong>Заявитель (инициатор испытаний)</strong><span>Физическое или юридическое лицо, ответственное за инициацию, организацию и финансирование клинического испытания медицинского изделия.</span></div><div class="segment"><strong>CRA (Clinical Research Associate)</strong><span>Специалист, осуществляющий мониторинг хода клинического исследования на клинической базе от имени заявителя.</span></div><div class="segment"><strong>Клиническая оценка (CER)</strong><span>Систематический процесс оценки клинических данных о медицинском изделии для подтверждения его безопасности и эффективности по заявленному назначению.</span></div><div class="segment"><strong>SaMD (Software as a Medical Device)</strong><span>Программное обеспечение, которое само по себе выполняет функции медицинского изделия.</span></div><div class="segment"><strong>Класс риска медицинского изделия</strong><span>Категория, определяющая степень потенциальной опасности изделия для пациента и объём требуемых испытаний для регистрации.</span></div><div class="segment"><strong>CSR (Clinical Study Report)</strong><span>Отчёт о клиническом исследовании — итоговый документ с описанием дизайна, результатов эффективности и безопасности исследования.</span></div><div class="segment"><strong>Этический комитет</strong><span>Независимый орган, оценивающий соблюдение прав, безопасности и благополучия участников клинического исследования.</span></div><div class="segment"><strong>Реестр разрешений на КИ</strong><span>Электронный реестр Росздравнадзора, фиксирующий дату и номер разрешения, изделие, класс риска, производителя, клинические базы и статус клинического испытания медицинского изделия (начато, приостановлено, завершено, досрочно прекращено). Ведётся по приказу Росздравнадзора от 22.07.2025 № 4484, реестр открыт и общедоступен.</span></div><div class="segment"><strong>Регистрационное досье</strong><span>Полный пакет документов, подаваемый в уполномоченный орган для получения регистрационного удостоверения на медицинское изделие.</span></div><div class="segment"><strong>Решение №29</strong><span>Решение Совета Евразийской экономической комиссии от 12.02.2016 № 29 «О Правилах проведения клинических и клинико-лабораторных испытаний (исследований) медицинских изделий» — регулирует самостоятельную разрешительную процедуру на клинические испытания медицинских изделий по правилам ЕАЭС, отдельную от национальной регистрации по ПП РФ № 1684.</span></div><div class="segment"><strong>Разрешительная модель</strong><span>Порядок, при котором клиническое испытание медицинского изделия (в том числе интервенционное клинико-лабораторное испытание ИВД) по правилам ЕАЭС требует получения предварительного разрешения уполномоченного органа государства-члена до начала испытания.</span></div><div class="segment"><strong>Уведомительная модель</strong><span>Порядок, при котором вместо предварительного разрешения по правилам ЕАЭС достаточно направить уведомление уполномоченному органу — применяется для неинтервенционных клинико-лабораторных испытаний ИВД (изделия для диагностики in vitro) и клинических исследований программного обеспечения как медицинского изделия.</span></div><div class="segment"><strong>Уполномоченный орган государства проведения</strong><span>Орган (экспертная организация) государства-члена ЕАЭС, на территории которого фактически проводится клиническое испытание медицинского изделия и который выдаёт разрешение на это испытание — может отличаться от органа референтного государства, выбранного для регистрации изделия в целом.</span></div><div class="segment"><strong>Референтное государство</strong><span>Государство-член ЕАЭС, выбранное заявителем для проведения экспертизы регистрационного досье медицинского изделия по Решению №46 — именно его уполномоченный орган ведёт основную экспертизу, результаты которой затем согласуются государствами признания.</span></div><div class="segment"><strong>Государство признания</strong><span>Государство-член ЕАЭС, помимо референтного, на территории которого заявитель также хочет обращать медицинское изделие — его уполномоченный орган не проводит экспертизу заново, а согласует экспертное заключение референтного государства, чтобы регистрация действовала на его территории.</span></div><div class="segment"><strong>Программа клинического испытания</strong><span>Регуляторное наименование документа, устанавливающего цели, дизайн, методологию и организацию клинического испытания медицинского изделия. Обязательная структура для процедуры ЕАЭС задана Приложением №2 Решения №29, для национальной процедуры РФ с 1 сентября 2026 года — п. 35 приказа Минздрава №421н.</span></div><div class="segment"><strong>План клинического исследования (CIP)</strong><span>Термин ГОСТ Р ИСО 14155-2022 для того же по существу документа, что и «программа клинического испытания» — стандарт прямо признаёт «протокол» синонимом CIP. Методологическое содержание CIP раскрыто в п. 6.4 и обязательном приложении А стандарта.</span></div><div class="segment"><strong>Приложение №2 Решения №29</strong><span>Раздел Решения Совета ЕЭК №29, устанавливающий обязательное содержание программы клинического испытания медицинского изделия по правилам ЕАЭС — общее описание изделия и данные о самом испытании, включая конечные точки, объём выборки и статистические методы анализа. Для изделий диагностики in vitro применяется отдельное Приложение №6.</span></div><div class="segment"><strong>Риск-ориентированный подход</strong><span>Принцип экспертизы, закреплённый Рекомендацией Коллегии ЕЭК №27 от 23.12.2024: требования к объёму и степени детализации доказательных материалов в досье и программе КИ пропорциональны классу потенциального риска изделия, а не одинаковы для всех классов.</span></div><div class="segment"><strong>Процедура возражений</strong><span>Отдельный от запроса замечаний механизм: если по итогам I или II этапа экспертизы уже вынесено отрицательное заключение, заявитель вправе в течение 10 рабочих дней представить письменные возражения — Росздравнадзор рассматривает их совместно с экспертным учреждением в течение 30 рабочих дней (постановление Правительства РФ № 1684).</span></div><div class="segment"><strong>Запрос дополнительных материалов (п.74 ПП №1684 / п.58 Решения №29 / п.28 Решения №46)</strong><span>Официальный однократный запрос при недостаточности материалов на каждом этапе экспертизы или рассмотрения досье — с указанием характера замечаний и способа их устранения. Срок ответа заявителя: до 50 рабочих дней по национальной процедуре (ПП №1684), до 60 рабочих дней по правилам ЕАЭС (Решения №29 и №46); время ожидания ответа не засчитывается в срок рассмотрения.</span></div><div class="segment"><strong>Целевая популяция</strong><span>Группа пациентов или пользователей, для которой предназначено медицинское изделие согласно заявленному назначению. Критерии включения и исключения в программе клинического испытания должны отражать именно целевую популяцию, а не произвольно более узкую или более широкую группу (ГОСТ Р ИСО 14155-2022, п. А.6.3).</span></div><div class="segment"><strong>Confounding factor (искажающий фактор)</strong><span>Фактор, способный ухудшить результаты клинического испытания или их интерпретацию помимо изучаемого воздействия изделия. ГОСТ Р ИСО 14155-2022 (п. А.6.4) требует выявлять такие факторы и описывать способы их учёта — в том числе через отбор субъектов, дизайн исследования, стратификацию или статистический анализ.</span></div><div class="segment"><strong>Первичная/основная конечная точка</strong><span>Конечная точка, используемая для получения наиболее клинически значимого доказательства клинических функциональных характеристик, результативности или безопасности медицинского изделия (ГОСТ Р ИСО 14155-2022, п. 3.22). В терминологии Решения №29 ЕАЭС — «основная конечная точка», проверяющая основную гипотезу исследования.</span></div><div class="segment"><strong>Композитная (составная) конечная точка</strong><span>Заранее установленная комбинация более чем одной конечной точки. ГОСТ Р ИСО 14155-2022 (п. А.6.1(c)) прямо допускает такие точки, но требует обоснования: компоненты должны иметь сопоставимую клиническую значимость, а результаты каждого компонента должны быть отдельно раскрыты в отчёте.</span></div><div class="segment"><strong>Суррогатная конечная точка</strong><span>Показатель, используемый вместо прямого клинического исхода как индикатор клинической пользы. Отдельной категории и специального правила валидации в Решении №29 ЕАЭС и ГОСТ Р ИСО 14155-2022 нет — такой показатель подпадает под общие требования обоснованности и клинической значимости.</span></div><div class="segment"><strong>Компаратор</strong><span>Изделие, терапия или клиническая практика, с которой сравнивается исследуемое изделие в клиническом испытании; ГОСТ Р ИСО 14155-2022 (п. 3.12) определяет компаратор широко — им может быть другое медицинское изделие, лекарственный препарат, плацебо или отсутствие вмешательства.</span></div><div class="segment"><strong>Слепое наблюдение (blinded outcome assessment)</strong><span>Способ ограничения систематической ошибки, при котором хотя бы первичная конечная точка оценивается лицом, не знающим, какое изделие или компаратор применялись у субъекта (примечание к п. 3.5 ГОСТ Р ИСО 14155-2022) — применяется, когда полное ослепление всех участников исследования (например, оператора при хирургическом вмешательстве) физически невозможно.</span></div><div class="segment"><strong>Learning curve (кривая обучения оператора)</strong><span>Зависимость результата применения медицинского изделия от опыта и уровня освоения процедуры оператором. Термин не используется в ГОСТ Р ИСО 14155-2022 и Решении №29 дословно, но сама проблема нормативно признана: п. А.2(h) и А.7(f) ГОСТ требуют обосновывать необходимый объём обучения и количество процедур, а Решение №29 — указывать требования к подготовке специалистов в программе испытания.</span></div><div class="segment"><strong>Performance goal (критерий результативности)</strong><span>Заранее заданное пороговое значение, с которым сравнивается результат single-arm (одногруппового) клинического исследования при отсутствии параллельной контрольной группы. Отдельного нормативного термина в Решении №29 и ГОСТ Р ИСО 14155-2022 нет — обоснованность выбора такого критерия оценивается через общие требования к клинической значимости и научной обоснованности расчёта выборки (приложение А, п. А.7 ГОСТ).</span></div><div class="segment"><strong>Non-inferiority margin</strong><span>Заранее обоснованная граница допустимого снижения эффекта исследуемого изделия относительно компаратора, при которой исследуемое изделие всё ещё признаётся не уступающим ему по клинической значимости. ГОСТ Р ИСО 14155-2022 (п. А.7(e)) прямо требует, чтобы для non-inferiority дизайна такая граница была обоснована с учётом известного эффекта компаратора, а не задана произвольно.</span></div><div class="segment"><strong>Site feasibility</strong><span>Предварительная практическая оценка способности конкретной медицинской организации выполнить программу клинического испытания — исследовательская команда, оборудование, доступная популяция пациентов, скорость рекрутинга, конкурирующие исследования, сроки договорных процедур. ПП РФ №1684 и приказ Минздрава №421н не устанавливают site feasibility как отдельную обязательную регуляторную процедуру — это инструмент отбора площадки, применяемый после проверки формального соответствия организации нормативным требованиям.</span></div><div class="segment"><strong>Перечень медицинских организаций (Росздравнадзор)</strong><span>Перечень медицинских организаций, имеющих право проводить клинические испытания медицинских изделий, который ведёт Росздравнадзор. Организация включается в него после установления соответствия требованиям, предусмотренным правилами государственной регистрации медицинских изделий (ПП РФ №1684). Включение в Перечень — необходимое, но не достаточное условие: оно не подтверждает соответствие лицензии конкретному изделию, наличие нужной команды или достаточный пациентопоток.</span></div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="related-h2">Смежные разделы</h2>
+        
+      </div>
+      <div class="related-grid"><a class="related-card" href="/npa/">НПА</a><a class="related-card" href="/uslugi/">Все услуги</a><a class="related-card" href="/blog/">Блог</a></div>
+    </div>
+  </section>
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Обсудить проект</h2>
+          <p>Не нашли нужный термин? Спросите проектного менеджера напрямую.</p>
+        </div>
+        <form aria-label="Форма заявки на консультацию" action="https://functions.yandexcloud.net/d4e389n57q1ils09t0f3" method="POST"><input type="hidden" name="_subject" value="Заявка с сайта Probarium (glossariy)">
+<input type="text" name="_gotcha" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Какой термин или процесс вас интересует"></textarea>
+          <label class="consent">
+<input type="checkbox" name="consent_pd" value="yes" required>
+<span>Даю согласие на обработку персональных данных (имя, компания, email, телефон, текст сообщения) в целях связи со мной по заявке и подготовки коммерческого предложения, в соответствии с <a href="/privacy/" style="text-decoration:underline;">Политикой обработки персональных данных</a></span>
+</label>
+<label class="consent">
+<input type="checkbox" name="consent_offer" value="yes" required>
+<span>Принимаю условия <a href="/oferta/" style="text-decoration:underline;">публичной оферты</a></span>
+</label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy/">КИ медизделий</a></li>
+          
+          <li><a href="/doklinicheskie-issledovaniya/">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii/">О компании</a></li>
+          <li><a href="/komanda/">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty/">Партнёры и аккредитованные центры</a></li>
+          <li><a href="/kejsy/">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa/">НПА</a></li>
+          <li><a href="/reestry/">Реестры</a></li>
+          <li><a href="/glossariy/">Глоссарий</a></li>
+          <li><a href="/blog/">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li class="footer-social">
+            <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg width="40" height="40" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg></a>
+            <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX"><img src="/assets/img/max-icon.png" width="40" height="40" alt="" style="border-radius:9px;"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ · ООО «Глобальные Медицинские Технологии», ИНН 9710131540, ОГРН 1247700287834</span>
+      <span>
+        <a href="/privacy/">Конфиденциальность</a> ·
+        <a href="/cookie/">Cookie</a> ·
+        <a href="/cookie/" data-cookie-settings>Настройки cookie</a> ·
+        <a href="/terms/">Соглашение</a> ·
+        <a href="/disclaimer/">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://probarium.ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Глоссарий терминов",
+      "item": "https://probarium.ru/glossariy/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "name": "Глоссарий терминов клинических исследований",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "GCP (Good Clinical Practice)",
+      "description": "Надлежащая клиническая практика — международный стандарт этических и научных требований к планированию и проведению клинических исследований с участием человека."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "GLP (Good Laboratory Practice)",
+      "description": "Надлежащая лабораторная практика — система требований к организации и проведению доклинических лабораторных исследований, обеспечивающая достоверность и легитимность данных."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "I этап экспертизы",
+      "description": "Этап экспертизы регистрационных документов медицинского изделия, на котором экспертное учреждение определяет возможность или невозможность проведения клинических испытаний с участием человека (постановление Правительства РФ № 1684, п. 73, 75). Разрешение на проведение испытаний Росздравнадзор выдаёт отдельным решением уже после получения положительного заключения (п. 77)."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Протокол исследования",
+      "description": "Документ, описывающий цели, дизайн, методологию, статистические аспекты и организацию клинического исследования."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ИРК (индивидуальная регистрационная карта)",
+      "description": "Документ для фиксации данных по каждому участнику исследования в соответствии с протоколом."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Информированное согласие",
+      "description": "Добровольное согласие участника на включение в исследование, полученное после ознакомления со всеми аспектами, влияющими на его решение."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Совет по этике",
+      "description": "Постоянно действующий орган Министерства здравоохранения РФ, отдельный от локальных этических комитетов медицинских организаций. Выдаёт заключение об этической обоснованности проведения клинического испытания медицинского изделия с участием человека — отдельно от разрешения, которое выдаёт Росздравнадзор как регистрирующий орган. Не путать с этическим комитетом медицинской организации, который рассматривает вопросы GCP при исследованиях лекарственных препаратов."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Заявитель (инициатор испытаний)",
+      "description": "Физическое или юридическое лицо, ответственное за инициацию, организацию и финансирование клинического испытания медицинского изделия."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CRA (Clinical Research Associate)",
+      "description": "Специалист, осуществляющий мониторинг хода клинического исследования на клинической базе от имени заявителя."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Клиническая оценка (CER)",
+      "description": "Систематический процесс оценки клинических данных о медицинском изделии для подтверждения его безопасности и эффективности по заявленному назначению."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SaMD (Software as a Medical Device)",
+      "description": "Программное обеспечение, которое само по себе выполняет функции медицинского изделия."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Класс риска медицинского изделия",
+      "description": "Категория, определяющая степень потенциальной опасности изделия для пациента и объём требуемых испытаний для регистрации."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CSR (Clinical Study Report)",
+      "description": "Отчёт о клиническом исследовании — итоговый документ с описанием дизайна, результатов эффективности и безопасности исследования."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Этический комитет",
+      "description": "Независимый орган, оценивающий соблюдение прав, безопасности и благополучия участников клинического исследования."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Реестр разрешений на КИ",
+      "description": "Электронный реестр Росздравнадзора, фиксирующий дату и номер разрешения, изделие, класс риска, производителя, клинические базы и статус клинического испытания медицинского изделия (начато, приостановлено, завершено, досрочно прекращено). Ведётся по приказу Росздравнадзора от 22.07.2025 № 4484, реестр открыт и общедоступен."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Регистрационное досье",
+      "description": "Полный пакет документов, подаваемый в уполномоченный орган для получения регистрационного удостоверения на медицинское изделие."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Решение №29",
+      "description": "Решение Совета Евразийской экономической комиссии от 12.02.2016 № 29 «О Правилах проведения клинических и клинико-лабораторных испытаний (исследований) медицинских изделий» — регулирует самостоятельную разрешительную процедуру на клинические испытания медицинских изделий по правилам ЕАЭС, отдельную от национальной регистрации по ПП РФ № 1684."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Разрешительная модель",
+      "description": "Порядок, при котором клиническое испытание медицинского изделия (в том числе интервенционное клинико-лабораторное испытание ИВД) по правилам ЕАЭС требует получения предварительного разрешения уполномоченного органа государства-члена до начала испытания."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Уведомительная модель",
+      "description": "Порядок, при котором вместо предварительного разрешения по правилам ЕАЭС достаточно направить уведомление уполномоченному органу — применяется для неинтервенционных клинико-лабораторных испытаний ИВД и клинических исследований программного обеспечения как медицинского изделия."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Уполномоченный орган государства проведения",
+      "description": "Орган (экспертная организация) государства-члена ЕАЭС, на территории которого фактически проводится клиническое испытание медицинского изделия и который выдаёт разрешение на это испытание — может отличаться от органа референтного государства, выбранного для регистрации изделия в целом."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Референтное государство",
+      "description": "Государство-член ЕАЭС, выбранное заявителем для проведения экспертизы регистрационного досье медицинского изделия по Решению №46 — его уполномоченный орган ведёт основную экспертизу, результаты которой затем согласуются государствами признания."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Государство признания",
+      "description": "Государство-член ЕАЭС, помимо референтного, на территории которого заявитель также хочет обращать медицинское изделие — его уполномоченный орган согласует экспертное заключение референтного государства, а не проводит экспертизу заново."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Программа клинического испытания",
+      "description": "Регуляторное наименование документа, устанавливающего цели, дизайн, методологию и организацию клинического испытания медицинского изделия. Обязательная структура для процедуры ЕАЭС задана Приложением №2 Решения №29, для национальной процедуры РФ с 1 сентября 2026 года — п. 35 приказа Минздрава №421н."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "План клинического исследования (CIP)",
+      "description": "Термин ГОСТ Р ИСО 14155-2022 для того же по существу документа, что и «программа клинического испытания» — стандарт прямо признаёт «протокол» синонимом CIP. Методологическое содержание CIP раскрыто в п. 6.4 и обязательном приложении А стандарта."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Приложение №2 Решения №29",
+      "description": "Раздел Решения Совета ЕЭК №29, устанавливающий обязательное содержание программы клинического испытания медицинского изделия по правилам ЕАЭС — общее описание изделия и данные о самом испытании, включая конечные точки, объём выборки и статистические методы анализа. Для изделий диагностики in vitro применяется отдельное Приложение №6."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Риск-ориентированный подход",
+      "description": "Принцип экспертизы, закреплённый Рекомендацией Коллегии ЕЭК №27 от 23.12.2024: требования к объёму и степени детализации доказательных материалов в досье и программе КИ пропорциональны классу потенциального риска изделия, а не одинаковы для всех классов."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Процедура возражений",
+      "description": "Отдельный от запроса замечаний механизм: если по итогам I или II этапа экспертизы уже вынесено отрицательное заключение, заявитель вправе в течение 10 рабочих дней представить письменные возражения — Росздравнадзор рассматривает их совместно с экспертным учреждением в течение 30 рабочих дней (постановление Правительства РФ № 1684)."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Запрос дополнительных материалов (п.74 ПП №1684 / п.58 Решения №29 / п.28 Решения №46)",
+      "description": "Официальный однократный запрос при недостаточности материалов на каждом этапе экспертизы или рассмотрения досье — с указанием характера замечаний и способа их устранения. Срок ответа заявителя: до 50 рабочих дней по национальной процедуре (ПП №1684), до 60 рабочих дней по правилам ЕАЭС (Решения №29 и №46); время ожидания ответа не засчитывается в срок рассмотрения."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Целевая популяция",
+      "description": "Группа пациентов или пользователей, для которой предназначено медицинское изделие согласно заявленному назначению. Критерии включения и исключения в программе клинического испытания должны отражать именно целевую популяцию, а не произвольно более узкую или более широкую группу (ГОСТ Р ИСО 14155-2022, п. А.6.3)."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Confounding factor (искажающий фактор)",
+      "description": "Фактор, способный ухудшить результаты клинического испытания или их интерпретацию помимо изучаемого воздействия изделия. ГОСТ Р ИСО 14155-2022 (п. А.6.4) требует выявлять такие факторы и описывать способы их учёта — в том числе через отбор субъектов, дизайн исследования, стратификацию или статистический анализ."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Первичная/основная конечная точка",
+      "description": "Конечная точка, используемая для получения наиболее клинически значимого доказательства клинических функциональных характеристик, результативности или безопасности медицинского изделия (ГОСТ Р ИСО 14155-2022, п. 3.22). В терминологии Решения №29 ЕАЭС — «основная конечная точка», проверяющая основную гипотезу исследования."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Композитная (составная) конечная точка",
+      "description": "Заранее установленная комбинация более чем одной конечной точки. ГОСТ Р ИСО 14155-2022 (п. А.6.1(c)) прямо допускает такие точки, но требует обоснования их выбора: компоненты должны иметь сопоставимую клиническую значимость, частоту и ожидаемую реакцию на механизм воздействия, а результаты каждого компонента должны быть отдельно раскрыты в отчёте."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Суррогатная конечная точка",
+      "description": "Показатель, используемый вместо прямого клинического исхода как индикатор клинической пользы. Отдельной категории и специального правила валидации суррогатных точек в Решении №29 ЕАЭС и ГОСТ Р ИСО 14155-2022 нет — такой показатель подпадает под общие требования обоснованности и клинической значимости, причём чем дальше он от прямой клинической пользы, тем более развёрнутое обоснование связи требуется."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Компаратор",
+      "description": "Изделие, терапия или клиническая практика, с которой сравнивается исследуемое изделие в клиническом испытании; ГОСТ Р ИСО 14155-2022 (п. 3.12) определяет компаратор широко — им может быть другое медицинское изделие, лекарственный препарат, плацебо или отсутствие вмешательства."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Слепое наблюдение (blinded outcome assessment)",
+      "description": "Способ ограничения систематической ошибки, при котором хотя бы первичная конечная точка оценивается лицом, не знающим, какое изделие или компаратор применялись у субъекта (примечание к п. 3.5 ГОСТ Р ИСО 14155-2022) — применяется, когда полное ослепление всех участников исследования физически невозможно."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Learning curve (кривая обучения оператора)",
+      "description": "Зависимость результата применения медицинского изделия от опыта и уровня освоения процедуры оператором. Термин не используется в ГОСТ Р ИСО 14155-2022 и Решении №29 дословно, но сама проблема нормативно признана: п. А.2(h) и А.7(f) ГОСТ требуют обосновывать необходимый объём обучения и количество процедур."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Performance goal (критерий результативности)",
+      "description": "Заранее заданное пороговое значение, с которым сравнивается результат single-arm (одногруппового) клинического исследования при отсутствии параллельной контрольной группы. Отдельного нормативного термина в Решении №29 и ГОСТ Р ИСО 14155-2022 нет — обоснованность выбора критерия оценивается через общие требования к клинической значимости и расчёту выборки (приложение А, п. А.7 ГОСТ)."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Non-inferiority margin",
+      "description": "Заранее обоснованная граница допустимого снижения эффекта исследуемого изделия относительно компаратора, при которой оно всё ещё признаётся не уступающим ему по клинической значимости. ГОСТ Р ИСО 14155-2022 (п. А.7(e)) требует, чтобы для non-inferiority дизайна такая граница была обоснована с учётом известного эффекта компаратора."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Site feasibility",
+      "description": "Предварительная практическая оценка способности конкретной медицинской организации выполнить программу клинического испытания — исследовательская команда, оборудование, доступная популяция пациентов, скорость рекрутинга, сроки договорных процедур. Не установлена ПП РФ №1684 и приказом №421н как отдельная обязательная регуляторная процедура."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Перечень медицинских организаций (Росздравнадзор)",
+      "description": "Перечень медицинских организаций, имеющих право проводить клинические испытания медицинских изделий, который ведёт Росздравнадзор. Организация включается в него после установления соответствия требованиям ПП РФ №1684 — включение является необходимым, но не достаточным условием выбора площадки."
+    }
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/header-fx.js" defer></script>
+<script src="/assets/js/leads.js" defer></script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>

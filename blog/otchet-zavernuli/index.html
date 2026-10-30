@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Отчёт о КИ завернули: разбор замечаний и как исправить</title>
+<meta name="description" content="Почему экспертиза возвращает отчёт или акт о клинических испытаниях медизделия, типичные замечания, как их закрыть и чек-лист самопроверки до выдачи.">
+<link rel="canonical" href="https://probarium.ru/blog/otchet-zavernuli/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Отчёт о КИ завернули: разбор замечаний и как исправить">
+<meta property="og:description" content="Почему экспертиза возвращает отчёт или акт о клинических испытаниях медизделия, типичные замечания, как их закрыть и чек-лист самопроверки до выдачи.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/otchet-zavernuli/">
+<meta property="og:image" content="https://probarium.ru/assets/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Probarium">
+<meta property="article:published_time" content="2026-08-03T13:58:52+03:00">
+<meta property="article:modified_time" content="2026-08-03T14:48:10+03:00">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+@media (max-width:374px){
+  .final-cta{padding:24px;}
+  .final-cta .copy,.final-cta form{min-width:0;flex-basis:100%;}
+}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-col li.footer-social{display:flex;gap:12px;margin-top:14px;}
+.footer-col .footer-social a{display:inline-flex;border-radius:10px;transition:transform .2s ease,box-shadow .2s ease;}
+.footer-col .footer-social a:hover,.footer-col .footer-social a:focus-visible{transform:translateY(-2px);box-shadow:0 0 0 3px var(--gold);}
+@media (prefers-reduced-motion:reduce){.footer-col .footer-social a{transition:none;}.footer-col .footer-social a:hover{transform:none;}}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:1100px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:0;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;}
+.article-body blockquote{border-left:4px solid var(--blue-sky);background:var(--blue-pale);border-radius:0 8px 8px 0;padding:12px 18px;margin:8px 0 18px;font-size:15px;color:var(--graphite);font-style:italic;}
+</style>
+<link rel="stylesheet" href="/assets/css/header-fx.css">
+<link rel="stylesheet" href="/assets/css/article.css">
+<link rel="stylesheet" href="/assets/modern.css">
+<script defer src="/assets/modern.js"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li class="has-sub"><button type="button" class="nav-trigger" aria-haspopup="true">Услуги <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <ul class="sub-menu">
+            <li><a href="/klinicheskie-ispytaniya-medizdeliy/">Клинические испытания МИ<small>Анализ данных, с участием человека, ИВД</small></a></li>
+            <li><a href="/doklinicheskie-issledovaniya/">Доклиника и токсикология<small>Биосовместимость, GLP</small></a></li>
+            <li><a href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания<small>Включая электробезопасность, ЭМС, ПО</small></a></li>
+            <li><a href="/registraciya-medizdeliy/">Регистрация МИ<small>РФ и ЕАЭС</small></a></li>
+            <li><a href="/razrabotka-dokumentatsii/">Разработка документации<small>Протоколы, отчёты, досье</small></a></li>
+            <li><a href="/uslugi/">Все услуги</a></li>
+          </ul></li>
+        <li><a href="/dorozhnaya-karta/">Как мы работаем</a></li>
+        <li><a href="/kejsy/">Кейсы</a></li>
+        <li class="has-sub"><button type="button" class="nav-trigger" aria-haspopup="true">База знаний <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <ul class="sub-menu">
+            <li><a href="/npa/">НПА и стандарты</a></li>
+            <li><a href="/biblioteka/">Библиотека</a></li>
+            <li><a href="/blog/">Блог</a></li>
+            <li><a href="/glossariy/">Глоссарий</a></li>
+            <li><a href="/faq/">Вопросы и ответы</a></li>
+          </ul></li>
+        <li><a href="/o-kompanii/">О компании</a></li>
+        <li><a href="/kontakty/">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty/" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <span class="m-group">Услуги</span>
+    <a class="m-sub" href="/klinicheskie-ispytaniya-medizdeliy/">Клинические испытания МИ</a>
+    <a class="m-sub" href="/doklinicheskie-issledovaniya/">Доклиника и токсикология</a>
+    <a class="m-sub" href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания</a>
+    <a class="m-sub" href="/registraciya-medizdeliy/">Регистрация МИ</a>
+    <a class="m-sub" href="/razrabotka-dokumentatsii/">Разработка документации</a>
+    <a href="/dorozhnaya-karta/">Как мы работаем</a>
+    <a href="/kejsy/">Кейсы</a>
+    <span class="m-group">База знаний</span>
+    <a class="m-sub" href="/npa/">НПА и стандарты</a>
+    <a class="m-sub" href="/biblioteka/">Библиотека</a>
+    <a class="m-sub" href="/blog/">Блог</a>
+    <a class="m-sub" href="/glossariy/">Глоссарий</a>
+    <a class="m-sub" href="/faq/">Вопросы и ответы</a>
+    <a href="/o-kompanii/">О компании</a>
+    <a href="/kontakty/">Контакты</a>
+    <a href="/kontakty/" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog/">Блог</a> / <span aria-current="page">Отчёт о КИ завернули</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Провалы КИ</span><span>9 мин чтения</span><span>3 августа 2026</span><!--enh:upd--><span>Обновлено: 27 октября 2026</span><!--/enh:upd--></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Отчёт о КИ завернули: что делать</h1>
+    <p class="lead"><strong>Суть в четырёх предложениях.</strong> «Отчёт завернули» на практике означает одно из двух: при экспертизе регистрационного досье заявителю направлен запрос с замечаниями к результатам клинических испытаний — или сделан вывод о невозможности регистрации; оформляет же итоговый документ медицинская организация, проводившая испытания. По национальной процедуре этот документ — акт оценки результатов клинических испытаний (рекомендуемый образец — приложение № 3 к приказу № 421н), по правилам ЕАЭС — отчёт о клиническом испытании по обязательной форме Решения Совета ЕЭК № 29, и от этого зависит, как и кем вносятся исправления. Многие замечания связаны не с самим изделием, а с тем, как представлены данные: расхождения с программой, неучтённые участники, неполный раздел безопасности, выводы шире результатов. Такие замечания закрываются исправлением документа и пояснениями, а повторные испытания нужны тогда, когда данных действительно недостаточно, — поэтому первым шагом всегда идёт разбор: какое замечание о документе, а какое о данных.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+<!--enh:toc-->
+      <details class="toc" open>
+        <summary>Содержание</summary>
+        <ol>
+          <li><a href="#otchet-ili-akt-o-kakom-dokumente-rech">Отчёт или акт: о каком документе речь</a></li>
+          <li><a href="#kto-i-na-kakom-etape-zavorachivaet">Кто и на каком этапе «заворачивает»</a></li>
+          <li><a href="#tipichnye-zamechaniya-i-kak-ih-zakryt">Типичные замечания и как их закрыть</a></li>
+          <li><a href="#kogda-ispravleniem-dokumenta-ne-oboytis">Когда исправлением документа не обойтись</a></li>
+          <li><a href="#kak-deystvovat-posle-polucheniya-zamechaniy">Как действовать после получения замечаний</a></li>
+          <li><a href="#chek-list-samoproverki-do-vydachi-dokumenta">Чек-лист самопроверки до выдачи документа</a></li>
+          <li><a href="#modelnyy-scenariy">Модельный сценарий</a></li>
+          <li><a href="#chastye-voprosy">Частые вопросы</a></li>
+          <li><a href="#normativnaya-baza">Нормативная база</a></li>
+        </ol>
+      </details>
+<!--/enh:toc-->
+
+
+      <p>Получить замечания к итоговым документам клинических испытаний неприятно, но в большинстве случаев это не катастрофа. Разберём, кто и на каком этапе возвращает документы, какие замечания встречаются часто, как закрыть каждое и как проверить документ, чтобы замечаний не было.</p>
+
+      <p>Как устроены итоговые документы КИ по обоим маршрутам — в статье <a href="/blog/otchet-o-klinicheskih-ispytaniyah-medizdeliya/" class="inline-link">«Отчёт о КИ медизделия: структура и требования»</a>; как заполнить акт по приказу № 421н — в статье <a href="/blog/akt-ocenki-rezultatov-ki-medizdeliya/" class="inline-link">«Акт оценки результатов КИ медизделия: как оформить»</a>.</p>
+
+      <h2 id="otchet-ili-akt-o-kakom-dokumente-rech">Отчёт или акт: о каком документе речь</h2>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th></th><th>Национальная процедура РФ</th><th>Процедура ЕАЭС</th></tr>
+        <tr><td>Итоговый документ</td><td>Акт оценки результатов клинических испытаний</td><td>Отчёт о клиническом испытании (для ИВД — о клинико-лабораторном испытании)</td></tr>
+        <tr><td>Основание</td><td>Приказ Минздрава № 421н (с 1 сентября 2026 года)</td><td>Решение Совета ЕЭК № 29</td></tr>
+        <tr><td>Форма</td><td>Рекомендуемый образец: приложение № 3 (ИВД — № 4)</td><td>Обязательная форма: приложение № 5 (ИВД — № 7)</td></tr>
+        <tr><td>Кто оформляет</td><td>Медицинская организация, проводившая испытания</td><td>Исследователи; утверждает руководитель медицинской организации (при многоцентровом испытании — общий отчёт утверждает координатор-исследователь)</td></tr>
+      </table>
+      </div>
+
+      <p>Для испытаний, заявления о проведении которых были поданы в медицинскую организацию до 1 сентября 2026 года, применяется прежний порядок (приказ № 885н).</p>
+
+      <p>В разговорной речи итоговый документ часто называют «отчётом» и по национальной процедуре. Но при работе с замечаниями важно точно понимать, какой документ и по какой форме вы исправляете.</p>
+
+      <h2 id="kto-i-na-kakom-etape-zavorachivaet">Кто и на каком этапе «заворачивает»</h2>
+
+      <ol>
+        <li><strong>До выдачи документа.</strong> Заявитель или CRO проверяет проект акта или отчёта и просит медицинскую организацию поправить его. Это лучший момент для исправлений: документ ещё не выдан.</li>
+        <li><strong>Экспертиза регистрационного досье.</strong> Если экспертному учреждению не хватает материалов или сведений, регистрирующий орган по его обращению направляет заявителю запрос с указанием характера замечаний и способа их устранения. Запрос направляется однократно на каждом этапе экспертизы, ответить на него нужно не позднее 50 рабочих дней со дня направления; если ответа нет, экспертиза продолжается по имеющимся документам (п. 74 Правил регистрации).</li>
+        <li><strong>Заключение о невозможности регистрации.</strong> Правила регистрации называют основания для такого вывода, в том числе: несоответствие изделия нормативной, технической или эксплуатационной документации; отсутствие доказательств качества, эффективности или безопасности; превышение риска причинения вреда над эффективностью применения; недостоверные сведения в документах досье (п. 84, п. 98 Правил регистрации). Это уже не «доработка», а повод решать, что делать с данными.</li>
+      </ol>
+
+      <p>Сам акт по национальной процедуре — документ медицинской организации: исправления в него вносит организация, которая его оформила. Поэтому порядок взаимодействия по возможным исправлениям лучше заранее закрепить в договоре с ней.</p>
+
+      <h2 id="tipichnye-zamechaniya-i-kak-ih-zakryt">Типичные замечания и как их закрыть</h2>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Замечание</th><th>Обычная причина</th><th>Как закрыть</th></tr>
+        <tr><td>Документ не соответствует программе испытаний</td><td>Изменены конечные точки, критерии или процедуры без оформленной поправки</td><td>Сопоставить с утверждённой программой и поправками; показать, где и почему были отличия; если поправки не было — описать как отклонение и оценить его влияние</td></tr>
+        <tr><td>Не учтены все участники</td><td>Выбывшие или исключённые не показаны; итоговые числа не сходятся с числом включённых</td><td>Добавить поток участников: включены — завершили — выбыли с причинами</td></tr>
+        <tr><td>Неполный раздел безопасности</td><td>Учтены не все нежелательные события; не отражены недостатки изделия</td><td>Сверить с журналами событий и первичной документацией; дополнить раздел, включая события без связи с изделием</td></tr>
+        <tr><td>Выводы шире результатов</td><td>Выводы о показаниях, группах или преимуществах, которые не исследовались</td><td>Сузить выводы до подтверждённого данными; убрать неподтверждённые утверждения</td></tr>
+        <tr><td>Нет отрицательных или незначимых результатов</td><td>Показаны только достигнутые конечные точки</td><td>Привести результаты по всем заранее заданным конечным точкам и обсудить их</td></tr>
+        <tr><td>Статистика не по плану</td><td>Анализ отличается от запланированного без обоснования</td><td>Показать анализ по исходному плану; изменения — обосновать</td></tr>
+        <tr><td>Расхождения с первичными данными</td><td>Числа в документе не совпадают с регистрационными картами</td><td>Сверить с первичными данными; при необходимости — данные мониторинга</td></tr>
+        <tr><td>Расхождения в реквизитах</td><td>Наименование, модель, производитель не совпадают с программой и досье</td><td>Привести к единому виду во всех документах</td></tr>
+      </table>
+      </div>
+
+      <p>Решение Совета ЕЭК № 29 прямо требует, чтобы отчёт содержал критическую оценку всех полученных данных, в том числе негативных, — пропуск отрицательных результатов по процедуре ЕАЭС является нарушением требований к отчёту. По национальной процедуре такого прямого требования к акту нет, но отсутствие доказательств эффективности и безопасности — одно из оснований для вывода о невозможности регистрации.</p>
+
+      <h2 id="kogda-ispravleniem-dokumenta-ne-oboytis">Когда исправлением документа не обойтись</h2>
+
+      <p>Документ можно исправить, если данные есть, но представлены неполно или с ошибками. Если же замечание касается самих данных — <strong>недостаточной выборки, не измеренной первичной конечной точки, слишком короткого наблюдения</strong>, — переписать документ не поможет: нужны дополнительные данные, а иногда и повторные или дополнительные испытания.</p>
+
+      <p>Поэтому первый шаг после получения замечаний — разделить их на две группы:</p>
+
+      <ul>
+        <li><strong>о представлении данных</strong> — закрываются исправлением документа и пояснениями;</li>
+        <li><strong>о достаточности данных</strong> — требуют оценки, можно ли их закрыть имеющимися материалами, или нужны новые.</li>
+      </ul>
+
+      <h2 id="kak-deystvovat-posle-polucheniya-zamechaniy">Как действовать после получения замечаний</h2>
+
+      <ol>
+        <li><strong>Разобрать каждое замечание</strong> и отнести его к одной из двух групп.</li>
+        <li><strong>Учесть срок ответа</strong> на запрос — не более 50 рабочих дней со дня его направления — и то, что запрос на этапе экспертизы направляется однократно: ответ должен закрыть все замечания сразу.</li>
+        <li><strong>Согласовать с медицинской организацией</strong> порядок исправления акта или отчёта — исправления вносит она.</li>
+        <li><strong>Подготовить исправленный документ и пояснения</strong> к каждому замечанию: что изменено и почему.</li>
+        <li><strong>Проверить, не нужна ли поправка к программе</strong> или повторное рассмотрение в Совете по этике, если исправление затрагивает дизайн испытания.</li>
+        <li><strong>Проверить весь документ заново</strong>, а не только исправленные места: повторные замечания часто возникают из-за новых расхождений.</li>
+      </ol>
+
+      <h2 id="chek-list-samoproverki-do-vydachi-dokumenta">Чек-лист самопроверки до выдачи документа</h2>
+
+      <p><strong>Процедура и форма</strong></p>
+
+      <ul>
+        <li>Определён маршрут: национальный (акт) или ЕАЭС (отчёт).</li>
+        <li>Использован образец приложения № 3 / № 4 к приказу № 421н или обязательная форма приложения № 5 / № 7 к Решению № 29.</li>
+      </ul>
+
+      <p><strong>Соответствие программе</strong></p>
+
+      <ul>
+        <li>Цели, конечные точки, критерии включения и процедуры совпадают с утверждённой программой и поправками.</li>
+        <li>Отклонения описаны, их влияние оценено.</li>
+      </ul>
+
+      <p><strong>Участники</strong></p>
+
+      <ul>
+        <li>Указано, сколько включено, сколько завершило, сколько выбыло и почему.</li>
+        <li>Подтверждено информированное согласие.</li>
+      </ul>
+
+      <p><strong>Результаты</strong></p>
+
+      <ul>
+        <li>Представлены результаты по всем заранее заданным конечным точкам, включая отрицательные.</li>
+        <li>Анализ проведён по плану; изменения обоснованы.</li>
+        <li>Числа сверены с регистрационными картами и первичной документацией.</li>
+      </ul>
+
+      <p><strong>Безопасность</strong></p>
+
+      <ul>
+        <li>Отражены все нежелательные события, серьёзные события и недостатки изделия.</li>
+        <li>По каждому значимому событию указаны серьёзность, связь с изделием и исход.</li>
+      </ul>
+
+      <p><strong>Выводы</strong></p>
+
+      <ul>
+        <li>Выводы следуют из результатов и не выходят за рамки исследованного.</li>
+        <li>Ограничения испытания названы.</li>
+      </ul>
+
+      <p><strong>Реквизиты и оформление</strong></p>
+
+      <ul>
+        <li>Наименование, модель и производитель совпадают с программой и регистрационным досье.</li>
+        <li>Подписи, утверждение и приложения соответствуют форме.</li>
+      </ul>
+
+      <p>Подробнее о том, как учитывать события и отклонения в ходе испытаний, — в статьях <a href="/blog/nezhelatelnye-sobytiya-ki-medizdeliya/" class="inline-link">«Нежелательные события в КИ медизделия»</a> и <a href="/blog/otkloneniya-ot-programmy-ki-medizdeliya/" class="inline-link">«Отклонения от программы КИ медизделия»</a>.</p>
+
+      <h2 id="modelnyy-scenariy">Модельный сценарий</h2>
+
+      <p><em>Сценарий собирательный и не описывает конкретный проект.</em></p>
+
+      <p>Производитель получает запрос экспертизы: в результатах клинических испытаний не отражены два нежелательных события, которые есть в первичной документации одной из медицинских организаций. Команда сверяет журналы событий всех центров, выясняет, что события не попали в сводку из-за ошибки переноса, и согласует с медицинской организацией исправление документа. В ответе на запрос производитель прикладывает исправленный документ и пояснение: какие события добавлены, почему они не были отражены и как изменилась оценка безопасности. Повторных испытаний не требуется — данные были, их нужно было корректно представить.</p>
+
+      <h2 id="chastye-voprosy">Частые вопросы</h2>
+      <details class="faq-item"><summary>Кто исправляет акт оценки результатов КИ, если экспертиза дала замечания?</summary><p>Акт оформляет медицинская организация, проводившая испытания, поэтому и исправления в него вносит она. Порядок взаимодействия стоит заранее закрепить в договоре с ней.</p></details>
+      <details class="faq-item"><summary>Нужно ли повторять клинические испытания, если отчёт завернули?</summary><p>Часто нет: многие замечания касаются представления данных и закрываются исправлением документа и пояснениями. Повторные или дополнительные испытания нужны, если данных действительно недостаточно — например, при недостаточной выборке или неизмеренной первичной конечной точке.</p></details>
+      <details class="faq-item"><summary>Какие ошибки в итоговых документах КИ встречаются часто?</summary><p>Расхождения с программой, неучтённые выбывшие участники, неполный раздел безопасности, отсутствие отрицательных результатов, выводы шире данных и расхождения с первичной документацией.</p></details>
+      <details class="faq-item"><summary>Почему исправленный документ возвращают повторно?</summary><p>Обычно потому, что исправили только места из замечаний, а при этом появились новые расхождения с программой, первичными данными или другими документами досье. Исправленный документ нужно проверять целиком.</p></details>
+      <details class="faq-item"><summary>Отличается ли работа с замечаниями по национальной процедуре и по ЕАЭС?</summary><p>Да: по национальной процедуре исправляется акт оценки результатов по рекомендуемому образцу приказа № 421н, по правилам ЕАЭС — отчёт по обязательной форме Решения Совета ЕЭК № 29. Требования к содержанию и подписанию у этих документов разные.</p></details>
+
+      <h2 id="normativnaya-baza">Нормативная база</h2>
+
+      <ul>
+        <li>Постановление Правительства РФ от 30.11.2024 № 1684 — Правила государственной регистрации медицинских изделий, п. 74, п. 84, п. 98.</li>
+        <li>Приказ Минздрава России от 13.05.2026 № 421н «Об утверждении Порядка проведения оценки соответствия медицинских изделий в форме технических испытаний, токсикологических исследований, клинических испытаний в целях государственной регистрации медицинских изделий», п. 39, п. 47, приложения № 3 и № 4.</li>
+        <li>Решение Совета ЕЭК от 12.02.2016 № 29 — Правила проведения клинических и клинико-лабораторных испытаний (исследований) медицинских изделий (Правила в редакции Решения Совета ЕЭК от 26.01.2024 № 7), п. 20, п. 41, приложения № 5 и № 7.</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/otchet-o-klinicheskih-ispytaniyah-medizdeliya/">Отчёт о клинических испытаниях медизделия: структура и требования в 2026 году</a>
+        <a class="related-card" href="/blog/akt-ocenki-rezultatov-ki-medizdeliya/">Акт оценки результатов клинических испытаний медизделия: как оформить</a>
+        <a class="related-card" href="/blog/nezhelatelnye-sobytiya-ki-medizdeliya/">Нежелательные события в КИ медизделия: учёт и отчётность — что обязательно по нормам, а что определяется программой</a>
+        <a class="related-card" href="/blog/otkloneniya-ot-programmy-ki-medizdeliya/">Отклонения от программы КИ медизделия: как фиксировать и не сорвать исследование</a>
+        <a class="related-card" href="/blog/kak-poluchit-razreshenie-na-ki/">Как получить разрешение на КИ медизделия: пошагово</a>
+        <a class="related-card" href="/glossariy/">Глоссарий терминов</a>
+        <a class="related-card" href="/blog/">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+<!--enh:next-->
+  <section class="next-steps" aria-labelledby="next-h2">
+    <div class="container">
+      <h2 id="next-h2">Что делать дальше</h2>
+      <div class="next-grid">
+        <div class="next-card"><h3>Проверить комплект документов</h3><p>Проверим комплект перед подачей и подскажем, что нужно доработать.</p><a href="#cta-form" class="btn btn-primary" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Отчёт о КИ завернули" data-need="Клинические испытания">Оставить заявку</a></div>
+        <div class="next-card"><h3>Клинические испытания медицинских изделий</h3><p>Формы испытаний, этапы и условия работы — на странице услуги.</p><a href="/klinicheskie-ispytaniya-medizdeliy/" class="btn btn-outline" data-goal="service_from_article">Перейти к услуге</a></div>
+        <div class="next-card"><h3>Рассчитать стоимость</h3><p>Ориентировочный расчёт по направлению испытаний — в калькуляторе.</p><a href="/kalkulyator/" class="btn btn-outline" data-goal="calc_from_article">Открыть калькулятор</a></div>
+      </div>
+    </div>
+  </section>
+<!--/enh:next-->
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Получили замечания к результатам клинических испытаний?</h2>
+          <p>Probarium помогает разобрать замечания экспертизы, отделить вопросы о представлении данных от вопросов о их достаточности, подготовить исправленный акт или отчёт и ответ на запрос. Подробнее — на странице <a href="/klinicheskie-ispytaniya-medizdeliy/" style="text-decoration:underline;">клинических испытаний медизделий</a>.</p>
+          <p style="margin-top:14px;"><a href="#cta-form" class="btn btn-outline" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Отчёт о КИ завернули" data-need="Клинические испытания">Разобрать замечания</a></p>
+        </div>
+        <form id="cta-form" aria-label="Форма заявки на консультацию" action="https://functions.yandexcloud.net/d4e389n57q1ils09t0f3" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/otchet-zavernuli)">
+          <input type="text" name="_gotcha" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+          <input type="hidden" name="source_url" value="https://probarium.ru/blog/otchet-zavernuli/">
+          <input type="hidden" name="source_article" value="Отчёт о КИ завернули">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="phone">Телефон</label>
+          <input id="phone" name="phone" type="tel" placeholder="Телефон (необязательно)" autocomplete="tel">
+          <label class="visually-hidden" for="need">Что нужно</label>
+          <select id="need" name="need">
+            <option>Клинические испытания</option>
+            <option>Доклиника и токсикология</option>
+            <option>Технические испытания</option>
+            <option>Не знаю, нужна консультация</option>
+          </select>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой форме испытаний"></textarea>
+          <label class="consent">
+            <input type="checkbox" name="consent_pd" value="yes" required>
+            <span>Даю согласие на обработку персональных данных (имя, компания, email, телефон, текст сообщения) в целях связи со мной по заявке и подготовки коммерческого предложения, в соответствии с <a href="/privacy/" style="text-decoration:underline;">Политикой обработки персональных данных</a></span>
+          </label>
+          <label class="consent">
+            <input type="checkbox" name="consent_offer" value="yes" required>
+            <span>Принимаю условия <a href="/oferta/" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy/">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya/">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii/">О компании</a></li>
+          <li><a href="/komanda/">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty/">Партнёры и аккредитованные центры</a></li>
+          <li><a href="/kejsy/">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa/">НПА</a></li>
+          <li><a href="/reestry/">Реестры</a></li>
+          <li><a href="/glossariy/">Глоссарий</a></li>
+          <li><a href="/blog/">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li class="footer-social">
+            <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg width="40" height="40" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg></a>
+            <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX"><img src="/assets/img/max-icon.png" width="40" height="40" alt="" style="border-radius:9px;"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ · ООО «Глобальные Медицинские Технологии», ИНН 9710131540, ОГРН 1247700287834</span>
+      <span>
+        <a href="/privacy/">Конфиденциальность</a> ·
+        <a href="/cookie/">Cookie</a> ·
+        <a href="/cookie/" data-cookie-settings>Настройки cookie</a> ·
+        <a href="/terms/">Соглашение</a> ·
+        <a href="/disclaimer/">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Отчёт о КИ завернули: что делать",
+  "description": "Почему экспертиза возвращает отчёт или акт о клинических испытаниях медизделия, типичные замечания, как их закрыть и чек-лист самопроверки до выдачи.",
+  "inLanguage": "ru",
+  "image": [
+    "https://probarium.ru/assets/og-cover.jpg"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Артемий-Татуш Танделов",
+    "jobTitle": "Генеральный директор Probarium",
+    "url": "https://probarium.ru/komanda/",
+    "sameAs": [
+      "https://t.me/tandelovtat"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Probarium",
+    "url": "https://probarium.ru/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://probarium.ru/icon-512.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://probarium.ru/blog/otchet-zavernuli/"
+  },
+  "datePublished": "2026-08-03T13:58:52+03:00",
+  "dateModified": "2026-10-27T17:03:00+03:00"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://probarium.ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://probarium.ru/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Отчёт о КИ завернули",
+      "item": "https://probarium.ru/blog/otchet-zavernuli/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Кто исправляет акт оценки результатов КИ, если экспертиза дала замечания?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Акт оформляет медицинская организация, проводившая испытания, поэтому и исправления в него вносит она. Порядок взаимодействия стоит заранее закрепить в договоре с ней."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли повторять клинические испытания, если отчёт завернули?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Часто нет: многие замечания касаются представления данных и закрываются исправлением документа и пояснениями. Повторные или дополнительные испытания нужны, если данных действительно недостаточно — например, при недостаточной выборке или неизмеренной первичной конечной точке."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какие ошибки в итоговых документах КИ встречаются часто?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Расхождения с программой, неучтённые выбывшие участники, неполный раздел безопасности, отсутствие отрицательных результатов, выводы шире данных и расхождения с первичной документацией."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему исправленный документ возвращают повторно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Обычно потому, что исправили только места из замечаний, а при этом появились новые расхождения с программой, первичными данными или другими документами досье. Исправленный документ нужно проверять целиком."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Отличается ли работа с замечаниями по национальной процедуре и по ЕАЭС?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да: по национальной процедуре исправляется акт оценки результатов по рекомендуемому образцу приказа № 421н, по правилам ЕАЭС — отчёт по обязательной форме Решения Совета ЕЭК № 29. Требования к содержанию и подписанию у этих документов разные."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/header-fx.js" defer></script>
+<script src="/assets/js/article-cta.js" defer></script>
+<script src="/assets/js/leads.js" defer></script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
