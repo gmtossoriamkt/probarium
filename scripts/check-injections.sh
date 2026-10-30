@@ -12,7 +12,7 @@ ALLOWED_DOMAINS='fonts\.googleapis\.com|fonts\.gstatic\.com|www\.googletagmanage
 if [ "$#" -gt 0 ]; then
   files=("$@")
 else
-  mapfile -t files < <(find . -name '*.html' -not -path './.git/*' -not -path './.claude/*' -not -path './node_modules/*' | sort)
+  mapfile -t files < <(find . -name '*.html' -not -path './.git/*' -not -path './.claude/*' -not -path './node_modules/*' -not -path './dist/*' | sort)
 fi
 
 found=0
