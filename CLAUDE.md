@@ -35,3 +35,7 @@
 - Блоки, которые вставляют скрипты, обёрнуты маркерами `<!--enh:имя-->`; скрипты идемпотентны — правь тексты вне маркеров.
 - Внутренние ссылки на страницы-каталоги — со слэшем на конце; `node scripts/normalize-links.js` приводит их к этому виду (в т.ч. canonical, og:url, JSON-LD, sitemap).
 - Цели Яндекс.Метрики для статей: `article_cta_click`, `article_form_submit`, `calc_from_article`, `forms_from_article`, `service_from_article` — их нужно создать в интерфейсе Метрики (тип «JavaScript-событие»).
+
+## Выкладка и служебные файлы
+
+Сайт на Timeweb («Статический сайт») отдаёт то, что лежит в ветке, из которой собирается приложение. Чтобы служебные файлы (`CLAUDE.md`, `AUDIT_TODO.md`, `scripts/`, `CNAME`, точечные папки, `*.md`, `*.sh`) не были доступны по адресу сайта, на каждый пуш в `main` GitHub Actions (`.github/workflows/deploy-dist.yml`) запускает `check-site.js`, `check-injections.sh` и `node scripts/build-dist.js` (папка `dist/`, список исключений — `.deployignore`) и публикует только содержимое `dist` в ветку **`timeweb-dist`** (в ней вручную ничего не править). Приложение Timeweb должно быть привязано к `timeweb-dist`, директория `/`; режим SPA-fallback в настройках деплоя выключен — тогда несуществующие адреса отдают настоящий 404 с `404.html` (`bash scripts/check-404.sh`). Проверка выкладки: переменная репозитория `DEPLOY_CHECK_URL` → `/version.txt` со SHA коммита. Новый служебный файл в корне — добавить в `.deployignore`.

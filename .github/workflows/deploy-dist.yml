@@ -1,0 +1,72 @@
+name: deploy-dist
+
+# На каждый пуш в main:
+#   1) check-site.js и check-injections.sh (с ошибками дальше не идём);
+#   2) build-dist.js — сайт без служебных файлов (CLAUDE.md, AUDIT_TODO.md, scripts/, CNAME, точечные папки);
+#   3) содержимое dist публикуется в ветку timeweb-dist (приложение Timeweb «Статический сайт», директория /);
+#   4) если задана переменная репозитория DEPLOY_CHECK_URL — ожидание, пока сайт не отдаст /version.txt с этим коммитом.
+# Приложение Timeweb должно собираться из ветки timeweb-dist, а не из main (см. раздел «Выкладка» в CLAUDE.md).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-dist
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: check-site
+        run: node scripts/check-site.js
+
+      - name: check-injections
+        run: bash scripts/check-injections.sh
+
+      - name: build-dist
+        run: |
+          node scripts/build-dist.js
+          printf '%s' "${GITHUB_SHA}" > dist/version.txt
+          test -f dist/404.html && test -f dist/index.html
+          for p in scripts CLAUDE.md AUDIT_TODO.md CNAME .github .githooks .git .claude .local; do
+            if [ -e "dist/$p" ]; then echo "::error::В dist попало служебное: $p"; exit 1; fi
+          done
+          echo "dist: $(find dist -type f | wc -l) файлов, $(du -sh dist | cut -f1)"
+
+      - name: Публикация в timeweb-dist (только содержимое dist)
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          export GIT_INDEX_FILE="$(mktemp -u)"
+          git --work-tree=dist add -A -f
+          TREE="$(git write-tree)"
+          COMMIT="$(git commit-tree "$TREE" -m "dist из ${GITHUB_SHA}")"
+          git push -f origin "${COMMIT}:refs/heads/timeweb-dist"
+          echo "timeweb-dist обновлена: ${COMMIT:0:7} ← ${GITHUB_SHA:0:7}"
+
+      - name: Ожидание выкладки на Timeweb
+        env:
+          URL: ${{ vars.DEPLOY_CHECK_URL }}
+        run: |
+          if [ -z "$URL" ]; then echo "DEPLOY_CHECK_URL не задан — пропуск"; exit 0; fi
+          for i in $(seq 1 40); do
+            v=$(curl -fsS -m 20 "$URL/version.txt" 2>/dev/null || true)
+            if [ "$v" = "$GITHUB_SHA" ]; then echo "Выложено: $URL → ${v:0:7}"; exit 0; fi
+            echo "ждём ($i/40): сейчас на сайте '${v:0:7}'"; sleep 15
+          done
+          echo "::error::За 10 минут $URL не отдал version.txt с коммитом ${GITHUB_SHA:0:7}. Смотрите лог деплоя в панели Timeweb."
+          exit 1
