@@ -154,10 +154,10 @@
 }
 .lib-modal-download:hover, .lib-modal-download:active { opacity: 0.9; }
 .lib-modal-links { display: flex; flex-direction: column; gap: 8px; align-items: center; }
-.lib-modal-fullpage, .lib-modal-home, .lib-modal-ask {
+.lib-modal-home, .lib-modal-ask {
   display: block; text-align: center; font-size: 13px; color: var(--lib-text-secondary); text-decoration: none;
 }
-.lib-modal-fullpage:hover, .lib-modal-home:hover, .lib-modal-ask:hover { text-decoration: underline; color: var(--lib-accent); }
+.lib-modal-home:hover, .lib-modal-ask:hover { text-decoration: underline; color: var(--lib-accent); }
 
 /* Планшеты */
 @media (max-width: 768px) {
