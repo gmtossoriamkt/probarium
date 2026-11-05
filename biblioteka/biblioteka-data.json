@@ -13,7 +13,7 @@
   {
    "name": "НПА ЕАЭС",
    "slug": "npa-eaes",
-   "count": 22
+   "count": 24
   },
   {
    "name": "ПО с ИИ",
@@ -2076,8 +2076,22 @@
    "category": "НПА ЕАЭС",
    "categorySlug": "npa-eaes",
    "docType": "Документ",
+   "title": "Рекомендация Коллегии ЕЭК от 23_12_2024 N 27 О Методических рекомендациях по содержанию и структуре документов регистрационного досье и проведению экспертизы...",
+   "year": "2024",
+   "note": "Действует с 27.12.2024; заменила Рекомендации № 14 и № 29 от 2019 года. Источник: rceth.by (экземпляр официального сайта ЕАЭС от 27.12.2024, ИПС «Эталон»)",
+   "urlSlug": "rekomendacii-ot-23-12-2024-n-27-o-metodicheskih-rekomendaciyah-po-soderzhaniyu-i-strukture",
+   "fileUrl": "/biblioteka/files/npa-eaes/rekomendacii-ot-23-12-2024-n-27-o-metodicheskih-rekomendaciyah-po-soderzhaniyu-i-strukture.pdf",
+   "pageUrl": "/biblioteka/npa-eaes/rekomendacii-ot-23-12-2024-n-27-o-metodicheskih-rekomendaciyah-po-soderzhaniyu-i-strukture/"
+  },
+  {
+   "category": "НПА ЕАЭС",
+   "categorySlug": "npa-eaes",
+   "docType": "Документ",
    "title": "Рекомендации от 08_10_2019 N 29 О Методических рекомендациях по содержанию и структуре документов...",
    "year": "2019",
+   "note": "Не применяется с 27.12.2024 — см. Рекомендацию № 27",
+   "noteLink": "/biblioteka/npa-eaes/rekomendacii-ot-23-12-2024-n-27-o-metodicheskih-rekomendaciyah-po-soderzhaniyu-i-strukture/",
+   "noteLinkText": "Открыть Рекомендацию № 27",
    "urlSlug": "rekomendacii-ot-08-10-2019-n-29-o-metodicheskih-rekomendaciyah-po-soderzhaniyu-i-strukture",
    "fileUrl": "/biblioteka/files/npa-eaes/rekomendacii-ot-08-10-2019-n-29-o-metodicheskih-rekomendaciyah-po-soderzhaniyu-i-strukture.pdf",
    "pageUrl": "/biblioteka/npa-eaes/rekomendacii-ot-08-10-2019-n-29-o-metodicheskih-rekomendaciyah-po-soderzhaniyu-i-strukture/"
@@ -2098,6 +2112,9 @@
    "docType": "Документ",
    "title": "Рекомендации от 21_05_2019 N 14 О Методических рекомендациях по проведению экспертизы безопасности,...",
    "year": "2019",
+   "note": "Не применяется с 27.12.2024 — см. Рекомендацию № 27",
+   "noteLink": "/biblioteka/npa-eaes/rekomendacii-ot-23-12-2024-n-27-o-metodicheskih-rekomendaciyah-po-soderzhaniyu-i-strukture/",
+   "noteLinkText": "Открыть Рекомендацию № 27",
    "urlSlug": "rekomendacii-ot-21-05-2019-n-14-o-metodicheskih-rekomendaciyah-po-provedeniyu-ekspertizy-b",
    "fileUrl": "/biblioteka/files/npa-eaes/rekomendacii-ot-21-05-2019-n-14-o-metodicheskih-rekomendaciyah-po-provedeniyu-ekspertizy-b.pdf",
    "pageUrl": "/biblioteka/npa-eaes/rekomendacii-ot-21-05-2019-n-14-o-metodicheskih-rekomendaciyah-po-provedeniyu-ekspertizy-b/"
@@ -2170,6 +2187,7 @@
    "title": "Решение от 12_02_2016 N 29 О Правилах проведения клинических и клинико-лабораторных испытаний...",
    "year": "2016",
    "note": "Редакция 2021 года, не действующая; действующая — в ред. Решения № 7 от 26.01.2024",
+   "noteLinkText": "Открыть Решение № 7",
    "noteLink": "/biblioteka/npa-eaes/reshenie-ot-26-01-2024-n-7-o-vnesenii-izmeneniy-v-reshenie-soveta-eek-ot-12-02-2016-n-29/",
    "urlSlug": "reshenie-ot-12-02-2016-n-29-o-pravilah-provedeniya-klinicheskih-i-kliniko-laboratornyh-isp",
    "fileUrl": "/biblioteka/files/npa-eaes/reshenie-ot-12-02-2016-n-29-o-pravilah-provedeniya-klinicheskih-i-kliniko-laboratornyh-isp.pdf",

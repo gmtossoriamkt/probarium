@@ -76,7 +76,7 @@ function renderList() {
       <div class="lib-item-body">
         <p class="lib-item-title">${escapeHtml(d.title)}</p>
         <p class="lib-item-meta">${escapeHtml(d.category)}${d.year ? " · " + d.year : ""}</p>
-        ${d.note ? `<p class="lib-item-note">${escapeHtml(d.note)}${d.noteLink ? ` <a href="#" class="lib-note-link" data-doc="${escapeHtml(d.noteLink)}">Открыть Решение № 7</a>` : ""}</p>` : ""}
+        ${d.note ? `<p class="lib-item-note">${escapeHtml(d.note)}${d.noteLink ? ` <a href="#" class="lib-note-link" data-doc="${escapeHtml(d.noteLink)}">${escapeHtml(d.noteLinkText || "Открыть документ")}</a>` : ""}</p>` : ""}
       </div>
       <button class="lib-item-btn" data-index="${state.documents.indexOf(d)}">
         &#8595; Скачать
@@ -109,7 +109,7 @@ function openModal(doc) {
   if (doc.noteLink) {
     const a = document.createElement("a");
     a.href = "#";
-    a.textContent = " Открыть Решение № 7";
+    a.textContent = " " + (doc.noteLinkText || "Открыть документ");
     a.addEventListener("click", (e) => {
       e.preventDefault();
       const target = state.documents.find(x => x.pageUrl === doc.noteLink);
