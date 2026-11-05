@@ -41,6 +41,7 @@ const CLUSTER_OF = {
   'obosnovanie-ekvivalentnosti-medizdeliya': 'docs',
   'otchet-o-klinicheskoy-ocenke-medizdeliya': 'docs',
   'zamechaniya-k-klinicheskoy-ocenke-kak-otvetit': 'docs',
+  'literatura-dlya-klinicheskoy-ocenki-medizdeliya': 'docs',
   'otkloneniya-ot-programmy-ki-medizdeliya': 'docs',
   'nezhelatelnye-sobytiya-ki-medizdeliya': 'docs',
   'raschet-vyborki-ki-medizdeliya-metodika': 'cost',
