@@ -42,6 +42,7 @@ const CLUSTER_OF = {
   'otchet-o-klinicheskoy-ocenke-medizdeliya': 'docs',
   'zamechaniya-k-klinicheskoy-ocenke-kak-otvetit': 'docs',
   'literatura-dlya-klinicheskoy-ocenki-medizdeliya': 'docs',
+  'klinicheskaya-validaciya-ivd-medizdeliya': 'docs',
   'otkloneniya-ot-programmy-ki-medizdeliya': 'docs',
   'nezhelatelnye-sobytiya-ki-medizdeliya': 'docs',
   'raschet-vyborki-ki-medizdeliya-metodika': 'cost',
