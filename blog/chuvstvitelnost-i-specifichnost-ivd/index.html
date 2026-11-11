@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Чувствительность и специфичность ИВД: как оценивать</title>
+<meta name="description" content="Диагностическая чувствительность и специфичность ИВД: расчёт по таблице 2×2, метод сравнения, выборка, порог, доверительные интервалы, PPV и NPV.">
+<link rel="canonical" href="https://probarium.ru/blog/chuvstvitelnost-i-specifichnost-ivd/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Чувствительность и специфичность ИВД: как оценивать">
+<meta property="og:description" content="Диагностическая чувствительность и специфичность ИВД: расчёт по таблице 2×2, метод сравнения, выборка, порог, доверительные интервалы, PPV и NPV.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/chuvstvitelnost-i-specifichnost-ivd/">
+<meta property="og:image" content="https://probarium.ru/assets/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Probarium">
+<meta property="article:published_time" content="2026-11-11T10:00:00+03:00">
+<meta property="article:modified_time" content="2026-11-11T10:00:00+03:00">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+@media (max-width:374px){
+  .final-cta{padding:24px;}
+  .final-cta .copy,.final-cta form{min-width:0;flex-basis:100%;}
+}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-col li.footer-social{display:flex;gap:12px;margin-top:14px;}
+.footer-col .footer-social a{display:inline-flex;border-radius:10px;transition:transform .2s ease,box-shadow .2s ease;}
+.footer-col .footer-social a:hover,.footer-col .footer-social a:focus-visible{transform:translateY(-2px);box-shadow:0 0 0 3px var(--gold);}
+@media (prefers-reduced-motion:reduce){.footer-col .footer-social a{transition:none;}.footer-col .footer-social a:hover{transform:none;}}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:1100px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:0;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;}
+.article-body blockquote{border-left:4px solid var(--blue-sky);background:var(--blue-pale);border-radius:0 8px 8px 0;padding:12px 18px;margin:8px 0 18px;font-size:15px;color:var(--graphite);font-style:italic;}
+</style>
+<link rel="stylesheet" href="/assets/css/header-fx.css">
+<link rel="stylesheet" href="/assets/css/article.css">
+<link rel="stylesheet" href="/assets/modern.css">
+<script defer src="/assets/modern.js"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <ul>
+        <li class="has-sub"><button type="button" class="nav-trigger" aria-haspopup="true">Услуги <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <ul class="sub-menu">
+            <li><a href="/klinicheskie-ispytaniya-medizdeliy/">Клинические испытания МИ<small>Анализ данных, с участием человека, ИВД</small></a></li>
+            <li><a href="/doklinicheskie-issledovaniya/">Доклиника и токсикология<small>Биосовместимость, GLP</small></a></li>
+            <li><a href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания<small>Включая электробезопасность, ЭМС, ПО</small></a></li>
+            <li><a href="/registraciya-medizdeliy/">Регистрация МИ<small>РФ и ЕАЭС</small></a></li>
+            <li><a href="/razrabotka-dokumentatsii/">Разработка документации<small>Протоколы, отчёты, досье</small></a></li>
+            <li><a href="/uslugi/">Все услуги</a></li>
+          </ul></li>
+        <li><a href="/dorozhnaya-karta/">Как мы работаем</a></li>
+        <li><a href="/kejsy/">Кейсы</a></li>
+        <li class="has-sub"><button type="button" class="nav-trigger" aria-haspopup="true">База знаний <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <ul class="sub-menu">
+            <li><a href="/npa/">НПА и стандарты</a></li>
+            <li><a href="/biblioteka/">Библиотека</a></li>
+            <li><a href="/blog/">Блог</a></li>
+            <li><a href="/glossariy/">Глоссарий</a></li>
+            <li><a href="/faq/">Вопросы и ответы</a></li>
+          </ul></li>
+        <li><a href="/o-kompanii/">О компании</a></li>
+        <li><a href="/kontakty/">Контакты</a></li>
+      </ul>
+    </nav>
+    <a href="/kontakty/" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <span class="m-group">Услуги</span>
+    <a class="m-sub" href="/klinicheskie-ispytaniya-medizdeliy/">Клинические испытания МИ</a>
+    <a class="m-sub" href="/doklinicheskie-issledovaniya/">Доклиника и токсикология</a>
+    <a class="m-sub" href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания</a>
+    <a class="m-sub" href="/registraciya-medizdeliy/">Регистрация МИ</a>
+    <a class="m-sub" href="/razrabotka-dokumentatsii/">Разработка документации</a>
+    <a href="/dorozhnaya-karta/">Как мы работаем</a>
+    <a href="/kejsy/">Кейсы</a>
+    <span class="m-group">База знаний</span>
+    <a class="m-sub" href="/npa/">НПА и стандарты</a>
+    <a class="m-sub" href="/biblioteka/">Библиотека</a>
+    <a class="m-sub" href="/blog/">Блог</a>
+    <a class="m-sub" href="/glossariy/">Глоссарий</a>
+    <a class="m-sub" href="/faq/">Вопросы и ответы</a>
+    <a href="/o-kompanii/">О компании</a>
+    <a href="/kontakty/">Контакты</a>
+    <a href="/kontakty/" class="btn btn-primary" style="margin-top:12px;text-align:center;display:block;">Оставить заявку</a>
+  </nav>
+</header>
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog/">Блог</a> / <span aria-current="page">Чувствительность и специфичность ИВД</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>7 мин чтения</span><span>11 ноября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Чувствительность и специфичность ИВД: как оценивать и подтверждать</h1>
+    <p class="lead"><strong>Суть в четырёх предложениях.</strong> Диагностическая чувствительность — доля положительных результатов теста среди образцов, в которых целевое состояние действительно есть, а диагностическая специфичность — доля отрицательных результатов среди образцов, в которых его нет; их нельзя путать с аналитической чувствительностью и специфичностью, которые описывают способность метода обнаружить аналит и не реагировать на другие вещества. При регистрации эти показатели подтверждаются в клинико-лабораторных испытаниях: по правилам ЕАЭС программа испытаний должна содержать размер выборки для оценки показателей клинической эффективности, описание биологической референтной популяции, метода сравнения и статистических уровней значимости, а результаты считаются отрицательными, если аналитическая или клиническая эффективность не соответствует заявленной производителем. Достоверность цифр определяется не формулой, а дизайном: независимым способом установления целевого состояния, выборкой, отражающей реальное применение, заранее заданным пороговым значением и указанием доверительных интервалов. Универсальных нормативных порогов чувствительности и специфичности для всех ИВД нет, а прогностическая ценность результата для конкретного пациента зависит ещё и от распространённости состояния.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+      <p>Цифры «чувствительность 98%, специфичность 99%» есть почти в каждой инструкции к тест-системе. Но эксперт смотрит не на сами цифры, а на то, как они получены. Разберём, как правильно оценить и подтвердить эти показатели.</p>
+
+      <p>Как в целом доказывается эффективность ИВД — в опорной статье <a href="/blog/klinicheskaya-validaciya-ivd-medizdeliya/" class="inline-link">«Клиническая валидация ИВД медизделия: полный разбор»</a>.</p>
+
+      <h2 id="analiticheskie-i-diagnosticheskie-harakteristiki">Аналитические и диагностические характеристики — не одно и то же</h2>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Характеристика</th><th>Вопрос</th><th>К чему относится</th></tr>
+        <tr><td>Аналитическая чувствительность (предел обнаружения)</td><td>Какое минимальное количество аналита метод обнаруживает?</td><td>Аналитическая эффективность</td></tr>
+        <tr><td>Аналитическая специфичность</td><td>Не реагирует ли метод на другие вещества (перекрёстные реакции, интерференция)?</td><td>Аналитическая эффективность</td></tr>
+        <tr><td>Диагностическая чувствительность</td><td>Как часто тест положителен, когда целевое состояние есть?</td><td>Клиническая эффективность</td></tr>
+        <tr><td>Диагностическая специфичность</td><td>Как часто тест отрицателен, когда целевого состояния нет?</td><td>Клиническая эффективность</td></tr>
+      </table>
+      </div>
+
+      <p>Низкий предел обнаружения сам по себе не доказывает высокую диагностическую чувствительность: тест может уверенно определять малые концентрации, но у части пациентов с заболеванием аналита в пробе может не быть. Термины «диагностическая чувствительность» и «диагностическая специфичность» определены в разделе терминов и определений ГОСТ Р ИСО 18113-1-2024.</p>
+
+      <h2 id="kak-rasschityvayutsya-pokazateli-tablica-2-2">Как рассчитываются показатели: таблица 2 × 2</h2>
+
+      <p>Результаты теста сопоставляются с независимым способом установления целевого состояния.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Результат ИВД</th><th>Целевое состояние есть</th><th>Целевого состояния нет</th></tr>
+        <tr><td>Положительный</td><td>Истинно положительный (ИП)</td><td>Ложноположительный (ЛП)</td></tr>
+        <tr><td>Отрицательный</td><td>Ложноотрицательный (ЛО)</td><td>Истинно отрицательный (ИО)</td></tr>
+      </table>
+      </div>
+
+      <ul>
+        <li><strong>Диагностическая чувствительность</strong> = ИП / (ИП + ЛО) × 100%</li>
+        <li><strong>Диагностическая специфичность</strong> = ИО / (ИО + ЛП) × 100%</li>
+      </ul>
+
+      <p><strong>Пример</strong> (условный, не нормативные значения): исследовано 100 образцов с подтверждённым целевым состоянием и 100 без него; получено ИП = 95, ЛО = 5, ИО = 92, ЛП = 8. Чувствительность = 95 / 100 = 95%, специфичность = 92 / 100 = 92%.</p>
+
+      <p>Эти проценты описывают результаты относительно принятого способа установления целевого состояния в исследованной выборке — а не долю верных результатов «у всех людей».</p>
+
+      <h2 id="kak-poluchit-dostovernye-znacheniya-pyat-resheni">Как получить достоверные значения: пять решений до начала испытаний</h2>
+
+      <h3>1. Определить целевое состояние</h3>
+
+      <p>Что именно выявляет тест: заболевание, инфекцию, маркер, физиологическое состояние? Целевое состояние должно устанавливаться по критериям, независимым от оцениваемого изделия, — иначе тест сравнивают сам с собой.</p>
+
+      <h3>2. Выбрать и обосновать метод сравнения</h3>
+
+      <p>По правилам ЕАЭС программа клинико-лабораторных испытаний должна содержать выбор и обоснование метода сравнения (Решение Совета ЕЭК № 29, приложение № 6). Обоснуйте, почему метод подходит для установления целевого состояния, применялся ли он ко всем образцам одинаково, были ли исполнители «ослеплены» относительно результатов другого метода и как разрешались расхождения. Если общепринятого «золотого стандарта» нет, способ установления целевого состояния нужно обосновать отдельно.</p>
+
+      <h3>3. Сформировать выборку, отражающую реальное применение</h3>
+
+      <p>Программа испытаний описывает биологическую референтную популяцию, критерии пригодности и исключения проб и размер выборки для оценки показателей клинической эффективности (приложение № 6); количество тестов должно быть достаточным для статистической достоверности (п. 30). В выборку стоит включать:</p>
+
+      <ul>
+        <li>образцы, соответствующие целевой популяции и типу биоматериала;</li>
+        <li>ранние и поздние стадии, низкие концентрации аналита — если они входят в назначение;</li>
+        <li>образцы с сопутствующими состояниями и потенциальными интерферентами.</li>
+      </ul>
+
+      <p>Выборка только из «явно положительных» и «заведомо отрицательных» образцов даёт завышенные показатели — в реальной практике тест будет работать хуже.</p>
+
+      <h3>4. Заранее задать пороговое значение</h3>
+
+      <p>Для количественных тестов порог положительного результата (cut-off) прямо влияет на показатели: снижение порога обычно повышает чувствительность, но увеличивает число ложноположительных результатов, повышение — наоборот. Порог и критерии повторного тестирования должны быть определены заранее — программа ЕАЭС предусматривает и калибровку, и критерии повторного теста (приложение № 6). Если порог выбирали по данным исследования, это нужно раскрыть и обосновать.</p>
+
+      <h3>5. Оценить точность оценок</h3>
+
+      <p>Указывайте не только точечные значения, но и доверительные интервалы, число образцов в каждой ячейке таблицы 2 × 2 и судьбу неопределённых и недействительных результатов. Чувствительность 95% по 20 положительным образцам и по 500 — оценки очень разной надёжности.</p>
+
+      <h2 id="chuvstvitelnost-i-specifichnost-ne-veroyatnost-d">Чувствительность и специфичность — не вероятность для пациента</h2>
+
+      <p><strong>Положительная прогностическая ценность (PPV)</strong> — вероятность, что состояние есть при положительном результате; <strong>отрицательная (NPV)</strong> — что его нет при отрицательном. В отличие от чувствительности и специфичности, они зависят от распространённости состояния в популяции. Один и тот же тест при массовом скрининге (низкая распространённость) даст меньшую PPV, чем при обследовании пациентов с симптомами. Поэтому назначение теста — скрининг, диагностика, подтверждение — определяет, какие ошибки критичнее и какие показатели важнее.</p>
+
+      <p>Для углублённого анализа используются также отношения правдоподобия (LR+, LR−) и ROC-анализ с площадью под кривой (AUC) для выбора порога количественных тестов. Нормы не требуют каждый из этих показателей для любого досье — их применяют по назначению изделия.</p>
+
+      <h2 id="chto-trebuyut-normy">Что требуют нормы</h2>
+
+      <p><strong>По национальной процедуре</strong> клинико-лабораторные испытания ИВД проводятся по разделу VI Порядка, утверждённого приказом Минздрава № 421н: в их ходе оцениваются соответствие изделия документации и предназначенному применению, а также полнота и достоверность заявленных характеристик, включая диагностическую чувствительность и специфичность (пп. 48–49). Результат оформляется актом по приложению № 4.</p>
+
+      <p><strong>По правилам ЕАЭС</strong> — Решение Совета ЕЭК № 29 (раздел V) и Рекомендация Коллегии ЕЭК № 27 (таблица 3): клиническая эффективность — способность изделия давать результаты, коррелирующие с клиническим состоянием в целевой популяции; результаты испытаний отрицательные, если аналитическая или клиническая эффективность не соответствует заявленной производителем (Решение № 29, п. 40). Отчёт — по приложению № 7 с критической оценкой всех данных, включая негативные (п. 41).</p>
+
+      <h2 id="tipichnye-oshibki">Типичные ошибки</h2>
+
+      <ol>
+        <li><strong>Путать аналитическую и диагностическую чувствительность.</strong></li>
+        <li><strong>Неподходящий или необоснованный метод сравнения.</strong></li>
+        <li><strong>Только «явные» образцы</strong> — завышенные показатели из-за узкого спектра.</li>
+        <li><strong>Порог подобран после анализа</strong> без раскрытия и обоснования.</li>
+        <li><strong>Опущены неопределённые и недействительные результаты.</strong></li>
+        <li><strong>Нет доверительных интервалов</strong> и числа образцов по ячейкам.</li>
+        <li><strong>Не описана целевая популяция</strong> — непонятно, к кому применимы цифры.</li>
+        <li><strong>Выводы на все модели без обоснования.</strong></li>
+      </ol>
+
+      <h2 id="chastye-voprosy">Частые вопросы</h2>
+      <details class="faq-item"><summary>Чем диагностическая чувствительность отличается от аналитической?</summary><p>Аналитическая — способность метода обнаружить малое количество аналита в пробе. Диагностическая — доля положительных результатов теста среди образцов, в которых целевое состояние действительно есть. Высокая аналитическая чувствительность не гарантирует высокую диагностическую.</p></details>
+      <details class="faq-item"><summary>Как рассчитать диагностическую чувствительность и специфичность?</summary><p>Чувствительность = ИП / (ИП + ЛО), специфичность = ИО / (ИО + ЛП), где результаты теста сопоставлены с независимым способом установления целевого состояния.</p></details>
+      <details class="faq-item"><summary>Есть ли нормативный минимум чувствительности и специфичности для ИВД?</summary><p>Универсальных порогов для всех ИВД нет. Показатели должны соответствовать заявленным производителем и назначению изделия; если они не подтверждаются, результаты испытаний считаются отрицательными.</p></details>
+      <details class="faq-item"><summary>Сколько образцов нужно для оценки?</summary><p>Фиксированного числа нет: размер выборки указывается в программе испытаний (приложение № 6) и должен быть достаточным для статистической достоверности (п. 30); обосновать его расчётом рекомендуется исходя из назначения, ожидаемых характеристик и требуемой точности.</p></details>
+      <details class="faq-item"><summary>Почему при той же специфичности тест в скрининге даёт больше ложных тревог?</summary><p>Положительная прогностическая ценность зависит от распространённости состояния: чем она ниже, тем большая доля положительных результатов оказывается ложной даже при высокой специфичности.</p></details>
+
+      <h2 id="normativnaya-baza">Нормативная база</h2>
+
+      <ul>
+        <li>Приказ Минздрава России от 13.05.2026 № 421н, раздел VI, пп. 48–49, приложение № 4.</li>
+        <li>Решение Совета ЕЭК от 12.02.2016 № 29 (Правила в редакции Решения Совета ЕЭК от 26.01.2024 № 7), п. 2, пп. 30, 40, 41, приложения № 6 и № 7.</li>
+        <li>Рекомендация Коллегии ЕЭК от 23.12.2024 № 27, таблица 3.</li>
+        <li>ГОСТ Р ИСО 18113-1-2024 «Медицинские изделия для диагностики in vitro. Информация, предоставленная изготовителем (маркировка). Часть 1. Термины, определения и общие требования» (утверждён приказом Росстандарта от 23.05.2024 № 647-ст, введён с 01.01.2025).</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Читайте также</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/klinicheskaya-validaciya-ivd-medizdeliya/">Клиническая валидация ИВД: научная обоснованность аналита, аналитическая и клиническая эффективность</a>
+        <a class="related-card" href="/blog/nuzhny-li-klinicheskie-ispytaniya-dlya-ivd/">Нужны ли клинические испытания для ИВД и когда нужно участие человека</a>
+        <a class="related-card" href="/blog/otchet-ki-po-pravilam-eaes/">Отчёт о клиническом испытании по правилам ЕАЭС: форма приложения № 5 и чем он отличается от акта</a>
+        <a class="related-card" href="/blog/akt-ocenki-rezultatov-ki-medizdeliya/">Акт оценки результатов клинических испытаний медизделия: как оформить</a>
+        <a class="related-card" href="/blog/kak-poluchit-razreshenie-na-ki/">Как получить разрешение на КИ медизделия: пошагово</a>
+        <a class="related-card" href="/glossariy/">Глоссарий терминов</a>
+        <a class="related-card" href="/blog/">Все статьи блога</a>
+      </div>
+    </div>
+  </section>
+
+<!--enh:next-->
+  <section class="next-steps" aria-labelledby="next-h2">
+    <div class="container">
+      <h2 id="next-h2">Что делать дальше</h2>
+      <div class="next-grid">
+        <div class="next-card"><h3>Проверить комплект документов</h3><p>Проверим комплект перед подачей и подскажем, что нужно доработать.</p><a href="#cta-form" class="btn btn-primary" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Чувствительность и специфичность ИВД" data-need="Клинические испытания">Оставить заявку</a></div>
+        <div class="next-card"><h3>Клинические испытания медицинских изделий</h3><p>Формы испытаний, этапы и условия работы — на странице услуги.</p><a href="/klinicheskie-ispytaniya-medizdeliy/" class="btn btn-outline" data-goal="service_from_article">Перейти к услуге</a></div>
+        <div class="next-card"><h3>Рассчитать стоимость</h3><p>Ориентировочный расчёт по направлению испытаний — в калькуляторе.</p><a href="/kalkulyator/" class="btn btn-outline" data-goal="calc_from_article">Открыть калькулятор</a></div>
+      </div>
+    </div>
+  </section>
+<!--/enh:next-->
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Готовите оценку диагностической точности ИВД?</h2>
+          <p>Probarium помогает спланировать клинико-лабораторные испытания: определить целевое состояние, обосновать метод сравнения и размер выборки, задать пороговое значение и статистический план, подготовить программу и отчёт. Подробнее — на странице <a href="/klinicheskie-ispytaniya-medizdeliy/in-vitro/" style="text-decoration:underline;">клинико-лабораторных испытаний ИВД</a>.</p>
+          <p style="margin-top:14px;"><a href="#cta-form" class="btn btn-outline" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Чувствительность и специфичность ИВД" data-need="Клинические испытания">Спланировать оценку точности ИВД</a></p>
+        </div>
+        <form id="cta-form" aria-label="Форма заявки на консультацию" action="https://functions.yandexcloud.net/d4e389n57q1ils09t0f3" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/chuvstvitelnost-i-specifichnost-ivd)">
+          <input type="text" name="_gotcha" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+          <input type="hidden" name="source_url" value="https://probarium.ru/blog/chuvstvitelnost-i-specifichnost-ivd/">
+          <input type="hidden" name="source_article" value="Чувствительность и специфичность ИВД">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="phone">Телефон</label>
+          <input id="phone" name="phone" type="tel" placeholder="Телефон (необязательно)" autocomplete="tel">
+          <label class="visually-hidden" for="need">Что нужно</label>
+          <select id="need" name="need">
+            <option>Клинические испытания</option>
+            <option>Доклиника и токсикология</option>
+            <option>Технические испытания</option>
+            <option>Не знаю, нужна консультация</option>
+          </select>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой форме испытаний"></textarea>
+          <label class="consent">
+            <input type="checkbox" name="consent_pd" value="yes" required>
+            <span>Даю согласие на обработку персональных данных (имя, компания, email, телефон, текст сообщения) в целях связи со мной по заявке и подготовки коммерческого предложения, в соответствии с <a href="/privacy/" style="text-decoration:underline;">Политикой обработки персональных данных</a></span>
+          </label>
+          <label class="consent">
+            <input type="checkbox" name="consent_offer" value="yes" required>
+            <span>Принимаю условия <a href="/oferta/" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy/">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya/">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii/">О компании</a></li>
+          <li><a href="/komanda/">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty/">Партнёры и аккредитованные центры</a></li>
+          <li><a href="/kejsy/">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa/">НПА</a></li>
+          <li><a href="/reestry/">Реестры</a></li>
+          <li><a href="/glossariy/">Глоссарий</a></li>
+          <li><a href="/blog/">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="tel:+79888777295">+7 988 877-72-95</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li class="footer-social">
+            <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg width="40" height="40" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg></a>
+            <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX"><img src="/assets/img/max-icon.png" width="40" height="40" alt="" style="border-radius:9px;"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ · ООО «Глобальные Медицинские Технологии», ИНН 9710131540, ОГРН 1247700287834</span>
+      <span>
+        <a href="/privacy/">Конфиденциальность</a> ·
+        <a href="/cookie/">Cookie</a> ·
+        <a href="/cookie/" data-cookie-settings>Настройки cookie</a> ·
+        <a href="/terms/">Соглашение</a> ·
+        <a href="/disclaimer/">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Чувствительность и специфичность ИВД: как оценивать и подтверждать",
+  "description": "Диагностическая чувствительность и специфичность ИВД: расчёт по таблице 2×2, метод сравнения, выборка, порог, доверительные интервалы, PPV и NPV.",
+  "inLanguage": "ru",
+  "image": [
+    "https://probarium.ru/assets/og-cover.jpg"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Артемий-Татуш Танделов",
+    "jobTitle": "Генеральный директор Probarium",
+    "url": "https://probarium.ru/komanda/",
+    "sameAs": [
+      "https://t.me/tandelovtat"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Probarium",
+    "url": "https://probarium.ru/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://probarium.ru/icon-512.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://probarium.ru/blog/chuvstvitelnost-i-specifichnost-ivd/"
+  },
+  "datePublished": "2026-11-11T10:00:00+03:00",
+  "dateModified": "2026-11-11T10:00:00+03:00"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://probarium.ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://probarium.ru/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Чувствительность и специфичность ИВД",
+      "item": "https://probarium.ru/blog/chuvstvitelnost-i-specifichnost-ivd/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем диагностическая чувствительность отличается от аналитической?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Аналитическая — способность метода обнаружить малое количество аналита в пробе. Диагностическая — доля положительных результатов теста среди образцов, в которых целевое состояние действительно есть. Высокая аналитическая чувствительность не гарантирует высокую диагностическую."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как рассчитать диагностическую чувствительность и специфичность?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Чувствительность = ИП / (ИП + ЛО), специфичность = ИО / (ИО + ЛП), где результаты теста сопоставлены с независимым способом установления целевого состояния."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Есть ли нормативный минимум чувствительности и специфичности для ИВД?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Универсальных порогов для всех ИВД нет. Показатели должны соответствовать заявленным производителем и назначению изделия; если они не подтверждаются, результаты испытаний считаются отрицательными."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько образцов нужно для оценки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Фиксированного числа нет: размер выборки указывается в программе испытаний (приложение № 6) и должен быть достаточным для статистической достоверности (п. 30); обосновать его расчётом рекомендуется исходя из назначения, ожидаемых характеристик и требуемой точности."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему при той же специфичности тест в скрининге даёт больше ложных тревог?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Положительная прогностическая ценность зависит от распространённости состояния: чем она ниже, тем большая доля положительных результатов оказывается ложной даже при высокой специфичности."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+function toggleMobileNav(){
+  var nav = document.getElementById('mobileNav');
+  var btn = document.getElementById('burgerBtn');
+  if(!nav || !btn) return;
+  var isOpen = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+</script>
+<script src="/assets/js/header-fx.js" defer></script>
+<script src="/assets/js/article-cta.js" defer></script>
+<script src="/assets/js/leads.js" defer></script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
