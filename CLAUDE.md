@@ -39,3 +39,9 @@
 ## Выкладка и служебные файлы
 
 Сайт на Timeweb («Статический сайт») отдаёт то, что лежит в ветке, из которой собирается приложение. Чтобы служебные файлы (`CLAUDE.md`, `AUDIT_TODO.md`, `scripts/`, `CNAME`, точечные папки, `*.md`, `*.sh`) не были доступны по адресу сайта, на каждый пуш в `main` GitHub Actions (`.github/workflows/deploy-dist.yml`) запускает `check-site.js`, `check-injections.sh` и `node scripts/build-dist.js` (папка `dist/`, список исключений — `.deployignore`) и публикует только содержимое `dist` в ветку **`timeweb-dist`** (в ней вручную ничего не править). Приложение Timeweb должно быть привязано к `timeweb-dist`, директория `/`; режим SPA-fallback в настройках деплоя выключен — тогда несуществующие адреса отдают настоящий 404 с `404.html` (`bash scripts/check-404.sh`). Проверка выкладки: переменная репозитория `DEPLOY_CHECK_URL` → `/version.txt` со SHA коммита. Новый служебный файл в корне — добавить в `.deployignore`.
+
+## Утилиты в scripts/ (не публикуются: scripts/ в .deployignore)
+
+- `node scripts/serve.js [порт]` — локальный сервер сайта (по умолчанию http://localhost:8792/, 404.html для несуществующих адресов). Корень — репозиторий, путь считается от самого скрипта.
+- `node scripts/check-prod.js blog/<slug>/ [--contains "фраза"] [--absent "фраза"]` — проверка опубликованной страницы на probarium.ru: код, title, canonical, FAQ в разметке и в тексте, таблицы, форма, карточка первой в `/blog/`, sitemap, `CLAUDE.md` = 404, `version.txt`. Адрес — без ведущего «/» (Git Bash на Windows иначе портит путь).
+- `node scripts/pdf-text.mjs файл.pdf [с] [по]` — текст из PDF с текстовым слоем; `node scripts/pdf-ocr.mjs файл.pdf выход.txt` — распознавание сканов (приказ № 421н, Решение № 7 в библиотеке — сканы). Зависимости ставятся вне репозитория: `mkdir <TOOLS_DIR> && cd <TOOLS_DIR> && npm i pdfjs-dist@4 @napi-rs/canvas@0.1.65 tesseract.js@5`; путь — переменная `TOOLS_DIR` (по умолчанию `<tmp>/probarium-tools`).
