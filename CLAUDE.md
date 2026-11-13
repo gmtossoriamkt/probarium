@@ -32,6 +32,7 @@
 `node scripts/blog-enhance.js` — тематические CTA «Что делать дальше», инлайн-плашка (статьи > 12 H2), расширенная форма (что нужно, телефон, URL статьи), перелинковка по кластерам, BlogPosting-разметка, оглавление (> 8 H2), дата обновления и lastmod в sitemap, блок «Последние статьи» на главной; затем `node scripts/blog-seo.js` — title/description/OG/article:*_time.
 - Тема CTA и кластеры задаются в `scripts/blog-cta-map.js` (новая статья без записи получает набор 'general'; добавь её в `CLUSTER_OF`).
 - Длина title — до 60 символов (суффикс « — Probarium» только если помещается: база ≤ 48), description — 120–160. Ручные формулировки — в `TITLES`/`DESCRIPTIONS` в `scripts/blog-seo.js`.
+- **После ручной правки опубликованной статьи** (плашка «Обновлено», `dateModified`) обязательно запусти `node scripts/blog-seo.js` — он синхронизирует `article:modified_time` с `dateModified`. `check-site.js` проверяет, что `article:modified_time`, `dateModified` в JSON-LD и дата плашки «Обновлено» (если она есть) совпадают по дню, иначе — ошибка.
 - Блоки, которые вставляют скрипты, обёрнуты маркерами `<!--enh:имя-->`; скрипты идемпотентны — правь тексты вне маркеров.
 - Внутренние ссылки на страницы-каталоги — со слэшем на конце; `node scripts/normalize-links.js` приводит их к этому виду (в т.ч. canonical, og:url, JSON-LD, sitemap).
 - Цели Яндекс.Метрики для статей: `article_cta_click`, `article_form_submit`, `calc_from_article`, `forms_from_article`, `service_from_article` — их нужно создать в интерфейсе Метрики (тип «JavaScript-событие»).

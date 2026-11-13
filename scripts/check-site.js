@@ -94,6 +94,21 @@ for (const f of files) {
     if (!pageExists(u)) err(f, 'битая внутренняя ссылка ' + u);
     if (/^\/blog\/[^\/"#?]+$/.test(u)) err(f, 'ссылка на статью блога без слэша ' + u);
   }
+  // даты статьи: article:modified_time = dateModified (JSON-LD) = плашка «Обновлено» (если есть)
+  if (/^blog\/[^\/]+\/index\.html$/.test(f.replace(/\\/g, '/'))) {
+    const art = lds.find(j => j && /^(BlogPosting|TechArticle|Article)$/.test(j['@type']));
+    const dm = art && art.dateModified ? String(art.dateModified).slice(0, 10) : null;
+    const mt = (h.match(/<meta property="?article:modified_time"? content="?([^">\s]+)/) || [])[1];
+    const MONTHS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+    const up = h.match(/Обновлено: (\d{1,2}) ([а-я]+) (\d{4})/);
+    if (dm && mt && mt.slice(0, 10) !== dm) err(f, 'article:modified_time (' + mt.slice(0, 10) + ') ≠ dateModified (' + dm + ') — запусти node scripts/blog-seo.js');
+    if (dm && !mt) err(f, 'нет мета-тега article:modified_time при dateModified ' + dm + ' — запусти node scripts/blog-seo.js');
+    if (dm && up) {
+      const mi = MONTHS.indexOf(up[2]);
+      const ud = mi < 0 ? null : up[3] + '-' + String(mi + 1).padStart(2, '0') + '-' + up[1].padStart(2, '0');
+      if (ud !== dm) err(f, 'плашка «' + up[0] + '» ≠ dateModified (' + dm + ')');
+    }
+  }
   const faq = lds.find(j => j && j['@type'] === 'FAQPage');
   if (faq) {
     faqPages++;
