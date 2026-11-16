@@ -46,6 +46,7 @@ const CLUSTER_OF = {
   'nuzhny-li-klinicheskie-ispytaniya-dlya-ivd': 'docs',
   'chuvstvitelnost-i-specifichnost-ivd': 'docs',
   'analiticheskaya-validaciya-ivd': 'docs',
+  'klinicheskaya-validaciya-ii-medizdeliya': 'docs',
   'otkloneniya-ot-programmy-ki-medizdeliya': 'docs',
   'nezhelatelnye-sobytiya-ki-medizdeliya': 'docs',
   'raschet-vyborki-ki-medizdeliya-metodika': 'cost',
