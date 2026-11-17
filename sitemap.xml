@@ -55,6 +55,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://probarium.ru/klassifikator-mi/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://probarium.ru/klinicheskie-bazy/</loc>
     <priority>0.8</priority>
   </url>
@@ -93,6 +97,10 @@
   <url>
     <loc>https://probarium.ru/o-kompanii/</loc>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://probarium.ru/oferta/</loc>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://probarium.ru/podbor-ispytaniy/</loc>
