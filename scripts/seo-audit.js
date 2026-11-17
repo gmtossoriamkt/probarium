@@ -184,7 +184,7 @@ const orphanStrict = real.filter(p => p.url !== '/' && inAll[p.url].size === 0 &
 add('orphan_strict', 'Страницы-сироты (нет ни одной входящей ссылки)', orphanStrict.map(p => p.url));
 const orphanContent = real.filter(p => p.url !== '/' && inContent[p.url].size === 0 && inAll[p.url].size > 0 && !/^\/(privacy|cookie|terms|disclaimer|lk|data-room|oferta)\//.test(p.url));
 add('orphan_content', 'Страницы без входящих ссылок из контента (только меню/подвал)', orphanContent.map(p => p.url + ' — из меню/подвала: ' + inAll[p.url].size), 'Контентной считается ссылка вне `<header>`, `<footer>`, `<nav>`.');
-add('not_in_sitemap', 'Страницы не в sitemap.xml', real.filter(p => !sitemapLocs.has(ORIGIN + p.url) && !(new RegExp('^\\/(' + disallow.map(d => d.replace(/^\//, '').replace(/\/$/, '')).join('|') + ')\\/')).test(p.url)).map(p => p.url), 'Исключены страницы, закрытые в robots.txt.');
+add('not_in_sitemap', 'Страницы не в sitemap.xml', real.filter(p => !sitemapLocs.has(ORIGIN + p.url) && !/noindex/i.test(p.robotsMeta) && !(new RegExp('^\\/(' + disallow.map(d => d.replace(/^\//, '').replace(/\/$/, '')).join('|') + ')\\/')).test(p.url)).map(p => p.url), 'Исключены страницы, закрытые в robots.txt.');
 add('sitemap_no_page', 'Адреса sitemap.xml без страницы', [...sitemapLocs].filter(l => !pages[l.replace(ORIGIN, '')]).map(l => l));
 add('canon_mismatch', 'Расхождение canonical и адреса страницы / sitemap', real.filter(p => p.canonical !== ORIGIN + p.url).map(p => p.url + ': canonical «' + p.canonical + '»'));
 add('broken_links', 'Битые внутренние ссылки', broken);
