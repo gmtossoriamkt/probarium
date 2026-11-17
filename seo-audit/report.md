@@ -1,6 +1,6 @@
 # SEO-аудит probarium.ru
 
-Страниц в репозитории: 96 (в анализе: 94; без 404.html и файла верификации Яндекса). URL в sitemap.xml: 88.
+Страниц в репозитории: 96 (в анализе: 94; без 404.html и файла верификации Яндекса). URL в sitemap.xml: 86.
 
 Таблица по страницам — `seo-audit/pages.csv`. Сгенерировано `node scripts/seo-audit.js`.
 
@@ -16,9 +16,9 @@
 | desc_short | 2 | 0 |
 | h1_bad | 1 | 1 |
 | heading_skips | 2 | 2 |
-| orphan_strict | 1 | 0 |
+| orphan_strict | 1 | 1 |
 | orphan_content | 1 | 0 |
-| not_in_sitemap | 2 | 0 |
+| not_in_sitemap | 2 | 1 |
 | sitemap_no_page | 0 | 0 |
 | canon_mismatch | 0 | 0 |
 | broken_links | 0 | 0 |
@@ -68,9 +68,9 @@ _нет_
 - /klassifikator-mi/: h2→h4 «Услуги»
 - /uslugi/: h1→h3 «Клинические испытания медицинских издели»
 
-## Страницы-сироты (нет ни одной входящей ссылки) — 0
+## Страницы-сироты (нет ни одной входящей ссылки) — 1
 
-_нет_
+- /klassifikator-mi/
 
 ## Страницы без входящих ссылок из контента (только меню/подвал) — 0
 
@@ -78,11 +78,11 @@ _нет_
 
 _нет_
 
-## Страницы не в sitemap.xml — 0
+## Страницы не в sitemap.xml — 1
 
 Исключены страницы, закрытые в robots.txt.
 
-_нет_
+- /klassifikator-mi/
 
 ## Адреса sitemap.xml без страницы — 0
 
