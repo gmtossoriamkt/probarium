@@ -48,6 +48,7 @@ const CLUSTER_OF = {
   'analiticheskaya-validaciya-ivd': 'docs',
   'klinicheskaya-validaciya-ii-medizdeliya': 'docs',
   'retrospektivnaya-ili-prospektivnaya-validaciya-ii': 'docs',
+  'dataset-dlya-klinicheskoy-validacii-ii': 'docs',
   'otkloneniya-ot-programmy-ki-medizdeliya': 'docs',
   'nezhelatelnye-sobytiya-ki-medizdeliya': 'docs',
   'raschet-vyborki-ki-medizdeliya-metodika': 'cost',
