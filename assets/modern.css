@@ -30,6 +30,9 @@ header.site-header .header-row.pb-hdr{display:flex;align-items:center;justify-co
 .pb-hdr-contacts a{display:inline-flex;align-items:center;gap:8px;min-height:44px;white-space:nowrap;font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;font-size:15px;letter-spacing:.005em;color:var(--blue-deep);transition:color .2s;}
 .pb-hdr-contacts a svg{flex-shrink:0;color:var(--gold);}
 .pb-hdr-contacts a:hover,.pb-hdr-contacts a:focus-visible{color:#85500C;}
+.pb-hdr-contacts a.pb-hdr-max{justify-content:center;flex:0 0 44px;width:44px;height:44px;border:1px solid var(--border);border-radius:50%;background:#fff;transition:border-color .2s,background .2s;}
+.pb-hdr-max img{display:block;width:24px;height:24px;border-radius:6px;object-fit:contain;}
+.pb-hdr-contacts a.pb-hdr-max:hover,.pb-hdr-contacts a.pb-hdr-max:focus-visible{border-color:var(--gold);background:#FFF8EE;}
 header.site-header .pb-hdr .header-cta{display:inline-flex;align-items:center;justify-content:center;min-height:44px;flex-shrink:0;}
 .pb-burger{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;flex-shrink:0;padding:0;border:1px solid var(--border);border-radius:12px;background:#fff;cursor:pointer;color:var(--blue-deep);transition:border-color .2s,background .2s;}
 .pb-burger span{display:block;width:20px;height:2px;border-radius:2px;background:currentColor;}
@@ -43,7 +46,7 @@ header.site-header .pb-hdr .header-cta{display:inline-flex;align-items:center;ju
 @media (max-width:1099.98px){
   header.site-header .header-row.pb-hdr{gap:10px;}
   header.site-header .pb-hdr .header-cta,.pb-hdr-contacts a.pb-hdr-mail{display:none;}
-  .pb-hdr-contacts{gap:0;flex-shrink:0;}
+  .pb-hdr-contacts{gap:8px;flex-shrink:0;}
   .pb-hdr-contacts a.pb-hdr-tel{justify-content:center;flex:0 0 44px;width:44px;height:44px;border:1px solid var(--border);border-radius:12px;background:#fff;}
   .pb-hdr-tel .pb-hdr-text{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
 }

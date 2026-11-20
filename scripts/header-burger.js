@@ -85,6 +85,7 @@ const BLOCK = `<!--pb:header-->
     <div class="pb-hdr-contacts">
       <a class="pb-hdr-tel" href="${PHONE_HREF}" data-ym-goal="phone_click" aria-label="Позвонить: ${PHONE_TEXT}">${ICON_PHONE}<span class="pb-hdr-text">${PHONE_TEXT}</span></a>
       <a class="pb-hdr-mail" href="mailto:${MAIL}" data-ym-goal="email_click">${ICON_MAIL}<span class="pb-hdr-text">${MAIL}</span></a>
+      <a class="pb-hdr-max" href="${MAX_HREF}" target="_blank" rel="noopener" aria-label="Написать в MAX"><img src="/assets/img/max-icon.png" width="24" height="24" alt="MAX"></a>
     </div>
     <a href="/kontakty/" class="btn btn-primary header-cta">Оставить заявку</a>
     <button type="button" class="pb-burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="pbMenu"><span></span><span></span><span></span></button>
