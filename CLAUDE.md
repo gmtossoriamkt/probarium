@@ -36,6 +36,11 @@
 - Блоки, которые вставляют скрипты, обёрнуты маркерами `<!--enh:имя-->`; скрипты идемпотентны — правь тексты вне маркеров.
 - Внутренние ссылки на страницы-каталоги — со слэшем на конце; `node scripts/normalize-links.js` приводит их к этому виду (в т.ч. canonical, og:url, JSON-LD, sitemap).
 - Цели Яндекс.Метрики для статей: `article_cta_click`, `article_form_submit`, `calc_from_article`, `forms_from_article`, `service_from_article` — их нужно создать в интерфейсе Метрики (тип «JavaScript-событие»).
+- Цели `phone_click` и `email_click`: ссылки tel:/mailto: с атрибутом `data-ym-goal` (шапка, панель меню — `scripts/header-burger.js`; `.pb-dock` — `assets/modern.js`), отправка в `assets/js/analytics.js` только при принятых cookie. Их тоже нужно создать в Метрике (тип «JavaScript-событие»).
+
+## Шапка
+
+Шапка и бургер-меню одинаковы на всех страницах и вставляются `node scripts/header-burger.js` (блок между `<!--pb:header-->` и `<!--/pb:header-->`, идемпотентно); правки шапки — в шаблоне скрипта, затем запуск. Стили — `assets/modern.css`, логика — `assets/modern.js`. Свою шапку имеют `/klassifikator-mi/`, у `/biblioteka/` шапки сайта нет — скрипт их пропускает.
 
 ## Выкладка и служебные файлы
 

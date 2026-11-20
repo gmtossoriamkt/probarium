@@ -17,7 +17,7 @@
     var dock=null;
     if(!/^\/(kontakty|privacy|terms|cookie|disclaimer|oferta|lk|data-room)/.test(path)){
       dock=d.createElement('div'); dock.className='pb-dock';
-      dock.innerHTML='<a class="d-main" href="/kontakty/">Оставить заявку</a><a class="d-tel" href="tel:+79888777295">Позвонить</a>';
+      dock.innerHTML='<a class="d-main" href="/kontakty/">Оставить заявку</a><a class="d-tel" href="tel:+79853169104" data-ym-goal="phone_click">Позвонить</a>';
       d.body.appendChild(dock);
     }
     window.addEventListener('scroll',onScroll,{passive:true}); onScroll();

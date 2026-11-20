@@ -10,6 +10,7 @@
 //     <!--pb:header--> … <!--/pb:header--> — шапка + панель меню (панель стоит после </header>, иначе
 //     sticky/backdrop-filter шапки ограничивают её позиционирование и z-index);
 //   • удаляет встроенный скрипт toggleMobileNav() (прежний бургер);
+//   • ссылки tel:/mailto: в шапке и панели помечены data-ym-goal (цели Метрики — assets/js/analytics.js);
 //   • подключает /assets/modern.css и /assets/modern.js, если их нет (стили и логика меню — там).
 // Идемпотентно: повторный запуск заменяет содержимое между маркерами тем же шаблоном.
 // Страницы со своей шапкой (другая разметка) и без шапки пропускаются и перечисляются в конце.
@@ -82,8 +83,8 @@ const BLOCK = `<!--pb:header-->
   <div class="container header-row pb-hdr">
     ${LOGO}
     <div class="pb-hdr-contacts">
-      <a class="pb-hdr-tel" href="${PHONE_HREF}" aria-label="Позвонить: ${PHONE_TEXT}">${ICON_PHONE}<span class="pb-hdr-text">${PHONE_TEXT}</span></a>
-      <a class="pb-hdr-mail" href="mailto:${MAIL}">${ICON_MAIL}<span class="pb-hdr-text">${MAIL}</span></a>
+      <a class="pb-hdr-tel" href="${PHONE_HREF}" data-ym-goal="phone_click" aria-label="Позвонить: ${PHONE_TEXT}">${ICON_PHONE}<span class="pb-hdr-text">${PHONE_TEXT}</span></a>
+      <a class="pb-hdr-mail" href="mailto:${MAIL}" data-ym-goal="email_click">${ICON_MAIL}<span class="pb-hdr-text">${MAIL}</span></a>
     </div>
     <a href="/kontakty/" class="btn btn-primary header-cta">Оставить заявку</a>
     <button type="button" class="pb-burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="pbMenu"><span></span><span></span><span></span></button>
@@ -102,8 +103,8 @@ ${menuHtml()}
     </nav>
     <div class="pb-menu-foot">
       <div class="pb-menu-contacts">
-        <a class="pb-menu-tel" href="${PHONE_HREF}">${ICON_PHONE}<span>${PHONE_TEXT}</span></a>
-        <a class="pb-menu-mail" href="mailto:${MAIL}">${ICON_MAIL}<span>${MAIL}</span></a>
+        <a class="pb-menu-tel" href="${PHONE_HREF}" data-ym-goal="phone_click">${ICON_PHONE}<span>${PHONE_TEXT}</span></a>
+        <a class="pb-menu-mail" href="mailto:${MAIL}" data-ym-goal="email_click">${ICON_MAIL}<span>${MAIL}</span></a>
       </div>
       <div class="pb-menu-msg">
         <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram" class="pb-msg">${ICON_TG}</a>
