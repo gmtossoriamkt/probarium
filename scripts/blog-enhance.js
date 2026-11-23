@@ -229,7 +229,7 @@ function linkArticle(file, slug) {
   });
 }
 
-// ---- JSON-LD (BlogPosting), даты, оглавление ----
+// ---- JSON-LD (BlogPosting; у статей с TechArticle тип сохраняется), даты, оглавление ----
 const RU = {а:'a',б:'b',в:'v',г:'g',д:'d',е:'e',ё:'e',ж:'zh',з:'z',и:'i',й:'y',к:'k',л:'l',м:'m',н:'n',о:'o',п:'p',р:'r',с:'s',т:'t',у:'u',ф:'f',х:'h',ц:'c',ч:'ch',ш:'sh',щ:'sch',ъ:'',ы:'y',ь:'',э:'e',ю:'yu',я:'ya'};
 const slugify = s => s.toLowerCase().replace(/[а-яё]/g, c => RU[c]).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 48) || 'section';
 const MONTHS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
@@ -270,7 +270,7 @@ function ldArticle(file, slug) {
       if (mod.slice(0, 10) === pubIso.slice(0, 10) && mod < pubIso) mod = pubIso; // обновление не раньше публикации
       const out = {
         '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
+        '@type': o['@type'] === 'TechArticle' ? 'TechArticle' : 'BlogPosting', // TechArticle сохраняется, остальное — BlogPosting
         headline: o.headline,
         description: o.description,
         inLanguage: 'ru',
@@ -283,7 +283,7 @@ function ldArticle(file, slug) {
       };
       return '<script type="application/ld+json">\n' + JSON.stringify(out, null, 2) + '\n</script>';
     });
-    const art = JSON.parse((h.match(/<script type="application\/ld\+json">\s*(\{[^<]*"@type": "BlogPosting"[\s\S]*?\})\s*<\/script>/) || [, '{}'])[1]);
+    const art = JSON.parse((h.match(/<script type="application\/ld\+json">\s*(\{[^<]*"@type": "(?:BlogPosting|TechArticle)"[\s\S]*?\})\s*<\/script>/) || [, '{}'])[1]);
     const pub = art.datePublished, mod = art.dateModified;
 
     // видимая дата обновления (если отличается от даты публикации)
