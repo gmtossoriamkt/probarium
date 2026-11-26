@@ -63,6 +63,7 @@ const CLUSTER_OF = {
   'razreshenie-na-ki-po-pravilam-eaes': 'docs',
   'klinicheskie-ispytaniya-eaes-trebovaniya': 'docs',
   'starye-dannye-ki-eaes': 'docs',
+  'gap-analiz-klinicheskoj-chasti-dosye-eaes': 'docs',
   'otkazali-v-razreshenii': 'docs',
   'priostanovili-ki': 'docs',
   'otchet-zavernuli': 'docs',
