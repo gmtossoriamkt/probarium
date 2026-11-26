@@ -13,7 +13,7 @@
   {
    "name": "НПА ЕАЭС",
    "slug": "npa-eaes",
-   "count": 24
+   "count": 25
   },
   {
    "name": "ПО с ИИ",
@@ -2207,8 +2207,22 @@
    "category": "НПА ЕАЭС",
    "categorySlug": "npa-eaes",
    "docType": "Решение",
+   "title": "Решение Совета ЕЭК № 50 от 08.07.2025 — изменения в Правила регистрации и экспертизы (Решение № 46), действует с 24.02.2026",
+   "year": "2025",
+   "note": "Источник: официальный портал docs.eaeunion.org (первоисточник, PDF)",
+   "urlSlug": "reshenie-ot-08-07-2025-n-50-o-vnesenii-izmeneniy-v-pravila-registracii-i-ekspertizy-medicinskih-izdeliy",
+   "fileUrl": "/biblioteka/files/npa-eaes/reshenie-ot-08-07-2025-n-50-o-vnesenii-izmeneniy-v-pravila-registracii-i-ekspertizy-medicinskih-izdeliy.pdf",
+   "pageUrl": "/biblioteka/npa-eaes/reshenie-ot-08-07-2025-n-50-o-vnesenii-izmeneniy-v-pravila-registracii-i-ekspertizy-medicinskih-izdeliy/"
+  },
+  {
+   "category": "НПА ЕАЭС",
+   "categorySlug": "npa-eaes",
+   "docType": "Решение",
    "title": "Решение от 12_02_2016 N 46 О Правилах регистрации и экспертизы безопасности, качества и...",
    "year": "2016",
+   "note": "Редакция на 30.03.2023; изменения Решения Совета ЕЭК № 50 от 08.07.2025 (действует с 24.02.2026) в PDF не учтены",
+   "noteLinkText": "Открыть Решение № 50",
+   "noteLink": "/biblioteka/npa-eaes/reshenie-ot-08-07-2025-n-50-o-vnesenii-izmeneniy-v-pravila-registracii-i-ekspertizy-medicinskih-izdeliy/",
    "urlSlug": "reshenie-ot-12-02-2016-n-46-o-pravilah-registracii-i-ekspertizy-bezopasnosti-kachestva-i",
    "fileUrl": "/biblioteka/files/npa-eaes/reshenie-ot-12-02-2016-n-46-o-pravilah-registracii-i-ekspertizy-bezopasnosti-kachestva-i.pdf",
    "pageUrl": "/biblioteka/npa-eaes/reshenie-ot-12-02-2016-n-46-o-pravilah-registracii-i-ekspertizy-bezopasnosti-kachestva-i/"
