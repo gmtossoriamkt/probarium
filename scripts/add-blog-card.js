@@ -21,7 +21,7 @@
 //     «от новых к старым») и не в будущем; совпадает с datePublished в JSON-LD статьи;
 //   • title и desc совпадают с H1 и description статьи (расхождение — предупреждение);
 //   • после вставки ItemList перестраивается из карточек (position = порядок на странице).
-// После запуска: node scripts/check-site.js, обратные ссылки в «Читайте также», проверка diff, push только по команде.
+// После запуска: node scripts/check-site.js, обратные ссылки в «Читайте также», проверка diff, push в main — только через PR.
 
 const fs = require('fs');
 const path = require('path');
@@ -151,4 +151,4 @@ if (args['dry-run']) {
 write('blog/index.html', idx);
 write('sitemap.xml', sm);
 console.log('add-blog-card: добавлено ' + slug + ' (' + dateRu + '), карточек ' + all.length + ', ItemList перестроен');
-console.log('Дальше: обратные ссылки в «Читайте также», node scripts/check-site.js, проверка diff, push только по команде.');
+console.log('Дальше: обратные ссылки в «Читайте также», node scripts/check-site.js, проверка diff, push в main — только через PR.');
