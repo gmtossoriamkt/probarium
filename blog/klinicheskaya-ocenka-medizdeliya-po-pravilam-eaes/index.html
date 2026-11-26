@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Клиническая оценка медизделия по правилам ЕАЭС — Probarium</title>
+<meta name="description" content="Клиническая оценка медизделия по правилам ЕАЭС: пять шагов п. 3 Решения ЕЭК № 29, какие данные примут, кто согласует отчёт и что проверит экспертиза.">
+<link rel="canonical" href="https://probarium.ru/blog/klinicheskaya-ocenka-medizdeliya-po-pravilam-eaes/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Клиническая оценка медизделия по правилам ЕАЭС">
+<meta property="og:description" content="Клиническая оценка медизделия по правилам ЕАЭС: пять шагов п. 3 Решения ЕЭК № 29, какие данные примут, кто согласует отчёт и что проверит экспертиза.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/klinicheskaya-ocenka-medizdeliya-po-pravilam-eaes/">
+<meta property="og:image" content="https://probarium.ru/assets/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Probarium">
+<meta property="article:published_time" content="2026-11-26T10:00:00+03:00">
+<meta property="article:modified_time" content="2026-11-26T10:00:00+03:00">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+@media (max-width:374px){
+  .final-cta{padding:24px;}
+  .final-cta .copy,.final-cta form{min-width:0;flex-basis:100%;}
+}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-col li.footer-social{display:flex;gap:12px;margin-top:14px;}
+.footer-col .footer-social a{display:inline-flex;border-radius:10px;transition:transform .2s ease,box-shadow .2s ease;}
+.footer-col .footer-social a:hover,.footer-col .footer-social a:focus-visible{transform:translateY(-2px);box-shadow:0 0 0 3px var(--gold);}
+@media (prefers-reduced-motion:reduce){.footer-col .footer-social a{transition:none;}.footer-col .footer-social a:hover{transform:none;}}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:1100px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:0;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;}
+.article-body blockquote{border-left:4px solid var(--blue-sky);background:var(--blue-pale);border-radius:0 8px 8px 0;padding:12px 18px;margin:8px 0 18px;font-size:15px;color:var(--graphite);font-style:italic;}
+</style>
+<link rel="stylesheet" href="/assets/css/header-fx.css">
+<link rel="stylesheet" href="/assets/css/article.css">
+<link rel="stylesheet" href="/assets/modern.css">
+<script defer src="/assets/modern.js"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<!--pb:header-->
+<header class="site-header">
+  <div class="container header-row pb-hdr">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <div class="pb-hdr-contacts">
+      <a class="pb-hdr-tel" href="tel:+79853169104" data-ym-goal="phone_click" aria-label="Позвонить: +7 985 316-91-04"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span class="pb-hdr-text">+7 985 316-91-04</span></a>
+      <a class="pb-hdr-mail" href="mailto:info@probarium.ru" data-ym-goal="email_click"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.4l8 5 8-5V7H4zm16 2.75-7.47 4.67a1 1 0 0 1-1.06 0L4 9.75V17h16z"/></svg><span class="pb-hdr-text">info@probarium.ru</span></a>
+      <a class="pb-hdr-max" href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX"><img src="/assets/img/max-icon.png" width="24" height="24" alt="MAX"></a>
+    </div>
+    <a href="/kontakty/" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button type="button" class="pb-burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="pbMenu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="pb-menu-backdrop" hidden></div>
+<div class="pb-menu" id="pbMenu" role="dialog" aria-modal="true" aria-label="Меню сайта" hidden>
+  <div class="pb-menu-top">
+    <button type="button" class="pb-menu-close" aria-label="Закрыть меню"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+  </div>
+  <div class="pb-menu-body">
+    <nav class="pb-menu-nav" aria-label="Основная навигация">
+      <ul>
+        <li class="pb-acc">
+          <button type="button" class="pb-menu-link pb-acc-btn" aria-expanded="false" aria-controls="pbAccServices">Услуги <svg width="14" height="14" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <ul class="pb-acc-list" id="pbAccServices" hidden>
+            <li><a class="pb-sub-link" href="/klinicheskie-ispytaniya-medizdeliy/">Клинические испытания МИ<small>Анализ данных, с участием человека, ИВД</small></a></li>
+            <li><a class="pb-sub-link" href="/doklinicheskie-issledovaniya/">Доклиника и токсикология<small>Биосовместимость, GLP</small></a></li>
+            <li><a class="pb-sub-link" href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания<small>Включая электробезопасность, ЭМС, ПО</small></a></li>
+            <li><a class="pb-sub-link" href="/registraciya-medizdeliy/">Регистрация МИ<small>РФ и ЕАЭС</small></a></li>
+            <li><a class="pb-sub-link" href="/razrabotka-dokumentatsii/">Разработка документации<small>Протоколы, отчёты, досье</small></a></li>
+            <li><a class="pb-sub-link" href="/uslugi/">Все услуги</a></li>
+          </ul>
+        </li>
+        <li><a class="pb-menu-link" href="/dorozhnaya-karta/">Как мы работаем</a></li>
+        <li><a class="pb-menu-link" href="/kejsy/">Кейсы</a></li>
+        <li class="pb-acc">
+          <button type="button" class="pb-menu-link pb-acc-btn" aria-expanded="false" aria-controls="pbAccKnowledge">База знаний <svg width="14" height="14" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <ul class="pb-acc-list" id="pbAccKnowledge" hidden>
+            <li><a class="pb-sub-link" href="/npa/">НПА и стандарты</a></li>
+            <li><a class="pb-sub-link" href="/biblioteka/">Библиотека</a></li>
+            <li><a class="pb-sub-link" href="/blog/">Блог</a></li>
+            <li><a class="pb-sub-link" href="/glossariy/">Глоссарий</a></li>
+            <li><a class="pb-sub-link" href="/faq/">Вопросы и ответы</a></li>
+          </ul>
+        </li>
+        <li><a class="pb-menu-link" href="/o-kompanii/">О компании</a></li>
+        <li><a class="pb-menu-link" href="/kontakty/">Контакты</a></li>
+      </ul>
+    </nav>
+    <div class="pb-menu-foot">
+      <div class="pb-menu-contacts">
+        <a class="pb-menu-tel" href="tel:+79853169104" data-ym-goal="phone_click"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span>+7 985 316-91-04</span></a>
+        <a class="pb-menu-mail" href="mailto:info@probarium.ru" data-ym-goal="email_click"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.4l8 5 8-5V7H4zm16 2.75-7.47 4.67a1 1 0 0 1-1.06 0L4 9.75V17h16z"/></svg><span>info@probarium.ru</span></a>
+      </div>
+      <div class="pb-menu-msg">
+        <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram" class="pb-msg"><svg width="24" height="24" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg></a>
+        <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX" class="pb-msg"><img src="/assets/img/max-icon.png" width="24" height="24" alt="MAX" loading="lazy"></a>
+      </div>
+      <a href="/kontakty/" class="btn btn-primary pb-menu-cta">Оставить заявку</a>
+    </div>
+  </div>
+</div>
+<!--/pb:header-->
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog/">Блог</a> / <span aria-current="page">Клиническая оценка по правилам ЕАЭС</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>11 мин чтения</span><span>26 ноября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Клиническая оценка медизделия по правилам ЕАЭС: порядок, данные и экспертиза</h1>
+    <p class="lead">В союзной процедуре регистрации клиническая оценка — не отдельная услуга медицинской организации, а обязанность производителя: он сам собирает клинические данные, оценивает их и делает вывод в отчёте, который затем анализирует экспертная организация референтного государства. Разберём, из каких шагов состоит эта работа по Правилам, утверждённым Решением Совета ЕЭК № 29, какие данные в ней засчитываются и чем она отличается от национальной процедуры.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+<!--enh:toc-->
+      <details class="toc" open>
+        <summary>Содержание</summary>
+        <ol>
+          <li><a href="#sut-v-chetyreh-predlozheniyah">Суть в четырёх предложениях</a></li>
+          <li><a href="#kak-eto-nazyvaetsya-v-prave-soyuza">Как это называется в праве Союза</a></li>
+          <li><a href="#pyat-shagov-po-p-3-pravil">Пять шагов по п. 3 Правил</a></li>
+          <li><a href="#kogda-bez-ispytaniya-ne-oboytis">Когда без испытания не обойтись</a></li>
+          <li><a href="#kakie-dannye-zaschityvayutsya">Какие данные засчитываются</a></li>
+          <li><a href="#otchet-kto-gotovit-kto-soglasuet-kuda-podaetsya">Отчёт: кто готовит, кто согласует, куда подаётся</a></li>
+          <li><a href="#chto-proverit-ekspertiza">Что проверит экспертиза</a></li>
+          <li><a href="#osobennosti-dlya-ivd-i-programmnogo-obespecheniy">Особенности для IVD и программного обеспечения</a></li>
+          <li><a href="#posle-registracii">После регистрации</a></li>
+          <li><a href="#chem-eto-otlichaetsya-ot-nacionalnoy-procedury">Чем это отличается от национальной процедуры</a></li>
+          <li><a href="#chek-list-pered-podachey-dose">Чек-лист перед подачей досье</a></li>
+          <li><a href="#tipichnye-oshibki">Типичные ошибки</a></li>
+          <li><a href="#chastye-voprosy">Частые вопросы</a></li>
+          <li><a href="#normativnaya-baza">Нормативная база</a></li>
+        </ol>
+      </details>
+<!--/enh:toc-->
+
+
+      <h2 id="sut-v-chetyreh-predlozheniyah">Суть в четырёх предложениях</h2>
+
+      <p>По правилам ЕАЭС производитель доказывает клиническую эффективность и безопасность изделия сам: определяет требования, которые подтверждаются клиническими данными, собирает и оценивает данные из литературы, опыта применения и испытаний, проводит испытания по аспектам, где данных недостаточно, и оформляет вывод в отчёте о клиническом доказательстве эффективности и безопасности (Решение Совета ЕЭК № 29, п. 3). Отчёт согласуется со специалистом в области медицинского применения изделия, входит в регистрационное досье для всех классов и для изделий для диагностики in vitro и поддерживается в актуальном состоянии после регистрации (п. 3 «д», п. 8; Решение Совета ЕЭК № 46, приложение № 4). Данные другого изделия засчитываются только при доказанной эквивалентности по трём одновременным условиям п. 7, а данные из стран вне Союза — при подтверждении публикациями, отчётами ВОЗ или соответствием рекомендациям IMDRF (п. 6). Экспертиза проверяет обоснованность выбора методов доказательства, валидность данных и обоснованность вывода для всех заявленных показаний с учётом противопоказаний (Решение № 46, п. 27 «д»).</p>
+
+      <p>Общая картина союзных требований к клиническим данным и испытаниям — в опорной статье <a href="/blog/klinicheskie-ispytaniya-eaes-trebovaniya/">«Клинические испытания медизделий по правилам ЕАЭС»</a>; как устроен сам отчёт по разделам — в статье <a href="/blog/otchet-o-klinicheskoy-ocenke-medizdeliya/">«Отчёт о клинической оценке медизделия: структура»</a>; как оценить имеющиеся данные перед подачей — в статье <a href="/blog/gap-analiz-klinicheskoj-chasti-dosye-eaes/">«Гэп-анализ клинической части досье под ЕАЭС»</a>.</p>
+
+      <h2 id="kak-eto-nazyvaetsya-v-prave-soyuza">Как это называется в праве Союза</h2>
+
+      <p>Слова «клиническая оценка» (clinical evaluation) пришли из международной практики. В Правилах по Решению № 29 для изделий, кроме программного обеспечения, этого термина нет — там используются другие понятия, и их важно не смешивать:</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Понятие в Решении № 29</th><th>Что означает</th><th>Где закреплено</th></tr>
+        <tr><td>Клинические данные</td><td>Данные по безопасности и (или) эффективности, полученные при клиническом применении изделия: из литературы, опыта применения, испытаний, их сочетания или иным способом; сюда же относятся данные эквивалентного изделия</td><td>п. 2</td></tr>
+        <tr><td>Клиническое доказательство эффективности и безопасности</td><td>Совокупность клинических данных, подтверждающих эффективность и безопасность при использовании по назначению, и их оценка</td><td>п. 2</td></tr>
+        <tr><td>Отчёт о клиническом доказательстве</td><td>Документ, в котором производитель анализирует благоприятные и неблагоприятные данные и делает обоснованное заключение; часть документации производителя</td><td>п. 3 «д»</td></tr>
+        <tr><td>Клиническое испытание (исследование)</td><td>Любое испытание с участием человека в качестве субъекта — только один из источников клинических данных</td><td>п. 2</td></tr>
+      </table>
+      </div>
+
+      <p>Термином «клиническая оценка» методические рекомендации Коллегии ЕЭК называют клиническое доказательство для программного обеспечения, являющегося медицинским изделием (Рекомендация № 27, приложение № 6, п. 14). Для остальных изделий в документах для экспертизы лучше использовать формулировки Правил.</p>
+
+      <h2 id="pyat-shagov-po-p-3-pravil">Пять шагов по п. 3 Правил</h2>
+
+      <p>Пункт 3 Правил по Решению № 29 перечисляет, что должен сделать производитель, — по сути, это порядок клинической оценки:</p>
+
+      <ol>
+        <li><strong>Определить требования.</strong> Выбрать из Общих требований безопасности и эффективности (Решение Совета ЕЭК № 27) те, соответствие которым должно доказываться клиническими данными (п. 3 «а»).</li>
+        <li><strong>Собрать клинические данные</strong>, относящиеся к изделию и его назначению: из научной литературы, опыта клинического применения или клинических испытаний (п. 3 «б»).</li>
+        <li><strong>Оценить данные</strong> — можно ли их использовать для доказательства эффективности и безопасности именно этого изделия (п. 3 «в»).</li>
+        <li><strong>Закрыть пробелы испытаниями</strong> — провести клинические испытания по тем аспектам безопасности и эффективности, для которых имеющихся данных недостаточно (п. 3 «г»).</li>
+        <li><strong>Проанализировать и сделать вывод</strong> — учесть благоприятные и неблагоприятные данные с учётом класса риска, назначения и особенностей применения, оформить заключение в отчёте и согласовать его со специалистом (п. 3 «д»).</li>
+      </ol>
+
+      <p>Порядок важен: испытание — не стартовая точка, а способ закрыть пробел, выявленный на шаге 3. Поэтому оценку имеющихся данных стоит делать до того, как планировать испытание, — иначе легко заказать исследование, которое не отвечает на вопросы эксперта.</p>
+
+      <h2 id="kogda-bez-ispytaniya-ne-oboytis">Когда без испытания не обойтись</h2>
+
+      <p>Обоснование должно опираться на данные клинических испытаний (п. 4 Правил):</p>
+
+      <ul>
+        <li>если не доказано, что эффективность и безопасность изделия можно подтвердить иным способом;</li>
+        <li>если функциональные характеристики, принцип действия, назначение, показания или особенности применения изделия ранее не исследовались;</li>
+        <li>если изделие содержит новые, не изученные в части биологического действия материалы, известные материалы в контакте с органами и тканями, для которых нет опыта применения, или контакт продолжительнее ранее изученного.</li>
+      </ul>
+
+      <p>Первые два условия не распространяются на программное обеспечение, являющееся медицинским изделием: для него клинические данные получают на верифицированных медицинской организацией данных пациентов (п. 5). Испытания изделий классов 3, 2б и имплантируемых (кроме ПО), начатые после 1 января 2022 года, проводятся как многоцентровые, в том числе в одном из государств — членов Союза (п. 4). Как учитываются испытания, проведённые раньше, — в статье <a href="/blog/starye-dannye-ki-eaes/">«Старые данные КИ при регистрации по ЕАЭС»</a>.</p>
+
+      <!--enh:inline-->
+      <aside class="inline-cta" aria-label="Подсказка"><p>Готовите документы к подаче?</p><a href="#cta-form" class="btn btn-primary" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Клиническая оценка по правилам ЕАЭС" data-need="Клинические испытания">Оставить заявку</a></aside>
+<!--/enh:inline-->
+
+      <h2 id="kakie-dannye-zaschityvayutsya">Какие данные засчитываются</h2>
+
+      <p>Условия приёма разных источников заданы п. 6–7 Правил и уточнены в руководстве по отчёту о клиническом доказательстве (приложение № 6 к методическим рекомендациям, утверждённым Рекомендацией Коллегии ЕЭК № 27):</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Источник</th><th>Условие приёма</th><th>Основание</th></tr>
+        <tr><td>Публикации</td><td>Относятся к регистрируемому изделию и позволяют оценить его свойства и характеристики; публикации о технологии применения (например, о стентировании вообще) вместо данных об изделии недопустимы</td><td>Правила, п. 6 «а»; прил. № 6, п. 5</td></tr>
+        <tr><td>Опыт клинического применения</td><td>Нужны подтверждающие клинические данные; отзывы медицинских организаций без них доказательством не являются</td><td>прил. № 6, п. 4</td></tr>
+        <tr><td>Испытания в Союзе</td><td>К данным прилагаются программа и отчёт об испытании</td><td>прил. № 6, п. 3</td></tr>
+        <tr><td>Испытания и применение вне Союза</td><td>Подтверждены публикациями в специализированных журналах или отчётами ВОЗ по программе преквалификации либо проведены по рекомендациям IMDRF с верифицируемыми доказательствами</td><td>Правила, п. 6</td></tr>
+        <tr><td>Данные другого изделия</td><td>Доказана эквивалентность по п. 7: одинаковое назначение, одинаковые технические и биологические характеристики в степени, исключающей различия в эффективности и безопасности, регистрация эквивалентного изделия в Союзе или государстве-члене; объём и детализация данных — как для собственного изделия</td><td>Правила, п. 7; прил. № 6, п. 6–8</td></tr>
+      </table>
+      </div>
+
+      <p>Подробно о критериях эквивалентности — в статье <a href="/blog/obosnovanie-ekvivalentnosti-medizdeliya/">«Обоснование эквивалентности медизделия»</a>, об отборе публикаций — в статье <a href="/blog/literatura-dlya-klinicheskoy-ocenki-medizdeliya/">«Литература для клинической оценки»</a>.</p>
+
+      <h2 id="otchet-kto-gotovit-kto-soglasuet-kuda-podaetsya">Отчёт: кто готовит, кто согласует, куда подаётся</h2>
+
+      <ul>
+        <li><strong>Составляет производитель</strong> (или уполномоченный представитель); отчёт — часть документации производителя (Правила, п. 3 «д»).</li>
+        <li><strong>Согласует специалист</strong> в области медицинского применения изделия; квалификация подтверждается документом об образовании в области медицины и о специальности, а также публикациями — статьями, монографиями или диссертациями по этой области (п. 3 «д»).</li>
+        <li><strong>Подаётся в досье</strong> для изделий классов 1, 2а, 2б, 3 и изделий для диагностики in vitro; копия заверяется производителем или уполномоченным представителем (Решение № 46, приложение № 4, строка 21). Досье подаётся в уполномоченный орган (экспертную организацию) референтного государства (Решение № 46, п. 22).</li>
+        <li><strong>Согласован с инструкцией.</strong> Если изделие применялось только у определённых групп пациентов, это указывается и в отчёте, и в инструкции по применению; сведения инструкции должны соответствовать отчёту (Рекомендация № 27, п. 11, подп. 21).</li>
+        <li><strong>Состав разделов</strong> производитель определяет сам, исходя из применённых методов получения данных (прил. № 6, п. 1); рекомендованная структура — таблица 2 Рекомендации № 27 (для изделий для диагностики in vitro — таблица 3).</li>
+      </ul>
+
+      <h2 id="chto-proverit-ekspertiza">Что проверит экспертиза</h2>
+
+      <p>По Решению № 46 при экспертизе анализируется отчёт о клиническом доказательстве — для подтверждения трёх вещей (п. 27 «д»):</p>
+
+      <ul>
+        <li>обоснован ли выбор методов доказательства клинической эффективности и безопасности;</li>
+        <li>валидны ли данные, на которые опирается доказательство;</li>
+        <li>обосновано ли заключение для всех заявленных показаний к применению с учётом противопоказаний.</li>
+      </ul>
+
+      <p>Отдельно оценивается, соответствуют ли отчёты о клинических испытаниях Правилам по Решению № 29. На практике самые уязвимые места — выводы шире данных (показание заявлено, но не подтверждено), данные чужого изделия без полного доказательства эквивалентности и расхождения между отчётом и инструкцией. Как работать с полученными замечаниями — в статье <a href="/blog/zamechaniya-k-klinicheskoy-ocenke-kak-otvetit/">«Замечания к клинической оценке: как ответить»</a>.</p>
+
+      <h2 id="osobennosti-dlya-ivd-i-programmnogo-obespecheniy">Особенности для IVD и программного обеспечения</h2>
+
+      <h3>Изделия для диагностики in vitro</h3>
+
+      <p>Отчёт основывается — где применимо — на научной обоснованности аналита, аналитической и клинической эффективности; неприменимость какой-либо из характеристик обосновывается в отчёте (Правила, п. 22). Научную обоснованность хорошо известного аналита подтверждать не нужно (п. 23). Аналитическая эффективность подтверждается клинико-лабораторными испытаниями заявляемого изделия (п. 25), клиническая — испытаниями, если не доказано, что её можно установить иначе (п. 26–27). Многоцентровые клинико-лабораторные испытания для IVD не обязательны; для классов 2б и 3 достаточно одного клинического центра (прил. № 6, п. 12–13).</p>
+
+      <h3>Программное обеспечение</h3>
+
+      <p>Клиническая оценка ПО включает оценку достоверности клинической связи, аналитической и клинической валидации (прил. № 6, п. 14). Клиническое доказательство эффективности проводится на верифицированной медицинской организацией базе данных, отличной от той, на которой обучалось ПО, а размер выборки обосновывается (прил. № 6, п. 19). Подробнее — в статье <a href="/blog/klinicheskaya-validaciya-ii-medizdeliya/">«Клиническая валидация ИИ-медизделия»</a>.</p>
+
+      <h2 id="posle-registracii">После регистрации</h2>
+
+      <ul>
+        <li>Отчёт поддерживается в актуальном состоянии с учётом постпродажного мониторинга и новой подтверждённой информации из литературы (Правила, п. 8); актуальная версия представляется в уполномоченный орган референтного государства по запросу (Рекомендация № 27, п. 11, подп. 21).</li>
+        <li>Для изделий класса 3 и имплантируемых изделий класса 2б производитель обязан проводить пострегистрационный клинический мониторинг по плану, включённому в отчёт (Правила, п. 8; Решение Коллегии ЕЭК № 174).</li>
+        <li>При изменении показаний, области применения, противопоказаний или сведений о побочных эффектах экспертизе подлежит и актуализированный отчёт (Рекомендация № 27, п. 37).</li>
+      </ul>
+
+      <h2 id="chem-eto-otlichaetsya-ot-nacionalnoy-procedury">Чем это отличается от национальной процедуры</h2>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th></th><th>Правила ЕАЭС</th><th>Национальная процедура РФ</th></tr>
+        <tr><td>Кто оценивает данные</td><td>Производитель; вывод согласует специалист в области применения</td><td>Медицинская организация проводит клинические испытания в форме анализа и оценки клинических данных (приказ № 421н, п. 30, 39)</td></tr>
+        <tr><td>Итоговый документ</td><td>Отчёт о клиническом доказательстве в досье</td><td>Акт оценки результатов клинических испытаний (приказ № 421н, п. 39 «з»)</td></tr>
+        <tr><td>Данные другого изделия</td><td>Только при эквивалентности по п. 7 Решения № 29</td><td>Медицинская организация анализирует сведения о взаимозаменяемых изделиях (приказ № 421н, п. 39 «ж»)</td></tr>
+      </table>
+      </div>
+
+      <p>В переходный период заявления о регистрации по национальному законодательству можно подавать до 31 декабря 2027 года (ст. 11 Соглашения о единых принципах и правилах обращения медицинских изделий в ред. протоколов от 30.12.2021 и 29.12.2025). Если изделие затем будет переходить в союзную процедуру, материалы для медицинской организации полезно сразу готовить по логике п. 3 Правил — это задел для будущего досье. Подробнее о национальном маршруте — в статье <a href="/blog/klinicheskaya-ocenka-medizdeliya-po-literature/">«Клиническая оценка медизделия по литературе»</a>.</p>
+
+      <h2 id="chek-list-pered-podachey-dose">Чек-лист перед подачей досье</h2>
+
+      <ul>
+        <li>Перечислены Общие требования, соответствие которым подтверждается клиническими данными.</li>
+        <li>Назначение, показания, противопоказания и группы пациентов в отчёте совпадают с инструкцией и остальным досье.</li>
+        <li>Для каждого показания есть данные; если данных нет — показание не заявлено или проведено испытание.</li>
+        <li>Поиск литературы воспроизводим, публикации относятся к самому изделию, а не к технологии в целом.</li>
+        <li>Неблагоприятные данные и инциденты проанализированы, а не опущены.</li>
+        <li>Зарубежные данные отвечают одному из условий п. 6, данные другого изделия — всем трём условиям п. 7.</li>
+        <li>К результатам испытаний в Союзе приложены программа и отчёт.</li>
+        <li>Квалификация согласующего специалиста подтверждена документами и публикациями.</li>
+        <li>Для класса 3 и имплантируемых 2б в отчёт включён план пострегистрационного клинического мониторинга.</li>
+      </ul>
+
+      <h2 id="tipichnye-oshibki">Типичные ошибки</h2>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Ошибка</th><th>Чем грозит</th><th>Как избежать</th></tr>
+        <tr><td>Испытание запланировано до оценки имеющихся данных</td><td>Лишние сроки и затраты либо исследование, не закрывающее пробелы</td><td>Сначала шаги «а»–«в» п. 3, затем решение об испытании</td></tr>
+        <tr><td>Ссылки на чужое изделие без доказательства эквивалентности</td><td>Данные не принимаются к рассмотрению</td><td>Сравнение по всем позициям п. 7 и проверка регистрации эквивалентного изделия</td></tr>
+        <tr><td>Отзывы клиник вместо клинических данных</td><td>Не являются доказательством (прил. № 6, п. 4)</td><td>Первичные данные: истории применения, сведения о неблагоприятных событиях, публикации</td></tr>
+        <tr><td>Выводы шире данных</td><td>Замечание экспертизы по обоснованности заключения</td><td>Сузить показания или добрать данные</td></tr>
+        <tr><td>Отчёт не согласован или квалификация специалиста не подтверждена</td><td>Нарушение п. 3 «д» Правил</td><td>Приложить документы об образовании, специальности и публикации</td></tr>
+        <tr><td>Отчёт не обновляется после регистрации</td><td>Несоответствие п. 8 Правил, вопросы при внесении изменений</td><td>Порядок актуализации в системе управления документацией</td></tr>
+      </table>
+      </div>
+
+      <h2 id="chastye-voprosy">Частые вопросы</h2>
+
+      <details class="faq-item"><summary>Кто проводит клиническую оценку по правилам ЕАЭС?</summary><p>Производитель или его уполномоченный представитель: он собирает и оценивает клинические данные и оформляет отчёт о клиническом доказательстве эффективности и безопасности. Отчёт согласуется со специалистом в области медицинского применения изделия, а анализирует его экспертная организация референтного государства.</p></details>
+      <details class="faq-item"><summary>Нужен ли отчёт о клиническом доказательстве для изделий класса 1?</summary><p>Да. По приложению № 4 к Правилам регистрации и экспертизы (Решение Совета ЕЭК № 46) отчёт входит в досье изделий всех классов — 1, 2а, 2б, 3 — и изделий для диагностики in vitro.</p></details>
+      <details class="faq-item"><summary>Можно ли обойтись без клинического испытания?</summary><p>Можно, если имеющихся данных из литературы, опыта применения или по эквивалентному изделию достаточно по всем аспектам безопасности и эффективности. Испытания нужны для изделий с ранее не исследованными характеристиками, назначением или показаниями, с новыми материалами, а также когда не доказано, что эффективность и безопасность подтверждаются иначе (п. 4 Решения № 29).</p></details>
+      <details class="faq-item"><summary>Принимаются ли данные европейских или американских исследований?</summary><p>Да, если они подтверждены публикациями в специализированных журналах или отчётами ВОЗ либо испытания проведены по рекомендациям IMDRF и это можно проверить (п. 6 Решения № 29). Для изделий классов 3, 2б и имплантируемых испытания, начатые после 1 января 2022 года, должны включать испытание в одном из государств — членов Союза.</p></details>
+      <details class="faq-item"><summary>Нужно ли обновлять отчёт после регистрации?</summary><p>Да. Отчёт поддерживается в актуальном состоянии по данным постпродажного мониторинга и новой литературы, а для изделий класса 3 и имплантируемых класса 2б в него включается план пострегистрационного клинического мониторинга, по которому производитель обязан его проводить.</p></details>
+
+      <h2 id="normativnaya-baza">Нормативная база</h2>
+
+      <ul>
+        <li>Решение Совета ЕЭК от 12.02.2016 № 29 «О Правилах проведения клинических и клинико-лабораторных испытаний (исследований) медицинских изделий» (Правила в ред. Решения Совета ЕЭК от 26.01.2024 № 7), п. 2–8, 22–27.</li>
+        <li>Решение Совета ЕЭК от 12.02.2016 № 46 — Правила регистрации и экспертизы безопасности, качества и эффективности медицинских изделий, п. 22, п. 27 «д», приложение № 4 (строки 21–22).</li>
+        <li>Рекомендация Коллегии ЕЭК от 23.12.2024 № 27 — Методические рекомендации по содержанию и структуре документов регистрационного досье и проведению экспертизы, п. 11 (подп. 21), п. 31–34, п. 37, таблицы 2–3, приложение № 6 (рекомендации, а не обязательные требования).</li>
+        <li>Решение Совета ЕЭК от 12.02.2016 № 27 — Общие требования безопасности и эффективности медицинских изделий.</li>
+        <li>Решение Коллегии ЕЭК от 22.12.2015 № 174 — Правила проведения мониторинга безопасности, качества и эффективности медицинских изделий.</li>
+        <li>Соглашение о единых принципах и правилах обращения медицинских изделий в рамках ЕАЭС от 23.12.2014, ст. 11 (в ред. протоколов от 30.12.2021 и 29.12.2025).</li>
+        <li>Приказ Минздрава России от 13.05.2026 № 421н, п. 30, 39.</li>
+        <li>Рекомендации IMDRF — международные ориентиры, не нормативные акты РФ.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Смежные разделы</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/klinicheskie-ispytaniya-eaes-trebovaniya/">Клинические испытания медизделий по правилам ЕАЭС</a>
+        <a class="related-card" href="/blog/otchet-o-klinicheskoy-ocenke-medizdeliya/">Отчёт о клинической оценке медизделия: структура</a>
+        <a class="related-card" href="/blog/obosnovanie-ekvivalentnosti-medizdeliya/">Обоснование эквивалентности медизделия</a>
+        <a class="related-card" href="/blog/starye-dannye-ki-eaes/">Старые данные КИ при регистрации по ЕАЭС</a>
+        <a class="related-card" href="/blog/gap-analiz-klinicheskoj-chasti-dosye-eaes/">Гэп-анализ клинической части досье под ЕАЭС</a>
+        <a class="related-card" href="/klinicheskie-ispytaniya-medizdeliy/analiz-dannyh/">Клинические испытания в форме анализа клинических данных</a>
+      </div>
+    </div>
+  </section>
+
+<!--enh:next-->
+  <section class="next-steps" aria-labelledby="next-h2">
+    <div class="container">
+      <h2 id="next-h2">Что делать дальше</h2>
+      <div class="next-grid">
+        <div class="next-card"><h3>Проверить комплект документов</h3><p>Проверим комплект перед подачей и подскажем, что нужно доработать.</p><a href="#cta-form" class="btn btn-primary" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Клиническая оценка по правилам ЕАЭС" data-need="Клинические испытания">Оставить заявку</a></div>
+        <div class="next-card"><h3>Клинические испытания медицинских изделий</h3><p>Формы испытаний, этапы и условия работы — на странице услуги.</p><a href="/klinicheskie-ispytaniya-medizdeliy/" class="btn btn-outline" data-goal="service_from_article">Перейти к услуге</a></div>
+        <div class="next-card"><h3>Рассчитать стоимость</h3><p>Ориентировочный расчёт по направлению испытаний — в калькуляторе.</p><a href="/kalkulyator/" class="btn btn-outline" data-goal="calc_from_article">Открыть калькулятор</a></div>
+      </div>
+    </div>
+  </section>
+<!--/enh:next-->
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Готовите клиническую часть досье по правилам ЕАЭС?</h2>
+          <p>Probarium помогает пройти клиническую оценку по Решению ЕЭК № 29: определить требования, собрать и оценить данные, обосновать эквивалентность, решить, нужно ли испытание, и подготовить отчёт о клиническом доказательстве к согласованию со специалистом и экспертизе.</p>
+          <p style="margin-top:14px;"><a href="/klinicheskie-ispytaniya-medizdeliy/analiz-dannyh/" class="btn btn-outline" data-goal="article_cta_click">Обсудить клиническую оценку →</a></p>
+        </div>
+        <form id="cta-form" aria-label="Форма заявки на консультацию" action="https://functions.yandexcloud.net/d4e389n57q1ils09t0f3" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/klinicheskaya-ocenka-medizdeliya-po-pravilam-eaes)">
+          <input type="text" name="_gotcha" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+          <input type="hidden" name="source_url" value="https://probarium.ru/blog/klinicheskaya-ocenka-medizdeliya-po-pravilam-eaes/">
+          <input type="hidden" name="source_article" value="Клиническая оценка по правилам ЕАЭС">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="phone">Телефон</label>
+          <input id="phone" name="phone" type="tel" placeholder="Телефон (необязательно)" autocomplete="tel">
+          <label class="visually-hidden" for="need">Что нужно</label>
+          <select id="need" name="need">
+            <option>Клинические испытания</option>
+            <option>Доклиника и токсикология</option>
+            <option>Технические испытания</option>
+            <option>Не знаю, нужна консультация</option>
+          </select>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой форме испытаний"></textarea>
+          <label class="consent">
+            <input type="checkbox" name="consent_pd" value="yes" required>
+            <span>Даю согласие на обработку персональных данных (имя, компания, email, телефон, текст сообщения) в целях связи со мной по заявке и подготовки коммерческого предложения, в соответствии с <a href="/privacy/" style="text-decoration:underline;">Политикой обработки персональных данных</a></span>
+          </label>
+          <label class="consent">
+            <input type="checkbox" name="consent_offer" value="yes" required>
+            <span>Принимаю условия <a href="/oferta/" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy/">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya/">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii/">О компании</a></li>
+          <li><a href="/komanda/">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty/">Партнёры и аккредитованные центры</a></li>
+          <li><a href="/kejsy/">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa/">НПА</a></li>
+          <li><a href="/reestry/">Реестры</a></li>
+          <li><a href="/glossariy/">Глоссарий</a></li>
+          <li><a href="/blog/">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li class="footer-social">
+            <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg width="40" height="40" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg></a>
+            <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX"><img src="/assets/img/max-icon.png" width="40" height="40" alt="MAX" style="border-radius:9px;"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ · ООО «Глобальные Медицинские Технологии», ИНН 9710131540, ОГРН 1247700287834</span>
+      <span>
+        <a href="/privacy/">Конфиденциальность</a> ·
+        <a href="/cookie/">Cookie</a> ·
+        <a href="/cookie/" data-cookie-settings>Настройки cookie</a> ·
+        <a href="/terms/">Соглашение</a> ·
+        <a href="/disclaimer/">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Клиническая оценка медизделия по правилам ЕАЭС: порядок, данные и экспертиза",
+  "description": "Клиническая оценка медизделия по правилам ЕАЭС: пять шагов п. 3 Решения ЕЭК № 29, какие данные примут, кто согласует отчёт и что проверит экспертиза.",
+  "inLanguage": "ru",
+  "image": [
+    "https://probarium.ru/assets/og-cover.jpg"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Артемий-Татуш Танделов",
+    "jobTitle": "Генеральный директор Probarium",
+    "url": "https://probarium.ru/komanda/",
+    "sameAs": [
+      "https://t.me/tandelovtat"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Probarium",
+    "url": "https://probarium.ru/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://probarium.ru/icon-512.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://probarium.ru/blog/klinicheskaya-ocenka-medizdeliya-po-pravilam-eaes/"
+  },
+  "datePublished": "2026-11-26T10:00:00+03:00",
+  "dateModified": "2026-11-26T10:00:00+03:00"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://probarium.ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://probarium.ru/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Клиническая оценка по правилам ЕАЭС",
+      "item": "https://probarium.ru/blog/klinicheskaya-ocenka-medizdeliya-po-pravilam-eaes/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Кто проводит клиническую оценку по правилам ЕАЭС?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Производитель или его уполномоченный представитель: он собирает и оценивает клинические данные и оформляет отчёт о клиническом доказательстве эффективности и безопасности. Отчёт согласуется со специалистом в области медицинского применения изделия, а анализирует его экспертная организация референтного государства."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли отчёт о клиническом доказательстве для изделий класса 1?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. По приложению № 4 к Правилам регистрации и экспертизы (Решение Совета ЕЭК № 46) отчёт входит в досье изделий всех классов — 1, 2а, 2б, 3 — и изделий для диагностики in vitro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли обойтись без клинического испытания?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно, если имеющихся данных из литературы, опыта применения или по эквивалентному изделию достаточно по всем аспектам безопасности и эффективности. Испытания нужны для изделий с ранее не исследованными характеристиками, назначением или показаниями, с новыми материалами, а также когда не доказано, что эффективность и безопасность подтверждаются иначе (п. 4 Решения № 29)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Принимаются ли данные европейских или американских исследований?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, если они подтверждены публикациями в специализированных журналах или отчётами ВОЗ либо испытания проведены по рекомендациям IMDRF и это можно проверить (п. 6 Решения № 29). Для изделий классов 3, 2б и имплантируемых испытания, начатые после 1 января 2022 года, должны включать испытание в одном из государств — членов Союза."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли обновлять отчёт после регистрации?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Отчёт поддерживается в актуальном состоянии по данным постпродажного мониторинга и новой литературы, а для изделий класса 3 и имплантируемых класса 2б в него включается план пострегистрационного клинического мониторинга, по которому производитель обязан его проводить."
+      }
+    }
+  ]
+}
+</script>
+
+<script src="/assets/js/header-fx.js" defer></script>
+<script src="/assets/js/article-cta.js" defer></script>
+<script src="/assets/js/leads.js" defer></script>
+<script src="/assets/js/cookie-banner.js" defer></script>
+</body>
+</html>
