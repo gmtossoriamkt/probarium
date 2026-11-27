@@ -89,6 +89,7 @@ const CLUSTER_OF = {
   'kogda-ki-ne-trebuyutsya': 'forms',
   'klinicheskaya-ocenka-ili-ki': 'forms',
   'ki-dlya-analoga': 'forms',
+  'priznanie-zarubezhnyh-ki-medizdeliya': 'forms',
   'dizajn-klinicheskogo-issledovaniya-medizdeliya-vidy': 'forms',
   'kriterii-vklyucheniya-isklyucheniya-ki': 'forms',
   'konechnye-tochki-ki-medizdeliya-kak-vybrat': 'forms',
