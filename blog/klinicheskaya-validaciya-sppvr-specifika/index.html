@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Клиническая валидация СППВР: специфика проверки — Probarium</title>
+<meta name="description" content="Чем клиническая валидация систем поддержки врачебных решений отличается от проверки ИИ-алгоритма: три уровня доказательств, метрики и роль врача.">
+<link rel="canonical" href="https://probarium.ru/blog/klinicheskaya-validaciya-sppvr-specifika/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Клиническая валидация СППВР: специфика проверки">
+<meta property="og:description" content="Чем клиническая валидация систем поддержки врачебных решений отличается от проверки ИИ-алгоритма: три уровня доказательств, метрики и роль врача.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/klinicheskaya-validaciya-sppvr-specifika/">
+<meta property="og:image" content="https://probarium.ru/assets/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Probarium">
+<meta property="article:published_time" content="2026-11-23T10:00:00+03:00">
+<meta property="article:modified_time" content="2026-11-23T10:00:00+03:00">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+@media (max-width:374px){
+  .final-cta{padding:24px;}
+  .final-cta .copy,.final-cta form{min-width:0;flex-basis:100%;}
+}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-col li.footer-social{display:flex;gap:12px;margin-top:14px;}
+.footer-col .footer-social a{display:inline-flex;border-radius:10px;transition:transform .2s ease,box-shadow .2s ease;}
+.footer-col .footer-social a:hover,.footer-col .footer-social a:focus-visible{transform:translateY(-2px);box-shadow:0 0 0 3px var(--gold);}
+@media (prefers-reduced-motion:reduce){.footer-col .footer-social a{transition:none;}.footer-col .footer-social a:hover{transform:none;}}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:1100px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:0;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;}
+.article-body blockquote{border-left:4px solid var(--blue-sky);background:var(--blue-pale);border-radius:0 8px 8px 0;padding:12px 18px;margin:8px 0 18px;font-size:15px;color:var(--graphite);font-style:italic;}
+</style>
+<link rel="stylesheet" href="/assets/css/header-fx.css?v=7f39336e">
+<link rel="stylesheet" href="/assets/css/article.css?v=75d90ccb">
+<link rel="stylesheet" href="/assets/modern.css?v=ae72aa00">
+<script defer src="/assets/modern.js?v=27ba95a5"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<!--pb:header-->
+<header class="site-header">
+  <div class="container header-row pb-hdr">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <div class="pb-hdr-contacts">
+      <a class="pb-hdr-tel" href="tel:+79853169104" data-ym-goal="phone_click" aria-label="Позвонить: +7 985 316-91-04"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span class="pb-hdr-text">+7 985 316-91-04</span></a>
+      <a class="pb-hdr-mail" href="mailto:info@probarium.ru" data-ym-goal="email_click"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.4l8 5 8-5V7H4zm16 2.75-7.47 4.67a1 1 0 0 1-1.06 0L4 9.75V17h16z"/></svg><span class="pb-hdr-text">info@probarium.ru</span></a>
+      <a class="pb-hdr-max" href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX"><img src="/assets/img/max-icon.png" width="24" height="24" alt="MAX"></a>
+    </div>
+    <a href="/kontakty/" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button type="button" class="pb-burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="pbMenu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="pb-menu-backdrop" hidden></div>
+<div class="pb-menu" id="pbMenu" role="dialog" aria-modal="true" aria-label="Меню сайта" hidden>
+  <div class="pb-menu-top">
+    <button type="button" class="pb-menu-close" aria-label="Закрыть меню"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+  </div>
+  <div class="pb-menu-body">
+    <nav class="pb-menu-nav" aria-label="Основная навигация">
+      <ul>
+        <li class="pb-acc">
+          <button type="button" class="pb-menu-link pb-acc-btn" aria-expanded="false" aria-controls="pbAccServices">Услуги <svg width="14" height="14" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <ul class="pb-acc-list" id="pbAccServices" hidden>
+            <li><a class="pb-sub-link" href="/klinicheskie-ispytaniya-medizdeliy/">Клинические испытания МИ<small>Анализ данных, с участием человека, ИВД</small></a></li>
+            <li><a class="pb-sub-link" href="/doklinicheskie-issledovaniya/">Доклиника и токсикология<small>Биосовместимость, GLP</small></a></li>
+            <li><a class="pb-sub-link" href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания<small>Включая электробезопасность, ЭМС, ПО</small></a></li>
+            <li><a class="pb-sub-link" href="/registraciya-medizdeliy/">Регистрация МИ<small>РФ и ЕАЭС</small></a></li>
+            <li><a class="pb-sub-link" href="/razrabotka-dokumentatsii/">Разработка документации<small>Протоколы, отчёты, досье</small></a></li>
+            <li><a class="pb-sub-link" href="/uslugi/">Все услуги</a></li>
+          </ul>
+        </li>
+        <li><a class="pb-menu-link" href="/dorozhnaya-karta/">Как мы работаем</a></li>
+        <li><a class="pb-menu-link" href="/kejsy/">Кейсы</a></li>
+        <li class="pb-acc">
+          <button type="button" class="pb-menu-link pb-acc-btn" aria-expanded="false" aria-controls="pbAccKnowledge">База знаний <svg width="14" height="14" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <ul class="pb-acc-list" id="pbAccKnowledge" hidden>
+            <li><a class="pb-sub-link" href="/npa/">НПА и стандарты</a></li>
+            <li><a class="pb-sub-link" href="/biblioteka/">Библиотека</a></li>
+            <li><a class="pb-sub-link" href="/blog/">Блог</a></li>
+            <li><a class="pb-sub-link" href="/glossariy/">Глоссарий</a></li>
+            <li><a class="pb-sub-link" href="/faq/">Вопросы и ответы</a></li>
+          </ul>
+        </li>
+        <li><a class="pb-menu-link" href="/o-kompanii/">О компании</a></li>
+        <li><a class="pb-menu-link" href="/kontakty/">Контакты</a></li>
+      </ul>
+    </nav>
+    <div class="pb-menu-foot">
+      <div class="pb-menu-contacts">
+        <a class="pb-menu-tel" href="tel:+79853169104" data-ym-goal="phone_click"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span>+7 985 316-91-04</span></a>
+        <a class="pb-menu-mail" href="mailto:info@probarium.ru" data-ym-goal="email_click"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.4l8 5 8-5V7H4zm16 2.75-7.47 4.67a1 1 0 0 1-1.06 0L4 9.75V17h16z"/></svg><span>info@probarium.ru</span></a>
+      </div>
+      <div class="pb-menu-msg">
+        <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram" class="pb-msg"><svg width="24" height="24" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg></a>
+        <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX" class="pb-msg"><img src="/assets/img/max-icon.png" width="24" height="24" alt="MAX" loading="lazy"></a>
+      </div>
+      <a href="/kontakty/" class="btn btn-primary pb-menu-cta">Оставить заявку</a>
+    </div>
+  </div>
+</div>
+<!--/pb:header-->
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog/">Блог</a> / <span aria-current="page">Клиническая валидация СППВР</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>12 мин чтения</span><span>23 ноября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Клиническая валидация СППВР: в чём специфика</h1>
+    <p class="lead">Клиническая валидация системы поддержки принятия врачебных решений (СППВР) должна подтверждать не только то, что алгоритм считает правильно, но и то, что его результат пригоден для конкретного клинического решения: с учётом роли врача, риска ошибки и последствий использования рекомендации. Сначала определите статус системы: не всякая СППВР является медицинским изделием и не всякая использует искусственный интеллект. Затем выстройте три уровня доказательств (клиническая связь, аналитическая и клиническая валидация), подберите метрики под тип системы и отдельно проверьте, как врач принимает, отклоняет и интерпретирует рекомендации.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+<!--enh:toc-->
+      <details class="toc" open>
+        <summary>Содержание</summary>
+        <ol>
+          <li><a href="#kogda-sppvr-stanovitsya-medicinskim-izdeliem">Когда СППВР становится медицинским изделием</a></li>
+          <li><a href="#normativnaya-osnova-v-rossii">Нормативная основа в России</a></li>
+          <li><a href="#pochemu-sppvr-nelzya-proveryat-kak-obychnyy-algo">Почему СППВР нельзя проверять как обычный алгоритм</a></li>
+          <li><a href="#kakie-byvayut-sppvr-i-chto-proveryat-u-kazhdoy">Какие бывают СППВР и что проверять у каждой</a></li>
+          <li><a href="#tri-urovnya-dokazatelstv">Три уровня доказательств</a></li>
+          <li><a href="#kakie-metriki-vybirat">Какие метрики выбирать</a></li>
+          <li><a href="#kak-proveryat-vzaimodeystvie-vracha-i-sistemy">Как проверять взаимодействие врача и системы</a></li>
+          <li><a href="#kak-vybrat-dizayn-klinicheskoy-proverki">Как выбрать дизайн клинической проверки</a></li>
+          <li><a href="#chto-vklyuchit-v-protokol-i-otchet">Что включить в протокол и отчёт</a></li>
+          <li><a href="#tipichnye-oshibki">Типичные ошибки</a></li>
+          <li><a href="#chek-list-gotovnosti-k-klinicheskoy-validacii">Чек-лист готовности к клинической валидации</a></li>
+          <li><a href="#chastye-voprosy">Частые вопросы</a></li>
+          <li><a href="#istochniki">Источники</a></li>
+        </ol>
+      </details>
+<!--/enh:toc-->
+
+
+      <h2 id="kogda-sppvr-stanovitsya-medicinskim-izdeliem">Когда СППВР становится медицинским изделием</h2>
+
+      <p>Слово «СППВР» ничего не говорит о регуляторном статусе. Практически под ним скрываются три разные ситуации:</p>
+
+      <ol>
+        <li><strong>Информационная система.</strong> Даёт доступ к справочным сведениям, протоколам и документации, не выполняя самостоятельной медицинской функции.</li>
+        <li><strong>СППВР как медицинское программное обеспечение.</strong> Анализирует медицинские данные и формирует информацию, которую врач использует при диагностике, профилактике, мониторинге или лечении.</li>
+        <li><strong>СППВР с ИИ.</strong> Использует алгоритмы машинного обучения или другие технологии ИИ, чтобы сформировать прогноз, оценку риска, классификацию или рекомендацию.</li>
+      </ol>
+
+      <p>Статус определяют назначение продукта, которое заявляет производитель, и его фактические функции, а не название и не слово «ИИ» в описании. Европейское руководство MDCG 2019-11 (редакция июнь 2025 г.) прямо говорит, что для квалификации программного обеспечения важно предполагаемое назначение, заданное производителем. Оно же относит к медицинскому программному обеспечению компьютерные средства, которые объединяют общие медицинские информационные базы и алгоритмы с данными конкретного пациента, а программа, которая только хранит, архивирует или передаёт данные, медицинским изделием сама по себе не становится. Это европейское руководство, для российской регистрации оно служит методическим ориентиром. Российские Правила государственной регистрации исходят из той же логики: регистрации подлежат изделия, применяемые в медицинских целях, включая специальное программное обеспечение, и предназначенные производителем для профилактики, диагностики, лечения и медицинской реабилитации заболеваний, мониторинга состояния организма человека и других медицинских целей (ПП № 1684, п. 2).</p>
+
+      <p>Обратное тоже верно: название «информационная система» или «помощник врача» не исключает статуса медицинского изделия, если система фактически анализирует данные пациента и выдаёт рекомендации.</p>
+
+      <h2 id="normativnaya-osnova-v-rossii">Нормативная основа в России</h2>
+
+      <p>Отдельной процедуры под названием «клиническая валидация СППВР» в российских актах нет. Что именно применяется, зависит от того, является ли конкретная система медицинским изделием и какие функции она выполняет.</p>
+
+      <ul>
+        <li><strong>Приказ Минздрава России от 13.05.2026 № 421н</strong> (зарегистрирован в Минюсте 01.06.2026 за № 86767) применяется с 01.09.2026 и заменяет приказ № 885н. Клинические испытания программного обеспечения, являющегося медицинским изделием, в том числе с ИИ, проводятся с использованием медицинских данных пациентов, верифицированных медицинской организацией и полученных в ходе диагностики, лечения, реабилитации, или данных пациентов, получаемых во время клинических испытаний с участием человека, — по применимости (п. 38). Для ПО с технологиями ИИ, являющегося медицинским изделием, при клинических испытаниях проводятся оценка достоверности клинической связи, аналитической и клинической валидации и анализ эффективности, безопасности и качества использования систем ИИ (п. 39, подп. «г», «д»). Эти специальные положения относятся именно к ИИ-ПО, являющемуся медицинским изделием: автоматически переносить их на любую СППВР, в том числе на систему с фиксированными правилами, нельзя.</li>
+        <li><strong>Постановление Правительства РФ от 30.11.2024 № 1684</strong> устанавливает правила государственной регистрации медицинских изделий.</li>
+        <li><strong>ГОСТ Р 56429-2021</strong> «Изделия медицинские. Клиническая оценка» задаёт общую структуру клинической оценки.</li>
+        <li><strong>ГОСТ Р 59921.1-2022</strong> «Системы искусственного интеллекта в клинической медицине. Часть 1. Клиническая оценка» (введён с 01.09.2022) применим к системам ИИ как к программному обеспечению, являющемуся медицинским изделием. В нём описаны методология клинической оценки, порядок клинических испытаний, показатели эффективности в рамках клинической валидации, контроль качества и рекомендованная форма отчёта о клинической составляющей предварительных клинико-технических испытаний (приложение А).</li>
+      </ul>
+
+      <p>Международные документы, на которые удобно опираться при построении доказательной базы, не являются обязательными нормами России: IMDRF N41:2017 «SaMD: Clinical Evaluation» и MDCG 2019-11 Rev.1.</p>
+
+      <h2 id="pochemu-sppvr-nelzya-proveryat-kak-obychnyy-algo">Почему СППВР нельзя проверять как обычный алгоритм</h2>
+
+      <p>Главная особенность СППВР: она может не ставить диагноз и не назначать лечение самостоятельно, но её результат способен повлиять на действия врача. Поэтому проверять только «правильно ли система сформировала рекомендацию» недостаточно. Нужно ответить ещё на такие вопросы:</p>
+
+      <ul>
+        <li>соответствует ли рекомендация клиническим данным конкретного пациента;</li>
+        <li>достаточно ли оснований для её формирования;</li>
+        <li>может ли врач правильно её интерпретировать;</li>
+        <li>в каких ситуациях рекомендация ошибочна или неприменима;</li>
+        <li>как система влияет на диагностическое или лечебное решение;</li>
+        <li>не создаёт ли она новых рисков из-за чрезмерного доверия пользователя.</li>
+      </ul>
+
+      <p>Для этого исследуют всю цепочку: данные пациента (анамнез, симптомы, анализы, изображения, показатели), обработку данных системой (правила, модели, базы знаний), рекомендацию или предупреждение (оценка риска, вариант диагностики, предложение по тактике), интерпретацию врачом (принятие, отклонение, корректировка) и клиническое решение с результатом.</p>
+
+      <h2 id="kakie-byvayut-sppvr-i-chto-proveryat-u-kazhdoy">Какие бывают СППВР и что проверять у каждой</h2>
+
+      <p>Разные системы дают разную информацию и по-разному влияют на решение, поэтому и профиль проверки у них разный. Таблица ниже методическая, это наша классификация для практики, а не официальная классификация медицинских изделий.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Тип СППВР</th><th>Пример</th><th>Основной предмет проверки</th></tr>
+        <tr><td>Информационно-справочная</td><td>Поиск клинических рекомендаций и справочных сведений</td><td>Полнота, актуальность, корректность информации</td></tr>
+        <tr><td>Система предупреждений</td><td>Предупреждение о лекарственном взаимодействии</td><td>Достоверность выявления, ложные и пропущенные предупреждения</td></tr>
+        <tr><td>Оценка риска</td><td>Расчёт риска осложнения или ухудшения</td><td>Качество прогноза, калибровка, работа в целевой популяции</td></tr>
+        <tr><td>Диагностическая</td><td>Предложение возможного диагноза по данным пациента</td><td>Диагностическая точность, клиническая обоснованность</td></tr>
+        <tr><td>По лечению</td><td>Предложение вариантов терапии или дозировки</td><td>Безопасность рекомендаций, соответствие клиническим ограничениям</td></tr>
+        <tr><td>Приоритизация</td><td>Очерёдность обследования или наблюдения</td><td>Пропуск критических случаев, правильность приоритизации</td></tr>
+      </table>
+      </div>
+
+      <p>Справочная система и система, которая рассчитывает дозировку для конкретного пациента, имеют разный профиль риска, поэтому один и тот же протокол валидации для них не подходит.</p>
+
+      <!--enh:inline-->
+      <aside class="inline-cta" aria-label="Подсказка"><p>Готовите документы к подаче?</p><a href="#cta-form" class="btn btn-primary" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Клиническая валидация СППВР" data-need="Клинические испытания">Оставить заявку</a></aside>
+<!--/enh:inline-->
+
+      <h2 id="tri-urovnya-dokazatelstv">Три уровня доказательств</h2>
+
+      <p>Удобная рамка для медицинского ПО дана в IMDRF N41:2017: клиническая оценка складывается из достоверности клинической связи, аналитической валидации и клинической валидации. Те же составляющие выделяет и ГОСТ Р 59921.1-2022 для систем ИИ (раздел 4). Для СППВР это выглядит так.</p>
+
+      <p><strong>Уровень 1. Достоверность клинической связи.</strong> Нужно показать, что выход системы научно обоснованно связан с клиническим состоянием или медицинской задачей. Если система оценивает риск тромбоэмболических осложнений, обоснуйте связь используемых показателей с этим риском. Если предлагает варианты антибактериальной терапии, обоснуйте клинические правила и источники рекомендаций. Если рассчитывает вероятность ухудшения, подтвердите связь прогноза с клиническим исходом. Доказательствами служат клинические рекомендации, научные публикации, исследования, консенсусные документы.</p>
+
+      <p><strong>Уровень 2. Аналитическая валидация.</strong> Подтверждает, что система корректно обрабатывает входные данные и выдаёт предусмотренный результат. Проверяют обработку данных и корректность вычислений, воспроизводимость, устойчивость к пропускам и ошибкам ввода, работу с единицами измерения, актуальность и целостность базы знаний, интеграцию с медицинскими информационными системами. Для СППВР особенно важны комбинации входных данных: система может правильно считать риск при полном наборе показателей и ошибиться, когда один лабораторный параметр отсутствует или пришёл в другой единице измерения.</p>
+
+      <p><strong>Уровень 3. Клиническая валидация.</strong> Подтверждает, что использование результата системы позволяет достичь заявленной медицинской цели в целевой популяции и клинической ситуации. В зависимости от назначения оценивают соответствие рекомендаций данным пациента, качество диагностических или прогностических результатов, способность выявлять клинически значимые ситуации, частоту ошибочных рекомендаций, влияние на решения врача и безопасность.</p>
+
+      <p>Не нужно считать, что любая СППВР обязана доказать снижение смертности, осложнений или госпитализаций. Конечные точки должны соответствовать заявленному назначению и клиническому утверждению производителя. Но если вы заявляете улучшение исходов лечения, эти исходы нужно подтвердить.</p>
+
+      <h2 id="kakie-metriki-vybirat">Какие метрики выбирать</h2>
+
+      <p>Набор метрик зависит от типа системы. Это возможные инструменты оценки, а не обязательный перечень.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Функция системы</th><th>Возможные метрики</th></tr>
+        <tr><td>Диагностическая рекомендация</td><td>Чувствительность, специфичность, PPV, NPV, матрица ошибок</td></tr>
+        <tr><td>Оценка риска</td><td>ROC-AUC, калибровка, Brier score, чувствительность при выбранном пороге</td></tr>
+        <tr><td>Лекарственные предупреждения</td><td>Доля выявленных клинически значимых взаимодействий, ложные и пропущенные предупреждения</td></tr>
+        <tr><td>Предложение лечебной тактики</td><td>Доля рекомендаций, соответствующих заранее заданным клиническим критериям, частота потенциально опасных рекомендаций</td></tr>
+        <tr><td>Приоритизация пациентов</td><td>Доля пропущенных критических случаев, время до медицинского решения, правильность ранжирования</td></tr>
+        <tr><td>Поддержка врача</td><td>Время принятия решения, доля принятых и отклонённых рекомендаций, частота корректировки решения</td></tr>
+      </table>
+      </div>
+
+      <p><strong>Почему недостаточно accuracy.</strong> Допустим, система ищет состояние, которое встречается у 2% пациентов. Если она почти всегда отвечает «нет», общая точность будет около 98%, но почти все положительные случаи пропущены, и клинически такая система опасна. Поэтому смотрят на чувствительность, специфичность, PPV, NPV и ошибки с учётом клинического риска. Для прогностических систем важна калибровка: если система называет вероятность осложнения 20%, в сопоставимой группе событие должно происходить примерно с такой частотой.</p>
+
+      <h2 id="kak-proveryat-vzaimodeystvie-vracha-i-sistemy">Как проверять взаимодействие врача и системы</h2>
+
+      <p>Это то, что отличает валидацию СППВР от проверки обычного ИИ-алгоритма. Если врач должен использовать рекомендацию, оценивать нужно не только алгоритм, но и то, как человек работает с интерфейсом:</p>
+
+      <ul>
+        <li>понимает ли врач, что означает рекомендация;</li>
+        <li>видит ли ограничения и предупреждения;</li>
+        <li>может ли проверить основания результата;</li>
+        <li>может ли отклонить рекомендацию;</li>
+        <li>не создаёт ли интерфейс впечатления, что рекомендация обязательна;</li>
+        <li>не приводит ли обилие предупреждений к тому, что важные сигналы игнорируют.</li>
+      </ul>
+
+      <p>Особый риск, <strong>автоматизационное смещение</strong> (automation bias): склонность чрезмерно доверять автоматизированной системе. Для СППВР оно даёт два вида ошибок: врач принимает ошибочную рекомендацию без перепроверки, либо игнорирует собственные клинические данные, потому что система предложила другой вариант. Присутствие врача в контуре решения само по себе безопасности не гарантирует. Нужно подтвердить, что врач способен правильно интерпретировать результат и использует систему согласно инструкции.</p>
+
+      <p><strong>Пример для иллюстрации (не реальный проект).</strong> Система предупреждает о лекарственных взаимодействиях. Правила в ней верные, аналитическая проверка пройдена. Но в пилоте врачи отклоняют значительную часть предупреждений как нерелевантные и вскоре начинают пропускать и важные. Проверка только правил этого не покажет: заметна проблема становится при анализе принятых и отклонённых рекомендаций и их причин.</p>
+
+      <h2 id="kak-vybrat-dizayn-klinicheskoy-proverki">Как выбрать дизайн клинической проверки</h2>
+
+      <p>Единого дизайна для всех СППВР нет: выбор зависит от того, что именно заявляет производитель.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Дизайн</th><th>Что позволяет оценить</th><th>Ограничения</th></tr>
+        <tr><td>Ретроспективный анализ</td><td>Корректность рекомендаций на архивных случаях, сравнение с референтным решением</td><td>Не показывает, как врач использует систему в реальной практике</td></tr>
+        <tr><td>Проспективная проверка в «теневом» режиме</td><td>Работу на новых данных без влияния результата на лечение</td><td>Не доказывает влияния на решения врача</td></tr>
+        <tr><td>Проспективное исследование с участием врачей</td><td>Понятность рекомендаций, принятие и отклонение результатов</td><td>Не всегда позволяет оценить влияние на конечные исходы</td></tr>
+        <tr><td>Сравнительное исследование</td><td>Различия в решениях или результатах с СППВР и без неё</td><td>Требует корректной организации групп и контроля смешивающих факторов</td></tr>
+        <tr><td>Исследование клинического процесса</td><td>Влияние на время, последовательность и качество действий</td><td>Не всегда доказывает улучшение исходов</td></tr>
+      </table>
+      </div>
+
+      <p>Ретроспективный анализ может подтвердить отдельные характеристики системы, но не обязательно подтверждает пользу её применения врачом. Проспективная проверка, в свою очередь, не становится достаточной только потому, что данные собирали в реальной практике. IMDRF N41 допускает использовать для клинической валидации уже имеющиеся клинические данные, если они относятся к тому же назначению или обоснована их переносимость на новое. В остальных случаях нужны новые данные. Практическую помощь для ИИ даёт и <a href="/klinicheskie-ispytaniya-medizdeliy/analiz-dannyh/">анализ данных и датасетов</a>.</p>
+
+      <h2 id="chto-vklyuchit-v-protokol-i-otchet">Что включить в протокол и отчёт</h2>
+
+      <p>Рекомендуемая структура (это рекомендация для практики, не утверждённая форма; для ПО с ИИ, являющегося медицинским изделием, отдельно сверьтесь с приложением А к ГОСТ Р 59921.1-2022 — рекомендованной формой отчёта о клинической составляющей предварительных клинико-технических испытаний).</p>
+
+      <p><strong>Протокол клинической проверки:</strong></p>
+
+      <ol>
+        <li>Название и версия СППВР.</li>
+        <li>Предполагаемое назначение.</li>
+        <li>Целевая популяция и медицинская организация.</li>
+        <li>Роль пользователя и сценарий применения.</li>
+        <li>Тип выдаваемого результата.</li>
+        <li>Клинические утверждения, которые нужно подтвердить.</li>
+        <li>Основные и дополнительные конечные точки.</li>
+        <li>Источники данных и референтный метод.</li>
+        <li>Порядок регистрации рекомендаций и действий врача.</li>
+        <li>Методы статистической обработки.</li>
+        <li>Критерии приемлемости.</li>
+        <li>Правила регистрации ошибок и нежелательных событий.</li>
+      </ol>
+
+      <p><strong>Отчёт:</strong> описание исследованной версии, характеристики выборки, результаты по каждой конечной точке, анализ ошибочных рекомендаций, анализ подгрупп, оценка взаимодействия врача с системой, выявленные ограничения, вывод о соответствии заявленному назначению.</p>
+
+      <h2 id="tipichnye-oshibki">Типичные ошибки</h2>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Ошибка</th><th>Чем опасна</th><th>Как исправить</th></tr>
+        <tr><td>Проверять только правильность алгоритма</td><td>Не оценивается пригодность результата для клинического решения</td><td>Исследовать цепочку от входных данных до использования рекомендации</td></tr>
+        <tr><td>Считать, что врач всегда перепроверит результат</td><td>Автоматизационное смещение, чрезмерное доверие</td><td>Оценивать взаимодействие пользователя и ограничения системы</td></tr>
+        <tr><td>Брать общую accuracy как основную метрику</td><td>Не видны клинически опасные ошибки</td><td>Выбирать метрики по назначению и последствиям ошибок</td></tr>
+        <tr><td>Не учитывать клинический контекст и подгруппы</td><td>Рекомендация уместна для одной группы и опасна для другой</td><td>Анализировать целевую популяцию и подгруппы</td></tr>
+        <tr><td>Не фиксировать источники рекомендаций и версии базы знаний</td><td>Нельзя подтвердить обоснованность</td><td>Документировать источники и версии</td></tr>
+        <tr><td>Не тестировать пропуски и ошибочные данные</td><td>Неверный результат при неполной информации</td><td>Проверять некорректные и неполные входные данные</td></tr>
+        <tr><td>Не анализировать отклонённые рекомендации</td><td>Неясно, почему врач не воспользовался результатом</td><td>Фиксировать принятие, отклонение и причины</td></tr>
+        <tr><td>Не обновлять оценку при изменении базы знаний</td><td>Новые правила меняют поведение системы</td><td>Вести контроль версий и оценку влияния изменений</td></tr>
+      </table>
+      </div>
+
+      <h2 id="chek-list-gotovnosti-k-klinicheskoy-validacii">Чек-лист готовности к клинической валидации</h2>
+
+      <ul>
+        <li>Определён статус: назначение и функции описаны, понятно, медицинское это изделие или нет.</li>
+        <li>Тип системы определён, под него выбраны метрики.</li>
+        <li>Клиническая связь обоснована источниками.</li>
+        <li>Аналитическая валидация проведена, включая пропуски, единицы измерения и интеграцию.</li>
+        <li>Клинические утверждения сформулированы так, что их можно проверить.</li>
+        <li>Выбран дизайн, соответствующий утверждениям (ретроспективный, теневой, проспективный, сравнительный).</li>
+        <li>Продумана оценка взаимодействия врача и системы: принятие, отклонение, причины.</li>
+        <li>Описан контроль версий алгоритма и базы знаний и порядок оценки их изменений.</li>
+        <li>Подготовлены протокол и форма отчёта.</li>
+      </ul>
+
+      <h2 id="chastye-voprosy">Частые вопросы</h2>
+
+      <details class="faq-item"><summary>Любая СППВР является медицинским изделием?</summary><p>Нет. Статус определяют назначение и функции системы. Справочная система или программа, которая только хранит и передаёт данные, медицинским изделием сама по себе может не быть. Система, которая анализирует данные пациента и выдаёт рекомендации по диагностике или лечению, как правило, им является.</p></details>
+      <details class="faq-item"><summary>Обязательно ли проверять СППВР как ИИ?</summary><p>Специальные положения о валидации ИИ относятся к программному обеспечению с технологиями ИИ, являющемуся медицинским изделием. Систему на фиксированных правилах оценивают по её назначению и общим требованиям к клинической оценке.</p></details>
+      <details class="faq-item"><summary>Хватит ли ретроспективного анализа?</summary><p>Он подтверждает характеристики системы на архивных данных, но не показывает, как врач использует её в практике. Достаточен он или нет, зависит от заявленного назначения.</p></details>
+      <details class="faq-item"><summary>Нужно ли доказывать снижение смертности?</summary><p>Не обязательно. Конечные точки должны соответствовать заявленному назначению. Но если вы заявляете улучшение исходов, их нужно подтвердить.</p></details>
+      <details class="faq-item"><summary>Как оценить влияние системы на решения врача?</summary><p>Фиксировать принятие, отклонение и корректировку рекомендаций, причины и время решения, оценивать понимание результата и признаки автоматизационного смещения.</p></details>
+      <details class="faq-item"><summary>Что делать при обновлении базы знаний или алгоритма?</summary><p>Вести контроль версий и оценивать, как изменение влияет на ранее собранные доказательства. При существенных изменениях оценку нужно повторить.</p></details>
+
+      <h2 id="istochniki">Источники</h2>
+
+      <ul>
+        <li>IMDRF/SaMD WG/N41FINAL:2017 «Software as a Medical Device (SaMD): Clinical Evaluation»: <a href="https://www.imdrf.org/docs/imdrf/final/technical/imdrf-tech-170921-samd-n41-clinical-evaluation_1.pdf" target="_blank" rel="noopener">imdrf.org</a></li>
+        <li>MDCG 2019-11 Rev.1 (июнь 2025) «Guidance on Qualification and Classification of Software»: <a href="https://health.ec.europa.eu/document/download/b45335c5-1679-4c71-a91c-fc7a4d37f12b_en" target="_blank" rel="noopener">health.ec.europa.eu</a></li>
+        <li>Приказ Минздрава России от 13.05.2026 № 421н (зарегистрирован в Минюсте 01.06.2026, № 86767), п. 38, п. 39 (подп. «г», «д»)</li>
+        <li>Постановление Правительства РФ от 30.11.2024 № 1684, п. 2</li>
+        <li>ГОСТ Р 56429-2021 «Изделия медицинские. Клиническая оценка»</li>
+        <li>ГОСТ Р 59921.1-2022 «Системы искусственного интеллекта в клинической медицине. Часть 1. Клиническая оценка» (приказ Росстандарта от 28.06.2022 № 545-ст)</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Смежные разделы</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/klinicheskaya-validaciya-ii-medizdeliya/">Клиническая валидация ИИ-медизделия: с чего начать стартапу</a>
+        <a class="related-card" href="/blog/retrospektivnaya-ili-prospektivnaya-validaciya-ii/">Ретроспективная или проспективная валидация ИИ: как выбрать дизайн</a>
+        <a class="related-card" href="/blog/dataset-dlya-klinicheskoy-validacii-ii/">Датасет для клинической валидации ИИ: требования и паспорт данных</a>
+        <a class="related-card" href="/blog/obnovlenie-ii-modeli-bez-novyh-ki/">Обновление ИИ-модели после регистрации: когда можно обойтись без новых КИ</a>
+        <a class="related-card" href="/klinicheskie-ispytaniya-medizdeliy/analiz-dannyh/">Анализ клинических данных и датасетов</a>
+        <a class="related-card" href="/podbor-ispytaniy/">Подбор формы клинических испытаний</a>
+        <a class="related-card" href="/klinicheskie-ispytaniya-medizdeliy/">Клинические испытания медицинских изделий</a>
+        <a class="related-card" href="/faq/">Частые вопросы</a>
+        <a class="related-card" href="/blog/kak-poluchit-razreshenie-na-ki/">Как получить разрешение на КИ медизделия: пошагово</a>
+        <a class="related-card" href="/glossariy/">Глоссарий</a>
+      </div>
+    </div>
+  </section>
+
+<!--enh:next-->
+  <section class="next-steps" aria-labelledby="next-h2">
+    <div class="container">
+      <h2 id="next-h2">Что делать дальше</h2>
+      <div class="next-grid">
+        <div class="next-card"><h3>Проверить комплект документов</h3><p>Проверим комплект перед подачей и подскажем, что нужно доработать.</p><a href="#cta-form" class="btn btn-primary" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Клиническая валидация СППВР" data-need="Клинические испытания">Оставить заявку</a></div>
+        <div class="next-card"><h3>Клинические испытания медицинских изделий</h3><p>Формы испытаний, этапы и условия работы — на странице услуги.</p><a href="/klinicheskie-ispytaniya-medizdeliy/" class="btn btn-outline" data-goal="service_from_article">Перейти к услуге</a></div>
+        <div class="next-card"><h3>Рассчитать стоимость</h3><p>Ориентировочный расчёт по направлению испытаний — в калькуляторе.</p><a href="/kalkulyator/" class="btn btn-outline" data-goal="calc_from_article">Открыть калькулятор</a></div>
+      </div>
+    </div>
+  </section>
+<!--/enh:next-->
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Если не ясно, нужна ли вашей системе клиническая валидация и в каком объёме</h2>
+          <p>Пришлите описание назначения и функций системы. Мы определим, скорее всего ли она будет считаться медицинским изделием, какой тип доказательств и какой дизайн проверки подойдут к вашим клиническим утверждениям, и что стоит подготовить заранее. Менеджер свяжется в течение рабочего дня.</p>
+          <p style="margin-top:14px;"><a href="/kontakty/" class="btn btn-outline" data-goal="article_cta_click">Обсудить проверку СППВР →</a></p>
+        </div>
+        <form id="cta-form" aria-label="Форма заявки на консультацию" action="https://functions.yandexcloud.net/d4e389n57q1ils09t0f3" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/klinicheskaya-validaciya-sppvr-specifika)">
+          <input type="text" name="_gotcha" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+          <input type="hidden" name="source_url" value="https://probarium.ru/blog/klinicheskaya-validaciya-sppvr-specifika/">
+          <input type="hidden" name="source_article" value="Клиническая валидация СППВР">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="phone">Телефон</label>
+          <input id="phone" name="phone" type="tel" placeholder="Телефон (необязательно)" autocomplete="tel">
+          <label class="visually-hidden" for="need">Что нужно</label>
+          <select id="need" name="need">
+            <option>Клинические испытания</option>
+            <option>Доклиника и токсикология</option>
+            <option>Технические испытания</option>
+            <option>Не знаю, нужна консультация</option>
+          </select>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой форме испытаний"></textarea>
+          <label class="consent">
+            <input type="checkbox" name="consent_pd" value="yes" required>
+            <span>Даю согласие на обработку персональных данных (имя, компания, email, телефон, текст сообщения) в целях связи со мной по заявке и подготовки коммерческого предложения, в соответствии с <a href="/privacy/" style="text-decoration:underline;">Политикой обработки персональных данных</a></span>
+          </label>
+          <label class="consent">
+            <input type="checkbox" name="consent_offer" value="yes" required>
+            <span>Принимаю условия <a href="/oferta/" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy/">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya/">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii/">О компании</a></li>
+          <li><a href="/komanda/">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty/">Партнёры и аккредитованные центры</a></li>
+          <li><a href="/kejsy/">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa/">НПА</a></li>
+          <li><a href="/reestry/">Реестры</a></li>
+          <li><a href="/glossariy/">Глоссарий</a></li>
+          <li><a href="/blog/">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li class="footer-social">
+            <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg width="40" height="40" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg></a>
+            <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX"><img src="/assets/img/max-icon.png" width="40" height="40" alt="MAX" style="border-radius:9px;"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ · ООО «Глобальные Медицинские Технологии», ИНН 9710131540, ОГРН 1247700287834</span>
+      <span>
+        <a href="/privacy/">Конфиденциальность</a> ·
+        <a href="/cookie/">Cookie</a> ·
+        <a href="/cookie/" data-cookie-settings>Настройки cookie</a> ·
+        <a href="/terms/">Соглашение</a> ·
+        <a href="/disclaimer/">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Клиническая валидация СППВР: в чём специфика",
+  "description": "Чем клиническая валидация систем поддержки врачебных решений отличается от проверки ИИ-алгоритма: три уровня доказательств, метрики и роль врача.",
+  "inLanguage": "ru",
+  "image": [
+    "https://probarium.ru/assets/og-cover.jpg"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Артемий-Татуш Танделов",
+    "jobTitle": "Генеральный директор Probarium",
+    "url": "https://probarium.ru/komanda/",
+    "sameAs": [
+      "https://t.me/tandelovtat"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Probarium",
+    "url": "https://probarium.ru/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://probarium.ru/icon-512.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://probarium.ru/blog/klinicheskaya-validaciya-sppvr-specifika/"
+  },
+  "datePublished": "2026-11-23T10:00:00+03:00",
+  "dateModified": "2026-11-23T10:00:00+03:00"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://probarium.ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://probarium.ru/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Клиническая валидация СППВР",
+      "item": "https://probarium.ru/blog/klinicheskaya-validaciya-sppvr-specifika/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Любая СППВР является медицинским изделием?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Статус определяют назначение и функции системы. Справочная система или программа, которая только хранит и передаёт данные, медицинским изделием сама по себе может не быть. Система, которая анализирует данные пациента и выдаёт рекомендации по диагностике или лечению, как правило, им является."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Обязательно ли проверять СППВР как ИИ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Специальные положения о валидации ИИ относятся к программному обеспечению с технологиями ИИ, являющемуся медицинским изделием. Систему на фиксированных правилах оценивают по её назначению и общим требованиям к клинической оценке."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Хватит ли ретроспективного анализа?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Он подтверждает характеристики системы на архивных данных, но не показывает, как врач использует её в практике. Достаточен он или нет, зависит от заявленного назначения."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли доказывать снижение смертности?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не обязательно. Конечные точки должны соответствовать заявленному назначению. Но если вы заявляете улучшение исходов, их нужно подтвердить."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как оценить влияние системы на решения врача?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Фиксировать принятие, отклонение и корректировку рекомендаций, причины и время решения, оценивать понимание результата и признаки автоматизационного смещения."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать при обновлении базы знаний или алгоритма?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Вести контроль версий и оценивать, как изменение влияет на ранее собранные доказательства. При существенных изменениях оценку нужно повторить."
+      }
+    }
+  ]
+}
+</script>
+
+<script src="/assets/js/header-fx.js?v=2d519155" defer></script>
+<script src="/assets/js/article-cta.js?v=026d0dd2" defer></script>
+<script src="/assets/js/leads.js?v=14f8aac7" defer></script>
+<script src="/assets/js/cookie-banner.js?v=2aa6cad1" defer></script>
+</body>
+</html>

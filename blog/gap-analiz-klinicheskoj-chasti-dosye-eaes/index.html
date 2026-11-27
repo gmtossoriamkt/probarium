@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1C232E">
+<title>Гэп-анализ клинической части досье под ЕАЭС — Probarium</title>
+<meta name="description" content="Как найти пробелы в клинических данных до перехода на правила ЕАЭС: что проверить, как оценить критичность и когда нужно новое испытание.">
+<link rel="canonical" href="https://probarium.ru/blog/gap-analiz-klinicheskoj-chasti-dosye-eaes/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Гэп-анализ клинической части досье под ЕАЭС">
+<meta property="og:description" content="Как найти пробелы в клинических данных до перехода на правила ЕАЭС: что проверить, как оценить критичность и когда нужно новое испытание.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://probarium.ru/blog/gap-analiz-klinicheskoj-chasti-dosye-eaes/">
+<meta property="og:image" content="https://probarium.ru/assets/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Probarium">
+<meta property="article:published_time" content="2026-11-26T10:00:00+03:00">
+<meta property="article:modified_time" content="2026-11-26T10:00:00+03:00">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --blue-deep:#0F2A4D;
+  --blue-sky:#378ADD;
+  --blue-pale:#E6F1FB;
+  --gold:#B3701A;
+  --gold-pale:#FFFFFF;
+  --graphite:#2C2C2A;
+  --gray-text:#5F5E5A;
+  --bg:#F5F7FA;
+  --white:#FFFFFF;
+  --border:#DCE2E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',Arial,sans-serif;color:var(--graphite);background:var(--bg);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;color:var(--blue-deep);font-weight:700;line-height:1.25;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+.skip-link{position:absolute;top:-40px;left:8px;background:var(--blue-deep);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+.skip-link:focus{top:8px;}
+
+header.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--blue-deep);font-family:'Space Grotesk',Arial,sans-serif;}
+.logo svg{flex-shrink:0;}
+nav.main-nav ul{list-style:none;display:flex;gap:28px;}
+nav.main-nav a{font-size:14px;font-weight:500;color:var(--graphite);}
+nav.main-nav a:hover, nav.main-nav a:focus-visible{color:var(--blue-deep);}
+.btn{display:inline-block;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;}
+.btn-primary{background:var(--gold);color:var(--gold-pale);}
+.btn-primary:hover, .btn-primary:focus-visible{background:#9E620F;}
+.btn-outline{background:transparent;color:var(--blue-deep);border-color:var(--blue-deep);}
+.btn-outline:hover, .btn-outline:focus-visible{background:var(--blue-pale);}
+.header-cta{font-size:13px;padding:10px 18px;}
+
+.breadcrumbs{padding:16px 0 0;font-size:13px;color:var(--gray-text);}
+.breadcrumbs a{color:var(--blue-sky);}
+.breadcrumbs span[aria-current]{color:var(--graphite);}
+
+.page-intro{padding:28px 0 20px;}
+.page-intro h1{font-size:32px;max-width:760px;margin-bottom:16px;}
+.page-intro p.lead{font-size:16px;color:var(--gray-text);max-width:680px;margin-bottom:24px;}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+section{padding:48px 0;}
+.section-head{max-width:680px;margin:0 0 28px;}
+.section-head h2{font-size:24px;margin-bottom:8px;}
+.section-head p{color:var(--gray-text);font-size:14px;}
+
+details.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:10px;}
+details.faq-item summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{content:'+';float:right;font-weight:400;color:var(--blue-sky);}
+details.faq-item[open] summary::after{content:'\2212';}
+details.faq-item p{margin-top:10px;font-size:14px;color:var(--gray-text);}
+
+.final-cta{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;
+  display:flex;gap:40px;flex-wrap:wrap;}
+.final-cta .copy{flex:1;min-width:260px;}
+.final-cta .copy h2{font-size:24px;margin-bottom:10px;}
+.final-cta .copy p{color:var(--gray-text);font-size:14px;max-width:400px;}
+.final-cta form{flex:1;min-width:280px;display:flex;flex-direction:column;gap:12px;}
+.final-cta input, .final-cta select, .final-cta textarea{
+  padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--gray-text);}
+.consent input{width:16px;height:16px;margin-top:2px;flex-shrink:0;padding:0;}
+@media (max-width:374px){
+  .final-cta{padding:24px;}
+  .final-cta .copy,.final-cta form{min-width:0;flex-basis:100%;}
+}
+
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+.related-card:hover{border-color:var(--blue-sky);}
+
+footer{background:var(--white);border-top:1px solid var(--border);padding:40px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-bottom:24px;}
+.footer-col h3{font-size:13px;color:var(--graphite);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:var(--gray-text);}
+.footer-col a:hover{color:var(--blue-deep);}
+.footer-col li.footer-social{display:flex;gap:12px;margin-top:14px;}
+.footer-col .footer-social a{display:inline-flex;border-radius:10px;transition:transform .2s ease,box-shadow .2s ease;}
+.footer-col .footer-social a:hover,.footer-col .footer-social a:focus-visible{transform:translateY(-2px);box-shadow:0 0 0 3px var(--gold);}
+@media (prefers-reduced-motion:reduce){.footer-col .footer-social a{transition:none;}.footer-col .footer-social a:hover{transform:none;}}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:12px;color:var(--gray-text);}
+
+@media (max-width:820px){
+  nav.main-nav{display:none;}
+  .page-intro h1{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
+.burger span{display:block;width:100%;height:2.5px;background:var(--blue-deep);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;gap:2px;background:var(--white);border-top:1px solid var(--border);padding:8px 24px 20px;}
+.mobile-nav a{padding:13px 0;font-size:15px;font-weight:500;color:var(--graphite);border-bottom:1px solid var(--border);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+body.nav-open{overflow:hidden;}
+.logo svg{flex-shrink:0;}
+@media (max-width:1100px){
+  nav.main-nav{display:none;}
+  .header-cta{display:none;}
+  .burger{display:flex;}
+}
+
+.article-body{max-width:760px;}
+.article-body h2{font-size:22px;margin:32px 0 14px;}
+.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--blue-deep);}
+.article-body p{font-size:15px;color:var(--graphite);margin-bottom:14px;}
+.article-body p.lead-note{font-size:13px;color:var(--gray-text);font-style:italic;margin-bottom:24px;}
+.article-body ul, .article-body ol{margin:0 0 16px 20px;font-size:15px;color:var(--graphite);}
+.article-body li{margin-bottom:8px;}
+.article-body strong{color:var(--blue-deep);}
+.article-body a.inline-link{color:var(--blue-sky);text-decoration:underline;}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray-text);margin-bottom:8px;}
+.article-meta span{background:var(--blue-pale);color:#0C447C;padding:3px 10px;border-radius:12px;font-weight:600;}
+.warn-box{background:#FFF4E5;border:1px solid #F0C888;border-left:4px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:8px 0 20px;}
+.warn-box strong{display:block;color:#9E620F;margin-bottom:6px;font-size:14px;}
+.warn-box p{font-size:14px;color:var(--graphite);margin-bottom:0;}
+.chain-box{background:var(--blue-pale);border:1px solid #C7DEF3;border-radius:8px;padding:16px 20px;margin:8px 0 20px;font-size:14px;}
+.article-body table{width:100%;border-collapse:collapse;font-size:14px;margin:0;}
+.article-body th, .article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
+.article-body th{background:var(--blue-pale);color:var(--blue-deep);font-weight:600;}
+.article-body table + p{margin-top:-6px;}
+.table-wrap{overflow-x:auto;margin:8px 0 20px;-webkit-overflow-scrolling:touch;}
+.table-wrap table{min-width:520px;}
+.article-body blockquote{border-left:4px solid var(--blue-sky);background:var(--blue-pale);border-radius:0 8px 8px 0;padding:12px 18px;margin:8px 0 18px;font-size:15px;color:var(--graphite);font-style:italic;}
+</style>
+<link rel="stylesheet" href="/assets/css/header-fx.css?v=7f39336e">
+<link rel="stylesheet" href="/assets/css/article.css?v=75d90ccb">
+<link rel="stylesheet" href="/assets/modern.css?v=ae72aa00">
+<script defer src="/assets/modern.js?v=27ba95a5"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+
+<!--pb:header-->
+<header class="site-header">
+  <div class="container header-row pb-hdr">
+    <a href="/" class="logo" aria-label="Probarium, на главную">
+      <svg width="44" height="44" viewBox="0 0 60 60" role="img" aria-hidden="true">
+        <path d="M15,18 C15,26 27,26 27,34 C27,42 15,42 15,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M27,18 C27,26 15,26 15,34 C15,42 27,42 27,50" fill="none" stroke="#0F2A4D" stroke-width="4.5" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="21" cy="26" r="3.4" fill="#B3701A"/><circle cx="21" cy="34" r="3.4" fill="#B3701A"/><circle cx="21" cy="42" r="3.4" fill="#B3701A"/>
+      </svg>
+      Probarium
+    </a>
+    <div class="pb-hdr-contacts">
+      <a class="pb-hdr-tel" href="tel:+79853169104" data-ym-goal="phone_click" aria-label="Позвонить: +7 985 316-91-04"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span class="pb-hdr-text">+7 985 316-91-04</span></a>
+      <a class="pb-hdr-mail" href="mailto:info@probarium.ru" data-ym-goal="email_click"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.4l8 5 8-5V7H4zm16 2.75-7.47 4.67a1 1 0 0 1-1.06 0L4 9.75V17h16z"/></svg><span class="pb-hdr-text">info@probarium.ru</span></a>
+      <a class="pb-hdr-max" href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX"><img src="/assets/img/max-icon.png" width="24" height="24" alt="MAX"></a>
+    </div>
+    <a href="/kontakty/" class="btn btn-primary header-cta">Оставить заявку</a>
+    <button type="button" class="pb-burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="pbMenu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="pb-menu-backdrop" hidden></div>
+<div class="pb-menu" id="pbMenu" role="dialog" aria-modal="true" aria-label="Меню сайта" hidden>
+  <div class="pb-menu-top">
+    <button type="button" class="pb-menu-close" aria-label="Закрыть меню"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+  </div>
+  <div class="pb-menu-body">
+    <nav class="pb-menu-nav" aria-label="Основная навигация">
+      <ul>
+        <li class="pb-acc">
+          <button type="button" class="pb-menu-link pb-acc-btn" aria-expanded="false" aria-controls="pbAccServices">Услуги <svg width="14" height="14" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <ul class="pb-acc-list" id="pbAccServices" hidden>
+            <li><a class="pb-sub-link" href="/klinicheskie-ispytaniya-medizdeliy/">Клинические испытания МИ<small>Анализ данных, с участием человека, ИВД</small></a></li>
+            <li><a class="pb-sub-link" href="/doklinicheskie-issledovaniya/">Доклиника и токсикология<small>Биосовместимость, GLP</small></a></li>
+            <li><a class="pb-sub-link" href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания<small>Включая электробезопасность, ЭМС, ПО</small></a></li>
+            <li><a class="pb-sub-link" href="/registraciya-medizdeliy/">Регистрация МИ<small>РФ и ЕАЭС</small></a></li>
+            <li><a class="pb-sub-link" href="/razrabotka-dokumentatsii/">Разработка документации<small>Протоколы, отчёты, досье</small></a></li>
+            <li><a class="pb-sub-link" href="/uslugi/">Все услуги</a></li>
+          </ul>
+        </li>
+        <li><a class="pb-menu-link" href="/dorozhnaya-karta/">Как мы работаем</a></li>
+        <li><a class="pb-menu-link" href="/kejsy/">Кейсы</a></li>
+        <li class="pb-acc">
+          <button type="button" class="pb-menu-link pb-acc-btn" aria-expanded="false" aria-controls="pbAccKnowledge">База знаний <svg width="14" height="14" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <ul class="pb-acc-list" id="pbAccKnowledge" hidden>
+            <li><a class="pb-sub-link" href="/npa/">НПА и стандарты</a></li>
+            <li><a class="pb-sub-link" href="/biblioteka/">Библиотека</a></li>
+            <li><a class="pb-sub-link" href="/blog/">Блог</a></li>
+            <li><a class="pb-sub-link" href="/glossariy/">Глоссарий</a></li>
+            <li><a class="pb-sub-link" href="/faq/">Вопросы и ответы</a></li>
+          </ul>
+        </li>
+        <li><a class="pb-menu-link" href="/o-kompanii/">О компании</a></li>
+        <li><a class="pb-menu-link" href="/kontakty/">Контакты</a></li>
+      </ul>
+    </nav>
+    <div class="pb-menu-foot">
+      <div class="pb-menu-contacts">
+        <a class="pb-menu-tel" href="tel:+79853169104" data-ym-goal="phone_click"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span>+7 985 316-91-04</span></a>
+        <a class="pb-menu-mail" href="mailto:info@probarium.ru" data-ym-goal="email_click"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.4l8 5 8-5V7H4zm16 2.75-7.47 4.67a1 1 0 0 1-1.06 0L4 9.75V17h16z"/></svg><span>info@probarium.ru</span></a>
+      </div>
+      <div class="pb-menu-msg">
+        <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram" class="pb-msg"><svg width="24" height="24" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg></a>
+        <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX" class="pb-msg"><img src="/assets/img/max-icon.png" width="24" height="24" alt="MAX" loading="lazy"></a>
+      </div>
+      <a href="/kontakty/" class="btn btn-primary pb-menu-cta">Оставить заявку</a>
+    </div>
+  </div>
+</div>
+<!--/pb:header-->
+<main id="main">
+
+  <nav class="container breadcrumbs" aria-label="Хлебные крошки">
+    <a href="/">Главная</a> / <a href="/blog/">Блог</a> / <span aria-current="page">Гэп-анализ клинической части досье</span>
+  </nav>
+
+  <div class="container page-intro">
+    <div class="article-meta"><span>Клинические испытания медизделий</span><span>10 мин чтения</span><span>26 ноября 2026</span></div>
+    <p style="font-size:13px;color:var(--gray-text);margin-bottom:16px;">Автор: <strong style="color:var(--blue-deep);">Артемий-Татуш Танделов</strong>, генеральный директор Probarium</p>
+    <h1>Гэп-анализ клинической части досье под ЕАЭС: как найти пробелы до подачи</h1>
+    <p class="lead">Гэп-анализ клинической части досье — это предварительная проверка того, что из имеющихся у производителя клинических материалов можно использовать при регистрации медицинского изделия по правилам ЕАЭС, чего не хватает и как закрыть пробелы. Это не отдельная обязательная процедура и не форма экспертизы: нормативные акты Союза его не предусматривают, это рекомендуемый внутренний метод. Результат работы — не вывод «досье готово или не готово», а карта расхождений между назначением изделия, клиническими данными и требованиями правил Союза с планом закрытия. Порядок такой: собрать данные, проверить их применимость, сопоставить с требованиями, оценить критичность пробелов, составить план. Гэп-анализ не гарантирует прохождения экспертизы, но показывает, где её замечания наиболее вероятны, пока есть время их закрыть.</p>
+  </div>
+
+  <section>
+    <div class="container article-body">
+
+<!--enh:toc-->
+      <details class="toc" open>
+        <summary>Содержание</summary>
+        <ol>
+          <li><a href="#zachem-delat-analiz-imenno-seychas">Зачем делать анализ именно сейчас</a></li>
+          <li><a href="#kakie-dokumenty-ispolzovat-kak-osnovu">Какие документы использовать как основу</a></li>
+          <li><a href="#chto-proveryat-v-klinicheskoy-chasti">Что проверять в клинической части</a></li>
+          <li><a href="#tri-gruppy-izdeliy-odnoy-matricy-nedostatochno">Три группы изделий: одной матрицы недостаточно</a></li>
+          <li><a href="#kak-ocenit-kritichnost-probelov">Как оценить критичность пробелов</a></li>
+          <li><a href="#algoritm-provedeniya-gep-analiza">Алгоритм проведения гэп-анализа</a></li>
+          <li><a href="#chto-poluchaet-proizvoditel">Что получает производитель</a></li>
+          <li><a href="#kogda-probel-mozhno-zakryt-bez-novogo-ispytaniya">Когда пробел можно закрыть без нового испытания</a></li>
+          <li><a href="#tipichnye-oshibki">Типичные ошибки</a></li>
+          <li><a href="#chastye-voprosy">Частые вопросы</a></li>
+          <li><a href="#istochniki">Источники</a></li>
+        </ol>
+      </details>
+<!--/enh:toc-->
+
+
+      <h2 id="zachem-delat-analiz-imenno-seychas">Зачем делать анализ именно сейчас</h2>
+
+      <p>Переходный период между национальной регистрацией и правилами ЕАЭС продлён. По протоколу, подписанному 29.12.2025 и временно применяемому с 9 января 2026 года, подать заявление об экспертизе или регистрации по национальным правилам можно до 31 декабря 2027 года. Российская Федерация ратифицировала протокол федеральным законом от 04.08.2026 № 288-ФЗ. Срок подачи заявлений о перерегистрации (переоформлении документа о регистрации) и о внесении изменений в регистрационные документы изделий, зарегистрированных по национальным правилам, сдвинут на 31 декабря 2028 года (ст. 11 Соглашения о единых принципах и правилах обращения медицинских изделий в редакции протоколов от 30.12.2021 и 29.12.2025).</p>
+
+      <p>Практический вывод для производителя: времени больше, чем планировалось, но выбор маршрута (национальный или союзный) и подготовка клинических материалов к правилам Союза всё равно занимают месяцы. Если в процессе выясняется, что нет первичных данных или исследовалась другая модификация изделия, сроки подготовки существенно растягиваются, поэтому проверку лучше сделать до начала оформления досье.</p>
+
+      <h2 id="kakie-dokumenty-ispolzovat-kak-osnovu">Какие документы использовать как основу</h2>
+
+      <p>В этой теме легко перепутать акты с похожими номерами, поэтому при первом упоминании мы указываем вид акта, орган, дату и номер.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Документ</th><th>Что содержит</th><th>Роль в анализе</th></tr>
+        <tr><td>Решение Совета ЕЭК от 12.02.2016 № 46</td><td>Правила регистрации и экспертизы безопасности, качества и эффективности медицинских изделий</td><td>Описывает процедуру регистрации и экспертизы</td></tr>
+        <tr><td>Решение Совета ЕЭК от 12.02.2016 № 29 (в редакции Решения Совета ЕЭК от 26.01.2024 № 7)</td><td>Правила проведения клинических и клинико-лабораторных испытаний (исследований) медицинских изделий</td><td>Основной документ для проверки клинической части</td></tr>
+        <tr><td>Решение Совета ЕЭК от 12.02.2016 № 27</td><td>Общие требования безопасности и эффективности медицинских изделий, требования к маркировке и эксплуатационной документации</td><td>Помогает проверить, подтверждены ли заявленные характеристики и свойства</td></tr>
+        <tr><td>Решение Коллегии ЕЭК от 22.12.2015 № 173</td><td>Правила классификации медицинских изделий в зависимости от потенциального риска применения</td><td>От класса риска зависят применимые требования и глубина оценки</td></tr>
+        <tr><td>Рекомендация Коллегии ЕЭК от 23.12.2024 № 27</td><td>Методические рекомендации по содержанию и структуре документов регистрационного досье и проведению экспертизы</td><td>Ориентир для заявителя и эксперта, это не обязательный регламент</td></tr>
+      </table>
+      </div>
+
+      <p>Рекомендацию Коллегии ЕЭК от 23.12.2024 № 27 не нужно путать с Решением Совета ЕЭК от 12.02.2016 № 27: это разные акты с одинаковым номером. Рекомендация опубликована 27.12.2024; с этой даты не применяются прежние методические рекомендации по структуре досье (от 08.10.2019 № 29) и по проведению экспертизы (от 21.05.2019 № 14). Изменения Решением № 7 вступили в силу 27.07.2024; испытания по гражданско-правовым договорам с медицинскими организациями, заключённым до этой даты, проводятся по прежней редакции Правил, а отчёты по формам этой редакции принимаются для регистрации (Решение № 7, п. 2).</p>
+
+      <p>Перечисленные акты влияют друг на друга, поэтому анализ нужно строить по применимой редакции каждого, а не по сводке.</p>
+
+      <h2 id="chto-proveryat-v-klinicheskoy-chasti">Что проверять в клинической части</h2>
+
+      <p>Проверять нужно не только наличие отчёта о клиническом испытании. Клиническая доказательная база должна быть связана с назначением изделия и заявленными характеристиками. Шесть направлений проверки:</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Направление</th><th>Что сопоставить</th><th>Признак возможного пробела</th></tr>
+        <tr><td>Назначение изделия</td><td>Назначение в маркировке и эксплуатационной документации, показания, целевая группа, условия применения</td><td>Исследования проведены для другой группы пациентов или другого назначения</td></tr>
+        <tr><td>Обоснование клинической эффективности и безопасности</td><td>Заявленные клинические преимущества, риски, ограничения, результаты исследований и публикаций</td><td>Выводы в документах шире, чем полученные доказательства</td></tr>
+        <tr><td>Программа и дизайн исследования</td><td>Цели, конечные точки, критерии включения и исключения, методики, статистический план</td><td>Дизайн не позволяет ответить на заявленный клинический вопрос</td></tr>
+        <tr><td>Отчёт и первичные данные</td><td>Полнота отчёта, подтверждение результатов, учёт отклонений и неблагоприятных событий</td><td>Нельзя проследить происхождение результатов или проверить выводы</td></tr>
+        <tr><td>Соответствие исследованного изделия заявляемому</td><td>Модель, модификация, версия ПО, материалы, конструкция, принцип действия</td><td>Исследовалась другая модификация, различия не оценены</td></tr>
+        <tr><td>Достаточность совокупности данных</td><td>Клинические испытания, клинический опыт, литература, данные по эквивалентному изделию, отрицательные результаты</td><td>Доказательства не закрывают отдельные показания, риски или характеристики</td></tr>
+      </table>
+      </div>
+
+      <p>Два требования из Решения № 29 стоит проверять отдельно. Первое: для изделий классов потенциального риска 3, 2б и имплантируемых (кроме ИВД и ПО, являющегося медицинским изделием) клинические испытания в целях регистрации проводятся в форме многоцентровых, если не доказано, что клиническая эффективность и безопасность могут быть подтверждены иным способом (п. 2 Решения). Второе: данные по другому изделию допускается использовать только при доказанной эквивалентности, и изделие для сравнения должно быть зарегистрировано (п. 7 Правил).</p>
+
+      <p>Как использовать исследования, проведённые до 2022 года, и отчёты по договорам до вступления в силу Решения № 7 — в статье <a href="/blog/starye-dannye-ki-eaes/">«Признают ли старые клинические данные при регистрации по правилам ЕАЭС»</a>.</p>
+
+      <h2 id="tri-gruppy-izdeliy-odnoy-matricy-nedostatochno">Три группы изделий: одной матрицы недостаточно</h2>
+
+      <p><strong>Обычные медицинские изделия.</strong> Проверяют соответствие исследования назначению, клиническую эффективность и безопасность, дизайн испытания, отчётность и связь результатов с заявляемыми характеристиками. Глубина оценки зависит от класса риска, инвазивности и длительности контакта с организмом.</p>
+
+      <p><strong>Изделия для диагностики in vitro (ИВД).</strong> Нужна отдельная матрица: аналитические характеристики, клинические характеристики, типы и свойства образцов, метод сравнения и референсный метод, целевая популяция и клиническая задача, обоснование эффективности и безопасности для заявленного назначения. В Правилах № 29 изделиям для диагностики in vitro отведены отдельные разделы IV и V. Не следует требовать от ИВД тот же набор документов и тот же дизайн, что от изделия, применяемого непосредственно у пациента.</p>
+
+      <p><strong>Программное обеспечение как медицинское изделие.</strong> Дополнительно проверяют, соответствует ли клиническое назначение фактической функциональности; подтверждена ли клиническая связь между выходом ПО и медицинской задачей; проведены ли аналитическая и клиническая валидация; соответствует ли тестовая выборка целевой популяции; отделены ли данные для обучения от данных для независимой оценки; учтены ли изменения версии и модели после проведения исследований. Перечень документов для обычного изделия к ПО механически применять нельзя.</p>
+
+      <h2 id="kak-ocenit-kritichnost-probelov">Как оценить критичность пробелов</h2>
+
+      <p>Предлагаем простую шкалу. Это авторская методика предварительного аудита, а не официальная классификация ЕАЭС.</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Уровень</th><th>Что это значит</th><th>Пример</th><th>Что делать</th></tr>
+        <tr><td>Критический</td><td>Нет доказательств для основного назначения, эффективности или безопасности</td><td>Исследование не охватывает основное показание; нет существенных данных о безопасности</td><td>Определить, какие дополнительные данные или исследования нужны</td></tr>
+        <tr><td>Существенный</td><td>Данные есть, но их применимость или достоверность недостаточно обоснована</td><td>Неясно, совпадает ли исследованная модификация с регистрируемой</td><td>Дополнительный анализ, подтверждения, оценка необходимости новых данных</td></tr>
+        <tr><td>Документальный</td><td>Результаты существуют, но комплект документов неполный или плохо структурирован</td><td>Нет части приложений, подписей, сведений о методах анализа</td><td>Восстановить и систематизировать документы</td></tr>
+        <tr><td>Редакционный</td><td>Сведения противоречат друг другу или не связаны с назначением</td><td>Разные показания в программе, отчёте и инструкции</td><td>Согласовать документы, проверить обоснованность заявлений</td></tr>
+      </table>
+      </div>
+
+      <p>Отсутствие документа не всегда означает отсутствие самого доказательства: часть сведений может храниться в клиническом центре или в первичной документации. Поэтому различайте три ситуации: нет данных, нет подтверждающих документов, данные недостаточно обоснованы.</p>
+
+      <h2 id="algoritm-provedeniya-gep-analiza">Алгоритм проведения гэп-анализа</h2>
+
+      <ol>
+        <li><strong>Зафиксируйте регистрационный маршрут.</strong> Определите, идёте ли вы по правилам ЕАЭС или по национальным правилам в переходный период, и в какой стране планируете регистрацию.</li>
+        <li><strong>Опишите изделие и назначение.</strong> Класс риска, тип изделия, показания, целевая группа, принцип действия, модификации и версии ПО. Без этого нельзя определить применимые требования.</li>
+        <li><strong>Соберите клинические материалы.</strong> Программы и отчёты о клинических испытаниях, публикации, данные клинического применения, документы по эквивалентным изделиям, сведения о нежелательных событиях и первичные данные.</li>
+        <li><strong>Проверьте применимость каждого источника.</strong> Относится ли он к заявляемому изделию и назначению, можно ли проверить достоверность, допустимо ли его использовать с учётом переходных положений.</li>
+        <li><strong>Сопоставьте доказательства с требованиями.</strong> Для каждого заявленного клинического аспекта: чем подтверждена эффективность, чем подтверждена безопасность, какие ограничения и риски учтены.</li>
+        <li><strong>Оцените критичность пробелов</strong> по шкале выше и зафиксируйте обоснование каждой оценки.</li>
+        <li><strong>Составьте план закрытия.</strong> Какие материалы можно восстановить, какие анализы дополнить, какие документы переработать, где может потребоваться новое исследование.</li>
+      </ol>
+
+      <p>Это рекомендуемый рабочий процесс, а не последовательность, установленная нормативными актами.</p>
+
+      <h2 id="chto-poluchaet-proizvoditel">Что получает производитель</h2>
+
+      <p>Хороший результат гэп-анализа состоит из четырёх документов.</p>
+
+      <p><strong>1. Матрица соответствия</strong> (иллюстративный пример, не нормативный шаблон):</p>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Область проверки</th><th>Имеющиеся доказательства</th><th>Пробел</th><th>Критичность</th><th>Действие</th></tr>
+        <tr><td>Подтверждение назначения</td><td>Отчёт о клиническом испытании</td><td>Не охвачена одна целевая группа</td><td>Существенный</td><td>Оценить возможность дополнительного обоснования</td></tr>
+        <tr><td>Клиническая безопасность</td><td>Отчёт, данные эксплуатации</td><td>Не систематизированы сведения о неблагоприятных событиях</td><td>Существенный</td><td>Дополнить анализ безопасности</td></tr>
+        <tr><td>Соответствие исследованной модификации</td><td>Протокол и техническая документация</td><td>Нет анализа изменений конструкции</td><td>Критический или существенный по результатам оценки</td><td>Оценить различия</td></tr>
+        <tr><td>Клинические характеристики ИВД</td><td>Отчёт клинико-лабораторного испытания</td><td>Не обоснован метод сравнения</td><td>Существенный</td><td>Дополнить методологическое обоснование</td></tr>
+      </table>
+      </div>
+
+      <p><strong>2. Реестр недостающих документов:</strong> документ, ответственный за поиск или подготовку, место хранения, срок получения, статус.</p>
+
+      <p><strong>3. План устранения пробелов:</strong> какие действия закрывают каждый недостаток, какие специалисты нужны, сколько времени занимает работа, какие зависимости между задачами.</p>
+
+      <p><strong>4. Заключение о готовности клинической части:</strong> что уже подтверждено, что можно закрыть без нового исследования, что требует дополнительного обоснования, где нужно рассмотреть новое исследование, какие вопросы остаются открытыми до подачи.</p>
+
+      <p>Формулировка «досье гарантированно пройдёт экспертизу» недопустима: предварительный аудит не заменяет экспертизу уполномоченной организации.</p>
+
+      <h2 id="kogda-probel-mozhno-zakryt-bez-novogo-ispytaniya">Когда пробел можно закрыть без нового испытания</h2>
+
+      <div class="table-wrap">
+      <table>
+        <tr><th>Пробел</th><th>Как можно закрыть</th><th>Когда этого недостаточно</th></tr>
+        <tr><td>Нет части документов, но данные существуют</td><td>Запросить у клинического центра, восстановить архивные материалы</td><td>Первичные данные утрачены или достоверность нельзя проверить</td></tr>
+        <tr><td>Недостаточно раскрыта методология</td><td>Дополнить описание дизайна, методов, статистического анализа</td><td>Сам дизайн не позволяет ответить на клинический вопрос</td></tr>
+        <tr><td>Не проанализированы публикации</td><td>Провести систематизированный поиск и критическую оценку литературы</td><td>Литература не относится к конкретному изделию или назначению</td></tr>
+        <tr><td>Есть данные по эквивалентному изделию</td><td>Подготовить доказательное обоснование эквивалентности</td><td>Различия между изделиями влияют на безопасность или эффективность</td></tr>
+        <tr><td>Не учтены данные клинического применения</td><td>Собрать и проанализировать доступные данные эксплуатации и безопасности</td><td>Сведения представляют собой только отзывы без подтверждающей документации</td></tr>
+        <tr><td>Изделие изменилось после испытания</td><td>Оценить влияние изменений, дополнить верификацию и клиническое обоснование</td><td>Изменения существенно влияют на назначение, принцип действия или клинические характеристики</td></tr>
+      </table>
+      </div>
+
+      <p>Правила № 29 допускают разные источники клинических данных — научную литературу, опыт клинического применения, клинические испытания — и требуют оценки их достаточности; испытания проводятся по тем аспектам, для которых имеющихся данных недостаточно (п. 3 Правил). Обещать, что любой пробел закроется дополнительным отчётом или заключением, нельзя.</p>
+
+      <h2 id="tipichnye-oshibki">Типичные ошибки</h2>
+
+      <ol>
+        <li><strong>Проверяют наличие отчёта, а не достаточность доказательств.</strong> Отчёт может быть оформлен и не подтверждать заявленное назначение.</li>
+        <li><strong>Не сопоставляют версии изделия.</strong> Особенно опасно для ПО, модифицируемых изделий и изделий с несколькими вариантами исполнения.</li>
+        <li><strong>Смешивают клинические и технические доказательства.</strong> Технические испытания и оценка биологического действия не заменяют клиническое обоснование там, где оно нужно.</li>
+        <li><strong>Используют данные по аналогу без доказательства эквивалентности.</strong> Сходства внешнего вида или назначения недостаточно.</li>
+        <li><strong>Не анализируют отрицательные результаты.</strong> Выборочное представление только положительных данных искажает оценку.</li>
+        <li><strong>Не разделяют обычные изделия, ИВД и ПО.</strong> В матрицу попадают неприменимые требования или пропускаются специальные.</li>
+        <li><strong>Считают методические рекомендации обязательной формой.</strong> Рекомендация № 27 помогает структурировать досье, но не является регламентом гэп-анализа.</li>
+        <li><strong>Начинают аудит слишком поздно.</strong> Если выясняется, что нет первичных данных или исследовалась другая модификация, сроки перехода растягиваются.</li>
+      </ol>
+
+      <h2 id="chastye-voprosy">Частые вопросы</h2>
+
+      <details class="faq-item"><summary>Гэп-анализ обязателен по правилам ЕАЭС?</summary><p>Нет. Это рекомендуемый внутренний инструмент подготовки, нормативные акты Союза его не предусматривают.</p></details>
+      <details class="faq-item"><summary>Когда проводить гэп-анализ?</summary><p>До подачи досье и до решения о новых испытаниях: чем раньше найдены пробелы, тем больше времени на их закрытие.</p></details>
+      <details class="faq-item"><summary>Можно ли использовать старые клинические данные?</summary><p>Зависит от того, относятся ли они к заявляемому изделию и назначению, можно ли проверить их достоверность и оценены ли различия модификаций. Это основной вопрос гэп-анализа.</p></details>
+      <details class="faq-item"><summary>Чем отличается анализ для ИВД и для программного обеспечения?</summary><p>У ИВД своя матрица: аналитические и клинические характеристики, образцы, метод сравнения. У ПО добавляются клиническая связь, валидация, выборка и управление версиями.</p></details>
+      <details class="faq-item"><summary>Гарантирует ли гэп-анализ прохождение экспертизы?</summary><p>Нет. Он показывает, где замечания вероятны, но не заменяет экспертизу уполномоченной организации.</p></details>
+      <details class="faq-item"><summary>Что я получу по итогам?</summary><p>Матрицу соответствия, реестр недостающих документов, план устранения пробелов и заключение о готовности клинической части.</p></details>
+
+      <h2 id="istochniki">Источники</h2>
+
+      <ul>
+        <li>Решение Совета ЕЭК от 12.02.2016 № 46 «О Правилах регистрации и экспертизы безопасности, качества и эффективности медицинских изделий»</li>
+        <li>Решение Совета ЕЭК от 12.02.2016 № 29 «О Правилах проведения клинических и клинико-лабораторных испытаний (исследований) медицинских изделий» (в редакции Решения Совета ЕЭК от 26.01.2024 № 7)</li>
+        <li>Решение Совета ЕЭК от 12.02.2016 № 27 «Об утверждении Общих требований безопасности и эффективности медицинских изделий, требований к их маркировке и эксплуатационной документации на них»</li>
+        <li>Решение Коллегии ЕЭК от 22.12.2015 № 173 «Об утверждении Правил классификации медицинских изделий в зависимости от потенциального риска применения»</li>
+        <li>Рекомендация Коллегии ЕЭК от 23.12.2024 № 27 о методических рекомендациях по содержанию и структуре документов регистрационного досье и проведению экспертизы: <a href="https://roszdravnadzor.gov.ru/spec/medproducts/documents/85772" target="_blank" rel="noopener">roszdravnadzor.gov.ru</a></li>
+        <li>Соглашение о единых принципах и правилах обращения медицинских изделий в рамках ЕАЭС от 23.12.2014, ст. 11 (в редакции протоколов от 30.12.2021 и 29.12.2025)</li>
+        <li>Федеральный закон от 04.08.2026 № 288-ФЗ о ратификации протокола об обращении медицинских изделий в ЕАЭС</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="related-h2" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head"><h2 id="related-h2">Смежные разделы</h2></div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/klinicheskie-ispytaniya-eaes-trebovaniya/">Клинические испытания медизделий по правилам ЕАЭС: полный разбор требований Союза</a>
+        <a class="related-card" href="/blog/starye-dannye-ki-eaes/">Признают ли старые клинические данные при регистрации по правилам ЕАЭС</a>
+        <a class="related-card" href="/klinicheskie-ispytaniya-medizdeliy/analiz-dannyh/">Анализ клинических данных</a>
+        <a class="related-card" href="/podbor-ispytaniy/">Подбор формы клинических испытаний</a>
+        <a class="related-card" href="/klinicheskie-ispytaniya-medizdeliy/">Клинические испытания медицинских изделий</a>
+        <a class="related-card" href="/faq/">Частые вопросы</a>
+        <a class="related-card" href="/blog/kak-poluchit-razreshenie-na-ki/">Как получить разрешение на КИ медизделия: пошагово</a>
+        <a class="related-card" href="/glossariy/">Глоссарий</a>
+      </div>
+    </div>
+  </section>
+
+<!--enh:next-->
+  <section class="next-steps" aria-labelledby="next-h2">
+    <div class="container">
+      <h2 id="next-h2">Что делать дальше</h2>
+      <div class="next-grid">
+        <div class="next-card"><h3>Проверить комплект документов</h3><p>Проверим комплект перед подачей и подскажем, что нужно доработать.</p><a href="#cta-form" class="btn btn-primary" data-goal="article_cta_click" data-prefill="Вопрос из статьи: Гэп-анализ клинической части досье" data-need="Клинические испытания">Оставить заявку</a></div>
+        <div class="next-card"><h3>Клинические испытания медицинских изделий</h3><p>Формы испытаний, этапы и условия работы — на странице услуги.</p><a href="/klinicheskie-ispytaniya-medizdeliy/" class="btn btn-outline" data-goal="service_from_article">Перейти к услуге</a></div>
+        <div class="next-card"><h3>Рассчитать стоимость</h3><p>Ориентировочный расчёт по направлению испытаний — в калькуляторе.</p><a href="/kalkulyator/" class="btn btn-outline" data-goal="calc_from_article">Открыть калькулятор</a></div>
+      </div>
+    </div>
+  </section>
+<!--/enh:next-->
+
+  <section id="final-cta">
+    <div class="container">
+      <div class="final-cta">
+        <div class="copy">
+          <h2>Хотите понять объём работы до начала</h2>
+          <p>Передайте перечень имеющихся клинических материалов и описание изделия: мы оценим объём гэп-анализа, какие пробелы вероятны и нужно ли думать о новых данных. Менеджер свяжется в течение рабочего дня.</p>
+          <p style="margin-top:14px;"><a href="/kontakty/" class="btn btn-outline" data-goal="article_cta_click">Обсудить гэп-анализ →</a></p>
+        </div>
+        <form id="cta-form" aria-label="Форма заявки на консультацию" action="https://functions.yandexcloud.net/d4e389n57q1ils09t0f3" method="POST">
+          <input type="hidden" name="_subject" value="Заявка с сайта Probarium (blog/gap-analiz-klinicheskoj-chasti-dosye-eaes)">
+          <input type="text" name="_gotcha" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+          <input type="hidden" name="source_url" value="https://probarium.ru/blog/gap-analiz-klinicheskoj-chasti-dosye-eaes/">
+          <input type="hidden" name="source_article" value="Гэп-анализ клинической части досье">
+          <label class="visually-hidden" for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required>
+          <label class="visually-hidden" for="company">Компания</label>
+          <input id="company" name="company" type="text" placeholder="Компания">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <label class="visually-hidden" for="phone">Телефон</label>
+          <input id="phone" name="phone" type="tel" placeholder="Телефон (необязательно)" autocomplete="tel">
+          <label class="visually-hidden" for="need">Что нужно</label>
+          <select id="need" name="need">
+            <option>Клинические испытания</option>
+            <option>Доклиника и токсикология</option>
+            <option>Технические испытания</option>
+            <option>Не знаю, нужна консультация</option>
+          </select>
+          <label class="visually-hidden" for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="3" placeholder="Кратко об изделии и предполагаемой форме испытаний"></textarea>
+          <label class="consent">
+            <input type="checkbox" name="consent_pd" value="yes" required>
+            <span>Даю согласие на обработку персональных данных (имя, компания, email, телефон, текст сообщения) в целях связи со мной по заявке и подготовки коммерческого предложения, в соответствии с <a href="/privacy/" style="text-decoration:underline;">Политикой обработки персональных данных</a></span>
+          </label>
+          <label class="consent">
+            <input type="checkbox" name="consent_offer" value="yes" required>
+            <span>Принимаю условия <a href="/oferta/" style="text-decoration:underline;">публичной оферты</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Услуги</h3>
+        <ul>
+          <li><a href="/klinicheskie-ispytaniya-medizdeliy/">КИ медизделий</a></li>
+          <li><a href="/doklinicheskie-issledovaniya/">Доклиника и токсикология</a></li>
+          <li><a href="/tehnicheskie-ispytaniya-medizdeliy/">Технические испытания</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="/o-kompanii/">О компании</a></li>
+          <li><a href="/komanda/">Команда</a></li>
+          <li><a href="/licenzii-sertifikaty/">Партнёры и аккредитованные центры</a></li>
+          <li><a href="/kejsy/">Кейсы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Информация</h3>
+        <ul>
+          <li><a href="/npa/">НПА</a></li>
+          <li><a href="/reestry/">Реестры</a></li>
+          <li><a href="/glossariy/">Глоссарий</a></li>
+          <li><a href="/blog/">Блог</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <ul>
+          <li><a href="tel:+79853169104">+7 985 316-91-04</a></li>
+          <li><a href="mailto:info@probarium.ru">info@probarium.ru</a></li>
+          <li class="footer-social">
+            <a href="https://t.me/tandelovtat" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg width="40" height="40" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#29A9EB"/><path fill="#fff" d="M177 66l-23 118c-2 8-6 10-13 6l-38-28-18 17c-2 2-4 4-8 4l3-38 68-62c3-3-1-4-4-2l-84 53-37-11c-8-3-8-8 2-12l144-56c7-2 13 2 8 12z"/></svg></a>
+            <a href="https://max.ru/u/f9LHodD0cOLDvyS7TfGCuqMQTcuMpF-2LxGuF5nNyXHgZFoFnYUC0KjLnaQ" target="_blank" rel="noopener" aria-label="Написать в MAX"><img src="/assets/img/max-icon.png" width="40" height="40" alt="MAX" style="border-radius:9px;"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Probarium, клиническое подразделение ГМТ · ООО «Глобальные Медицинские Технологии», ИНН 9710131540, ОГРН 1247700287834</span>
+      <span>
+        <a href="/privacy/">Конфиденциальность</a> ·
+        <a href="/cookie/">Cookie</a> ·
+        <a href="/cookie/" data-cookie-settings>Настройки cookie</a> ·
+        <a href="/terms/">Соглашение</a> ·
+        <a href="/disclaimer/">Отказ от ответственности</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Гэп-анализ клинической части досье под ЕАЭС: как найти пробелы до подачи",
+  "description": "Как найти пробелы в клинических данных до перехода на правила ЕАЭС: что проверить, как оценить критичность и когда нужно новое испытание.",
+  "inLanguage": "ru",
+  "image": [
+    "https://probarium.ru/assets/og-cover.jpg"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Артемий-Татуш Танделов",
+    "jobTitle": "Генеральный директор Probarium",
+    "url": "https://probarium.ru/komanda/",
+    "sameAs": [
+      "https://t.me/tandelovtat"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Probarium",
+    "url": "https://probarium.ru/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://probarium.ru/icon-512.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://probarium.ru/blog/gap-analiz-klinicheskoj-chasti-dosye-eaes/"
+  },
+  "datePublished": "2026-11-26T10:00:00+03:00",
+  "dateModified": "2026-11-26T10:00:00+03:00"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://probarium.ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://probarium.ru/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Гэп-анализ клинической части досье",
+      "item": "https://probarium.ru/blog/gap-analiz-klinicheskoj-chasti-dosye-eaes/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Гэп-анализ обязателен по правилам ЕАЭС?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Это рекомендуемый внутренний инструмент подготовки, нормативные акты Союза его не предусматривают."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Когда проводить гэп-анализ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "До подачи досье и до решения о новых испытаниях: чем раньше найдены пробелы, тем больше времени на их закрытие."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать старые клинические данные?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от того, относятся ли они к заявляемому изделию и назначению, можно ли проверить их достоверность и оценены ли различия модификаций. Это основной вопрос гэп-анализа."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем отличается анализ для ИВД и для программного обеспечения?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "У ИВД своя матрица: аналитические и клинические характеристики, образцы, метод сравнения. У ПО добавляются клиническая связь, валидация, выборка и управление версиями."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Гарантирует ли гэп-анализ прохождение экспертизы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Он показывает, где замечания вероятны, но не заменяет экспертизу уполномоченной организации."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что я получу по итогам?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Матрицу соответствия, реестр недостающих документов, план устранения пробелов и заключение о готовности клинической части."
+      }
+    }
+  ]
+}
+</script>
+
+<script src="/assets/js/header-fx.js?v=2d519155" defer></script>
+<script src="/assets/js/article-cta.js?v=026d0dd2" defer></script>
+<script src="/assets/js/leads.js?v=14f8aac7" defer></script>
+<script src="/assets/js/cookie-banner.js?v=2aa6cad1" defer></script>
+</body>
+</html>
